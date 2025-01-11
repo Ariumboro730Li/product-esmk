@@ -231,7 +231,7 @@
                         let method = 'destroy';
                         const postDataRest = await CallAPI(
                             'POST',
-                            `{{ url('') }}/api/internal/admin-panel/smk-element/${method}`,
+                            `{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/smk-element/${method}`,
                             {
                                 id: id
                             }
@@ -286,7 +286,7 @@
                     formData.id = id;
                     const getDataRest = await CallAPI(
                         'GET',
-                        `{{ url('') }}/api/internal/admin-panel/smk-element/status`,
+                        `{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/smk-element/status`,
                         formData
                     ).then(function(response) {
                         return response;

@@ -196,12 +196,13 @@
                     }).catch(function(error) {
                         $("#modal-form").modal("hide");
                         loadingPage(false);
-                        let resp = error.response;
-                        notificationAlert('info', 'Pemberitahuan', resp.data.message);
+                        let resp = error.response || {};
+                        notificationAlert('warning', 'Pemberitahuan', resp.data?.message || resp.data
+                            ?.errors || 'Terjadi kesalahan');
                         return resp;
                     });
 
-                    loadingPage(false);
+                loadingPage(false);
                 if (postDataRest.status == 200 || postDataRest.status == 201) {
                     Swal.fire({
                         icon: 'success',
@@ -246,7 +247,7 @@
                         }).catch(function(error) {
                             loadingPage(false);
                             let resp = error.response;
-                            notificationAlert('info', 'Pemberitahuan', resp.data
+                            notificationAlert('warning', 'Pemberitahuan', resp.data
                                 .message);
                             return resp;
                         });

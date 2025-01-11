@@ -175,8 +175,7 @@
             try {
                 getDataRest = await CallAPI(
                     'GET',
-                    '{{ url('') }}/api/internal/admin-panel/direktur-jendral/list',
-                    {
+                    '{{ url('') }}/api/internal/admin-panel/direktur-jendral/list', {
                         page: currentPage,
                         limit: defaultLimitPage,
                         ascending: defaultAscending,
@@ -364,7 +363,7 @@
                         }).catch(function(error) {
                             loadingPage(false);
                             let resp = error.response;
-                            notificationAlert('info', 'Pemberitahuan', resp.data
+                            notificationAlert('warning', 'Pemberitahuan', resp.data
                                 .message);
                             return resp;
                         });
@@ -411,21 +410,22 @@
                 }
                 let method = id_user ? 'POST' : 'POST';
                 let postDataRest = await CallAPI(method, actionUrl, formData)
-                .then(function(response) {
-                    return response;
-                }).catch(function(error) {
-                    loadingPage(false);
-                    let resp = error.response;
-                    notificationAlert('info', 'Pemberitahuan', resp.data.message);
-                    $("#modal-form").modal("hide");
-                    return resp;
-                });
+                    .then(function(response) {
+                        return response;
+                    }).catch(function(error) {
+                        $("#modal-form").modal("hide");
+                        loadingPage(false);
+                        let resp = error.response || {};
+                        notificationAlert('warning', 'Pemberitahuan', resp.data?.message || resp.data
+                            ?.errors || 'Terjadi kesalahan');
+                        return resp;
+                    });
 
                 if (postDataRest.status == 200 || postDataRest.status == 201) {
-                    loadingPage(false);
                     $("form").find("input, select, textarea").val("").prop("checked", false)
                         .trigger("change");
                     $("#modal-form").modal("hide");
+                    loadingPage(false);
                     Swal.fire({
                         icon: 'success',
                         title: 'Pemberitahuan',
@@ -477,7 +477,7 @@
                     }).catch(function(error) {
                         loadingPage(false);
                         let resp = error.response;
-                        notificationAlert('info', 'Pemberitahuan', resp.data.message);
+                        notificationAlert('warning', 'Pemberitahuan', resp.data.message);
                         return resp;
                     });
 

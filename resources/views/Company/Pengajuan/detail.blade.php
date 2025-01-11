@@ -746,7 +746,7 @@
                     <li>
                         <i class="task-icon ${iconClass}"></i>
                         <p class="m-b-5">${formattedDate}</p>
-                        <h5 class="text-muted">${text} oleh <span class="text-primary">${item.updated_by || 'tim penilai'}</span></h5>
+                        <h5 class="text-muted">${text}</span></h5>
                     </li>
                 `;
             });

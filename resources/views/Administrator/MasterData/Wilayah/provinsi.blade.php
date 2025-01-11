@@ -139,7 +139,7 @@
             loadingPage(true);
             let getDataRest = await CallAPI(
                 'GET',
-                '{{ url('') }}/api/internal/admin-panel/provinsi/list',
+                '{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/provinsi/list',
                 {
                     page: currentPage,
                     limit: defaultLimitPage,
@@ -249,7 +249,7 @@
                 $(".modal-title").html(modalTitle);
                 const getDataRest = await CallAPI(
                     'POST',
-                    '{{ url('') }}/api/internal/admin-panel/provinsi/edit',
+                    '{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/provinsi/edit',
                     {
                         id: id
                     }
@@ -290,22 +290,23 @@
                 }
                 const postDataRest = await CallAPI(
                     'POST',
-                    `{{ url('') }}/api/internal/admin-panel/provinsi/${method}`,
+                    `{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/provinsi/${method}`,
                     data
                 ).then(function(response) {
                     return response;
                 }).catch(function(error) {
+                    $("#modal-form").modal("hide");
                     loadingPage(false);
                     let resp = error.response;
-                    notificationAlert('info', 'Pemberitahuan', resp.data.message);
+                    notificationAlert('warning', 'Pemberitahuan', resp.data.message);
                     return resp;
                 });
 
                 if (postDataRest.status == 200) {
-                    loadingPage(false);
+                    $("#modal-form").modal("hide");
                     $("form").find("input, select, textarea").val("").prop("checked", false)
                         .trigger("change");
-                    $("#modal-form").modal("hide");
+                    loadingPage(false);
                     let data = postDataRest.data.data;
                     $("#inputId").val('');
                     $("#input_name").val('');
@@ -346,7 +347,7 @@
                         let method = 'destroy';
                         const postDataRest = await CallAPI(
                             'POST',
-                            `{{ url('') }}/api/internal/admin-panel/provinsi/${method}`,
+                            `{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/provinsi/${method}`,
                             {
                                 id: id
                             }
@@ -355,7 +356,7 @@
                         }).catch(function(error) {
                             loadingPage(false);
                             let resp = error.response;
-                            notificationAlert('info', 'Pemberitahuan', resp.data.message);
+                            notificationAlert('warning', 'Pemberitahuan', resp.data.message);
                             return resp;
                         });
 

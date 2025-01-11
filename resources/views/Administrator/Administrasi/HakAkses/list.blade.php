@@ -312,15 +312,16 @@
                     '{{ url('') }}/api/internal/admin-panel/role/create', payload)
                 .then((response) => response)
                 .catch((error) => {
+                    $('#animateModal').modal('hide');
                     loadingPage(false);
                     let resp = error.response;
-                    notificationAlert('info', 'Pemberitahuan', 'Error')
+                    notificationAlert('warning', 'Pemberitahuan', 'Error')
                     return resp;
                 });
 
             if (getDataRest.status === 201) {
-                loadingPage(false);
                 $('#animateModal').modal('hide');
+                loadingPage(false);
                 notificationAlert('success', 'Pemberitahuan', getDataRest.data.message)
                 setTimeout(() => {
                     window.location.reload();

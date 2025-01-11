@@ -12,7 +12,7 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background: #228B22;
+            background: #727272;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -101,7 +101,8 @@
                        border-radius:8px; text-align:center;">
                     <div style="display:flex; align-items:center; gap:10px; justify-content: center;">
                         <i id="countdown-icon" class="fa fa-clock" style="font-size:24px; color:#fff;"></i>
-                        <h5 style="margin:0; color:#000000; color: #ffffff; font-weight: 600; font-size: 16px; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">
+                        <h5
+                            style="margin:0; color:#000000; color: #ffffff; font-weight: 600; font-size: 16px; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">
                             Laporan Tahunan</h5>
                     </div>
                     <div id="countdown-timer"
@@ -164,10 +165,6 @@
                                                     <p class="mb-1 text-muted">Email</p>
                                                     <p class="company-email mb-0">anshan.dh81@gmail.com</p>
                                                 </div>
-                                                <div class="col-md-6 mb-3 mb-md-0">
-                                                    <p class="mb-1 text-muted">Zip Code</p>
-                                                    <p class="mb-0">956 754</p>
-                                                </div>
                                             </div>
                                         </li>
                                         <li class="list-group-item px-0 pb-0">
@@ -177,61 +174,16 @@
                                     </ul>
                                 </div>
                             </div>
-                            {{-- <div class="card">
-                                <div class="card-header">
-                                    <h5>Dokumen Perusahaan</h5>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item px-0 pt-0">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <p class="mb-1 text-muted">Master Degree (Year)</p>
-                                                    <p class="mb-0">2014-2017</p>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p class="mb-1 text-muted">Institute</p>
-                                                    <p class="mb-0">-</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item px-0">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <p class="mb-1 text-muted">Bachelor (Year)</p>
-                                                    <p class="mb-0">2011-2013</p>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p class="mb-1 text-muted">Institute</p>
-                                                    <p class="mb-0">Imperial College London</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item px-0 pb-0">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <p class="mb-1 text-muted">School (Year)</p>
-                                                    <p class="mb-0">2009-2011</p>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <p class="mb-1 text-muted">Institute</p>
-                                                    <p class="mb-0">School of London, England</p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div> --}}
                         </div>
                         <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <div class="row">
+                            <div class="row" id="badgeStatus">
                                 <div class="col-lg-4 col-md-6">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="row align-items-center">
                                                 <div class="col-8">
                                                     <h3 class="mb-1">Status</h3>
-                                                    <p class="sertificate-status text-white mb-0"></p>
+                                                    <p class="certificate-status text-white mb-0"></p>
                                                 </div>
                                                 <div class="col-4 text-end">
                                                     <i class="fa-regular fa-file-alt fa-lg text-primary f-36"></i>
@@ -246,7 +198,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-8">
                                                     <h3 class="mb-1">Tanggal Terbit</h3>
-                                                    <p class="sertificate-publish badge text-white mb-0"
+                                                    <p class="certificate-publish badge text-white mb-0"
                                                         style="background: #002688;"></p>
                                                 </div>
                                                 <div class="col-4 text-end">
@@ -262,7 +214,7 @@
                                             <div class="row align-items-center">
                                                 <div class="col-8">
                                                     <h3 class="mb-1">Masa Berlaku</h3>
-                                                    <p class="sertificate-expired text-white mb-0"></p>
+                                                    <p class="certificate-expired text-white mb-0"></p>
                                                 </div>
                                                 <div class="col-4 text-end">
                                                     <i class="fa-solid fa-clock fa-lg text-primary f-36"></i>
@@ -273,11 +225,15 @@
                                 </div>
                             </div>
                             <div class="card" style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden;">
-                                <div class="card-body" style="padding: 10px;">
-                                    <h5>Sertifikat <span class="sertificate-number"></span></h5>
-                                    <div id="pdf-container"
-                                        style="width: 100%; height: 500px; border: 1px solid #ccc; overflow: auto;">
-                                        <div id="pdf-viewer"></div>
+                                <div class="card-body">
+                                    <div class="card-title mt-1 d-flex align-items-center justify-content-between">
+                                        <div>
+                                            <h5 class="mb-0">Sertifikat <span class="certificate-number"></span></h5>
+                                        </div>
+                                    </div>
+                                    <hr class="my-3">
+                                    <div class="row d-flex justify-content-center align-items-center text-center"
+                                        id="certificate-pdf" style="min-height: 600px;">
                                     </div>
                                 </div>
                             </div>
@@ -384,18 +340,29 @@
             }).catch(function(error) {
                 loadingPage(false);
                 let resp = error.response;
-                notificationAlert('info', 'Pemberitahuan', resp.data.message);
+                const certificatePdfContainer = $('#certificate-pdf');
+                certificatePdfContainer.html(`
+                    <h4 class="mt-4 fw-semibold">Sertifikat belum ada</h4>
+                    <p class="text-muted mt-3">Silahkan lengkapi proses pengajuan sertifikat SMK <a href="/company/certificate/list">Disini</a></p>
+                    <div class="mt-4">
+                        <div class="row justify-content-center mt-5 mb-2">
+                            <div class="col-sm-7 col-8 mb-4">
+                                <img src="{{ asset('assets/images/verification-img.png') }}" alt="Informasi Sertifikat" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                `);
+                $('.certificate-number').html('Tidak ditemukan');
+                $('#badgeStatus').hide();
+                $('#countdown-card').hide()
                 return resp;
             });
 
             loadingPage(false);
             if (getDataRest.status == 200) {
                 let data = getDataRest.data.data;
-
                 let skIssueDate = new Date(data.publish_date);
                 let expiredDate = new Date(data.expired_date);
-
-                // Hitung daftar tanggal laporan tahunan hingga maksimal 5 tahun atau expired_date
                 let annualReportDates = calculateAnnualReportDates(skIssueDate, expiredDate);
 
                 let handleDataResult = await handleSertifikatData(getDataRest.data.data);
@@ -414,13 +381,44 @@
         }
 
         // Fungsi menghitung countdown
+        // function updateCountdown(annualReportDates, expiredDate) {
+        //     const now = new Date(); // Waktu saat ini
+
+        //     // Cek jika expired sudah lewat
+        //     if (now >= expiredDate) {
+        //         document.getElementById('countdown-timer').innerHTML = 'Kadaluwarsa';
+        //         document.getElementById('countdown-card').style.background = "rgba(139, 0, 0, 0.9)";
+        //         return;
+        //     }
+
+        //     // Temukan laporan tahunan berikutnya
+        //     let nextReportDate = annualReportDates.find(date => date > now);
+
+        //     if (!nextReportDate) {
+        //         document.getElementById('countdown-timer').innerHTML = 'Tidak ada laporan tahunan lagi.';
+        //         document.getElementById('countdown-card').style.background = "rgba(139, 0, 0, 0.9)";
+        //         return;
+        //     }
+
+        //     // Hitung selisih waktu
+        //     let diff = nextReportDate - now;
+        //     let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        //     let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        //     let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        //     let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        //     // Tampilkan countdown
+        //     document.getElementById('countdown-timer').innerHTML =
+        //         `${days} hari, ${hours} jam, ${minutes} menit, ${seconds} detik`;
+        // }
         function updateCountdown(annualReportDates, expiredDate) {
             const now = new Date(); // Waktu saat ini
 
             // Cek jika expired sudah lewat
             if (now >= expiredDate) {
                 document.getElementById('countdown-timer').innerHTML = 'Kadaluwarsa';
-                document.getElementById('countdown-card').style.background = "rgba(139, 0, 0, 0.9)";
+                document.getElementById('countdown-card').style.background =
+                "rgba(139, 0, 0, 0.9)"; // Warna merah untuk kadaluwarsa
                 return;
             }
 
@@ -429,7 +427,8 @@
 
             if (!nextReportDate) {
                 document.getElementById('countdown-timer').innerHTML = 'Tidak ada laporan tahunan lagi.';
-                document.getElementById('countdown-card').style.background = "rgba(139, 0, 0, 0.9)";
+                document.getElementById('countdown-card').style.background =
+                "rgba(139, 0, 0, 0.9)"; // Warna merah jika tidak ada laporan
                 return;
             }
 
@@ -443,7 +442,11 @@
             // Tampilkan countdown
             document.getElementById('countdown-timer').innerHTML =
                 `${days} hari, ${hours} jam, ${minutes} menit, ${seconds} detik`;
+
+            // Set background menjadi hijau jika countdown masih berjalan
+            document.getElementById('countdown-card').style.background = "#228B22"; // Warna hijau saat countdown aktif
         }
+
 
         // Fungsi menghitung daftar tanggal laporan tahunan
         function calculateAnnualReportDates(skIssueDate, expiredDate) {
@@ -536,10 +539,10 @@
             `);
             }
 
-            $('.sertificate-number').html(data.number_of_certificate);
-            $('.sertificate-status').html(data.is_active.text_status).addClass(`badge ${data.is_active.color}`);
-            $('.sertificate-publish').html(data.publish_date);
-            $('.sertificate-expired').html(data.expired_date).addClass(`badge ${data.expired.color}`);
+            $('.certificate-number').html(data.number_of_certificate);
+            $('.certificate-status').html(data.is_active.text_status).addClass(`badge ${data.is_active.color}`);
+            $('.certificate-publish').html(data.publish_date);
+            $('.certificate-expired').html(data.expired_date).addClass(`badge ${data.expired.color}`);
 
         }
 

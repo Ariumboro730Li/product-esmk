@@ -16,19 +16,20 @@
                     <div class="page-header-title">
                         <h2 class="mb-0">Sertifikat SMK</h2>
                     </div>
-                    <a href="javascript:void(0);" data-pc-animate="fade-in-scale" onClick="goToSubmissionCreatePage()"
-                        class="btn btn-md btn-primary px-3 p-2">
-                        <i class="fas fa-plus-circle me-2"></i> Buat Permohonan
-                    </a>
-                    {{-- <div id="for-create-button"></div> --}}
+
+                    <div id="for-create-button">
+                        <a href="javascript:void(0);" data-pc-animate="fade-in-scale" onClick="goToSubmissionCreatePage()"
+                            class="btn btn-md btn-primary px-3 p-2">
+                            <i class="fas fa-plus-circle me-2"></i> Buat Permohonan
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="row"><!-- [ sample-page ] start -->
         <div class="col-12">
-            <div
-                class="datatable-wrapper datatable-loading no-footer searchable fixed-columns datatable-empty">
+            <div class="datatable-wrapper datatable-loading no-footer searchable fixed-columns datatable-empty">
                 <div class="datatable-top">
                     <div class="datatable-dropdown">
                         <label>
@@ -41,9 +42,8 @@
                         </label>
                     </div>
                     <div class="datatable-search">
-                        <input id="searchInput" class="datatable-input" placeholder="Cari..."
-                            type="search" name="search" title="Search within table"
-                            aria-controls="pc-dt-simple-1">
+                        <input id="searchInput" class="datatable-input" placeholder="Cari..." type="search" name="search"
+                            title="Search within table" aria-controls="pc-dt-simple-1">
                     </div>
                 </div>
             </div>
@@ -66,8 +66,7 @@
         </div>
     </div>
 
-    <div id="notesModalCenter" class="modal fade" tabindex="-1" aria-labelledby="notesModalCenterTitle"
-        aria-hidden="true">
+    <div id="notesModalCenter" class="modal fade" tabindex="-1" aria-labelledby="notesModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -94,12 +93,12 @@
 @section('page_js')
     <script>
         let defaultLimitPage = 10;
-        let currentPage      = 1;
-        let totalPage        = 1;
+        let currentPage = 1;
+        let totalPage = 1;
         let defaultAscending = 0;
-        let defaultSearch    = "";
-        let paramsTable      = {};
-        let statusLabels     = {
+        let defaultSearch = "";
+        let paramsTable = {};
+        let statusLabels = {
             'draft': 'Draft',
             'request': 'Pengajuan',
             'disposition': 'Disposisi',
@@ -121,11 +120,6 @@
         };
 
         async function buttonAddSubmission() {
-
-            // <button type="button" onClick="goToSubmissionCreatePage()" class="btn btn-primary btn-load waves-effect waves-light d-flex align-items-center">
-            //      <i class="icon ni ni-plus me-2"></i>
-            //      <span>Tambah</span>
-            //  </button>
 
             const checkActive = await getActiveCertificateRequest();
 
@@ -176,8 +170,7 @@
 
             const getDataRest = await CallAPI(
                     'GET',
-                    `{{ url('') }}/api/company/documents/submission/index`,
-                    {
+                    `{{ url('') }}/api/company/documents/submission/index`, {
                         page: paramsTable.currentPage,
                         limit: paramsTable.defaultLimitPage,
                         ascending: paramsTable.defaultAscending,
@@ -257,12 +250,13 @@
                         if (element.status === 'certificate_validation') {
                             statusLabelColor = 'success';
                         }
-                        if (element.status === 'rejected'
-                            || element.status === 'cancelled'
-                            | element.status === 'expired') {
+                        if (element.status === 'rejected' ||
+                            element.status === 'cancelled' |
+                            element.status === 'expired') {
                             statusLabelColor = 'danger';
                         }
-                        let statusLabel = `<span class="badge bg-light-${statusLabelColor}">${statusLabels[element.status]}</span>`;
+                        let statusLabel =
+                            `<span class="badge bg-light-${statusLabelColor}">${statusLabels[element.status]}</span>`;
 
                         let lastUpdate = new Date(element.updated_at).toLocaleDateString();
                         let createdDate = new Date(element.created_at).toLocaleDateString();
@@ -304,28 +298,28 @@
                                                     </ul>
                                                 </div>
                                                 ${element.rejection_notes ? `
-                                                    <div class="h5 mt-3">
-                                                        <i class="material-icons-two-tone f-16 me-1">notification_important</i>Catatan Permohonan
-                                                    </div>
-                                                    <div class="help-md-hidden">
-                                                        <div class="bg-body mb-3 p-3">
-                                                            <h6>
-                                                                <img src="{{ asset('assets') }}/images/user/avatar-5.jpg"
-                                                                    alt="" class="wid-20 avatar me-2 rounded">
-                                                                Last comment from <a href="#" class="link-secondary">${element.updated_by}:</a>
-                                                            </h6>
-                                                            <p class="mb-0">
-                                                                ${truncatedNotes}
-                                                            </p>
-                                                        </div>
-                                                    </div>` : ''}
+                                                            <div class="h5 mt-3">
+                                                                <i class="material-icons-two-tone f-16 me-1">notification_important</i>Catatan Permohonan
+                                                            </div>
+                                                            <div class="help-md-hidden">
+                                                                <div class="bg-body mb-3 p-3">
+                                                                    <h6>
+                                                                        <img src="{{ asset('assets') }}/images/user/avatar-5.jpg"
+                                                                            alt="" class="wid-20 avatar me-2 rounded">
+                                                                        Last comment from <a href="#" class="link-secondary">${element.updated_by}:</a>
+                                                                    </h6>
+                                                                    <p class="mb-0">
+                                                                        ${truncatedNotes}
+                                                                    </p>
+                                                                </div>
+                                                            </div>` : ''}
                                             </div>
                                             <div class="mt-4">
                                                 ${element.rejection_notes ? `
-                                                    <button type="button" class="me-2 btn btn-sm btn-light-danger"
-                                                        data-bs-toggle="modal" data-bs-target="#notesModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
-                                                        <i class="ti ti-eye me-1"></i> Lihat Catatan
-                                                    </button>` : ''}
+                                                            <button type="button" class="me-2 btn btn-sm btn-light-danger"
+                                                                data-bs-toggle="modal" data-bs-target="#notesModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
+                                                                <i class="ti ti-eye me-1"></i> Lihat Catatan
+                                                            </button>` : ''}
                                                 <a href="/company/pengajuan-sertifikat/detail?id=${element.id}"
                                                     class="me-2 btn btn-sm btn-light-secondary" style="border-radius: 5px;">
                                                     <i class="feather icon-eye mx-1"></i>Lihat Pengajuan
@@ -364,8 +358,7 @@
 
             await manipulationDataTable(paramsTable, '#pagination', '#limitPage',
                 '#searchInput', getListData);
-
-                await buttonAddSubmission();
+            await buttonAddSubmission();
         }
     </script>
     @include('Company.partial-js')

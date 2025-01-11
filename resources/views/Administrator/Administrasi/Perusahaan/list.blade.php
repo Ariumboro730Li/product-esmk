@@ -442,6 +442,7 @@
                 const badgeClass = spionamStatus === 'Belum Terdaftar' ? 'bg-danger' :
                     'bg-success';
                 const isActive = element.is_active === true;
+                console.log("🚀 ~ setListData ~ isActive:", isActive)
 
                 const actionButton = isActive ?
                     `<a class="avtar avtar-s btn-link-success" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top"
@@ -502,9 +503,7 @@
                     </td>
                     <td>${element.created_at ? new Date(element.created_at).toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' }) : '-'}</td>
                     <td class="text-end sticky-end">
-                        <li class="list-inline-item">
-                            ${actionButton}
-                        </li>
+
                         <li class="list-inline-item">
                             ${getDetailPage(element.id)}
                         </li>
@@ -512,6 +511,9 @@
                 </tr>`;
                 index_loop++;
             }
+            // <li class="list-inline-item">
+            //                 ${actionButton}
+            //             </li>
             $('#listData tr').remove();
 
             if (totalPage == 0) {

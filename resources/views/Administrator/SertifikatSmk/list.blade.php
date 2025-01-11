@@ -331,8 +331,6 @@
             if (getDataRest.status === 200) {
                 loadingPage(false);
                 let data = getDataRest.data;
-                document.getElementById('total_permohonan').innerText = data.pagination.total || '-';
-                document.getElementById('ket_total').innerText = data.pagination.total ? 'Permohonan' : '';
 
                 let dataTable = data.data;
                 if (dataTable.length === 0) {
@@ -359,39 +357,32 @@
                     $('#countPage').text("" + display_from + " - " + display_to + "");
                     let domTableHtml = "";
                     let index_loop = display_from;
-                    const processStatuses = [
-                        'request',
-                        'disposition',
-                        'not_passed_assessment',
-                        'submission_revision',
-                        'passed_assessment',
-                        'not_passed_assessment_verification',
-                        'assessment_revision',
-                        'passed_assessment_verification',
-                        'scheduling_interview',
-                        'scheduled_interview',
-                        'not_passed_interview',
-                        'completed_interview',
-                        'verification_director'
-                    ];
-                    let totalInProcess = dataTable.filter(item => processStatuses.includes(item.status)).length;
+                    // const processStatuses = [
+                    //     'request',
+                    //     'disposition',
+                    //     'not_passed_assessment',
+                    //     'submission_revision',
+                    //     'passed_assessment',
+                    //     'not_passed_assessment_verification',
+                    //     'assessment_revision',
+                    //     'passed_assessment_verification',
+                    //     'scheduling_interview',
+                    //     'scheduled_interview',
+                    //     'not_passed_interview',
+                    //     'completed_interview',
+                    //     'verification_director'
+                    // ];
+                    // let totalInProcess = dataTable.filter(item => processStatuses.includes(item.status)).length;
 
-                    const expStatuses = [
-                        'expired'
-                    ];
-                    let totalExpired = dataTable.filter(item => expStatuses.includes(item.status)).length;
+                    // const expStatuses = [
+                    //     'expired'
+                    // ];
+                    // let totalExpired = dataTable.filter(item => expStatuses.includes(item.status)).length;
 
-                    const verifiedStatuses = [
-                        'certificate_validation'
-                    ];
-                    let totalVerified = dataTable.filter(item => verifiedStatuses.includes(item.status)).length;
-
-                    document.getElementById('total_proses').innerText = totalInProcess || '-';
-                    document.querySelector('.ket_proses').innerText = totalInProcess ? 'Berlangsung' : '';
-                    document.getElementById('total_kadaluwarsa').innerText = totalExpired || '-';
-                    document.querySelector('.ket_kadaluwarsa').innerText = totalExpired ? 'Kadaluwarsa' : '';
-                    document.getElementById('total_verified').innerText = totalVerified || '-';
-                    document.querySelector('.ket_verified').innerText = totalVerified ? 'Selesai' : '';
+                    // const verifiedStatuses = [
+                    //     'certificate_validation'
+                    // ];
+                    // let totalVerified = dataTable.filter(item => verifiedStatuses.includes(item.status)).length;
 
                     const statusLabels = {
                         'draft': 'Draft',
@@ -419,18 +410,20 @@
                         if (element.status.includes('draft')) {
                             colorBage = 'secondary';
                         }
-                        if (element.status.includes('not')) {
+                        if (element.status.includes('cancelled')) {
                             colorBage = 'warning';
                         }
                         if (element.status.includes('expired')) {
                             colorBage = 'dark';
                         }
-                        if (element.status.includes('complete') || element.status.includes('passed_assessment_') ||
+                        if (element.status.includes('complete') || element.status.includes(
+                                'passed_assessment_verification') || element.status == 'passed_assessment' ||
                             element.status == 'certificate_validation') {
                             colorBage = 'success';
                         }
                         if (element.status.includes('expired') ||
-                            element.status.includes('cancelled') ||
+                            element.status.includes('not_passed_assessment') ||
+                            element.status.includes('not_passed_interview') ||
                             element.status.includes('rejected') || (element.rejection_notes && element.rejection_notes
                                 .length > 0)
                         ) {
@@ -538,26 +531,26 @@
                                                     </ul>
                                                 </div>
                                                 ${element.rejection_notes ? `
-                                                                                                                        <div class="h5 mt-4"><i class="fa-solid fa-note-sticky me-1"></i>
-                                                                                                                            Catatan Permohonan</div>
-                                                                                                                        <div class="help-md-hidden">
-                                                                                                                            <div class="bg-body mb-3 p-3">
-                                                                                                                                <h6><img src="{{ asset('assets') }}/images/user/"
-                                                                                                                                        alt="" class="wid-20 avatar me-2 rounded">Catatan terakhir dari <a href="#" class="link-secondary">${element.updated_by}</a></h6>
-                                                                                                                                <p class="mb-0">
-                                                                                                                                    ${truncatedNotes}
-                                                                                                                                </p>
-                                                                                                                            </div>
-                                                                                                                        </div>`
+                                                                                                                                    <div class="h5 mt-4"><i class="fa-solid fa-note-sticky me-1"></i>
+                                                                                                                                        Catatan Permohonan</div>
+                                                                                                                                    <div class="help-md-hidden">
+                                                                                                                                        <div class="bg-body mb-3 p-3">
+                                                                                                                                            <h6><img src="{{ asset('assets') }}/images/user/"
+                                                                                                                                                    alt="" class="wid-20 avatar me-2 rounded">Catatan terakhir dari <a href="#" class="link-secondary">${element.updated_by}</a></h6>
+                                                                                                                                            <p class="mb-0">
+                                                                                                                                                ${truncatedNotes}
+                                                                                                                                            </p>
+                                                                                                                                        </div>
+                                                                                                                                    </div>`
                                                     :
                                                 ''}
                                             </div>
                                             <div class="mt-4">
                                                 ${element.rejection_notes ? `
-                                                                                                                    <button type="button" class="me-2 btn btn-sm btn-light-danger"
-                                                                                                                        data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
-                                                                                                                        <i class="ti ti-eye me-1"></i> Lihat Catatan
-                                                                                                                    </button>` : ''}
+                                                                                                                                <button type="button" class="me-2 btn btn-sm btn-light-danger"
+                                                                                                                                    data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
+                                                                                                                                    <i class="ti ti-eye me-1"></i> Lihat Catatan
+                                                                                                                                </button>` : ''}
                                                 <a href="/admin/sertifikat/detail?r=${element.id}" class="me-2 btn btn-sm btn-light-secondary"
                                                     style="border-radius:5px;"><i class="feather icon-eye mx-1 me-2"></i>Lihat
                                                     Detail</a>
@@ -1339,9 +1332,47 @@
             await paginationDataOnTable(defaultLimitPage);
         }
 
+        async function getCount() {
+            loadingPage(true)
+            const getDataRest = await CallAPI(
+                    'GET',
+                    `{{ url('') }}/api/internal/admin-panel/pengajuan-sertifikat/countSubmission`,
+                )
+                .then(response => response)
+                .catch(error => {
+                    loadingPage(false);
+                    let resp = error.response;
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Pemberitahuan',
+                        text: resp.data.message,
+                        confirmButtonColor: '#28a745',
+                    });
+                    return resp;
+                });
+
+            if (getDataRest.status === 200) {
+                let data = getDataRest.data.data[0]; // Mengambil data pertama (karena data adalah array)
+                console.log("🚀 ~ getCount ~ data:", data)
+
+                // Memasukkan data ke elemen HTML
+                document.getElementById('total_permohonan').innerText = data.pengajuan_total || '-';
+                document.getElementById('ket_total').innerText = data.pengajuan_total ? 'Permohonan' : '';
+
+                document.getElementById('total_proses').innerText = data.proses_pengajuan || '-';
+                document.querySelector('.ket_proses').innerText = data.proses_pengajuan ? 'Berlangsung' : '';
+
+                document.getElementById('total_kadaluwarsa').innerText = data.pengajuan_ekspired || '-';
+                document.querySelector('.ket_kadaluwarsa').innerText = data.pengajuan_ekspired ? 'Kadaluwarsa' : '';
+
+                document.getElementById('total_verified').innerText = data.proses_selesai || '-';
+                document.querySelector('.ket_verified').innerText = data.proses_selesai ? 'Selesai' : '';
+            }
+        }
 
         async function initPageLoad() {
             await Promise.all([
+                getCount(),
                 customFilterTable(),
                 initDataOnTable(defaultLimitPage, currentPage, defaultAscending, defaultSearch,
                     customFilter),

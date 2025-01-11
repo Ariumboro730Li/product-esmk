@@ -167,7 +167,7 @@
             loadingPage(true);
             const getDataRest = await CallAPI(
             'POST',
-            '{{ url('') }}/api/auth/login',
+            '{{ env("SERVICE_BASE_URL") }}/auth/login',
             {
                 email : $('#email').val(),
                 password : $('#password').val()

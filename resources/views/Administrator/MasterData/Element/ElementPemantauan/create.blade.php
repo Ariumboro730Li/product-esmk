@@ -101,7 +101,7 @@
             }).catch(function(error) {
                 loadingPage(false);
                 let resp = error.response;
-                notificationAlert('info', 'Pemberitahuan', resp.data.message);
+                notificationAlert('warning', 'Pemberitahuan', resp.data.message);
                 return resp;
             });
 
@@ -582,7 +582,7 @@
                     .catch(error => {
                         loadingPage(false); // Hide loading in case of an error
                         const resp = error.response;
-                        notificationAlert('info', 'Pemberitahuan', resp ? resp.data.message :
+                        notificationAlert('warning', 'Pemberitahuan', resp ? resp.data.message :
                             'Terjadi kesalahan');
                     });
             });

@@ -187,7 +187,7 @@
 
                 const getDataRest = await CallAPI(
                     'POST',
-                    '{{ url('') }}/api/internal/admin-panel/kota/edit',
+                    '{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/kota/edit',
                     {
                         id: id
                     }
@@ -236,15 +236,15 @@
 
                 const postDataRest = await CallAPI(
                     'POST',
-                    `{{ url('') }}/api/internal/admin-panel/kota/${isActionForm}`,
+                    `{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/kota/${isActionForm}`,
                     formData
                 ).then(function(response) {
                     return response;
                 }).catch(function(error) {
+                    $("#modal-form").modal("hide");
                     loadingPage(false);
                     let resp = error.response;
-                    notificationAlert('info', 'Pemberitahuan', resp.data.message);
-                    $("#modal-form").modal("hide");
+                    notificationAlert('warning', 'Pemberitahuan', resp.data.message);
                     return resp;
                 });
 
@@ -289,7 +289,7 @@
                         let method = 'destroy';
                         const postDataRest = await CallAPI(
                             'POST',
-                            `{{ url('') }}/api/internal/admin-panel/kota/${method}`,
+                            `{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/kota/${method}`,
                             {
                                 id: id
                             }
@@ -298,7 +298,7 @@
                         }).catch(function(error) {
                             loadingPage(false);
                             let resp = error.response;
-                            notificationAlert('info', 'Pemberitahuan', resp.data.message);
+                            notificationAlert('warning', 'Pemberitahuan', resp.data.message);
                             return resp;
                         });
 
@@ -330,7 +330,7 @@
             try {
                 getDataRest = await CallAPI(
                     'GET',
-                    '{{ url('') }}/api/internal/admin-panel/kota/list',
+                    '{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/kota/list',
                     {
                         page: page,
                         limit: limit,
@@ -518,7 +518,7 @@
                     },
                     data: function(params) {
                         let query = {
-                            search: params.term,
+                            keyword: params.term,
                             page: 1,
                             limit: 30,
                             ascending: 1,
@@ -526,17 +526,14 @@
                         return query;
                     },
                     processResults: function(res) {
-                        let filteredData = $.map(res.data, function(item) {
-                            return {
-                                id: item.id,
-                                text: item.name
-                            };
-                        });
+                        let data = res.data;
                         return {
-                            results: filteredData,
-                            pagination: {
-                                more: (res.pagination.current_page < res.pagination.total_pages)
-                            }
+                            results: $.map(data, function(item) {
+                                return {
+                                    id: item.id,
+                                    text: item.name
+                                };
+                            })
                         };
                     }
                 },
@@ -553,15 +550,16 @@
 
         async function initPageLoad() {
             await Promise.all([
-                selectList('#input_province_id',
-                    '{{ url('') }}/api/internal/admin-panel/provinsi/list',
-                    'Pilih Provinsi', true),
+
                 initDataOnTable(defaultLimitPage, currentPage, defaultAscending, defaultSearch),
                 manipulationDataOnTable(),
                 addData(),
                 editData(),
                 submitForm(),
                 deleteData(),
+                selectList('#input_province_id',
+                    '{{ url('') }}/api/internal/admin-panel/provinsi/list',
+                    'Pilih Provinsi', true),
             ])
         }
     </script>
