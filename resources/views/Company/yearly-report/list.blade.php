@@ -107,7 +107,7 @@
 
             const getDataRest = await CallAPI(
                     'GET',
-                    `{{ env("SERVICE_BASE_URL") }}/company/laporan-tahunan/monitoring-element`,
+                    `{{url('')}}/api/company/laporan-tahunan/monitoring-element`,
                     {
                         page: paramsTable.currentPage,
                         limit: paramsTable.defaultLimitPage,

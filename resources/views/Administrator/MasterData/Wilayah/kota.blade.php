@@ -187,7 +187,7 @@
 
                 const getDataRest = await CallAPI(
                     'POST',
-                    '{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/kota/edit',
+                    '{{url('')}}/api/internal/admin-panel/kota/edit',
                     {
                         id: id
                     }
@@ -236,7 +236,7 @@
 
                 const postDataRest = await CallAPI(
                     'POST',
-                    `{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/kota/${isActionForm}`,
+                    `{{url('')}}/api/internal/admin-panel/kota/${isActionForm}`,
                     formData
                 ).then(function(response) {
                     return response;
@@ -289,7 +289,7 @@
                         let method = 'destroy';
                         const postDataRest = await CallAPI(
                             'POST',
-                            `{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/kota/${method}`,
+                            `{{url('')}}/api/internal/admin-panel/kota/${method}`,
                             {
                                 id: id
                             }
@@ -330,7 +330,7 @@
             try {
                 getDataRest = await CallAPI(
                     'GET',
-                    '{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/kota/list',
+                    '{{url('')}}/api/internal/admin-panel/kota/list',
                     {
                         page: page,
                         limit: limit,

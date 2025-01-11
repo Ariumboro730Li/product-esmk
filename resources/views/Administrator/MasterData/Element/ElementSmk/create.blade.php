@@ -632,10 +632,10 @@
                         title: uniqueTitle,
                         element_properties: smkElements
                     };
-                    
+
                     const postDataRest = await CallAPI(
                         'POST',
-                        `{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/smk-element/create`,
+                        `{{url('')}}/api/internal/admin-panel/smk-element/create`,
                         formData
                     ).then(function(response) {
                         return response;
@@ -645,7 +645,7 @@
                         notificationAlert('warning', 'Pemberitahuan', resp.data.message);
                         return resp;
                     });
-    
+
                     if (postDataRest.status == 200 || postDataRest.status == 201) {
                         loadingPage(false);
                         $("form").find("input, select, textarea").val("").prop("checked", false)
@@ -656,10 +656,10 @@
                             text: 'Data berhasil disimpan!',
                             confirmButtonText: 'OK'
                         }).then(async () => {
-                            window.location.href = `/admin/element-smk/list`; 
+                            window.location.href = `/admin/element-smk/list`;
                         });
                     }
-                    
+
 
             });
         });

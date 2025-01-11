@@ -231,7 +231,7 @@
                         let method = 'destroy';
                         const postDataRest = await CallAPI(
                             'POST',
-                            `{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/monitoring-element/${method}`,
+                            `{{url('')}}/api/internal/admin-panel/monitoring-element/${method}`,
                             {
                                 id: id
                             }
@@ -286,7 +286,7 @@
                     formData.id = id;
                     const getDataRest = await CallAPI(
                         'GET',
-                        `{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/monitoring-element/status`,
+                        `{{url('')}}/api/internal/admin-panel/monitoring-element/status`,
                         formData
                     ).then(function(response) {
                         return response;

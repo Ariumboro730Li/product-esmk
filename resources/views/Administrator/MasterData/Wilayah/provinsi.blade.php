@@ -139,7 +139,7 @@
             loadingPage(true);
             let getDataRest = await CallAPI(
                 'GET',
-                '{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/provinsi/list',
+                '{{url('')}}/api/internal/admin-panel/provinsi/list',
                 {
                     page: currentPage,
                     limit: defaultLimitPage,
@@ -249,7 +249,7 @@
                 $(".modal-title").html(modalTitle);
                 const getDataRest = await CallAPI(
                     'POST',
-                    '{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/provinsi/edit',
+                    '{{url('')}}/api/internal/admin-panel/provinsi/edit',
                     {
                         id: id
                     }
@@ -290,7 +290,7 @@
                 }
                 const postDataRest = await CallAPI(
                     'POST',
-                    `{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/provinsi/${method}`,
+                    `{{url('')}}/api/internal/admin-panel/provinsi/${method}`,
                     data
                 ).then(function(response) {
                     return response;
@@ -347,7 +347,7 @@
                         let method = 'destroy';
                         const postDataRest = await CallAPI(
                             'POST',
-                            `{{ env("SERVICE_BASE_URL") }}/internal/admin-panel/provinsi/${method}`,
+                            `{{url('')}}/api/internal/admin-panel/provinsi/${method}`,
                             {
                                 id: id
                             }
