@@ -1,4 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -280,6 +281,7 @@
 </head>
 
 <body>
+
     <span class="preheader">Pemulihan Kata Sandi {{ $email }}</span>
     <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
         <!-- Email Header -->
@@ -288,32 +290,39 @@
                 <table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
                     <tr>
                         <td class="email-masthead content-cell">
-                            {{-- <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('assets/images/logo-hubdat.png'))) }}" class="email-masthead_logo" alt="esmk" /> --}}
-                            <img src="data:image/png;base64,{{$logoApp}}" class="email-masthead_logo" alt="esmk" />
+                            <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('assets/images/logo.png'))) }}"
+                                class="email-masthead_logo" alt="Caribarang.id" />
                         </td>
                     </tr>
                     <!-- Email Body -->
                     <tr>
                         <td class="email-body" width="100%" cellpadding="0" cellspacing="0">
-                            <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                            <table class="email-body_inner" align="center" width="570" cellpadding="0"
+                                cellspacing="0" role="presentation">
                                 <!-- Body content -->
                                 <tr>
                                     <td class="content-cell">
                                         <div class="f-fallback">
-                                            <p>Mohon maaf karena Anda mengalami kesulitan saat masuk ke e-SMK. Kami mendapat pesan bahwa Anda lupa kata sandi Anda.
-                                                Sekarang Anda dapat mengatur ulang kata sandi Anda dengan menggunakan tombol berikut ini:</p>
+                                            <p>Mohon maaf karena Anda mengalami kesulitan saat masuk ke e-SMK. Kami
+                                                mendapat pesan bahwa Anda lupa kata sandi Anda.
+                                                Sekarang Anda dapat mengatur ulang kata sandi Anda dengan menggunakan
+                                                tombol berikut ini:</p>
                                             <!-- Action -->
-                                            <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+                                            <table class="body-action" align="center" width="100%" cellpadding="0"
+                                                cellspacing="0" role="presentation">
                                                 <tr>
                                                     <td align="center">
-                                                        <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
+                                                        <table width="100%" border="0" cellspacing="0"
+                                                            cellpadding="0" role="presentation">
                                                             <tr>
                                                                 <td align="center">
-
-                                                                    <a href="{{ route('forgot.change',['token' => $token]) }}">
-                                                                        <div class="f-fallback button button--green">Reset ulang kata sandi Anda</div>
+                                                                    <a
+                                                                        href="{{ env('FE_BASE_URL') }}/change-password?token={{ $token }}">
+                                                                        <div class="f-fallback button button--green">
+                                                                            Reset ulang kata sandi Anda</div>
                                                                     </a>
                                                                 </td>
+
                                                             </tr>
                                                         </table>
                                                     </td>
@@ -322,9 +331,12 @@
                                             <h4>Catatan :</h4>
                                             <p>
                                             <ul>
-                                                <li>Jika Anda tidak meminta pengaturan ulang kata sandi, tidak ada tindakan lebih lanjut yang diperlukan dan abaikan email ini.</li>
-                                                <li>Email ini dikirimkan otomatis oleh sistem, mohon untuk tidak membalas email ini.</li>
-                                                <li>Link email reset kata sandi ini akan kedaluwarsa dalam 1 jam kedepan.</li>
+                                                <li>Jika Anda tidak meminta pengaturan ulang kata sandi, tidak ada
+                                                    tindakan lebih lanjut yang diperlukan dan abaikan email ini.</li>
+                                                <li>Email ini dikirimkan otomatis oleh sistem, mohon untuk tidak
+                                                    membalas email ini.</li>
+                                                <li>Link email reset kata sandi ini akan kedaluwarsa dalam 1 jam
+                                                    kedepan.</li>
                                             </ul>
                                             </p>
                                             <p>Hormat Kami,<br />Direktorat Jenderal Perhubungan Darat</p>
@@ -337,11 +349,14 @@
                     <!-- Email Footer -->
                     <tr>
                         <td>
-                            <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+                            <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0"
+                                role="presentation">
                                 <tr>
                                     <td class="content-cell" align="center">
-                                        <p class="f-fallback sub align-center">&copy; Copyright 2023 e-SMK | All rights reserved.</p>
-                                        <p class="f-fallback sub align-center" style="margin-top: -15px">Kementerian Perhubungan<br>Direktorat Jenderal Perhubungan Darat</p>
+                                        <p class="f-fallback sub align-center">&copy; Copyright 2023 e-SMK | All rights
+                                            reserved.</p>
+                                        <p class="f-fallback sub align-center" style="margin-top: -15px">Kementerian
+                                            Perhubungan<br>Direktorat Jenderal Perhubungan Darat</p>
                                     </td>
                                 </tr>
                             </table>
