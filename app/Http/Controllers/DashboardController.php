@@ -34,9 +34,11 @@ class DashboardController extends Controller
     {
         $dateFrom = $request->date_from;
         $dateTo = $request->date_to;
+        $dateTo = Carbon::parse($dateTo)->addDay()->format('Y-m-d');
         $request->merge([
             'dateFrom' => $dateFrom,
             'dateTo' => $dateTo,
+            'date_to' => $dateTo,
         ]);
 
         return response()->json([
