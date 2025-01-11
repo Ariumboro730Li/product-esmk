@@ -221,6 +221,8 @@ class OssController extends Controller
         $user->save();
 
         $company->nib = $dataNib->nib;
+        $company->name = $companyName;
+        $company->address = $dataNib->alamat_perseroan;
         $company->company_phone_number = $dataNib->nomor_telpon_perseroan;
         $company->pic_name = $dataNib->penanggung_jwb[0]->nama_penanggung_jwb;
         $company->pic_phone = $dataNib->penanggung_jwb[0]->no_hp_penanggung_jwb == "-" ? "-" : $dataNib->penanggung_jwb[0]->no_hp_penanggung_jwb;
@@ -262,6 +264,8 @@ class OssController extends Controller
         $user->save();
 
         $company->nib = $dataNib->nib;
+        $company->name = $companyName;
+        $company->address = $dataNib->alamat_perseroan;
         $company->company_phone_number = $dataNib->nomor_telpon_perseroan;
         $company->pic_name = $dataNib->penanggung_jwb[0]->nama_penanggung_jwb;
         $company->pic_phone = $dataNib->penanggung_jwb[0]->no_hp_penanggung_jwb == "-" ? "-" : $dataNib->penanggung_jwb[0]->no_hp_penanggung_jwb;

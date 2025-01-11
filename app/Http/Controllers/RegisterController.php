@@ -97,6 +97,7 @@ class RegisterController extends Controller
 
         $company = new Company();
         $company->nib = strip_tags($request->nib);
+        $company->address = strip_tags($request->address);
         $company->company_phone_number = strip_tags($request->company_phone_number);
         $company->phone_number = strip_tags($request->phone_number);
         $company->province_id = strip_tags($request->province_id);

@@ -89,8 +89,8 @@ class SettingController extends Controller
     public function aplikasi(Request $request){
         $settingName = "aplikasi";
         $validator = Validator::make($request->all(), [
-            "nama" => "required|string",
-            "nama_instansi" => "required|string",
+            "nama" => "required|string|min:5|max:20",
+            "nama_instansi" => "required|string|min:5|max:100",
             "deskripsi" => "required|string",
             "email" => "required|string",
             // "no_wa" => "required|string",
@@ -104,7 +104,11 @@ class SettingController extends Controller
             "logo_favicon" => "required|string",
             "logo_aplikasi" => "required|string",
         ], [
-            'whatsapp.regex' => 'Nomor WhatsApp harus diawali dengan 62 | 0 dan hanya terdiri dari angka.', // Pesan error kustom
+            'nama.min' => 'Nama aplikasi minimal 5 karakter.', //
+            'nama.max' => 'Nama aplikasi maksimal 20 karakter.', //
+            'nama_instansi.min' => 'Nama instansi minimal 5 karakter.', //
+            'nama_instansi.max' => 'Nama instansi maksimal 100 karakter.', //
+            'whatsapp.regex' => 'Nomor WhatsApp harus diawali dengan 62 | 0 dan hanya terdiri dari angka.', //
         ]);
 
         if($validator->fails()){

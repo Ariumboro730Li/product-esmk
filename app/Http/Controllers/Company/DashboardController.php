@@ -29,7 +29,7 @@ class DashboardController extends Controller
     public function perusahaan(Request $request)
     {
         $Id = $this->getModel($request);
-        $companyIds = Company::where('id', $Id)
+        $companyIds = Company::where('companies.id', $Id)
             ->with([
                 'province' => function ($query) {
                     $query->select('id', 'name', 'administrative_code'); // Memilih hanya kolom id dan name dari province
@@ -38,6 +38,8 @@ class DashboardController extends Controller
                     $query->select('id', 'name', 'administrative_code'); // Memilih hanya kolom id dan name dari city
                 }
             ])
+            ->select('companies.*', 'users.email as email')
+            ->join('users', 'companies.user_id', '=', 'users.id')
             ->with('serviceTypes')
             ->first();
 
