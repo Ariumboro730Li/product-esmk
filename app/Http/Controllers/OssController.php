@@ -7,6 +7,7 @@ use App\Models\Company;
 use App\Models\NibOss;
 use App\Models\Setting;
 use App\Models\StandardIndustrialClassification;
+use App\Models\User;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -21,7 +22,7 @@ class OssController extends Controller
         '01' => 'PT',
         '02' => 'CV',
         '04' => 'Badan Usaha pemerintah',
-        '05' => 'Firma (Fa)',
+        '05' => 'Fa', // Firma (Fa)
         '06' => 'Persekutuan Perdata',
         '07' => 'Koperasi',
         '10' => 'Yayasan',
@@ -29,8 +30,17 @@ class OssController extends Controller
         '17' => 'Perseorangan',
         '18' => 'Badan Layanan Umum (BLU)',
         '19' => 'Badan Hukum',
+        '20' => 'Badan Usaha Lainnya', // Badan Usaha Lainnya (Khusus STPW Luar Negeri)
+        '21' => 'Perum', // Perusahaan Umum (PERUM)
+        '22' => 'Perumda', // Perusahaan Umum Daerah (PERUMDA)
+        '23' => 'Perusda', // Perusahaan Daerah (PERUSDA)
+        '24' => 'BOB' , // Badan Operasi Bersama (BOB)
+        '25' => 'Badan Usaha Perwakilan',
+        '26' => 'PT Peorangan' , // PT Perorangan
+        '27' => 'PBA', // Pedagang Berjangka Asing (PBA)
+        '28' => 'BUM Desa', // Badan Usaha Milik Desa (BUM Desa)
+        '29' => 'BUM Desa Bersama'
     ];
-
 
     public function inqueryNib(Request $request){
         $validator = Validator::make($request->all(), [
@@ -197,21 +207,25 @@ class OssController extends Controller
             return $inqueryNib;
         }
 
+
         $companyType = $this->companyType;
         if ($companyType[$dataNib->jenis_perseroan]) {
             $companyTypeName = $companyType[$dataNib->jenis_perseroan];
         }
+
         $companyName    = $companyTypeName .' '. $dataNib->nama_perseroan;
+
+        $user = User::where('id', $company->user_id)->first();
+
+        $user->first_name = $companyName;
+        $user->email = $dataNib->email_perusahaan;
+        $user->save();
 
         $company->nib = $dataNib->nib;
         $company->company_phone_number = $dataNib->nomor_telpon_perseroan;
-        $company->name = $companyName;
-        $company->email = $dataNib->email_perusahaan;
         $company->pic_name = $dataNib->penanggung_jwb[0]->nama_penanggung_jwb;
-        $company->pic_phone = $dataNib->penanggung_jwb[0]->no_hp_penanggung_jwb == "-" ? null : $dataNib->penanggung_jwb[0]->no_hp_penanggung_jwb;
+        $company->pic_phone = $dataNib->penanggung_jwb[0]->no_hp_penanggung_jwb == "-" ? "-" : $dataNib->penanggung_jwb[0]->no_hp_penanggung_jwb;
         $company->save();
-
-        // !!! ini harus di tambahkan update ke table user jika sudah menjadi 1 table
 
         return response()->json([
             'status_code' => HttpStatusCodes::HTTP_OK,
@@ -223,10 +237,12 @@ class OssController extends Controller
     public function syncOss() {
         $this->is_exist = false;
 
-        $user = auth('company')->user();
+        $user = auth()->user();
+
+        $company = Company::where('user_id', $user->id)->first();
 
         $request = new Request();
-        $request->merge(['nib' => $user->nib]);
+        $request->merge(['nib' => $company->nib]);
 
         $inqueryNib = $this->inqueryNib($request);
 
@@ -242,22 +258,20 @@ class OssController extends Controller
         }
         $companyName    = $companyTypeName .' '. $dataNib->nama_perseroan;
 
-        $user->nib = $dataNib->nib;
-        $user->company_phone_number = $dataNib->nomor_telpon_perseroan;
-        $user->name = $companyName;
+        $user->first_name = $companyName;
         $user->email = $dataNib->email_perusahaan;
-        $user->pic_name = $dataNib->penanggung_jwb[0]->nama_penanggung_jwb;
-        $user->pic_phone = $dataNib->penanggung_jwb[0]->no_hp_penanggung_jwb == "-" ? null : $dataNib->penanggung_jwb[0]->no_hp_penanggung_jwb;
         $user->save();
+
+        $company->nib = $dataNib->nib;
+        $company->company_phone_number = $dataNib->nomor_telpon_perseroan;
+        $company->pic_name = $dataNib->penanggung_jwb[0]->nama_penanggung_jwb;
+        $company->pic_phone = $dataNib->penanggung_jwb[0]->no_hp_penanggung_jwb == "-" ? "-" : $dataNib->penanggung_jwb[0]->no_hp_penanggung_jwb;
+        $company->save();
 
         return response()->json([
             'status_code' => HttpStatusCodes::HTTP_OK,
             'error' => false,
             'message' => 'Data berhasil di sinkronisasi.'
         ], HttpStatusCodes::HTTP_OK);
-    }
-
-    public function companyType(){
-
     }
 }

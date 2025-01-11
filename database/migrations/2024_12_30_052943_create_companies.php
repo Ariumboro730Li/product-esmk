@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('company_phone_number');
             $table->string('pic_name');
-            $table->string('pic_phone');
+            $table->string('pic_phone')->nullable();
             $table->dateTime('request_date')->nullable();
             $table->dateTime('approved_at')->nullable();
             $table->bigInteger('approved_by')->nullable();
