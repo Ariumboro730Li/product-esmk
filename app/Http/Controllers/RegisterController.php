@@ -109,7 +109,7 @@ class RegisterController extends Controller
         $user = new User();
         $user->username = $username;
         $user->password = Hash::make($defaultPassword);
-        $user->first_name = strip_tags($request->name);
+        $user->name = strip_tags($request->name);
         $user->email = strip_tags($request->email);
         $user->is_company = true;
         $user->info_company = $company;

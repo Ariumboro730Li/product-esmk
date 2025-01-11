@@ -178,7 +178,6 @@ class AuthController extends Controller
     ], HttpStatusCodes::HTTP_OK); // 403 Forbidden
     }
 
-
     public static function generateToken($payload)
     {
         $key = env('JWT_SECRET'); // Ambil kunci rahasia dari .env

@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             [
                 'id' => uuid_create(),
                 'username' => 'testadmin',
-                'first_name' => 'Test Admin',
+                'name' => 'Test Admin',
                 'last_name' => null,
                 'nip' => '1234567890',
                 'email' => 'testadmin@mail.com',
@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
             ], [
                 'id' => uuid_create(),
                 'username' => 'testcompany',
-                'first_name' => 'Test Company',
+                'name' => 'Test Company',
                 'last_name' => null,
                 'nip' => null,
                 'email' => 'testcompany@mail.com',

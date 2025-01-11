@@ -30,7 +30,7 @@ class UserManagementController extends Controller
         }
         $query = User::select(
             'users.id',
-            'users.first_name as name',
+            'users.name as name',
             'users.email',
             'users.username',
             'users.is_active',
@@ -101,15 +101,13 @@ class UserManagementController extends Controller
         }
         $timeNow = date('Y-m-d H:i:s');
         $username = strtolower(str_replace(' ', '', $term->username));
-        $create = User::insertGetId([
-            'id'               => uuid_create(),
-            'first_name'        => strip_tags($term->name),
+        $create = User::create([
+            'name'        => strip_tags($term->name),
             'nip'               => strip_tags($term->nip),
             'username'          => strip_tags($username),
             'email'             => strip_tags($term->email),
             'email_verified_at' => $timeNow,
             'password'          => bcrypt($term->password),
-            // 'is_ministry'       => true,
             'is_active'         => true,
             'created_at'        => $timeNow,
             'updated_at'        => $timeNow
@@ -118,7 +116,7 @@ class UserManagementController extends Controller
         DB::table('model_has_roles')->insert([
             'role_id'          => $term->id_role,
             'model_type'       => 'App\Models\User',
-            'model_id'         => $create
+            'model_id'         => $create->id
         ]);
 
         return response()->json([
@@ -193,11 +191,11 @@ class UserManagementController extends Controller
     {
         $validator = Validator::make($term->all(), [
             'id_user'           => 'required|exists:users,id',
-            'id_role'           => 'required|exists:roles,id',
+            'id_role'           => 'nullable|exists:roles,id',
             'name'              => 'required|string',
             'username'          => 'required|string|unique:users,username,' . $term->id_user,
             'email'             => 'required|string|email|unique:users,email,' . $term->id_user,
-            'nip'               => 'required|string|unique:users,nip,' . $term->id_user,
+            'nip'               => 'nullable|string|unique:users,nip,' . $term->id_user,
             'password' => [
                 'nullable', // Password tidak wajib diisi
                 'string',
@@ -219,7 +217,7 @@ class UserManagementController extends Controller
         $timeNow = date('Y-m-d H:i:s');
         if ($term->password == null) {
             User::where('id', '=', $term->id_user)->update([
-                'first_name'              => $term->name,
+                'name'              => $term->name,
                 'nip'               => $term->nip,
                 'username'          => $term->username,
                 'email'             => $term->email,
@@ -227,7 +225,7 @@ class UserManagementController extends Controller
             ]);
         } else {
             User::where('id', '=', $term->id_user)->update([
-                'first_name'              => $term->name,
+                'name'              => $term->name,
                 'nip'               => $term->nip,
                 'username'          => $term->username,
                 'email'             => $term->email,
@@ -243,6 +241,7 @@ class UserManagementController extends Controller
 
         DB::table('model_has_roles')->insert([
             'role_id'          => $term->id_role,
+            'model_type'       => 'App\Models\User',
             'model_id'         => $term->id_user
         ]);
 

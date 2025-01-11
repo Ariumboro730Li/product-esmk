@@ -216,8 +216,7 @@ class OssController extends Controller
         $companyName    = $companyTypeName .' '. $dataNib->nama_perseroan;
 
         $user = User::where('id', $company->user_id)->first();
-
-        $user->first_name = $companyName;
+        $user->name = $companyName;
         $user->email = $dataNib->email_perusahaan;
         $user->save();
 
@@ -258,7 +257,7 @@ class OssController extends Controller
         }
         $companyName    = $companyTypeName .' '. $dataNib->nama_perseroan;
 
-        $user->first_name = $companyName;
+        $user->name = $companyName;
         $user->email = $dataNib->email_perusahaan;
         $user->save();
 
