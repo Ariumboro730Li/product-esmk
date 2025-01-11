@@ -1,0 +1,58 @@
+{
+    "error": false,
+    "message": "Successfully",
+    "status_code": 200,
+    "data": [
+        {
+            "id": 3,
+            "company_id": 38,
+            "disposition_by": {
+                "id": null,
+                "name": null
+            },
+            "disposition_to": {
+                "id": null,
+                "name": null,
+                "approved_at": "2024-12-17"
+            },
+            "status": "Terverifikasi",
+            "is_active": true,
+            "created_at": "2024-12-17",
+            "updated_at": "2024-12-17",
+            "year": 2024,
+            "company": {
+                "id": 38,
+                "name": "PT JAYA BERSAMA HUTAMA"
+            }
+        },
+        {
+            "id": 2,
+            "company_id": 38,
+            "disposition_by": {
+                "id": null,
+                "name": null
+            },
+            "disposition_to": {
+                "id": null,
+                "name": null,
+                "approved_at": "2024-12-17"
+            },
+            "status": "Terverifikasi",
+            "is_active": true,
+            "created_at": "2024-12-17",
+            "updated_at": "2024-12-17",
+            "year": 2023,
+            "company": {
+                "id": 38,
+                "name": "PT JAYA BERSAMA HUTAMA"
+            }
+        }
+    ],
+    "paginate": {
+        "total": 2,
+        "count": 2,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1
+    }
+}

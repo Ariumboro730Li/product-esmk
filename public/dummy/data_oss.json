@@ -1,0 +1,10 @@
+{
+    "error": false,
+    "message": "Berhasil Di Tampilkan",
+    "status_code": 200,
+    "data": {
+       "oss_username" : "dishubJabar",
+       "oss_password" : "1234567890",
+       "oss_url" : "https://oss.go.id/informasi/kbli-detail/640d2ba5-b059-4ce0-9324-ec17c5df4a12"
+    }
+}

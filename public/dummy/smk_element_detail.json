@@ -1,0 +1,424 @@
+{
+    "error": false,
+    "message": "Data Berhasil di Tampilkan",
+    "status_code": 200,
+    "data": {
+        "title": "smk_elements_1734340205644",
+        "element_properties": {
+            "ui_schema": {
+                "element_iumb7h5z": {
+                    "Deskripsi_Fasilitas_Pemeliharaan_dan_Perbaikan__Persyaratan__Ekspektasi__Implementasi__Prosedur_Terkait_c4muzkod": {
+                        "ui:order": 0,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": "pdf"
+                        }
+                    },
+                    "Pemeliharaan_dan_perbaikan_kendaraan_dengan_penyediaan_sarana_dan_prasarana_pendukung_yang_memadai_untuk_mendukung_keselamatan_seperti_bengkel__klinik__ruang_istirahat_pengemudi__ruang_parkir__fasilitas_penyimpanan_suku_cadang_dan_lain-lain_2xiisdp5": {
+                        "ui:order": 2,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": "pdf"
+                        }
+                    },
+                    "Perusahaan_melengkapi_kegiatan_operasional_angkutan_dengan_menyediakan_fasilitas_pemeliharaan_dan_perbaikan_kendaraan_bermotor_sebagai_syarat_utama_keselamatan_dan_perbaikan_kendaraan_bermotor_yang_digunakan_untuk_mendukung_kegiatan_perusahaan_w9togs4h": {
+                        "ui:order": 1,
+                        "ui:widget": "files",
+                        "ui:options": {
+                            "accept": "pdf"
+                        }
+                    }
+                },
+                "element_jucfhxya": {
+                    "Deskripsi_Manajemen_Bahaya_dan_Risiko__Persyaratan__Ekspektasi__Implementasi__Prosedur_Terkait__79hmqowf": {
+                        "ui:order": 0,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": "pdf"
+                        }
+                    },
+                    "Pengemudi_melaporkan_dan_mengkomunikasikan_potensi_bahaya_disepanjang_jalur_yang_dilalui_kepada_pimpinan_perusahaan_tlpz98s1": {
+                        "ui:order": 4,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": "pdf"
+                        }
+                    },
+                    "Semua_potensi_bahaya_telah_dicatat__dilaporkan_dan_dikomunikasikan_kepada_semua_pihak_yang_berhubungan_dengan_keselamatan_i4mgvpwr": {
+                        "ui:order": 3,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": "pdf"
+                        }
+                    },
+                    "Perusahaan_telah_memiliki_prosedur_identifikasi_bahaya__penilaian_dan_pengendalian_risiko_secara_komprehensif_baik_terhadap_personel__sarana_angkutan__penumpang_maupun_lingkungan_untuk_setiap_tahapan_operasi_pengangkutan_favzyn4v": {
+                        "ui:order": 1,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": "pdf"
+                        }
+                    },
+                    "Perusahaan_telah_melakukan_identifikasi_bahaya__penilaian_dan_pengendaliannya_dengan_metode_yang_sesuai_dengan_karakteristik_bahaya_yang_ada__memiliki_matrik_penilaian_bahaya_dan_risiko__matrik_identifikasi_bahaya__penilaian_dan_pengendalian_risiko_di_kantor__bengkel_dan_operasional_serta_matrik_identifikasi_bahaya_lalu_lintas_9mk5jtri": {
+                        "ui:order": 2,
+                        "ui:widget": "files",
+                        "ui:options": {
+                            "accept": "pdf"
+                        }
+                    }
+                },
+                "element_kwpjcrea": {
+                    "Deskripsi_Pengorganisasian_re4tbz7w": {
+                        "ui:order": 0,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": "pdf"
+                        }
+                    },
+                    "Perusahaan_menetapkan_Standard_Operasional_Prosedur__SOP__tentang_kriteria_penerimaan_pengemudi_mekanik__dll_ol6lbgek": {
+                        "ui:order": 3,
+                        "ui:widget": "files",
+                        "ui:options": {
+                            "accept": "pdf"
+                        }
+                    },
+                    "Perusahaan_mempunyai_struktur_organisasi_pengelolaan_di_bidang_keselamatan__seperti_Unit_Manajemen_Keselamatan_atau_Petugas_Keselamatan_9vhs4p4s": {
+                        "ui:order": 1,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": "pdf"
+                        }
+                    },
+                    "Perusahaan_dapat_menjabarkan_uraian_tugas_dan_fungsi_di_masing-masing_jabatan_pada_struktur_organisasi_hubungan_antar_struktur_organisasi_tersebut_aupox0lr": {
+                        "ui:order": 2,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": "pdf"
+                        }
+                    }
+                },
+                "element_x1qcynq0": {
+                    "Deskripsi_Komitmen_dan_Kebijakan_Keselamatan__Persyaratan__Ekspektasi__Implementasi__Prosedur_Terkait__gwg1dsw4": {
+                        "ui:order": 0,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": "pdf"
+                        }
+                    },
+                    "Seluruh_pemegang_kepentingan_atau_bagian_dalam_Perusahaan_mempunyai_peran_serta_dan_keterlibatan_aktif_dalam_meningkatkan_kinerja_keselamatan_vv5xmgvz": {
+                        "ui:order": 3,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": "pdf"
+                        }
+                    },
+                    "Perusahaan_mempunyai_komitmen_yang_kuat_dari_Manajemen_yang_terdokumentasikan__tertulis_dan_ditandatangani_oleh_Pimpinan_Perusahaan_tertinggi_sebagai_langkah_nyata_terhadap_aspek_keselamatan_yang_ditunjukkan_dalam_sikap_sehari-hari_n9jrfyb6": {
+                        "ui:order": 1,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": "pdf"
+                        }
+                    },
+                    "Perusahaan_mempunyai_kebijakan_keselamatan_tertulis_dari_manajemen_yang_memuat_visi__misi_dan_tujuan_yang_hendak_dicapai_dan_mempunyai_sasaran_keselamatan_untuk_mendukung_perwujudan_kebijakan_keselamatan_perusahaan_menuju_peningkatan_berkelanjutan_ksf7utl0": {
+                        "ui:order": 2,
+                        "ui:widget": "files",
+                        "ui:options": {
+                            "accept": "pdf"
+                        }
+                    }
+                }
+            },
+            "max_assesment": {
+                "element_iumb7h5z": {
+                    "Deskripsi_Fasilitas_Pemeliharaan_dan_Perbaikan__Persyaratan__Ekspektasi__Implementasi__Prosedur_Terkait_c4muzkod": "3",
+                    "Pemeliharaan_dan_perbaikan_kendaraan_dengan_penyediaan_sarana_dan_prasarana_pendukung_yang_memadai_untuk_mendukung_keselamatan_seperti_bengkel__klinik__ruang_istirahat_pengemudi__ruang_parkir__fasilitas_penyimpanan_suku_cadang_dan_lain-lain_2xiisdp5": "3",
+                    "Perusahaan_melengkapi_kegiatan_operasional_angkutan_dengan_menyediakan_fasilitas_pemeliharaan_dan_perbaikan_kendaraan_bermotor_sebagai_syarat_utama_keselamatan_dan_perbaikan_kendaraan_bermotor_yang_digunakan_untuk_mendukung_kegiatan_perusahaan_w9togs4h": "3"
+                },
+                "element_jucfhxya": {
+                    "Deskripsi_Manajemen_Bahaya_dan_Risiko__Persyaratan__Ekspektasi__Implementasi__Prosedur_Terkait__79hmqowf": "25",
+                    "Pengemudi_melaporkan_dan_mengkomunikasikan_potensi_bahaya_disepanjang_jalur_yang_dilalui_kepada_pimpinan_perusahaan_tlpz98s1": "25",
+                    "Semua_potensi_bahaya_telah_dicatat__dilaporkan_dan_dikomunikasikan_kepada_semua_pihak_yang_berhubungan_dengan_keselamatan_i4mgvpwr": "25",
+                    "Perusahaan_telah_memiliki_prosedur_identifikasi_bahaya__penilaian_dan_pengendalian_risiko_secara_komprehensif_baik_terhadap_personel__sarana_angkutan__penumpang_maupun_lingkungan_untuk_setiap_tahapan_operasi_pengangkutan_favzyn4v": "25",
+                    "Perusahaan_telah_melakukan_identifikasi_bahaya__penilaian_dan_pengendaliannya_dengan_metode_yang_sesuai_dengan_karakteristik_bahaya_yang_ada__memiliki_matrik_penilaian_bahaya_dan_risiko__matrik_identifikasi_bahaya__penilaian_dan_pengendalian_risiko_di_kantor__bengkel_dan_operasional_serta_matrik_identifikasi_bahaya_lalu_lintas_9mk5jtri": "25"
+                },
+                "element_kwpjcrea": {
+                    "Deskripsi_Pengorganisasian_re4tbz7w": "2",
+                    "Perusahaan_menetapkan_Standard_Operasional_Prosedur__SOP__tentang_kriteria_penerimaan_pengemudi_mekanik__dll_ol6lbgek": "2",
+                    "Perusahaan_mempunyai_struktur_organisasi_pengelolaan_di_bidang_keselamatan__seperti_Unit_Manajemen_Keselamatan_atau_Petugas_Keselamatan_9vhs4p4s": "2",
+                    "Perusahaan_dapat_menjabarkan_uraian_tugas_dan_fungsi_di_masing-masing_jabatan_pada_struktur_organisasi_hubungan_antar_struktur_organisasi_tersebut_aupox0lr": "2"
+                },
+                "element_x1qcynq0": {
+                    "Deskripsi_Komitmen_dan_Kebijakan_Keselamatan__Persyaratan__Ekspektasi__Implementasi__Prosedur_Terkait__gwg1dsw4": "25",
+                    "Seluruh_pemegang_kepentingan_atau_bagian_dalam_Perusahaan_mempunyai_peran_serta_dan_keterlibatan_aktif_dalam_meningkatkan_kinerja_keselamatan_vv5xmgvz": "25",
+                    "Perusahaan_mempunyai_komitmen_yang_kuat_dari_Manajemen_yang_terdokumentasikan__tertulis_dan_ditandatangani_oleh_Pimpinan_Perusahaan_tertinggi_sebagai_langkah_nyata_terhadap_aspek_keselamatan_yang_ditunjukkan_dalam_sikap_sehari-hari_n9jrfyb6": "25",
+                    "Perusahaan_mempunyai_kebijakan_keselamatan_tertulis_dari_manajemen_yang_memuat_visi__misi_dan_tujuan_yang_hendak_dicapai_dan_mempunyai_sasaran_keselamatan_untuk_mendukung_perwujudan_kebijakan_keselamatan_perusahaan_menuju_peningkatan_berkelanjutan_ksf7utl0": "25"
+                }
+            },
+            "question_schema": {
+                "properties": {
+                    "element_iumb7h5z": {
+                        "type": "object",
+                        "title": "FASILITAS PEMELIHARAAN DAN PERBAIKAN",
+                        "required": [
+                            "DeskripsiFasilitasPemeliharaandanPerbaikanPersyaratanEkspektasiImplementasiProsedurTerkaitc4muzkod",
+                            "Perusahaanmelengkapikegiatanoperasionalangkutandenganmenyediakanfasilitaspemeliharaandanperbaikankendaraanbermotorsebagaisyaratutamakeselamatandanperbaikankendaraanbermotoryangdigunakanuntukmendukungkegiatanperusahaanw9togs4h",
+                            "Pemeliharaandanperbaikankendaraandenganpenyediaansaranadanprasaranapendukungyangmemadaiuntukmendukungkeselamatansepertibengkelklinikruangistirahatpengemudiruangparkirfasilitaspenyimpanansukucadangdanlainlain2xiisdp5"
+                        ],
+                        "properties": {
+                            "Deskripsi_Fasilitas_Pemeliharaan_dan_Perbaikan__Persyaratan__Ekspektasi__Implementasi__Prosedur_Terkait_c4muzkod": {
+                                "type": "string",
+                                "title": "Deskripsi Fasilitas Pemeliharaan dan Perbaikan Persyaratan Ekspektasi Implementasi Prosedur Terkait",
+                                "format": "dataurl",
+                                "description": "",
+                                "attachmentName": "File Persyaratan Ekspektasi Implementasi Prosedur Terkait"
+                            },
+                            "Pemeliharaan_dan_perbaikan_kendaraan_dengan_penyediaan_sarana_dan_prasarana_pendukung_yang_memadai_untuk_mendukung_keselamatan_seperti_bengkel__klinik__ruang_istirahat_pengemudi__ruang_parkir__fasilitas_penyimpanan_suku_cadang_dan_lain-lain_2xiisdp5": {
+                                "type": "string",
+                                "title": "Pemeliharaan dan perbaikan kendaraan dengan penyediaan sarana dan prasarana pendukung yang memadai untuk mendukung keselamatan seperti bengkel klinik ruang istirahat pengemudi ruang parkir fasilitas penyimpanan suku cadang dan lainlain",
+                                "format": "dataurl",
+                                "description": "Dokumen denah lokasi perusahaan fotofoto",
+                                "attachmentName": "File Foto Fasilitas Pemeliharaan dan Perbaikan"
+                            },
+                            "Perusahaan_melengkapi_kegiatan_operasional_angkutan_dengan_menyediakan_fasilitas_pemeliharaan_dan_perbaikan_kendaraan_bermotor_sebagai_syarat_utama_keselamatan_dan_perbaikan_kendaraan_bermotor_yang_digunakan_untuk_mendukung_kegiatan_perusahaan_w9togs4h": {
+                                "type": "array",
+                                "items": [
+                                    {
+                                        "File_Prosedur_Pengoperasian_Kendaraan_gknwj5dp": {
+                                            "name": "File Prosedur Pengoperasian Kendaraan",
+                                            "type": "string",
+                                            "format": "dataurl"
+                                        }
+                                    },
+                                    {
+                                        "File_Instruksi_Kerja_Ganti_Filter_Solar_wuuviego": {
+                                            "name": "File Instruksi Kerja Ganti Filter Solar",
+                                            "type": "string",
+                                            "format": "dataurl"
+                                        }
+                                    },
+                                    {
+                                        "File_Instruksi_kerja_Ganti_Ban_8xybxq4x": {
+                                            "name": "File Instruksi kerja Ganti Ban",
+                                            "type": "string",
+                                            "format": "dataurl"
+                                        }
+                                    },
+                                    {
+                                        "File_Kartu_Inspeksi_APAR_27rn63e4": {
+                                            "name": "File Kartu Inspeksi APAR",
+                                            "type": "string",
+                                            "format": "dataurl"
+                                        }
+                                    },
+                                    {
+                                        "File_Form_Pemeriksaan_Kendaraan_Bermotor_n3u3fmde": {
+                                            "name": "File Form Pemeriksaan Kendaraan Bermotor",
+                                            "type": "string",
+                                            "format": "dataurl"
+                                        }
+                                    },
+                                    {
+                                        "File_Form_Pemeriksaan_Kendaraan_Bermotor_Sebelum_Operasi_2vyb3m2i": {
+                                            "name": "File Form Pemeriksaan Kendaraan Bermotor Sebelum Operasi",
+                                            "type": "string",
+                                            "format": "dataurl"
+                                        }
+                                    }
+                                ],
+                                "title": "Perusahaan melengkapi kegiatan operasional angkutan dengan menyediakan fasilitas pemeliharaan dan perbaikan kendaraan bermotor sebagai syarat utama keselamatan dan perbaikan kendaraan bermotor yang digunakan untuk mendukung kegiatan perusahaan",
+                                "description": "Dokumen Check listSOP pemeriksaan kendaraan sebelum perjalanan sepanjang perjalanan dan setelah operasional"
+                            }
+                        },
+                        "description": "TES"
+                    },
+                    "element_jucfhxya": {
+                        "type": "object",
+                        "title": "MANAJEMEN BAHAYA DAN RISIKO",
+                        "required": [
+                            "DeskripsiManajemenBahayadanRisikoPersyaratanEkspektasiImplementasiProsedurTerkait79hmqowf",
+                            "Perusahaantelahmemilikiproseduridentifikasibahayapenilaiandanpengendalianrisikosecarakomprehensifbaikterhadappersonelsaranaangkutanpenumpangmaupunlingkunganuntuksetiaptahapanoperasipengangkutanfavzyn4v",
+                            "Perusahaantelahmelakukanidentifikasibahayapenilaiandanpengendaliannyadenganmetodeyangsesuaidengankarakteristikbahayayangadamemilikimatrikpenilaianbahayadanrisikomatrikidentifikasibahayapenilaiandanpengendalianrisikodikantorbengkeldanoperasionalsertamatrikidentifikasibahayalalulintas9mk5jtri",
+                            "Semuapotensibahayatelahdicatatdilaporkandandikomunikasikankepadasemuapihakyangberhubungandengankeselamatani4mgvpwr",
+                            "Pengemudimelaporkandanmengkomunikasikanpotensibahayadisepanjangjaluryangdilaluikepadapimpinanperusahaantlpz98s1"
+                        ],
+                        "properties": {
+                            "Deskripsi_Manajemen_Bahaya_dan_Risiko__Persyaratan__Ekspektasi__Implementasi__Prosedur_Terkait__79hmqowf": {
+                                "type": "string",
+                                "title": "Deskripsi Manajemen Bahaya dan Risiko Persyaratan Ekspektasi Implementasi Prosedur Terkait",
+                                "format": "dataurl",
+                                "description": "",
+                                "attachmentName": "File Persyaratan Ekspektasi Implementasi Prosedur Terkait"
+                            },
+                            "Pengemudi_melaporkan_dan_mengkomunikasikan_potensi_bahaya_disepanjang_jalur_yang_dilalui_kepada_pimpinan_perusahaan_tlpz98s1": {
+                                "type": "string",
+                                "title": "Pengemudi melaporkan dan mengkomunikasikan potensi bahaya disepanjang jalur yang dilalui kepada pimpinan perusahaan",
+                                "format": "dataurl",
+                                "description": "Dokumen atau laporan pengemudi",
+                                "attachmentName": "File Form Pelaporan Pengemudi Terhadap Potensi Bahaya"
+                            },
+                            "Semua_potensi_bahaya_telah_dicatat__dilaporkan_dan_dikomunikasikan_kepada_semua_pihak_yang_berhubungan_dengan_keselamatan_i4mgvpwr": {
+                                "type": "string",
+                                "title": "Semua potensi bahaya telah dicatat dilaporkan dan dikomunikasikan kepada semua pihak yang berhubungan dengan keselamatan",
+                                "format": "dataurl",
+                                "description": "Notulen rapat dan Foto kegiatan",
+                                "attachmentName": "File Notulen Rapat Sosialisasi"
+                            },
+                            "Perusahaan_telah_memiliki_prosedur_identifikasi_bahaya__penilaian_dan_pengendalian_risiko_secara_komprehensif_baik_terhadap_personel__sarana_angkutan__penumpang_maupun_lingkungan_untuk_setiap_tahapan_operasi_pengangkutan_favzyn4v": {
+                                "type": "string",
+                                "title": "Perusahaan telah memiliki prosedur identifikasi bahaya penilaian dan pengendalian risiko secara komprehensif baik terhadap personel sarana angkutan penumpang maupun lingkungan untuk setiap tahapan operasi pengangkutan",
+                                "format": "dataurl",
+                                "description": "Lampirkan Dokumen SOP Manajemen Bahaya dan Risiko",
+                                "attachmentName": "File Prosedur Manajemen Bahaya dan Risiko"
+                            },
+                            "Perusahaan_telah_melakukan_identifikasi_bahaya__penilaian_dan_pengendaliannya_dengan_metode_yang_sesuai_dengan_karakteristik_bahaya_yang_ada__memiliki_matrik_penilaian_bahaya_dan_risiko__matrik_identifikasi_bahaya__penilaian_dan_pengendalian_risiko_di_kantor__bengkel_dan_operasional_serta_matrik_identifikasi_bahaya_lalu_lintas_9mk5jtri": {
+                                "type": "array",
+                                "items": [
+                                    {
+                                        "File_Identifikasi_Bahaya__Penilaian_dan_Pengendalian_Risiko_di_Kantor_2meapiub": {
+                                            "name": "File Identifikasi Bahaya Penilaian dan Pengendalian Risiko di Kantor",
+                                            "type": "string",
+                                            "format": "dataurl"
+                                        }
+                                    },
+                                    {
+                                        "File_Identifikasi_Bahaya__Penilaian_dan_Pengendalian_Risiko_di_Bengkel_wxvul7ak": {
+                                            "name": "File Identifikasi Bahaya Penilaian dan Pengendalian Risiko di Bengkel",
+                                            "type": "string",
+                                            "format": "dataurl"
+                                        }
+                                    },
+                                    {
+                                        "File_Identifikasi_Bahaya__Penilaian_dan_Pengendalian_Risiko_di_Operasional_s6lz4fk1": {
+                                            "name": "File Identifikasi Bahaya Penilaian dan Pengendalian Risiko di Operasional",
+                                            "type": "string",
+                                            "format": "dataurl"
+                                        }
+                                    },
+                                    {
+                                        "File_Matrik_Penilaian_Bahaya_dan_Risiko_tqo87z4h": {
+                                            "name": "File Matrik Penilaian Bahaya dan Risiko",
+                                            "type": "string",
+                                            "format": "dataurl"
+                                        }
+                                    }
+                                ],
+                                "title": "Perusahaan telah melakukan identifikasi bahaya penilaian dan pengendaliannya dengan metode yang sesuai dengan karakteristik bahaya yang ada memiliki matrik penilaian bahaya dan risiko matrik identifikasi bahaya penilaian dan pengendalian risiko di kantor bengkel dan operasional serta matrik identifikasi bahaya lalu lintas",
+                                "description": "Lampirkan Dokumen Matrik Penilian Bahaya dan Risiko Matrik Identifikasi Bahaya Penilaian dan Pengendalian Risiko Matrik Identifikasi Bahaya Lalu Lintas"
+                            }
+                        },
+                        "description": "TES"
+                    },
+                    "element_kwpjcrea": {
+                        "type": "object",
+                        "title": "PENGORGANISASIAN",
+                        "required": [
+                            "DeskripsiPengorganisasianre4tbz7w",
+                            "PerusahaanmempunyaistrukturorganisasipengelolaandibidangkeselamatansepertiUnitManajemenKeselamatanatauPetugasKeselamatan9vhs4p4s",
+                            "Perusahaandapatmenjabarkanuraiantugasdanfungsidimasingmasingjabatanpadastrukturorganisasihubunganantarstrukturorganisasitersebutaupox0lr",
+                            "PerusahaanmenetapkanStandardOperasionalProsedurSOPtentangkriteriapenerimaanpengemudimekanikdllol6lbgek"
+                        ],
+                        "properties": {
+                            "Deskripsi_Pengorganisasian_re4tbz7w": {
+                                "type": "string",
+                                "title": "Deskripsi Pengorganisasian",
+                                "format": "dataurl",
+                                "description": "Deskripsi Pengorganisasian",
+                                "attachmentName": "File Persyaratan Ekspektasi Implementasi Prosedur Terkait"
+                            },
+                            "Perusahaan_menetapkan_Standard_Operasional_Prosedur__SOP__tentang_kriteria_penerimaan_pengemudi_mekanik__dll_ol6lbgek": {
+                                "type": "array",
+                                "items": [
+                                    {
+                                        "File_Prosedur_Pengemudi_7zgeo34i": {
+                                            "name": "File Prosedur Pengemudi",
+                                            "type": "string",
+                                            "format": "dataurl"
+                                        }
+                                    },
+                                    {
+                                        "File_Prosedur_Mekanik_6auebwti": {
+                                            "name": "File Prosedur Mekanik",
+                                            "type": "string",
+                                            "format": "dataurl"
+                                        }
+                                    }
+                                ],
+                                "title": "Perusahaan menetapkan Standard Operasional Prosedur SOP tentang kriteria penerimaan pengemudimekanik dll",
+                                "description": "Dokumen SOP penerimaan pengemudi mekanik dll"
+                            },
+                            "Perusahaan_mempunyai_struktur_organisasi_pengelolaan_di_bidang_keselamatan__seperti_Unit_Manajemen_Keselamatan_atau_Petugas_Keselamatan_9vhs4p4s": {
+                                "type": "string",
+                                "title": "Perusahaan mempunyai struktur organisasi pengelolaan di bidang keselamatan seperti Unit Manajemen Keselamatan atau Petugas Keselamatan",
+                                "format": "dataurl",
+                                "description": "Dokumen struktur organisasi atau Unit Manajemen Keselamatan atau Petugas Keselamatan",
+                                "attachmentName": "File Struktur Organisasi"
+                            },
+                            "Perusahaan_dapat_menjabarkan_uraian_tugas_dan_fungsi_di_masing-masing_jabatan_pada_struktur_organisasi_hubungan_antar_struktur_organisasi_tersebut_aupox0lr": {
+                                "type": "string",
+                                "title": "Perusahaan dapat menjabarkan uraian tugas dan fungsi di masingmasing jabatan pada struktur organisasi hubungan antar struktur organisasi tersebut",
+                                "format": "dataurl",
+                                "description": "Dokumen tugas dan fungsi uraian tugas",
+                                "attachmentName": "File Prosedur Pengorganisasian"
+                            }
+                        },
+                        "description": "TES"
+                    },
+                    "element_x1qcynq0": {
+                        "type": "object",
+                        "title": "KOMITMEN DAN KEBIJAKAN KESELAMATAN",
+                        "required": [
+                            "DeskripsiKomitmendanKebijakanKeselamatanPersyaratanEkspektasiImplementasiProsedurTerkaitgwg1dsw4",
+                            "PerusahaanmempunyaikomitmenyangkuatdariManajemenyangterdokumentasikantertulisdanditandatanganiolehPimpinanPerusahaantertinggisebagailangkahnyataterhadapaspekkeselamatanyangditunjukkandalamsikapsehariharin9jrfyb6",
+                            "Perusahaanmempunyaikebijakankeselamatantertulisdarimanajemenyangmemuatvisimisidantujuanyanghendakdicapaidanmempunyaisasarankeselamatanuntukmendukungperwujudankebijakankeselamatanperusahaanmenujupeningkatanberkelanjutanksf7utl0",
+                            "SeluruhpemegangkepentinganataubagiandalamPerusahaanmempunyaiperansertadanketerlibatanaktifdalammeningkatkankinerjakeselamatanvv5xmgvz"
+                        ],
+                        "properties": {
+                            "Deskripsi_Komitmen_dan_Kebijakan_Keselamatan__Persyaratan__Ekspektasi__Implementasi__Prosedur_Terkait__gwg1dsw4": {
+                                "type": "string",
+                                "title": "Deskripsi Komitmen dan Kebijakan Keselamatan Persyaratan Ekspektasi Implementasi Prosedur Terkait",
+                                "format": "dataurl",
+                                "description": "Deskripsi Komitmen dan Kebijakan Keselamatan",
+                                "attachmentName": "File Persyaratan Ekspektasi Implementasi Prosedur Terkait"
+                            },
+                            "Seluruh_pemegang_kepentingan_atau_bagian_dalam_Perusahaan_mempunyai_peran_serta_dan_keterlibatan_aktif_dalam_meningkatkan_kinerja_keselamatan_vv5xmgvz": {
+                                "type": "string",
+                                "title": "Seluruh pemegang kepentingan atau bagian dalam Perusahaan mempunyai peran serta dan keterlibatan aktif dalam meningkatkan kinerja keselamatan",
+                                "format": "dataurl",
+                                "description": "Dokumen atau fotofoto rapat terkait atau yang mendukung keselamatan",
+                                "attachmentName": "File Laporan Kegiatan Sosialisasi"
+                            },
+                            "Perusahaan_mempunyai_komitmen_yang_kuat_dari_Manajemen_yang_terdokumentasikan__tertulis_dan_ditandatangani_oleh_Pimpinan_Perusahaan_tertinggi_sebagai_langkah_nyata_terhadap_aspek_keselamatan_yang_ditunjukkan_dalam_sikap_sehari-hari_n9jrfyb6": {
+                                "type": "string",
+                                "title": "Perusahaan mempunyai komitmen yang kuat dari Manajemen yang terdokumentasikan tertulis dan ditandatangani oleh Pimpinan Perusahaan tertinggi sebagai langkah nyata terhadap aspek keselamatan yang ditunjukkan dalam sikap seharihari",
+                                "format": "dataurl",
+                                "description": "Bukti Pernyataan Dokumen foto pernyataan komitmen",
+                                "attachmentName": "File Dokumen Komitmen"
+                            },
+                            "Perusahaan_mempunyai_kebijakan_keselamatan_tertulis_dari_manajemen_yang_memuat_visi__misi_dan_tujuan_yang_hendak_dicapai_dan_mempunyai_sasaran_keselamatan_untuk_mendukung_perwujudan_kebijakan_keselamatan_perusahaan_menuju_peningkatan_berkelanjutan_ksf7utl0": {
+                                "type": "array",
+                                "items": [
+                                    {
+                                        "File_Dokumen_Kebijakan_1vs09pfc": {
+                                            "name": "File Dokumen Kebijakan",
+                                            "type": "string",
+                                            "format": "dataurl"
+                                        }
+                                    },
+                                    {
+                                        "File_Dokumen_Visi_Misi_17x040o8": {
+                                            "name": "File Dokumen Visi Misi",
+                                            "type": "string",
+                                            "format": "dataurl"
+                                        }
+                                    }
+                                ],
+                                "title": "Perusahaan mempunyai kebijakan keselamatan tertulis dari manajemen yang memuat visi misi dan tujuan yang hendak dicapai dan mempunyai sasaran keselamatan untuk mendukung perwujudan kebijakan keselamatan perusahaan menuju peningkatan berkelanjutan",
+                                "description": "Bukti Pernyataan Dokumen"
+                            }
+                        },
+                        "description": "TES"
+                    }
+                }
+            }
+        }
+    }
+}

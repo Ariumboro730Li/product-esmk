@@ -1,0 +1,35 @@
+{
+    "error": false,
+    "message": "Berhasil Di Tampilkan",
+    "status_code": 200,
+    "data": [
+        {
+            "name": "Admin",
+            "id": 2
+        },
+        {
+            "name": "Assessor",
+            "id": 3
+        },
+        {
+            "name": "Direktur",
+            "id": 6
+        },
+        {
+            "name": "Kasubdit",
+            "id": 5
+        },
+        {
+            "name": "Ketua Tim",
+            "id": 4
+        },
+        {
+            "name": "Sesditjen Hubdat",
+            "id": 7
+        },
+        {
+            "name": "Super Admin",
+            "id": 1
+        }
+    ]
+}

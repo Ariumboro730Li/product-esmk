@@ -1,0 +1,564 @@
+{
+    "error": false,
+    "message": "Successfully",
+    "status_code": 200,
+    "data": [
+        {
+            "id": 39,
+            "name": "PT WIRASWASTA GEMILANG INDONESIA",
+            "username": "wirawasta",
+            "phone_number": "08123456789",
+            "email": "info@ptwgi.com",
+            "email_verified_at": null,
+            "nib": "8120004962755",
+            "nib_file": "-",
+            "province_id": 32,
+            "city_id": 3216,
+            "address": "GEDUNG THE CITY TOWER LT.5 UNIT 1S JL.MH THAMRIN NO.81",
+            "company_phone_number": "02131996245",
+            "pic_name": "FAUZY ALDJUFRIE",
+            "pic_phone": "-",
+            "request_date": "2024-05-14",
+            "approved_at": null,
+            "approved_by": null,
+            "is_active": false,
+            "is_active_oss": false,
+            "created_at": "2024-05-14",
+            "updated_at": "2024-05-14",
+            "deleted_at": null,
+            "established": "2019-02-06",
+            "exist_spionam": null,
+            "certificate_status": "scheduled_interview",
+            "province": {
+                "id": 32,
+                "name": "Jawa Barat",
+                "administrative_code": "32"
+            },
+            "city": {
+                "id": 3216,
+                "province_id": 32,
+                "name": "Kab. Bekasi",
+                "administrative_code": "32.16"
+            },
+            "service_types": [
+                {
+                    "id": 2,
+                    "name": "AKDP",
+                    "pivot": {
+                        "company_id": 39,
+                        "service_type_id": 2
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "AJAP",
+                    "pivot": {
+                        "company_id": 39,
+                        "service_type_id": 3
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "Angkutan B3",
+                    "pivot": {
+                        "company_id": 39,
+                        "service_type_id": 7
+                    }
+                },
+                {
+                    "id": 9,
+                    "name": "Angkutan lintas batas negara",
+                    "pivot": {
+                        "company_id": 39,
+                        "service_type_id": 9
+                    }
+                },
+                {
+                    "id": 8,
+                    "name": "Alat berat",
+                    "pivot": {
+                        "company_id": 39,
+                        "service_type_id": 8
+                    }
+                }
+            ]
+        },
+        {
+            "id": 38,
+            "name": "PT JAYA BERSAMA HUTAMA",
+            "username": "jaya",
+            "phone_number": "08967542719",
+            "email": "jb_hutama78@yahoo.com",
+            "email_verified_at": null,
+            "nib": "2208230181037",
+            "nib_file": "-",
+            "province_id": 32,
+            "city_id": 3273,
+            "address": "Dusun I Nomor 18",
+            "company_phone_number": "081278466999",
+            "pic_name": "ANDY IRAWAN HALIM",
+            "pic_phone": "085268360000",
+            "request_date": "2024-01-16",
+            "approved_at": null,
+            "approved_by": null,
+            "is_active": false,
+            "is_active_oss": false,
+            "created_at": "2024-01-16",
+            "updated_at": "2024-01-16",
+            "deleted_at": null,
+            "established": "2017-04-25",
+            "exist_spionam": false,
+            "certificate_status": "certificate_validation",
+            "province": {
+                "id": 32,
+                "name": "Jawa Barat",
+                "administrative_code": "32"
+            },
+            "city": {
+                "id": 3273,
+                "province_id": 32,
+                "name": "Kota Bandung",
+                "administrative_code": "32.73"
+            },
+            "service_types": [
+                {
+                    "id": 1,
+                    "name": "AKAP",
+                    "pivot": {
+                        "company_id": 38,
+                        "service_type_id": 1
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "Angkutan barang umum",
+                    "pivot": {
+                        "company_id": 38,
+                        "service_type_id": 6
+                    }
+                }
+            ]
+        },
+        {
+            "id": 37,
+            "name": "PERUSAHAAN PERSEROAN (PERSERO) PT. TELEKOMUNIKASI INDONESIA",
+            "username": "telkom",
+            "phone_number": "08370640429",
+            "email": "corporate_comm@telkom.co.id",
+            "email_verified_at": null,
+            "nib": "9120304490415",
+            "nib_file": "-",
+            "province_id": 32,
+            "city_id": 3204,
+            "address": "JL JAPATI NO.1 SADANG SERANG - COBLONG",
+            "company_phone_number": "+62 21 - 808 63539",
+            "pic_name": "ABDI NEGARA NURDIN",
+            "pic_phone": "08121175265",
+            "request_date": "2024-01-09",
+            "approved_at": null,
+            "approved_by": null,
+            "is_active": false,
+            "is_active_oss": false,
+            "created_at": "2024-01-09",
+            "updated_at": "2024-01-16",
+            "deleted_at": null,
+            "established": "2022-05-01",
+            "exist_spionam": false,
+            "certificate_status": null,
+            "province": {
+                "id": 32,
+                "name": "Jawa Barat",
+                "administrative_code": "32"
+            },
+            "city": {
+                "id": 3204,
+                "province_id": 32,
+                "name": "Kab. Bandung",
+                "administrative_code": "32.04"
+            },
+            "service_types": [
+                {
+                    "id": 1,
+                    "name": "AKAP",
+                    "pivot": {
+                        "company_id": 37,
+                        "service_type_id": 1
+                    }
+                }
+            ]
+        },
+        {
+            "id": 35,
+            "name": "PT JALAN BERSAMA KAMI",
+            "username": "jalan_bersama",
+            "phone_number": "08942862255",
+            "email": "indahpelangi73@gmail.com",
+            "email_verified_at": null,
+            "nib": "9120403201932",
+            "nib_file": "-",
+            "province_id": 35,
+            "city_id": 3573,
+            "address": "Jl. Pangampaan No. 11 A",
+            "company_phone_number": "082225333498",
+            "pic_name": "ASEP SAEPULOH",
+            "pic_phone": "-",
+            "request_date": "2024-01-08",
+            "approved_at": null,
+            "approved_by": null,
+            "is_active": false,
+            "is_active_oss": true,
+            "created_at": "2024-01-08",
+            "updated_at": "2024-02-11",
+            "deleted_at": null,
+            "established": "2022-04-01",
+            "exist_spionam": false,
+            "certificate_status": null,
+            "province": {
+                "id": 35,
+                "name": "Jawa Timur",
+                "administrative_code": "35"
+            },
+            "city": {
+                "id": 3573,
+                "province_id": 35,
+                "name": "Kota Malang",
+                "administrative_code": "35.73"
+            },
+            "service_types": [
+                {
+                    "id": 1,
+                    "name": "AKAP",
+                    "pivot": {
+                        "company_id": 35,
+                        "service_type_id": 1
+                    }
+                }
+            ]
+        },
+        {
+            "id": 34,
+            "name": "MANDALAPUTRA PRIMA MANDIRI",
+            "username": "mandala-group",
+            "phone_number": "082140130707",
+            "email": "mandalaputraprimamandiri@yahoo.com",
+            "email_verified_at": null,
+            "nib": "9120002711573",
+            "nib_file": "-",
+            "province_id": 35,
+            "city_id": 3507,
+            "address": "JL. TENAGA BARU No. 5 - 7",
+            "company_phone_number": "0341299134",
+            "pic_name": "INDRA SAPUTRA KUSUMA",
+            "pic_phone": "0811366688",
+            "request_date": "2024-01-04",
+            "approved_at": null,
+            "approved_by": null,
+            "is_active": false,
+            "is_active_oss": false,
+            "created_at": "2024-01-03",
+            "updated_at": "2024-01-15",
+            "deleted_at": null,
+            "established": "2022-03-01",
+            "exist_spionam": false,
+            "certificate_status": null,
+            "province": {
+                "id": 35,
+                "name": "Jawa Timur",
+                "administrative_code": "35"
+            },
+            "city": {
+                "id": 3507,
+                "province_id": 35,
+                "name": "Kab. Malang",
+                "administrative_code": "35.07"
+            },
+            "service_types": [
+                {
+                    "id": 6,
+                    "name": "Angkutan barang umum",
+                    "pivot": {
+                        "company_id": 34,
+                        "service_type_id": 6
+                    }
+                }
+            ]
+        },
+        {
+            "id": 29,
+            "name": "EKA SARI LORENA TRANSPORT",
+            "username": "eka372402022a",
+            "phone_number": "08978860666",
+            "email": "secretary@lorena-transport.com",
+            "email_verified_at": null,
+            "nib": "2203220004978",
+            "nib_file": "-",
+            "province_id": 31,
+            "city_id": 3173,
+            "address": "JL. KH. HASYIM ASHARI NO.15 C.2, PETOJO UTARA, GAMBIR",
+            "company_phone_number": "08990088666",
+            "pic_name": "Ir. SOLON APRIN TARIGAN",
+            "pic_phone": "08129461703",
+            "request_date": "2023-12-01",
+            "approved_at": null,
+            "approved_by": null,
+            "is_active": true,
+            "created_at": "2023-12-01",
+            "updated_at": "2024-01-15",
+            "deleted_at": null,
+            "established": "2022-02-01",
+            "exist_spionam": true,
+            "certificate_status": null,
+            "province": {
+                "id": 31,
+                "name": "DKI Jakarta",
+                "administrative_code": "31"
+            },
+            "city": {
+                "id": 3173,
+                "province_id": 31,
+                "name": "Kota Adm. Jakarta Pusat",
+                "administrative_code": "31.71"
+            },
+            "service_types": [
+                {
+                    "id": 1,
+                    "name": "AKAP",
+                    "pivot": {
+                        "company_id": 29,
+                        "service_type_id": 1
+                    }
+                }
+            ]
+        },
+        {
+            "id": 28,
+            "name": "LINTAS HARAPAN MANDIRI",
+            "username": "lintas-harapan-mandiri",
+            "phone_number": "085216549301",
+            "email": "triyatmoko18@gmail.com",
+            "email_verified_at": null,
+            "nib": "8120010250376",
+            "nib_file": "-",
+            "province_id": 32,
+            "city_id": 3275,
+            "address": "JL. DANGKUL KALIMANGGIS NO 21",
+            "company_phone_number": "02122876003",
+            "pic_name": "MARIO OCTAVIANUS",
+            "pic_phone": "0816902522",
+            "request_date": "2023-12-01",
+            "approved_at": null,
+            "approved_by": null,
+            "is_active": true,
+            "created_at": "2023-12-01",
+            "updated_at": "2024-01-15",
+            "deleted_at": null,
+            "established": "2022-01-01",
+            "exist_spionam": true,
+            "certificate_status": null,
+            "province": {
+                "id": 32,
+                "name": "Jawa Barat",
+                "administrative_code": "32"
+            },
+            "city": {
+                "id": 3275,
+                "province_id": 32,
+                "name": "Kota Bekasi",
+                "administrative_code": "32.75"
+            },
+            "service_types": [
+                {
+                    "id": 7,
+                    "name": "Angkutan B3",
+                    "pivot": {
+                        "company_id": 28,
+                        "service_type_id": 7
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "Angkutan barang umum",
+                    "pivot": {
+                        "company_id": 28,
+                        "service_type_id": 6
+                    }
+                }
+            ]
+        },
+        {
+            "id": 27,
+            "name": "PUTRA DEWANTARA AYU",
+            "username": "ptdewantaraayu27@gmail.com",
+            "phone_number": "087723222227",
+            "email": "ptdewantaraayu@gmail.com",
+            "email_verified_at": null,
+            "nib": "9120108832803",
+            "nib_file": "-",
+            "province_id": 33,
+            "city_id": 3376,
+            "address": "Jl.Brawijaya No.12",
+            "company_phone_number": "08111641427",
+            "pic_name": "AMBAR SURIPTO",
+            "pic_phone": "081902611144",
+            "request_date": "2023-11-30",
+            "approved_at": null,
+            "approved_by": null,
+            "is_active": false,
+            "is_active_oss": false,
+            "created_at": "2023-11-30",
+            "updated_at": "2024-01-15",
+            "deleted_at": null,
+            "established": "2021-12-01",
+            "exist_spionam": true,
+            "certificate_status": null,
+            "province": {
+                "id": 33,
+                "name": "Jawa Tengah",
+                "administrative_code": "33"
+            },
+            "city": {
+                "id": 3376,
+                "province_id": 33,
+                "name": "Kota Tegal",
+                "administrative_code": "33.76"
+            },
+            "service_types": [
+                {
+                    "id": 4,
+                    "name": "Pariwisata",
+                    "pivot": {
+                        "company_id": 27,
+                        "service_type_id": 4
+                    }
+                }
+            ]
+        },
+        {
+            "id": 26,
+            "name": "PUTRA PAIMAHAM TRANSPORT",
+            "username": "paimaham",
+            "phone_number": "081362625655",
+            "email": "putrapaimaham.transport@gmail.com",
+            "email_verified_at": null,
+            "nib": "2802230090148",
+            "nib_file": "-",
+            "province_id": 12,
+            "city_id": 1275,
+            "address": "Jl. Pintu Air No. 35 Lingk. XIV",
+            "company_phone_number": "081376633141",
+            "pic_name": "HOTJON HALOHO",
+            "pic_phone": "081376633141",
+            "request_date": "2023-11-30",
+            "approved_at": null,
+            "approved_by": null,
+            "is_active": false,
+            "is_active_oss": false,
+            "created_at": "2023-11-30",
+            "updated_at": "2024-01-15",
+            "deleted_at": null,
+            "established": "2021-11-01",
+            "exist_spionam": true,
+            "certificate_status": null,
+            "province": {
+                "id": 12,
+                "name": "Sumatera Utara",
+                "administrative_code": "12"
+            },
+            "city": {
+                "id": 1275,
+                "province_id": 12,
+                "name": "Kota Medan",
+                "administrative_code": "12.71"
+            },
+            "service_types": [
+                {
+                    "id": 1,
+                    "name": "AKAP",
+                    "pivot": {
+                        "company_id": 26,
+                        "service_type_id": 1
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "AKDP",
+                    "pivot": {
+                        "company_id": 26,
+                        "service_type_id": 2
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "AJAP",
+                    "pivot": {
+                        "company_id": 26,
+                        "service_type_id": 3
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "Pariwisata",
+                    "pivot": {
+                        "company_id": 26,
+                        "service_type_id": 4
+                    }
+                }
+            ]
+        },
+        {
+            "id": 25,
+            "name": "AMINDY BAROKAH SUMUT",
+            "username": "amindy@barokah",
+            "phone_number": "0617944923",
+            "email": "amindybarokah@gmail.com",
+            "email_verified_at": null,
+            "nib": "8120202820171",
+            "nib_file": "-",
+            "province_id": 12,
+            "city_id": 1212,
+            "address": "JALAN KARYA DHARMA NOMOR 276 B DUSUN II",
+            "company_phone_number": "0617944923",
+            "pic_name": "MISLIN AS",
+            "pic_phone": "082163600688",
+            "request_date": "2023-11-30",
+            "approved_at": null,
+            "approved_by": null,
+            "is_active": false,
+            "is_active_oss": false,
+            "created_at": "2023-11-30",
+            "updated_at": "2024-01-15",
+            "deleted_at": null,
+            "established": "2021-10-01",
+            "exist_spionam": false,
+            "certificate_status": null,
+            "province": {
+                "id": 12,
+                "name": "Sumatera Utara",
+                "administrative_code": "12"
+            },
+            "city": {
+                "id": 1212,
+                "province_id": 12,
+                "name": "Kab. Deli Serdang",
+                "administrative_code": "12.07"
+            },
+            "service_types": [
+                {
+                    "id": 7,
+                    "name": "Angkutan B3",
+                    "pivot": {
+                        "company_id": 25,
+                        "service_type_id": 7
+                    }
+                }
+            ]
+        }
+    ],
+    "paginate": {
+        "total": 35,
+        "count": 10,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 4
+    }
+}

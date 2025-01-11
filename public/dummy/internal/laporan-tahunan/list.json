@@ -1,0 +1,94 @@
+{
+    "error": false,
+    "message": "Successfully",
+    "status_code": 200,
+    "data": [
+        {
+            "id": 4,
+            "company_id": 42,
+            "nama_perusahaan": "PT GIRA NIRWANA PUTRA",
+            "tahun_laporan": 2023,
+            "status": "revision",
+            "tanggal_verifikasi": "2025-01-02",
+            "rejection_notes" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dictum dapibus quam, sed tincidunt quam. Curabitur vehicula, purus non fermentum dapibus, turpis neque eleifend turpis, at dapibus ligula libero et metus. Fusce porttitor leo quam, ac congue diam scelerisque nec. Duis volutpat sapien tellus, euismod tincidunt mi placerat sit amet. Nulla facilisi. Cras vulputate ornare leo vitae ultricies. Vivamus id risus nec justo imperdiet fermentum. Praesent sagittis accumsan eros in mollis. Quisque a dui mauris. Quisque pellentesque vitae ipsum vitae facilisis. Aenean eleifend finibus risus vel sodales. Sed justo ex, fringilla ac volutpat eget, lacinia id libero. Aenean sit amet neque ac ligula dignissim imperdiet.",
+            "diverifikasi_oleh": {
+                "id": 4,
+                "tahun_laporan": 2023,
+                "status": "revision",
+                "tanggal_verifikasi": null,
+                "assessor": {
+                    "id": 9,
+                    "name": "Joko Kustanto"
+                },
+                "company_id": 42,
+                "created_at": "2024-12-20 04:40:03",
+                "company": {
+                    "id": 42,
+                    "name": "PT GIRA NIRWANA PUTRA"
+                },
+                "disposition_by": null
+            },
+            "created_at": "2024-12-20",
+            "updated_by": "Joko Kustanto"
+        },
+        {
+            "id": 3,
+            "company_id": 38,
+            "nama_perusahaan": "PT JAYA BERSAMA HUTAMA",
+            "tahun_laporan": 2024,
+            "status": "verified",
+            "tanggal_verifikasi": "2025-01-02",
+            "diverifikasi_oleh": {
+                "id": 3,
+                "tahun_laporan": 2024,
+                "status": "verified",
+                "tanggal_verifikasi": "2024-12-17 21:44:55",
+                "assessor": {
+                    "id": 9,
+                    "name": "Joko Kustanto"
+                },
+                "company_id": 38,
+                "created_at": "2024-12-17 14:44:08",
+                "company": {
+                    "id": 38,
+                    "name": "PT JAYA BERSAMA HUTAMA"
+                },
+                "disposition_by": null
+            },
+            "created_at": "2024-12-17"
+        },
+        {
+            "id": 2,
+            "company_id": 38,
+            "nama_perusahaan": "PT JAYA BERSAMA HUTAMA",
+            "tahun_laporan": 2023,
+            "status": "verified",
+            "tanggal_verifikasi": "2025-01-02",
+            "diverifikasi_oleh": {
+                "id": 2,
+                "tahun_laporan": 2023,
+                "status": "verified",
+                "tanggal_verifikasi": "2024-12-17 11:31:42",
+                "assessor": {
+                    "id": 9,
+                    "name": "Joko Kustanto"
+                },
+                "company_id": 38,
+                "created_at": "2024-12-17 04:25:02",
+                "company": {
+                    "id": 38,
+                    "name": "PT JAYA BERSAMA HUTAMA"
+                },
+                "disposition_by": null
+            },
+            "created_at": "2024-12-17"
+        }
+    ],
+    "pagination": {
+        "total": 3,
+        "count": 3,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "error": false,
+    "message": "Successfully",
+    "status_code": 200,
+    "data": [
+        {
+            "id": 1,
+            "decree_number": "SK-123",
+            "work_unit_id": 1,
+            "is_active": true,
+            "created_at": "2024-10-11 01:39:03",
+            "updated_at": "2024-12-10 06:28:22",
+            "deleted_at": null,
+            "work_unit": {
+                "id": 1,
+                "name": "Kementerian Perhubungan Darat",
+                "code": "DJPD",
+                "directorate_id": null,
+                "work_unit_level_1_id": null,
+                "work_unit_level_2_id": null,
+                "level": "Level 1",
+                "province_id": 31,
+                "city_id": 3173,
+                "address": "Jl. Medan Merdeka Tim. No.8, RT.6\/RW.1, Gambir, Kecamatan Gambir, Kota Jakarta Pusat, Daerah Khusus Ibukota Jakarta 10110",
+                "phone_number": "111111",
+                "email": "hubdat@mail.com",
+                "latitude": -6.1745,
+                "longitude": 106.821183,
+                "is_active": true,
+                "created_at": null,
+                "updated_at": null
+            }
+        }
+    ],
+    "pagination": {
+        "total": 1,
+        "count": 1,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1
+    }
+}

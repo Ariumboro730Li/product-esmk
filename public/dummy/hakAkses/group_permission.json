@@ -1,0 +1,191 @@
+{
+    "error": false,
+    "message": "Berhasil Di Tampilkan",
+    "status_code": 200,
+    "data": {
+        "role": [
+            {
+                "id": 1,
+                "name": "Lihat role"
+            },
+            {
+                "id": 2,
+                "name": "Buat role"
+            },
+            {
+                "id": 3,
+                "name": "Ubah role"
+            },
+            {
+                "id": 4,
+                "name": "Hapus role"
+            },
+            {
+                "id": 5,
+                "name": "Ubah role permissions"
+            }
+        ],
+        "user": [
+            {
+                "id": 6,
+                "name": "Lihat user"
+            },
+            {
+                "id": 7,
+                "name": "Buat user"
+            },
+            {
+                "id": 8,
+                "name": "Ubah user"
+            },
+            {
+                "id": 9,
+                "name": "Hapus user"
+            },
+            {
+                "id": 10,
+                "name": "Ubah user role"
+            }
+        ],
+        "company": [
+            {
+                "id": 11,
+                "name": "Lihat perusahaan"
+            },
+            {
+                "id": 12,
+                "name": "Buat perusahaan"
+            },
+            {
+                "id": 13,
+                "name": "Ubah perusahaan"
+            },
+            {
+                "id": 14,
+                "name": "Hapus perusahaan"
+            }
+        ],
+        "certificate_assessment": [
+            {
+                "id": 15,
+                "name": "Lihat pengajuan"
+            },
+            {
+                "id": 16,
+                "name": "Nilai pengajuan"
+            },
+            {
+                "id": 17,
+                "name": "Disposisi pengajuan"
+            },
+            {
+                "id": 18,
+                "name": "Verifikasi penilaian"
+            }
+        ],
+        "assessment_interview": [
+            {
+                "id": 19,
+                "name": "Lihat jadwal interview"
+            },
+            {
+                "id": 20,
+                "name": "Buat jadwal interview"
+            },
+            {
+                "id": 21,
+                "name": "Ubah jadwal interview"
+            },
+            {
+                "id": 22,
+                "name": "Hapus jadwal interview"
+            },
+            {
+                "id": 23,
+                "name": "Buat berita acara interview"
+            }
+        ],
+        "report": [
+            {
+                "id": 24,
+                "name": "Lihat laporan"
+            },
+            {
+                "id": 25,
+                "name": "Nilai laporan"
+            }
+        ],
+        "masterdata_province": [
+            {
+                "id": 26,
+                "name": "Lihat provinsi"
+            },
+            {
+                "id": 27,
+                "name": "Buat provinsi"
+            },
+            {
+                "id": 28,
+                "name": "Ubah provinsi"
+            },
+            {
+                "id": 29,
+                "name": "Hapus provinsi"
+            }
+        ],
+        "masterdata_city": [
+            {
+                "id": 30,
+                "name": "Lihat kota"
+            },
+            {
+                "id": 31,
+                "name": "Buat kota"
+            },
+            {
+                "id": 32,
+                "name": "Ubah kota"
+            },
+            {
+                "id": 33,
+                "name": "Hapus kota"
+            }
+        ],
+        "masterdata_terminal": [
+            {
+                "id": 34,
+                "name": "Lihat terminal"
+            },
+            {
+                "id": 35,
+                "name": "Buat terminal"
+            },
+            {
+                "id": 36,
+                "name": "Ubah terminal"
+            },
+            {
+                "id": 37,
+                "name": "Hapus terminal"
+            }
+        ],
+        "masterdata_work_unit": [
+            {
+                "id": 38,
+                "name": "Lihat satuan kerja"
+            },
+            {
+                "id": 39,
+                "name": "Buat satuan kerja"
+            },
+            {
+                "id": 40,
+                "name": "Ubah satuan kerja"
+            },
+            {
+                "id": 41,
+                "name": "Hapus satuan kerja"
+            }
+        ]
+    }
+}

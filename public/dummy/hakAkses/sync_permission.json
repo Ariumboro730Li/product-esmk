@@ -1,0 +1,141 @@
+{
+    "message": "Berhasil",
+    "status_code": 200,
+    "data": {
+        "id": 2,
+        "name": "Admin",
+        "is_active": 1,
+        "guard_name": "employee",
+        "created_at": "2023-11-30T02:40:38.000000Z",
+        "updated_at": "2023-11-30T02:40:38.000000Z",
+        "deleted_at": null,
+        "permissions": [
+            {
+                "id": 2,
+                "name": "Buat role",
+                "group": "role",
+                "is_active": 1,
+                "guard_name": "employee",
+                "created_at": "2023-11-30T02:40:37.000000Z",
+                "updated_at": "2023-11-30T02:40:37.000000Z",
+                "deleted_at": null,
+                "pivot": {
+                    "role_id": 2,
+                    "permission_id": 2
+                }
+            },
+            {
+                "id": 6,
+                "name": "Lihat user",
+                "group": "user",
+                "is_active": 1,
+                "guard_name": "employee",
+                "created_at": "2023-11-30T02:40:37.000000Z",
+                "updated_at": "2023-11-30T02:40:37.000000Z",
+                "deleted_at": null,
+                "pivot": {
+                    "role_id": 2,
+                    "permission_id": 6
+                }
+            },
+            {
+                "id": 11,
+                "name": "Lihat perusahaan",
+                "group": "company",
+                "is_active": 1,
+                "guard_name": "employee",
+                "created_at": "2023-11-30T02:40:37.000000Z",
+                "updated_at": "2023-11-30T02:40:37.000000Z",
+                "deleted_at": null,
+                "pivot": {
+                    "role_id": 2,
+                    "permission_id": 11
+                }
+            },
+            {
+                "id": 12,
+                "name": "Buat perusahaan",
+                "group": "company",
+                "is_active": 1,
+                "guard_name": "employee",
+                "created_at": "2023-11-30T02:40:37.000000Z",
+                "updated_at": "2023-11-30T02:40:37.000000Z",
+                "deleted_at": null,
+                "pivot": {
+                    "role_id": 2,
+                    "permission_id": 12
+                }
+            },
+            {
+                "id": 13,
+                "name": "Ubah perusahaan",
+                "group": "company",
+                "is_active": 1,
+                "guard_name": "employee",
+                "created_at": "2023-11-30T02:40:37.000000Z",
+                "updated_at": "2023-11-30T02:40:37.000000Z",
+                "deleted_at": null,
+                "pivot": {
+                    "role_id": 2,
+                    "permission_id": 13
+                }
+            },
+            {
+                "id": 14,
+                "name": "Hapus perusahaan",
+                "group": "company",
+                "is_active": 1,
+                "guard_name": "employee",
+                "created_at": "2023-11-30T02:40:37.000000Z",
+                "updated_at": "2023-11-30T02:40:37.000000Z",
+                "deleted_at": null,
+                "pivot": {
+                    "role_id": 2,
+                    "permission_id": 14
+                }
+            },
+            {
+                "id": 15,
+                "name": "Lihat pengajuan",
+                "group": "certificate_assessment",
+                "is_active": 1,
+                "guard_name": "employee",
+                "created_at": "2023-11-30T02:40:37.000000Z",
+                "updated_at": "2023-11-30T02:40:37.000000Z",
+                "deleted_at": null,
+                "pivot": {
+                    "role_id": 2,
+                    "permission_id": 15
+                }
+            },
+            {
+                "id": 19,
+                "name": "Lihat jadwal interview",
+                "group": "assessment_interview",
+                "is_active": 1,
+                "guard_name": "employee",
+                "created_at": "2023-11-30T02:40:37.000000Z",
+                "updated_at": "2023-11-30T02:40:37.000000Z",
+                "deleted_at": null,
+                "pivot": {
+                    "role_id": 2,
+                    "permission_id": 19
+                }
+            },
+            {
+                "id": 24,
+                "name": "Lihat laporan",
+                "group": "report",
+                "is_active": 1,
+                "guard_name": "employee",
+                "created_at": "2023-11-30T02:40:37.000000Z",
+                "updated_at": "2023-11-30T02:40:37.000000Z",
+                "deleted_at": null,
+                "pivot": {
+                    "role_id": 2,
+                    "permission_id": 24
+                }
+            }
+        ]
+    }
+}

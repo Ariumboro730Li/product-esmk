@@ -1,0 +1,19 @@
+{
+    "error": false,
+    "message": "Berhasil Di Tampilkan",
+    "status_code": 200,
+    "data": {
+        "apps_name": "SMK-PAU",
+        "apps_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in dapibus neque. Duis diam odio, bibendum a nulla sed, aliquam accumsan arcu. Duis et nunc aliquam, suscipit nibh commodo, laoreet felis. Ut iaculis varius eleifend. In tempor leo justo, et cursus risus elementum vel. Sed at sem ornare, egestas lacus id, congue enim. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "favicon_logo": "",
+        "apps_logo": "",
+        "helpdesk_mail": "mail@mail.com",
+        "helpdesk_whatsapp": "089912312123",
+        "province_id": 31,
+        "province_name": "Jawa Barat",
+        "city_id": 3111,
+        "city_name": "Indramayu",
+        "post_code": 45381,
+        "address": "Jl. Lohbener Lama No.08, Legok, Kec. Lohbener, Kabupaten Indramayu, Jawa Barat 45252"
+    }
+}

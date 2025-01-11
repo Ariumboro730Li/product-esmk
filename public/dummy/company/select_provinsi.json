@@ -1,0 +1,4378 @@
+{
+    "error": false,
+    "message": "Successfully",
+    "status_code": 200,
+    "data": [
+        {
+            "id": 11,
+            "name": "Aceh",
+            "administrative_code": "11",
+            "cities": [
+                {
+                    "id": 1101,
+                    "province_id": 11,
+                    "name": "Kab. Simeulue",
+                    "administrative_code": "11.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1102,
+                    "province_id": 11,
+                    "name": "Kab. Aceh Singkil",
+                    "administrative_code": "11.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1103,
+                    "province_id": 11,
+                    "name": "Kab. Aceh Selatan",
+                    "administrative_code": "11.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1104,
+                    "province_id": 11,
+                    "name": "Kab. Aceh Tenggara",
+                    "administrative_code": "11.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1105,
+                    "province_id": 11,
+                    "name": "Kab. Aceh Timur",
+                    "administrative_code": "11.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1106,
+                    "province_id": 11,
+                    "name": "Kab. Aceh Tengah",
+                    "administrative_code": "11.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1107,
+                    "province_id": 11,
+                    "name": "Kab. Aceh Barat",
+                    "administrative_code": "11.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1108,
+                    "province_id": 11,
+                    "name": "Kab. Aceh Besar",
+                    "administrative_code": "11.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1109,
+                    "province_id": 11,
+                    "name": "Kab. Pidie",
+                    "administrative_code": "11.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1110,
+                    "province_id": 11,
+                    "name": "Kab. Bireuen",
+                    "administrative_code": "11.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1111,
+                    "province_id": 11,
+                    "name": "Kab. Aceh Utara",
+                    "administrative_code": "11.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1112,
+                    "province_id": 11,
+                    "name": "Kab. Aceh Barat Daya",
+                    "administrative_code": "11.12",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1113,
+                    "province_id": 11,
+                    "name": "Kab. Gayo Lues",
+                    "administrative_code": "11.13",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1114,
+                    "province_id": 11,
+                    "name": "Kab. Aceh Tamiang",
+                    "administrative_code": "11.16",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1115,
+                    "province_id": 11,
+                    "name": "Kab. Nagan Raya",
+                    "administrative_code": "11.15",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1116,
+                    "province_id": 11,
+                    "name": "Kab. Aceh Jaya",
+                    "administrative_code": "11.14",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1117,
+                    "province_id": 11,
+                    "name": "Kab. Bener Meriah",
+                    "administrative_code": "11.17",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1118,
+                    "province_id": 11,
+                    "name": "Kab. Pidie Jaya",
+                    "administrative_code": "11.18",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1171,
+                    "province_id": 11,
+                    "name": "Kota Banda Aceh",
+                    "administrative_code": "11.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1172,
+                    "province_id": 11,
+                    "name": "Kota Sabang",
+                    "administrative_code": "11.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1173,
+                    "province_id": 11,
+                    "name": "Kota Langsa",
+                    "administrative_code": "11.74",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1174,
+                    "province_id": 11,
+                    "name": "Kota Lhokseumawe",
+                    "administrative_code": "11.73",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1175,
+                    "province_id": 11,
+                    "name": "Kota Subulussalam",
+                    "administrative_code": "11.75",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "name": "Sumatera Utara",
+            "administrative_code": "12",
+            "cities": [
+                {
+                    "id": 1201,
+                    "province_id": 12,
+                    "name": "Kab. Nias",
+                    "administrative_code": "12.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1202,
+                    "province_id": 12,
+                    "name": "Kab. Mandailing Natal",
+                    "administrative_code": "12.13",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1203,
+                    "province_id": 12,
+                    "name": "Kab. Tapanuli Selatan",
+                    "administrative_code": "12.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1204,
+                    "province_id": 12,
+                    "name": "Kab. Tapanuli Tengah",
+                    "administrative_code": "12.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1205,
+                    "province_id": 12,
+                    "name": "Kab. Tapanuli Utara",
+                    "administrative_code": "12.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1206,
+                    "province_id": 12,
+                    "name": "Kab. Toba Samosir",
+                    "administrative_code": "12.12",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1207,
+                    "province_id": 12,
+                    "name": "Kab. Labuhanbatu",
+                    "administrative_code": "12.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1208,
+                    "province_id": 12,
+                    "name": "Kab. Asahan",
+                    "administrative_code": "12.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1209,
+                    "province_id": 12,
+                    "name": "Kab. Simalungun",
+                    "administrative_code": "12.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1210,
+                    "province_id": 12,
+                    "name": "Kab. Dairi",
+                    "administrative_code": "12.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1211,
+                    "province_id": 12,
+                    "name": "Kab. Karo",
+                    "administrative_code": "12.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1212,
+                    "province_id": 12,
+                    "name": "Kab. Deli Serdang",
+                    "administrative_code": "12.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1213,
+                    "province_id": 12,
+                    "name": "Kab. Langkat",
+                    "administrative_code": "12.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1214,
+                    "province_id": 12,
+                    "name": "Kab. Nias Selatan",
+                    "administrative_code": "12.14",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1215,
+                    "province_id": 12,
+                    "name": "Kab. Humbang Hasundutan",
+                    "administrative_code": "12.16",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1216,
+                    "province_id": 12,
+                    "name": "Kab. Pakpak Bharat",
+                    "administrative_code": "12.15",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1217,
+                    "province_id": 12,
+                    "name": "Kab. Samosir",
+                    "administrative_code": "12.17",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1218,
+                    "province_id": 12,
+                    "name": "Kab. Serdang Bedagai",
+                    "administrative_code": "12.18",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1219,
+                    "province_id": 12,
+                    "name": "Kab. Batu Bara",
+                    "administrative_code": "12.19",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1220,
+                    "province_id": 12,
+                    "name": "Kab. Padang Lawas Utara",
+                    "administrative_code": "12.2",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1221,
+                    "province_id": 12,
+                    "name": "Kab. Padang Lawas",
+                    "administrative_code": "12.21",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1222,
+                    "province_id": 12,
+                    "name": "Kab. Labuhanbatu Selatan",
+                    "administrative_code": "12.22",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1223,
+                    "province_id": 12,
+                    "name": "Kab. Labuhanbatu Utara",
+                    "administrative_code": "12.23",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1224,
+                    "province_id": 12,
+                    "name": "Kab. Nias Utara",
+                    "administrative_code": "12.24",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1225,
+                    "province_id": 12,
+                    "name": "Kab. Nias Barat",
+                    "administrative_code": "12.25",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1271,
+                    "province_id": 12,
+                    "name": "Kota Sibolga",
+                    "administrative_code": "12.73",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1272,
+                    "province_id": 12,
+                    "name": "Kota Tanjung Balai",
+                    "administrative_code": "12.74",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1273,
+                    "province_id": 12,
+                    "name": "Kota Pematangsiantar",
+                    "administrative_code": "12.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1274,
+                    "province_id": 12,
+                    "name": "Kota Tebing Tinggi",
+                    "administrative_code": "12.76",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1275,
+                    "province_id": 12,
+                    "name": "Kota Medan",
+                    "administrative_code": "12.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1276,
+                    "province_id": 12,
+                    "name": "Kota Binjai",
+                    "administrative_code": "12.75",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1277,
+                    "province_id": 12,
+                    "name": "Kota Padang Sidempuan",
+                    "administrative_code": "12.77",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1278,
+                    "province_id": 12,
+                    "name": "Kota Gunungsitoli",
+                    "administrative_code": "12.78",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "name": "Sumatera Barat",
+            "administrative_code": "13",
+            "cities": [
+                {
+                    "id": 1301,
+                    "province_id": 13,
+                    "name": "Kab. Kepulauan Mentawai",
+                    "administrative_code": "13.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1302,
+                    "province_id": 13,
+                    "name": "Kab. Pesisir Selatan",
+                    "administrative_code": "13.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1303,
+                    "province_id": 13,
+                    "name": "Kab. Solok",
+                    "administrative_code": "13.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1304,
+                    "province_id": 13,
+                    "name": "Kab. Sijunjung",
+                    "administrative_code": "13.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1305,
+                    "province_id": 13,
+                    "name": "Kab. Tanah Datar",
+                    "administrative_code": "13.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1306,
+                    "province_id": 13,
+                    "name": "Kab. Padang Pariaman",
+                    "administrative_code": "13.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1307,
+                    "province_id": 13,
+                    "name": "Kab. Agam",
+                    "administrative_code": "13.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1308,
+                    "province_id": 13,
+                    "name": "Kab. Lima Puluh Kota",
+                    "administrative_code": "13.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1309,
+                    "province_id": 13,
+                    "name": "Kab. Pasaman",
+                    "administrative_code": "13.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1310,
+                    "province_id": 13,
+                    "name": "Kab. Solok Selatan",
+                    "administrative_code": "13.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1311,
+                    "province_id": 13,
+                    "name": "Kab. Dharmasraya",
+                    "administrative_code": "13.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1312,
+                    "province_id": 13,
+                    "name": "Kab. Pasaman Barat",
+                    "administrative_code": "13.12",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1371,
+                    "province_id": 13,
+                    "name": "Kota Padang",
+                    "administrative_code": "13.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1372,
+                    "province_id": 13,
+                    "name": "Kota Solok",
+                    "administrative_code": "13.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1373,
+                    "province_id": 13,
+                    "name": "Kota Sawahlunto",
+                    "administrative_code": "13.73",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1374,
+                    "province_id": 13,
+                    "name": "Kota Padang Panjang",
+                    "administrative_code": "13.74",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1375,
+                    "province_id": 13,
+                    "name": "Kota Bukittinggi",
+                    "administrative_code": "13.75",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1376,
+                    "province_id": 13,
+                    "name": "Kota Payakumbuh",
+                    "administrative_code": "13.76",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1377,
+                    "province_id": 13,
+                    "name": "Kota Pariaman",
+                    "administrative_code": "13.77",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "name": "Riau",
+            "administrative_code": "14",
+            "cities": [
+                {
+                    "id": 1401,
+                    "province_id": 14,
+                    "name": "Kab. Kuantan Singingi",
+                    "administrative_code": "14.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1402,
+                    "province_id": 14,
+                    "name": "Kab. Indragiri Hulu",
+                    "administrative_code": "14.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1403,
+                    "province_id": 14,
+                    "name": "Kab. Indragiri Hilir",
+                    "administrative_code": "14.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1404,
+                    "province_id": 14,
+                    "name": "Kab. Pelalawan",
+                    "administrative_code": "14.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1405,
+                    "province_id": 14,
+                    "name": "Kab. Siak",
+                    "administrative_code": "14.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1406,
+                    "province_id": 14,
+                    "name": "Kab. Kampar",
+                    "administrative_code": "14.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1407,
+                    "province_id": 14,
+                    "name": "Kab. Rokan Hulu",
+                    "administrative_code": "14.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1408,
+                    "province_id": 14,
+                    "name": "Kab. Bengkalis",
+                    "administrative_code": "14.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1409,
+                    "province_id": 14,
+                    "name": "Kab. Rokan Hilir",
+                    "administrative_code": "14.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1410,
+                    "province_id": 14,
+                    "name": "Kab. Kepulauan Meranti",
+                    "administrative_code": "14.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1471,
+                    "province_id": 14,
+                    "name": "Kota Pekanbaru",
+                    "administrative_code": "14.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1473,
+                    "province_id": 14,
+                    "name": "Kota Dumai",
+                    "administrative_code": "14.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "name": "Jambi",
+            "administrative_code": "15",
+            "cities": [
+                {
+                    "id": 1501,
+                    "province_id": 15,
+                    "name": "Kab. Kerinci",
+                    "administrative_code": "15.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1502,
+                    "province_id": 15,
+                    "name": "Kab. Merangin",
+                    "administrative_code": "15.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1503,
+                    "province_id": 15,
+                    "name": "Kab. Sarolangun",
+                    "administrative_code": "15.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1504,
+                    "province_id": 15,
+                    "name": "Kab. Batanghari",
+                    "administrative_code": "15.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1505,
+                    "province_id": 15,
+                    "name": "Kab. Muaro Jambi",
+                    "administrative_code": "15.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1506,
+                    "province_id": 15,
+                    "name": "Kab. Tanjung Jabung Timur",
+                    "administrative_code": "15.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1507,
+                    "province_id": 15,
+                    "name": "Kab. Tanjung Jabung Barat",
+                    "administrative_code": "15.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1508,
+                    "province_id": 15,
+                    "name": "Kab. Tebo",
+                    "administrative_code": "15.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1509,
+                    "province_id": 15,
+                    "name": "Kab. Bungo",
+                    "administrative_code": "15.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1571,
+                    "province_id": 15,
+                    "name": "Kota Jambi",
+                    "administrative_code": "15.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1572,
+                    "province_id": 15,
+                    "name": "Kota Sungai Penuh",
+                    "administrative_code": "15.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "name": "Sumatera Selatan",
+            "administrative_code": "16",
+            "cities": [
+                {
+                    "id": 1601,
+                    "province_id": 16,
+                    "name": "Kab. Ogan Komering Ulu",
+                    "administrative_code": "16.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1602,
+                    "province_id": 16,
+                    "name": "Kab. Ogan Komering Ilir",
+                    "administrative_code": "16.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1603,
+                    "province_id": 16,
+                    "name": "Kab. Muara Enim",
+                    "administrative_code": "16.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1604,
+                    "province_id": 16,
+                    "name": "Kab. Lahat",
+                    "administrative_code": "16.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1605,
+                    "province_id": 16,
+                    "name": "Kab. Musi Rawas",
+                    "administrative_code": "16.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1606,
+                    "province_id": 16,
+                    "name": "Kab. Musi Banyuasin",
+                    "administrative_code": "16.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1607,
+                    "province_id": 16,
+                    "name": "Kab. Banyuasin",
+                    "administrative_code": "16.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1608,
+                    "province_id": 16,
+                    "name": "Kab. Ogan Komering Ulu",
+                    "administrative_code": "16.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1609,
+                    "province_id": 16,
+                    "name": "Kab. Ogan Komering Ulu",
+                    "administrative_code": "16.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1610,
+                    "province_id": 16,
+                    "name": "Kab. Ogan Ilir",
+                    "administrative_code": "16.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1611,
+                    "province_id": 16,
+                    "name": "Kab. Empat Lawang",
+                    "administrative_code": "16.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1612,
+                    "province_id": 16,
+                    "name": "Kab. Penukal Abab Lematang",
+                    "administrative_code": "16.12",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1613,
+                    "province_id": 16,
+                    "name": "Kab. Musi Rawas Utara",
+                    "administrative_code": "16.13",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1671,
+                    "province_id": 16,
+                    "name": "Kota Palembang",
+                    "administrative_code": "16.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1672,
+                    "province_id": 16,
+                    "name": "Kota Prabumulih",
+                    "administrative_code": "16.74",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1673,
+                    "province_id": 16,
+                    "name": "Kota Pagar Alam",
+                    "administrative_code": "16.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1674,
+                    "province_id": 16,
+                    "name": "Kota Lubuk Linggau",
+                    "administrative_code": "16.73",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 17,
+            "name": "Bengkulu",
+            "administrative_code": "17",
+            "cities": [
+                {
+                    "id": 1701,
+                    "province_id": 17,
+                    "name": "Kab. Bengkulu Selatan",
+                    "administrative_code": "17.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1702,
+                    "province_id": 17,
+                    "name": "Kab. Rejang Lebong",
+                    "administrative_code": "17.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1703,
+                    "province_id": 17,
+                    "name": "Kab. Bengkulu Utara",
+                    "administrative_code": "17.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1704,
+                    "province_id": 17,
+                    "name": "Kab. Kaur",
+                    "administrative_code": "17.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1705,
+                    "province_id": 17,
+                    "name": "Kab. Seluma",
+                    "administrative_code": "17.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1706,
+                    "province_id": 17,
+                    "name": "Kab. Muko Muko",
+                    "administrative_code": "17.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1707,
+                    "province_id": 17,
+                    "name": "Kab. Lebong",
+                    "administrative_code": "17.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1708,
+                    "province_id": 17,
+                    "name": "Kab. Kepahiang",
+                    "administrative_code": "17.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1709,
+                    "province_id": 17,
+                    "name": "Kab. Bengkulu Tengah",
+                    "administrative_code": "17.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1771,
+                    "province_id": 17,
+                    "name": "Kota Bengkulu",
+                    "administrative_code": "17.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 18,
+            "name": "Lampung",
+            "administrative_code": "18",
+            "cities": [
+                {
+                    "id": 1801,
+                    "province_id": 18,
+                    "name": "Kab. Lampung Barat",
+                    "administrative_code": "18.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1802,
+                    "province_id": 18,
+                    "name": "Kab. Tanggamus",
+                    "administrative_code": "18.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1803,
+                    "province_id": 18,
+                    "name": "Kab. Lampung Selatan",
+                    "administrative_code": "18.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1804,
+                    "province_id": 18,
+                    "name": "Kab. Lampung Timur",
+                    "administrative_code": "18.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1805,
+                    "province_id": 18,
+                    "name": "Kab. Lampung Tengah",
+                    "administrative_code": "18.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1806,
+                    "province_id": 18,
+                    "name": "Kab. Lampung Utara",
+                    "administrative_code": "18.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1807,
+                    "province_id": 18,
+                    "name": "Kab. Way Kanan",
+                    "administrative_code": "18.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1808,
+                    "province_id": 18,
+                    "name": "Kab. Tulang Bawang",
+                    "administrative_code": "18.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1809,
+                    "province_id": 18,
+                    "name": "Kab. Pesawaran",
+                    "administrative_code": "18.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1810,
+                    "province_id": 18,
+                    "name": "Kab. Pringsewu",
+                    "administrative_code": "18.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1811,
+                    "province_id": 18,
+                    "name": "Kab. Mesuji",
+                    "administrative_code": "18.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1812,
+                    "province_id": 18,
+                    "name": "Kab. Tulang Bawang Barat",
+                    "administrative_code": "18.12",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1813,
+                    "province_id": 18,
+                    "name": "Kab. Pesisir Barat",
+                    "administrative_code": "18.13",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1871,
+                    "province_id": 18,
+                    "name": "Kota Bandar Lampung",
+                    "administrative_code": "18.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1872,
+                    "province_id": 18,
+                    "name": "Kota Metro",
+                    "administrative_code": "18.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 19,
+            "name": "Kepulauan Bangka Belitung",
+            "administrative_code": "19",
+            "cities": [
+                {
+                    "id": 1901,
+                    "province_id": 19,
+                    "name": "Kab. Bangka",
+                    "administrative_code": "19.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1902,
+                    "province_id": 19,
+                    "name": "Kab. Belitung",
+                    "administrative_code": "19.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1903,
+                    "province_id": 19,
+                    "name": "Kab. Bangka Barat",
+                    "administrative_code": "19.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1904,
+                    "province_id": 19,
+                    "name": "Kab. Bangka Tengah",
+                    "administrative_code": "19.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1905,
+                    "province_id": 19,
+                    "name": "Kab. Bangka Selatan",
+                    "administrative_code": "19.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1906,
+                    "province_id": 19,
+                    "name": "Kab. Belitung Timur",
+                    "administrative_code": "19.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 1971,
+                    "province_id": 19,
+                    "name": "Kota Pangkal Pinang",
+                    "administrative_code": "19.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 21,
+            "name": "Kepulauan Riau",
+            "administrative_code": "21",
+            "cities": [
+                {
+                    "id": 2101,
+                    "province_id": 21,
+                    "name": "Kab. Karimun",
+                    "administrative_code": "21.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 2102,
+                    "province_id": 21,
+                    "name": "Kab. Bintan",
+                    "administrative_code": "21.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 2103,
+                    "province_id": 21,
+                    "name": "Kab. Natuna",
+                    "administrative_code": "21.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 2104,
+                    "province_id": 21,
+                    "name": "Kab. Lingga",
+                    "administrative_code": "21.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 2105,
+                    "province_id": 21,
+                    "name": "Kab. Kepulauan Anambas",
+                    "administrative_code": "21.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 2171,
+                    "province_id": 21,
+                    "name": "Kota Batam",
+                    "administrative_code": "21.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 2172,
+                    "province_id": 21,
+                    "name": "Kota Tanjung Pinang",
+                    "administrative_code": "21.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 31,
+            "name": "DKI Jakarta",
+            "administrative_code": "31",
+            "cities": [
+                {
+                    "id": 3101,
+                    "province_id": 31,
+                    "name": "Kab. Adm. Kep. Seribu",
+                    "administrative_code": "31.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3171,
+                    "province_id": 31,
+                    "name": "Kota Adm. Jakarta Selatan",
+                    "administrative_code": "31.74",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3172,
+                    "province_id": 31,
+                    "name": "Kota Adm. Jakarta Timur",
+                    "administrative_code": "31.75",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3173,
+                    "province_id": 31,
+                    "name": "Kota Adm. Jakarta Pusat",
+                    "administrative_code": "31.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3174,
+                    "province_id": 31,
+                    "name": "Kota Adm. Jakarta Barat",
+                    "administrative_code": "31.73",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3175,
+                    "province_id": 31,
+                    "name": "Kota Adm. Jakarta Utara",
+                    "administrative_code": "31.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 32,
+            "name": "Jawa Barat",
+            "administrative_code": "32",
+            "cities": [
+                {
+                    "id": 3201,
+                    "province_id": 32,
+                    "name": "Kab. Bogor",
+                    "administrative_code": "32.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3202,
+                    "province_id": 32,
+                    "name": "Kab. Sukabumi",
+                    "administrative_code": "32.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3203,
+                    "province_id": 32,
+                    "name": "Kab. Cianjur",
+                    "administrative_code": "32.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3204,
+                    "province_id": 32,
+                    "name": "Kab. Bandung",
+                    "administrative_code": "32.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3205,
+                    "province_id": 32,
+                    "name": "Kab. Garut",
+                    "administrative_code": "32.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3206,
+                    "province_id": 32,
+                    "name": "Kab. Tasikmalaya",
+                    "administrative_code": "32.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3207,
+                    "province_id": 32,
+                    "name": "Kab. Ciamis",
+                    "administrative_code": "32.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3208,
+                    "province_id": 32,
+                    "name": "Kab. Kuningan",
+                    "administrative_code": "32.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3209,
+                    "province_id": 32,
+                    "name": "Kab. Cirebon",
+                    "administrative_code": "32.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3210,
+                    "province_id": 32,
+                    "name": "Kab. Majalengka",
+                    "administrative_code": "32.1",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3211,
+                    "province_id": 32,
+                    "name": "Kab. Sumedang",
+                    "administrative_code": "32.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3212,
+                    "province_id": 32,
+                    "name": "Kab. Indramayu",
+                    "administrative_code": "32.12",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3213,
+                    "province_id": 32,
+                    "name": "Kab. Subang",
+                    "administrative_code": "32.13",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3214,
+                    "province_id": 32,
+                    "name": "Kab. Purwakarta",
+                    "administrative_code": "32.14",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3215,
+                    "province_id": 32,
+                    "name": "Kab. Karawang",
+                    "administrative_code": "32.15",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3216,
+                    "province_id": 32,
+                    "name": "Kab. Bekasi",
+                    "administrative_code": "32.16",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3217,
+                    "province_id": 32,
+                    "name": "Kab. Bandung Barat",
+                    "administrative_code": "32.17",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3218,
+                    "province_id": 32,
+                    "name": "Kab. Pangandaran",
+                    "administrative_code": "32.18",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3271,
+                    "province_id": 32,
+                    "name": "Kota Bogor",
+                    "administrative_code": "32.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3272,
+                    "province_id": 32,
+                    "name": "Kota Sukabumi",
+                    "administrative_code": "32.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3273,
+                    "province_id": 32,
+                    "name": "Kota Bandung",
+                    "administrative_code": "32.73",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3274,
+                    "province_id": 32,
+                    "name": "Kota Cirebon",
+                    "administrative_code": "32.74",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3275,
+                    "province_id": 32,
+                    "name": "Kota Bekasi",
+                    "administrative_code": "32.75",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3276,
+                    "province_id": 32,
+                    "name": "Kota Depok",
+                    "administrative_code": "32.76",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3277,
+                    "province_id": 32,
+                    "name": "Kota Cimahi",
+                    "administrative_code": "32.77",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3278,
+                    "province_id": 32,
+                    "name": "Kota Tasikmalaya",
+                    "administrative_code": "32.78",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3279,
+                    "province_id": 32,
+                    "name": "Kota Banjar",
+                    "administrative_code": "32.79",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 33,
+            "name": "Jawa Tengah",
+            "administrative_code": "33",
+            "cities": [
+                {
+                    "id": 3301,
+                    "province_id": 33,
+                    "name": "Kab. Cilacap",
+                    "administrative_code": "33.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3302,
+                    "province_id": 33,
+                    "name": "Kab. Banyumas",
+                    "administrative_code": "33.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3303,
+                    "province_id": 33,
+                    "name": "Kab. Purbalingga",
+                    "administrative_code": "33.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3304,
+                    "province_id": 33,
+                    "name": "Kab. Banjarnegara",
+                    "administrative_code": "33.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3305,
+                    "province_id": 33,
+                    "name": "Kab. Kebumen",
+                    "administrative_code": "33.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3306,
+                    "province_id": 33,
+                    "name": "Kab. Purworejo",
+                    "administrative_code": "33.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3307,
+                    "province_id": 33,
+                    "name": "Kab. Wonosobo",
+                    "administrative_code": "33.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3308,
+                    "province_id": 33,
+                    "name": "Kab. Magelang",
+                    "administrative_code": "33.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3309,
+                    "province_id": 33,
+                    "name": "Kab. Boyolali",
+                    "administrative_code": "33.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3310,
+                    "province_id": 33,
+                    "name": "Kab. Klaten",
+                    "administrative_code": "33.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3311,
+                    "province_id": 33,
+                    "name": "Kab. Sukoharjo",
+                    "administrative_code": "33.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3312,
+                    "province_id": 33,
+                    "name": "Kab. Wonogiri",
+                    "administrative_code": "33.12",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3313,
+                    "province_id": 33,
+                    "name": "Kab. Karanganyar",
+                    "administrative_code": "33.13",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3314,
+                    "province_id": 33,
+                    "name": "Kab. Sragen",
+                    "administrative_code": "33.14",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3315,
+                    "province_id": 33,
+                    "name": "Kab. Grobogan",
+                    "administrative_code": "33.15",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3316,
+                    "province_id": 33,
+                    "name": "Kab. Blora",
+                    "administrative_code": "33.16",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3317,
+                    "province_id": 33,
+                    "name": "Kab. Rembang",
+                    "administrative_code": "33.17",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3318,
+                    "province_id": 33,
+                    "name": "Kab. Pati",
+                    "administrative_code": "33.18",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3319,
+                    "province_id": 33,
+                    "name": "Kab. Kudus",
+                    "administrative_code": "33.19",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3320,
+                    "province_id": 33,
+                    "name": "Kab. Jepara",
+                    "administrative_code": "33.2",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3321,
+                    "province_id": 33,
+                    "name": "Kab. Demak",
+                    "administrative_code": "33.21",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3322,
+                    "province_id": 33,
+                    "name": "Kab. Semarang",
+                    "administrative_code": "33.22",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3323,
+                    "province_id": 33,
+                    "name": "Kab. Temanggung",
+                    "administrative_code": "33.23",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3324,
+                    "province_id": 33,
+                    "name": "Kab. Kendal",
+                    "administrative_code": "33.24",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3325,
+                    "province_id": 33,
+                    "name": "Kab. Batang",
+                    "administrative_code": "33.25",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3326,
+                    "province_id": 33,
+                    "name": "Kab. Pekalongan",
+                    "administrative_code": "33.26",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3327,
+                    "province_id": 33,
+                    "name": "Kab. Pemalang",
+                    "administrative_code": "33.27",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3328,
+                    "province_id": 33,
+                    "name": "Kab. Tegal",
+                    "administrative_code": "33.28",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3329,
+                    "province_id": 33,
+                    "name": "Kab. Brebes",
+                    "administrative_code": "33.29",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3371,
+                    "province_id": 33,
+                    "name": "Kota Magelang",
+                    "administrative_code": "33.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3372,
+                    "province_id": 33,
+                    "name": "Kota Surakarta",
+                    "administrative_code": "33.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3373,
+                    "province_id": 33,
+                    "name": "Kota Salatiga",
+                    "administrative_code": "33.73",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3374,
+                    "province_id": 33,
+                    "name": "Kota Semarang",
+                    "administrative_code": "33.74",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3375,
+                    "province_id": 33,
+                    "name": "Kota Pekalongan",
+                    "administrative_code": "33.75",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3376,
+                    "province_id": 33,
+                    "name": "Kota Tegal",
+                    "administrative_code": "33.76",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 34,
+            "name": "DI Yogyakarta",
+            "administrative_code": "34",
+            "cities": [
+                {
+                    "id": 3401,
+                    "province_id": 34,
+                    "name": "Kab. Kulon Progo",
+                    "administrative_code": "34.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3402,
+                    "province_id": 34,
+                    "name": "Kab. Bantul",
+                    "administrative_code": "34.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3403,
+                    "province_id": 34,
+                    "name": "Kab. Gunungkidul",
+                    "administrative_code": "34.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3404,
+                    "province_id": 34,
+                    "name": "Kab. Sleman",
+                    "administrative_code": "34.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3471,
+                    "province_id": 34,
+                    "name": "Kota Yogyakarta",
+                    "administrative_code": "34.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 35,
+            "name": "Jawa Timur",
+            "administrative_code": "35",
+            "cities": [
+                {
+                    "id": 3501,
+                    "province_id": 35,
+                    "name": "Kab. Pacitan",
+                    "administrative_code": "35.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3502,
+                    "province_id": 35,
+                    "name": "Kab. Ponorogo",
+                    "administrative_code": "35.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3503,
+                    "province_id": 35,
+                    "name": "Kab. Trenggalek",
+                    "administrative_code": "35.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3504,
+                    "province_id": 35,
+                    "name": "Kab. Tulungagung",
+                    "administrative_code": "35.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3505,
+                    "province_id": 35,
+                    "name": "Kab. Blitar",
+                    "administrative_code": "35.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3506,
+                    "province_id": 35,
+                    "name": "Kab. Kediri",
+                    "administrative_code": "35.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3507,
+                    "province_id": 35,
+                    "name": "Kab. Malang",
+                    "administrative_code": "35.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3508,
+                    "province_id": 35,
+                    "name": "Kab. Lumajang",
+                    "administrative_code": "35.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3509,
+                    "province_id": 35,
+                    "name": "Kab. Jember",
+                    "administrative_code": "35.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3510,
+                    "province_id": 35,
+                    "name": "Kab. Banyuwangi",
+                    "administrative_code": "35.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3511,
+                    "province_id": 35,
+                    "name": "Kab. Bondowoso",
+                    "administrative_code": "35.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3512,
+                    "province_id": 35,
+                    "name": "Kab. Situbondo",
+                    "administrative_code": "35.12",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3513,
+                    "province_id": 35,
+                    "name": "Kab. Probolinggo",
+                    "administrative_code": "35.13",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3514,
+                    "province_id": 35,
+                    "name": "Kab. Pasuruan",
+                    "administrative_code": "35.14",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3515,
+                    "province_id": 35,
+                    "name": "Kab. Sidoarjo",
+                    "administrative_code": "35.15",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3516,
+                    "province_id": 35,
+                    "name": "Kab. Mojokerto",
+                    "administrative_code": "35.16",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3517,
+                    "province_id": 35,
+                    "name": "Kab. Jombang",
+                    "administrative_code": "35.17",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3518,
+                    "province_id": 35,
+                    "name": "Kab. Nganjuk",
+                    "administrative_code": "35.18",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3519,
+                    "province_id": 35,
+                    "name": "Kab. Madiun",
+                    "administrative_code": "35.19",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3520,
+                    "province_id": 35,
+                    "name": "Kab. Magetan",
+                    "administrative_code": "35.20",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3521,
+                    "province_id": 35,
+                    "name": "Kab. Ngawi",
+                    "administrative_code": "35.21",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3522,
+                    "province_id": 35,
+                    "name": "Kab. Bojonegoro",
+                    "administrative_code": "35.22",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3523,
+                    "province_id": 35,
+                    "name": "Kab. Tuban",
+                    "administrative_code": "35.23",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3524,
+                    "province_id": 35,
+                    "name": "Kab. Lamongan",
+                    "administrative_code": "35.24",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3525,
+                    "province_id": 35,
+                    "name": "Kab. Gresik",
+                    "administrative_code": "35.25",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3526,
+                    "province_id": 35,
+                    "name": "Kab. Bangkalan",
+                    "administrative_code": "35.26",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3527,
+                    "province_id": 35,
+                    "name": "Kab. Sampang",
+                    "administrative_code": "35.27",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3528,
+                    "province_id": 35,
+                    "name": "Kab. Pamekasan",
+                    "administrative_code": "35.28",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3529,
+                    "province_id": 35,
+                    "name": "Kab. Sumenep",
+                    "administrative_code": "35.29",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3571,
+                    "province_id": 35,
+                    "name": "Kota Kediri",
+                    "administrative_code": "35.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3572,
+                    "province_id": 35,
+                    "name": "Kota Blitar",
+                    "administrative_code": "35.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3573,
+                    "province_id": 35,
+                    "name": "Kota Malang",
+                    "administrative_code": "35.73",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3574,
+                    "province_id": 35,
+                    "name": "Kota Probolinggo",
+                    "administrative_code": "35.74",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3575,
+                    "province_id": 35,
+                    "name": "Kota Pasuruan",
+                    "administrative_code": "35.75",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3576,
+                    "province_id": 35,
+                    "name": "Kota Mojokerto",
+                    "administrative_code": "35.76",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3577,
+                    "province_id": 35,
+                    "name": "Kota Madiun",
+                    "administrative_code": "35.77",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3578,
+                    "province_id": 35,
+                    "name": "Kota Surabaya",
+                    "administrative_code": "35.78",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3579,
+                    "province_id": 35,
+                    "name": "Kota Batu",
+                    "administrative_code": "35.79",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 36,
+            "name": "Banten",
+            "administrative_code": "36",
+            "cities": [
+                {
+                    "id": 3601,
+                    "province_id": 36,
+                    "name": "Kab. Pandeglang",
+                    "administrative_code": "36.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3602,
+                    "province_id": 36,
+                    "name": "Kab. Lebak",
+                    "administrative_code": "36.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3603,
+                    "province_id": 36,
+                    "name": "Kab. Tangerang",
+                    "administrative_code": "36.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3604,
+                    "province_id": 36,
+                    "name": "Kab. Serang",
+                    "administrative_code": "36.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3671,
+                    "province_id": 36,
+                    "name": "Kota Tangerang",
+                    "administrative_code": "36.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3672,
+                    "province_id": 36,
+                    "name": "Kota Cilegon",
+                    "administrative_code": "36.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3673,
+                    "province_id": 36,
+                    "name": "Kota Serang",
+                    "administrative_code": "36.73",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 3674,
+                    "province_id": 36,
+                    "name": "Kota Tangerang Selatan",
+                    "administrative_code": "36.74",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 51,
+            "name": "Bali",
+            "administrative_code": "51",
+            "cities": [
+                {
+                    "id": 5101,
+                    "province_id": 51,
+                    "name": "Kab. Jembrana",
+                    "administrative_code": "51.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5102,
+                    "province_id": 51,
+                    "name": "Kab. Tabanan",
+                    "administrative_code": "51.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5103,
+                    "province_id": 51,
+                    "name": "Kab. Badung",
+                    "administrative_code": "51.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5104,
+                    "province_id": 51,
+                    "name": "Kab. Gianyar",
+                    "administrative_code": "51.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5105,
+                    "province_id": 51,
+                    "name": "Kab. Klungkung",
+                    "administrative_code": "51.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5106,
+                    "province_id": 51,
+                    "name": "Kab. Bangli",
+                    "administrative_code": "51.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5107,
+                    "province_id": 51,
+                    "name": "Kab. Karangasem",
+                    "administrative_code": "51.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5108,
+                    "province_id": 51,
+                    "name": "Kab. Buleleng",
+                    "administrative_code": "51.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5171,
+                    "province_id": 51,
+                    "name": "Kota Denpasar",
+                    "administrative_code": "51.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 52,
+            "name": "Nusa Tenggara Barat",
+            "administrative_code": "52",
+            "cities": [
+                {
+                    "id": 5201,
+                    "province_id": 52,
+                    "name": "Kab. Lombok Barat",
+                    "administrative_code": "52.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5202,
+                    "province_id": 52,
+                    "name": "Kab. Lombok Tengah",
+                    "administrative_code": "52.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5203,
+                    "province_id": 52,
+                    "name": "Kab. Lombok Timur",
+                    "administrative_code": "52.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5204,
+                    "province_id": 52,
+                    "name": "Kab. Sumbawa",
+                    "administrative_code": "52.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5205,
+                    "province_id": 52,
+                    "name": "Kab. Dompu",
+                    "administrative_code": "52.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5206,
+                    "province_id": 52,
+                    "name": "Kab. Bima",
+                    "administrative_code": "52.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5207,
+                    "province_id": 52,
+                    "name": "Kab. Sumbawa Barat",
+                    "administrative_code": "52.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5208,
+                    "province_id": 52,
+                    "name": "Kab. Lombok Utara",
+                    "administrative_code": "52.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5271,
+                    "province_id": 52,
+                    "name": "Kota Mataram",
+                    "administrative_code": "52.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5272,
+                    "province_id": 52,
+                    "name": "Kota Bima",
+                    "administrative_code": "52.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 53,
+            "name": "Nusa Tenggara Timur",
+            "administrative_code": "53",
+            "cities": [
+                {
+                    "id": 5301,
+                    "province_id": 53,
+                    "name": "Kab. Sumba Barat",
+                    "administrative_code": "53.12",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5302,
+                    "province_id": 53,
+                    "name": "Kab. Sumba Timur",
+                    "administrative_code": "53.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5303,
+                    "province_id": 53,
+                    "name": "Kab. Kupang",
+                    "administrative_code": "53.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5304,
+                    "province_id": 53,
+                    "name": "Kab Timor Tengah Selatan",
+                    "administrative_code": "53.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5305,
+                    "province_id": 53,
+                    "name": "Kab. Timor Tengah Utara",
+                    "administrative_code": "53.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5306,
+                    "province_id": 53,
+                    "name": "Kab. Belu",
+                    "administrative_code": "53.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5307,
+                    "province_id": 53,
+                    "name": "Kab. Alor",
+                    "administrative_code": "53.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5308,
+                    "province_id": 53,
+                    "name": "Kab. Lembata",
+                    "administrative_code": "53.13",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5309,
+                    "province_id": 53,
+                    "name": "Kab. Flores Timur",
+                    "administrative_code": "53.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5310,
+                    "province_id": 53,
+                    "name": "Kab. Sikka",
+                    "administrative_code": "53.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5311,
+                    "province_id": 53,
+                    "name": "Kab. Ende",
+                    "administrative_code": "53.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5312,
+                    "province_id": 53,
+                    "name": "Kab. Ngada",
+                    "administrative_code": "53.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5313,
+                    "province_id": 53,
+                    "name": "Kab. Manggarai",
+                    "administrative_code": "53.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5314,
+                    "province_id": 53,
+                    "name": "Kab. Rote Ndao",
+                    "administrative_code": "53.14",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5315,
+                    "province_id": 53,
+                    "name": "Kab. Manggarai Barat",
+                    "administrative_code": "53.15",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5316,
+                    "province_id": 53,
+                    "name": "Kab. Sumba Tengah",
+                    "administrative_code": "53.17",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5317,
+                    "province_id": 53,
+                    "name": "Kab. Sumba Barat Daya",
+                    "administrative_code": "53.18",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5318,
+                    "province_id": 53,
+                    "name": "Kab. Nagekeo",
+                    "administrative_code": "53.16",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5319,
+                    "province_id": 53,
+                    "name": "Kab. Manggarai Timur",
+                    "administrative_code": "53.19",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5320,
+                    "province_id": 53,
+                    "name": "Kab. Sabu Raijua",
+                    "administrative_code": "53.20",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5321,
+                    "province_id": 53,
+                    "name": "Kab. Malaka",
+                    "administrative_code": "53.21",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 5371,
+                    "province_id": 53,
+                    "name": "Kota Kupang",
+                    "administrative_code": "53.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 61,
+            "name": "Kalimantan Barat",
+            "administrative_code": "61",
+            "cities": [
+                {
+                    "id": 6101,
+                    "province_id": 61,
+                    "name": "Kab. Sambas",
+                    "administrative_code": "61.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6102,
+                    "province_id": 61,
+                    "name": "Kab. Bengkayang",
+                    "administrative_code": "61.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6103,
+                    "province_id": 61,
+                    "name": "Kab. Landak",
+                    "administrative_code": "61.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6104,
+                    "province_id": 61,
+                    "name": "Kab. Mempawah",
+                    "administrative_code": "61.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6105,
+                    "province_id": 61,
+                    "name": "Kab. Sanggau",
+                    "administrative_code": "61.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6106,
+                    "province_id": 61,
+                    "name": "Kab. Ketapang",
+                    "administrative_code": "61.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6107,
+                    "province_id": 61,
+                    "name": "Kab. Sintang",
+                    "administrative_code": "61.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6108,
+                    "province_id": 61,
+                    "name": "Kab. Kapuas Hulu",
+                    "administrative_code": "61.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6109,
+                    "province_id": 61,
+                    "name": "Kab. Sekadau",
+                    "administrative_code": "61.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6110,
+                    "province_id": 61,
+                    "name": "Kab. Melawi",
+                    "administrative_code": "61.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6111,
+                    "province_id": 61,
+                    "name": "Kab. Kayong Utara",
+                    "administrative_code": "61.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6112,
+                    "province_id": 61,
+                    "name": "Kab. Kubu Raya",
+                    "administrative_code": "61.12",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6171,
+                    "province_id": 61,
+                    "name": "Kota Pontianak",
+                    "administrative_code": "61.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6172,
+                    "province_id": 61,
+                    "name": "Kota Singkawang",
+                    "administrative_code": "61.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 62,
+            "name": "Kalimantan Tengah",
+            "administrative_code": "62",
+            "cities": [
+                {
+                    "id": 6201,
+                    "province_id": 62,
+                    "name": "Kab. Kotawaringin Barat",
+                    "administrative_code": "62.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6202,
+                    "province_id": 62,
+                    "name": "Kab. Kotawaringin Timur",
+                    "administrative_code": "62.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6203,
+                    "province_id": 62,
+                    "name": "Kab. Kapuas",
+                    "administrative_code": "62.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6204,
+                    "province_id": 62,
+                    "name": "Kab. Barito Selatan",
+                    "administrative_code": "62.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6205,
+                    "province_id": 62,
+                    "name": "Kab. Barito Utara",
+                    "administrative_code": "62.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6206,
+                    "province_id": 62,
+                    "name": "Kab. Sukamara",
+                    "administrative_code": "62.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6207,
+                    "province_id": 62,
+                    "name": "Kab. Lamandau",
+                    "administrative_code": "62.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6208,
+                    "province_id": 62,
+                    "name": "Kab. Seruyan",
+                    "administrative_code": "62.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6209,
+                    "province_id": 62,
+                    "name": "Kab. Katingan",
+                    "administrative_code": "62.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6210,
+                    "province_id": 62,
+                    "name": "Kab. Pulang Pisau",
+                    "administrative_code": "62.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6211,
+                    "province_id": 62,
+                    "name": "Kab. Gunung Mas",
+                    "administrative_code": "62.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6212,
+                    "province_id": 62,
+                    "name": "Kab. Barito Timur",
+                    "administrative_code": "62.13",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6213,
+                    "province_id": 62,
+                    "name": "Kab. Murung Raya",
+                    "administrative_code": "62.12",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6271,
+                    "province_id": 62,
+                    "name": "Kota Palangkaraya",
+                    "administrative_code": "62.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 63,
+            "name": "Kalimantan Selatan",
+            "administrative_code": "63",
+            "cities": [
+                {
+                    "id": 6301,
+                    "province_id": 63,
+                    "name": "Kab. Tanah Laut",
+                    "administrative_code": "63.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6302,
+                    "province_id": 63,
+                    "name": "Kab. Kotabaru",
+                    "administrative_code": "63.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6303,
+                    "province_id": 63,
+                    "name": "Kab. Banjar",
+                    "administrative_code": "63.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6304,
+                    "province_id": 63,
+                    "name": "Kab. Barito Kuala",
+                    "administrative_code": "63.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6305,
+                    "province_id": 63,
+                    "name": "Kab. Tapin",
+                    "administrative_code": "63.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6306,
+                    "province_id": 63,
+                    "name": "Kab. Hulu Sungai Selatan",
+                    "administrative_code": "63.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6307,
+                    "province_id": 63,
+                    "name": "Kab. Hulu Sungai Tengah",
+                    "administrative_code": "63.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6308,
+                    "province_id": 63,
+                    "name": "Kab. Hulu Sungai Utara",
+                    "administrative_code": "63.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6309,
+                    "province_id": 63,
+                    "name": "Kab. Tabalong",
+                    "administrative_code": "63.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6310,
+                    "province_id": 63,
+                    "name": "Kab. Tanah Bumbu",
+                    "administrative_code": "63.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6311,
+                    "province_id": 63,
+                    "name": "Kab. Balangan",
+                    "administrative_code": "63.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6371,
+                    "province_id": 63,
+                    "name": "Kota Banjarmasin",
+                    "administrative_code": "63.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6372,
+                    "province_id": 63,
+                    "name": "Kota Banjarbaru",
+                    "administrative_code": "63.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 64,
+            "name": "Kalimantan Timur",
+            "administrative_code": "64",
+            "cities": [
+                {
+                    "id": 6401,
+                    "province_id": 64,
+                    "name": "Kab. Paser",
+                    "administrative_code": "64.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6402,
+                    "province_id": 64,
+                    "name": "Kab. Kutai Barat",
+                    "administrative_code": "64.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6403,
+                    "province_id": 64,
+                    "name": "Kab. Kutai Kartanegara",
+                    "administrative_code": "64.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6404,
+                    "province_id": 64,
+                    "name": "Kab. Kutai Timur",
+                    "administrative_code": "64.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6405,
+                    "province_id": 64,
+                    "name": "Kab. Berau",
+                    "administrative_code": "64.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6409,
+                    "province_id": 64,
+                    "name": "Kab. Penajam Paser Utara",
+                    "administrative_code": "64.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6411,
+                    "province_id": 64,
+                    "name": "Kab. Mahakam Ulu",
+                    "administrative_code": "64.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6471,
+                    "province_id": 64,
+                    "name": "Kota Balikpapan",
+                    "administrative_code": "64.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6472,
+                    "province_id": 64,
+                    "name": "Kota Samarinda",
+                    "administrative_code": "64.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6474,
+                    "province_id": 64,
+                    "name": "Kota Bontang",
+                    "administrative_code": "64.74",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 65,
+            "name": "Kalimantan Utara",
+            "administrative_code": "65",
+            "cities": [
+                {
+                    "id": 6501,
+                    "province_id": 65,
+                    "name": "Kab. Malinau",
+                    "administrative_code": "65.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6502,
+                    "province_id": 65,
+                    "name": "Kab. Bulungan",
+                    "administrative_code": "65.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6503,
+                    "province_id": 65,
+                    "name": "Kab. Tana Tidung",
+                    "administrative_code": "65.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6504,
+                    "province_id": 65,
+                    "name": "Kab. Nunukan",
+                    "administrative_code": "65.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 6571,
+                    "province_id": 65,
+                    "name": "Kota Tarakan",
+                    "administrative_code": "65.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 71,
+            "name": "Sulawesi Utara",
+            "administrative_code": "71",
+            "cities": [
+                {
+                    "id": 7101,
+                    "province_id": 71,
+                    "name": "Kab. Bolaang Mongondow",
+                    "administrative_code": "71.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7102,
+                    "province_id": 71,
+                    "name": "Kab. Minahasa",
+                    "administrative_code": "71.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7103,
+                    "province_id": 71,
+                    "name": "Kab. Kepulauan Sangihe",
+                    "administrative_code": "71.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7104,
+                    "province_id": 71,
+                    "name": "Kab. Kepulauan Talaud",
+                    "administrative_code": "71.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7105,
+                    "province_id": 71,
+                    "name": "Kab. Minahasa Selatan",
+                    "administrative_code": "71.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7106,
+                    "province_id": 71,
+                    "name": "Kab. Minahasa Utara",
+                    "administrative_code": "71.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7107,
+                    "province_id": 71,
+                    "name": "Kab. Bolaang Mongondow",
+                    "administrative_code": "71.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7108,
+                    "province_id": 71,
+                    "name": "Kab. Kep. Siau Tagulandang",
+                    "administrative_code": "71.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7109,
+                    "province_id": 71,
+                    "name": "Kab. Minahasa Tenggara",
+                    "administrative_code": "71.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7110,
+                    "province_id": 71,
+                    "name": "Kab. Bolaang Mongondow",
+                    "administrative_code": "71.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7111,
+                    "province_id": 71,
+                    "name": "Kab. Bolaang Mongondow",
+                    "administrative_code": "71.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7171,
+                    "province_id": 71,
+                    "name": "Kota Manado",
+                    "administrative_code": "71.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7172,
+                    "province_id": 71,
+                    "name": "Kota Bitung",
+                    "administrative_code": "71.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7173,
+                    "province_id": 71,
+                    "name": "Kota Tomohon",
+                    "administrative_code": "71.73",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7174,
+                    "province_id": 71,
+                    "name": "Kota Kotamobagu",
+                    "administrative_code": "71.74",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 72,
+            "name": "Sulawesi Tengah",
+            "administrative_code": "72",
+            "cities": [
+                {
+                    "id": 7201,
+                    "province_id": 72,
+                    "name": "Kab. Banggai Kepulauan",
+                    "administrative_code": "72.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7202,
+                    "province_id": 72,
+                    "name": "Kab. Banggai",
+                    "administrative_code": "72.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7203,
+                    "province_id": 72,
+                    "name": "Kab. Morowali",
+                    "administrative_code": "72.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7204,
+                    "province_id": 72,
+                    "name": "Kab. Poso",
+                    "administrative_code": "72.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7205,
+                    "province_id": 72,
+                    "name": "Kab. Donggala",
+                    "administrative_code": "72.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7206,
+                    "province_id": 72,
+                    "name": "Kab. Toli Toli",
+                    "administrative_code": "72.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7207,
+                    "province_id": 72,
+                    "name": "Kab. Buol",
+                    "administrative_code": "72.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7208,
+                    "province_id": 72,
+                    "name": "Kab. Parigi Moutong",
+                    "administrative_code": "72.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7209,
+                    "province_id": 72,
+                    "name": "Kab. Tojo Una Una",
+                    "administrative_code": "72.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7210,
+                    "province_id": 72,
+                    "name": "Kab. Sigi",
+                    "administrative_code": "72.1",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7211,
+                    "province_id": 72,
+                    "name": "Kab. Banggai Laut",
+                    "administrative_code": "72.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7212,
+                    "province_id": 72,
+                    "name": "Kab. Morowali Utara",
+                    "administrative_code": "72.12",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7271,
+                    "province_id": 72,
+                    "name": "Kota Palu",
+                    "administrative_code": "72.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 73,
+            "name": "Sulawesi Selatan",
+            "administrative_code": "73",
+            "cities": [
+                {
+                    "id": 7301,
+                    "province_id": 73,
+                    "name": "Kab. Kepulauan Selayar",
+                    "administrative_code": "73.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7302,
+                    "province_id": 73,
+                    "name": "Kab. Bulukumba",
+                    "administrative_code": "73.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7303,
+                    "province_id": 73,
+                    "name": "Kab. Bantaeng",
+                    "administrative_code": "73.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7304,
+                    "province_id": 73,
+                    "name": "Kab. Jeneponto",
+                    "administrative_code": "73.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7305,
+                    "province_id": 73,
+                    "name": "Kab. Takalar",
+                    "administrative_code": "73.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7306,
+                    "province_id": 73,
+                    "name": "Kab. Gowa",
+                    "administrative_code": "73.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7307,
+                    "province_id": 73,
+                    "name": "Kab. Sinjai",
+                    "administrative_code": "73.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7308,
+                    "province_id": 73,
+                    "name": "Kab. Maros",
+                    "administrative_code": "73.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7309,
+                    "province_id": 73,
+                    "name": "Kab. Pangkajene Kepulauan",
+                    "administrative_code": "73.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7310,
+                    "province_id": 73,
+                    "name": "Kab. Barru",
+                    "administrative_code": "73.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7311,
+                    "province_id": 73,
+                    "name": "Kab. Bone",
+                    "administrative_code": "73.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7312,
+                    "province_id": 73,
+                    "name": "Kab. Soppeng",
+                    "administrative_code": "73.12",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7313,
+                    "province_id": 73,
+                    "name": "Kab. Wajo",
+                    "administrative_code": "73.13",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7314,
+                    "province_id": 73,
+                    "name": "Kab. Sidenreng Rappang",
+                    "administrative_code": "73.14",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7315,
+                    "province_id": 73,
+                    "name": "Kab. Pinrang",
+                    "administrative_code": "73.15",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7316,
+                    "province_id": 73,
+                    "name": "Kab. Enrekang",
+                    "administrative_code": "73.16",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7317,
+                    "province_id": 73,
+                    "name": "Kab. Luwu",
+                    "administrative_code": "73.17",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7318,
+                    "province_id": 73,
+                    "name": "Kab. Tana Toraja",
+                    "administrative_code": "73.18",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7322,
+                    "province_id": 73,
+                    "name": "Kab. Luwu Utara",
+                    "administrative_code": "73.22",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7325,
+                    "province_id": 73,
+                    "name": "Kab. Luwu Timur",
+                    "administrative_code": "73.24",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7326,
+                    "province_id": 73,
+                    "name": "Kab. Toraja Utara",
+                    "administrative_code": "73.26",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7371,
+                    "province_id": 73,
+                    "name": "Kota Makassar",
+                    "administrative_code": "73.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7372,
+                    "province_id": 73,
+                    "name": "Kota Pare Pare",
+                    "administrative_code": "73.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7373,
+                    "province_id": 73,
+                    "name": "Kota Palopo",
+                    "administrative_code": "73.73",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 74,
+            "name": "Sulawesi Tenggara",
+            "administrative_code": "74",
+            "cities": [
+                {
+                    "id": 7401,
+                    "province_id": 74,
+                    "name": "Kab. Buton",
+                    "administrative_code": "74.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7402,
+                    "province_id": 74,
+                    "name": "Kab. Muna",
+                    "administrative_code": "74.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7403,
+                    "province_id": 74,
+                    "name": "Kab. Konawe",
+                    "administrative_code": "74.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7404,
+                    "province_id": 74,
+                    "name": "Kab. Kolaka",
+                    "administrative_code": "74.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7405,
+                    "province_id": 74,
+                    "name": "Kab. Konawe Selatan",
+                    "administrative_code": "74.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7406,
+                    "province_id": 74,
+                    "name": "Kab. Bombana",
+                    "administrative_code": "74.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7407,
+                    "province_id": 74,
+                    "name": "Kab. Wakatobi",
+                    "administrative_code": "74.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7408,
+                    "province_id": 74,
+                    "name": "Kab. Kolaka Utara",
+                    "administrative_code": "74.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7409,
+                    "province_id": 74,
+                    "name": "Kab. Buton Utara",
+                    "administrative_code": "74.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7410,
+                    "province_id": 74,
+                    "name": "Kab. Konawe Utara",
+                    "administrative_code": "74.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7411,
+                    "province_id": 74,
+                    "name": "Kab. Kolaka Timur",
+                    "administrative_code": "74.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7412,
+                    "province_id": 74,
+                    "name": "Kab. Konawe Kepulauan",
+                    "administrative_code": "74.12",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7413,
+                    "province_id": 74,
+                    "name": "Kab. Muna Barat",
+                    "administrative_code": "74.13",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7414,
+                    "province_id": 74,
+                    "name": "Kab. Buton Tengah",
+                    "administrative_code": "74.14",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7415,
+                    "province_id": 74,
+                    "name": "Kab. Buton Selatan",
+                    "administrative_code": "74.15",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7471,
+                    "province_id": 74,
+                    "name": "Kota Kendari",
+                    "administrative_code": "74.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7472,
+                    "province_id": 74,
+                    "name": "Kota Bau Bau",
+                    "administrative_code": "74.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 75,
+            "name": "Gorontalo",
+            "administrative_code": "75",
+            "cities": [
+                {
+                    "id": 7501,
+                    "province_id": 75,
+                    "name": "Kab. Boalemo",
+                    "administrative_code": "75.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7502,
+                    "province_id": 75,
+                    "name": "Kab. Gorontalo",
+                    "administrative_code": "75.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7503,
+                    "province_id": 75,
+                    "name": "Kab. Pahuwato",
+                    "administrative_code": "75.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7504,
+                    "province_id": 75,
+                    "name": "Kab. Bone Bolango",
+                    "administrative_code": "75.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7505,
+                    "province_id": 75,
+                    "name": "Kab. Gorontalo Utara",
+                    "administrative_code": "75.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7571,
+                    "province_id": 75,
+                    "name": "Kota Gorontalo",
+                    "administrative_code": "75.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 76,
+            "name": "Sulawesi Barat",
+            "administrative_code": "76",
+            "cities": [
+                {
+                    "id": 7601,
+                    "province_id": 76,
+                    "name": "Kab. Majene",
+                    "administrative_code": "76.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7602,
+                    "province_id": 76,
+                    "name": "Kab. Polewali Mandar",
+                    "administrative_code": "76.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7603,
+                    "province_id": 76,
+                    "name": "Kab. Mamasa",
+                    "administrative_code": "76.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7604,
+                    "province_id": 76,
+                    "name": "Kab. Mamuju",
+                    "administrative_code": "76.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7605,
+                    "province_id": 76,
+                    "name": "Kab. Pasangkayu",
+                    "administrative_code": "76.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 7606,
+                    "province_id": 76,
+                    "name": "Kab. Mamuju Tengah",
+                    "administrative_code": "76.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 81,
+            "name": "Maluku",
+            "administrative_code": "81",
+            "cities": [
+                {
+                    "id": 8101,
+                    "province_id": 81,
+                    "name": "Kab. Kepulauan Tanimbar",
+                    "administrative_code": "81.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8102,
+                    "province_id": 81,
+                    "name": "Kab. Maluku Tenggara",
+                    "administrative_code": "81.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8103,
+                    "province_id": 81,
+                    "name": "Kab. Maluku Tengah",
+                    "administrative_code": "81.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8104,
+                    "province_id": 81,
+                    "name": "Kab. Buru",
+                    "administrative_code": "81.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8105,
+                    "province_id": 81,
+                    "name": "Kab. Kepulauan Aru",
+                    "administrative_code": "81.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8106,
+                    "province_id": 81,
+                    "name": "Kab. Seram Bagian Barat",
+                    "administrative_code": "81.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8107,
+                    "province_id": 81,
+                    "name": "Kab. Seram Bagian Timur",
+                    "administrative_code": "81.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8108,
+                    "province_id": 81,
+                    "name": "Kab. Maluku Barat Daya",
+                    "administrative_code": "81.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8109,
+                    "province_id": 81,
+                    "name": "Kab. Buru Selatan",
+                    "administrative_code": "81.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8171,
+                    "province_id": 81,
+                    "name": "Kota Ambon",
+                    "administrative_code": "81.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8172,
+                    "province_id": 81,
+                    "name": "Kota Tual",
+                    "administrative_code": "81.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 82,
+            "name": "Maluku Utara",
+            "administrative_code": "82",
+            "cities": [
+                {
+                    "id": 8201,
+                    "province_id": 82,
+                    "name": "Kab. Halmahera Barat",
+                    "administrative_code": "82.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8202,
+                    "province_id": 82,
+                    "name": "Kab. Halmahera Tengah",
+                    "administrative_code": "82.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8203,
+                    "province_id": 82,
+                    "name": "Kab. Kepulauan Sula",
+                    "administrative_code": "82.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8204,
+                    "province_id": 82,
+                    "name": "Kab. Halmahera Selatan",
+                    "administrative_code": "82.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8205,
+                    "province_id": 82,
+                    "name": "Kab. Halmahera Utara",
+                    "administrative_code": "82.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8206,
+                    "province_id": 82,
+                    "name": "Kab. Halmahera Timur",
+                    "administrative_code": "82.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8207,
+                    "province_id": 82,
+                    "name": "Kab. Pulau Morotai",
+                    "administrative_code": "82.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8208,
+                    "province_id": 82,
+                    "name": "Kab. Pulau Taliabu",
+                    "administrative_code": "82.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8271,
+                    "province_id": 82,
+                    "name": "Kota Ternate",
+                    "administrative_code": "82.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 8272,
+                    "province_id": 82,
+                    "name": "Kota Tidore Kepulauan",
+                    "administrative_code": "82.72",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 91,
+            "name": "Papua",
+            "administrative_code": "91",
+            "cities": [
+                {
+                    "id": 9401,
+                    "province_id": 91,
+                    "name": "Kab. Merauke",
+                    "administrative_code": "91.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9402,
+                    "province_id": 91,
+                    "name": "Kab. Jayawijaya",
+                    "administrative_code": "91.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9403,
+                    "province_id": 91,
+                    "name": "Kab. Jayapura",
+                    "administrative_code": "91.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9404,
+                    "province_id": 91,
+                    "name": "Kab. Nabire",
+                    "administrative_code": "91.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9408,
+                    "province_id": 91,
+                    "name": "Kab. Kepulauan Yapen",
+                    "administrative_code": "91.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9409,
+                    "province_id": 91,
+                    "name": "Kab. Biak Numfor",
+                    "administrative_code": "91.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9410,
+                    "province_id": 91,
+                    "name": "Kab. Paniai",
+                    "administrative_code": "91.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9411,
+                    "province_id": 91,
+                    "name": "Kab. Puncak Jaya",
+                    "administrative_code": "91.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9412,
+                    "province_id": 91,
+                    "name": "Kab. Mimika",
+                    "administrative_code": "91.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9413,
+                    "province_id": 91,
+                    "name": "Kab. Boven Digoel",
+                    "administrative_code": "91.16",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9414,
+                    "province_id": 91,
+                    "name": "Kab. Mappi",
+                    "administrative_code": "91.17",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9415,
+                    "province_id": 91,
+                    "name": "Kab. Asmat",
+                    "administrative_code": "91.18",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9416,
+                    "province_id": 91,
+                    "name": "Kab. Yahukimo",
+                    "administrative_code": "91.13",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9417,
+                    "province_id": 91,
+                    "name": "Kab Pegunungan Bintang",
+                    "administrative_code": "91.12",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9418,
+                    "province_id": 91,
+                    "name": "Kab. Tolikara",
+                    "administrative_code": "91.14",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9419,
+                    "province_id": 91,
+                    "name": "Kab. Sarmi",
+                    "administrative_code": "91.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9420,
+                    "province_id": 91,
+                    "name": "Kab. Keerom",
+                    "administrative_code": "91.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9426,
+                    "province_id": 91,
+                    "name": "Kab. Waropen",
+                    "administrative_code": "91.15",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9427,
+                    "province_id": 91,
+                    "name": "Kab. Supiori",
+                    "administrative_code": "91.19",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9428,
+                    "province_id": 91,
+                    "name": "Kab. Mamberamo Raya",
+                    "administrative_code": "91.20",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9429,
+                    "province_id": 91,
+                    "name": "Kab. Nduga",
+                    "administrative_code": "91.24",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9430,
+                    "province_id": 91,
+                    "name": "Kab. Lanny Jaya",
+                    "administrative_code": "91.23",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9431,
+                    "province_id": 91,
+                    "name": "Kab. Mamberamo Tengah",
+                    "administrative_code": "91.21",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9432,
+                    "province_id": 91,
+                    "name": "Kab. Yalimo",
+                    "administrative_code": "91.22",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9433,
+                    "province_id": 91,
+                    "name": "Kab. Puncak",
+                    "administrative_code": "91.25",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9434,
+                    "province_id": 91,
+                    "name": "Kab. Dogiyai",
+                    "administrative_code": "91.26",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9435,
+                    "province_id": 91,
+                    "name": "Kab. Intan Jaya",
+                    "administrative_code": "91.27",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9436,
+                    "province_id": 91,
+                    "name": "Kab. Deiyai",
+                    "administrative_code": "91.28",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9471,
+                    "province_id": 91,
+                    "name": "Kota Jayapura",
+                    "administrative_code": "91.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 92,
+            "name": "Papua Barat",
+            "administrative_code": "92",
+            "cities": [
+                {
+                    "id": 9101,
+                    "province_id": 92,
+                    "name": "Kab. Fak Fak",
+                    "administrative_code": "92.03",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9102,
+                    "province_id": 92,
+                    "name": "Kab. Kaimana",
+                    "administrative_code": "92.08",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9103,
+                    "province_id": 92,
+                    "name": "Kab. Teluk Wondama",
+                    "administrative_code": "92.07",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9104,
+                    "province_id": 92,
+                    "name": "Kab. Teluk Bintuni",
+                    "administrative_code": "92.06",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9105,
+                    "province_id": 92,
+                    "name": "Kab. Manokwari",
+                    "administrative_code": "92.02",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9106,
+                    "province_id": 92,
+                    "name": "Kab. Sorong Selatan",
+                    "administrative_code": "92.04",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9107,
+                    "province_id": 92,
+                    "name": "Kab. Sorong",
+                    "administrative_code": "92.01",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9108,
+                    "province_id": 92,
+                    "name": "Kab. Raja Ampat",
+                    "administrative_code": "92.05",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9109,
+                    "province_id": 92,
+                    "name": "Kab. Tambrauw",
+                    "administrative_code": "92.09",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9110,
+                    "province_id": 92,
+                    "name": "Kab. Maybrat",
+                    "administrative_code": "92.10",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9111,
+                    "province_id": 92,
+                    "name": "Kab. Manokwari Selatan",
+                    "administrative_code": "92.11",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9112,
+                    "province_id": 92,
+                    "name": "Kab. Pegunungan Arfak",
+                    "administrative_code": "92.12",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                },
+                {
+                    "id": 9171,
+                    "province_id": 92,
+                    "name": "Kota Sorong",
+                    "administrative_code": "92.71",
+                    "created_at": "2024-07-22T17:47:31.000000Z",
+                    "updated_at": "2024-07-22T17:47:31.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 94,
+            "name": "test prov",
+            "administrative_code": "11243",
+            "cities": [
+                {
+                    "id": 9472,
+                    "province_id": 94,
+                    "name": "test nama kota -e",
+                    "administrative_code": "111111111111.1111111111112",
+                    "created_at": "2024-10-16T01:00:50.000000Z",
+                    "updated_at": "2024-10-16T01:01:29.000000Z"
+                }
+            ]
+        },
+        {
+            "id": 96,
+            "name": "aceh",
+            "administrative_code": "02",
+            "cities": []
+        }
+    ]
+}

@@ -1,0 +1,164 @@
+{
+    "error": false,
+    "message": "Successfully",
+    "status_code": 200,
+    "data": [
+        {
+            "id": 9472,
+            "province_id": 94,
+            "name": "test nama kota -e",
+            "administrative_code": "111111111111.1111111111112",
+            "created_at": "2024-10-16T01:00:50.000000Z",
+            "updated_at": "2024-10-16T01:01:29.000000Z",
+            "province": {
+                "id": 94,
+                "name": "test prov",
+                "administrative_code": "111111111111",
+                "created_at": "2024-10-16T00:58:21.000000Z",
+                "updated_at": "2024-10-16T00:58:21.000000Z"
+            }
+        },
+        {
+            "id": 3328,
+            "province_id": 33,
+            "name": "Kab. Tegal",
+            "administrative_code": "33.28",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z",
+            "province": {
+                "id": 33,
+                "name": "Jawa Tengah",
+                "administrative_code": "33",
+                "created_at": "2024-07-22T17:47:31.000000Z",
+                "updated_at": "2024-07-22T17:47:31.000000Z"
+            }
+        },
+        {
+            "id": 3329,
+            "province_id": 33,
+            "name": "Kab. Brebes",
+            "administrative_code": "33.29",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z",
+            "province": {
+                "id": 33,
+                "name": "Jawa Tengah",
+                "administrative_code": "33",
+                "created_at": "2024-07-22T17:47:31.000000Z",
+                "updated_at": "2024-07-22T17:47:31.000000Z"
+            }
+        },
+        {
+            "id": 6401,
+            "province_id": 64,
+            "name": "Kab. Paser",
+            "administrative_code": "64.01",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z",
+            "province": {
+                "id": 64,
+                "name": "Kalimantan Timur",
+                "administrative_code": "64",
+                "created_at": "2024-07-22T17:47:31.000000Z",
+                "updated_at": "2024-07-22T17:47:31.000000Z"
+            }
+        },
+        {
+            "id": 6402,
+            "province_id": 64,
+            "name": "Kab. Kutai Barat",
+            "administrative_code": "64.07",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z",
+            "province": {
+                "id": 64,
+                "name": "Kalimantan Timur",
+                "administrative_code": "64",
+                "created_at": "2024-07-22T17:47:31.000000Z",
+                "updated_at": "2024-07-22T17:47:31.000000Z"
+            }
+        },
+        {
+            "id": 6403,
+            "province_id": 64,
+            "name": "Kab. Kutai Kartanegara",
+            "administrative_code": "64.02",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z",
+            "province": {
+                "id": 64,
+                "name": "Kalimantan Timur",
+                "administrative_code": "64",
+                "created_at": "2024-07-22T17:47:31.000000Z",
+                "updated_at": "2024-07-22T17:47:31.000000Z"
+            }
+        },
+        {
+            "id": 7171,
+            "province_id": 71,
+            "name": "Kota Manado",
+            "administrative_code": "71.71",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z",
+            "province": {
+                "id": 71,
+                "name": "Sulawesi Utara",
+                "administrative_code": "71",
+                "created_at": "2024-07-22T17:47:31.000000Z",
+                "updated_at": "2024-07-22T17:47:31.000000Z"
+            }
+        },
+        {
+            "id": 6404,
+            "province_id": 64,
+            "name": "Kab. Kutai Timur",
+            "administrative_code": "64.08",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z",
+            "province": {
+                "id": 64,
+                "name": "Kalimantan Timur",
+                "administrative_code": "64",
+                "created_at": "2024-07-22T17:47:31.000000Z",
+                "updated_at": "2024-07-22T17:47:31.000000Z"
+            }
+        },
+        {
+            "id": 7172,
+            "province_id": 71,
+            "name": "Kota Bitung",
+            "administrative_code": "71.72",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z",
+            "province": {
+                "id": 71,
+                "name": "Sulawesi Utara",
+                "administrative_code": "71",
+                "created_at": "2024-07-22T17:47:31.000000Z",
+                "updated_at": "2024-07-22T17:47:31.000000Z"
+            }
+        },
+        {
+            "id": 6405,
+            "province_id": 64,
+            "name": "Kab. Berau",
+            "administrative_code": "64.03",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z",
+            "province": {
+                "id": 64,
+                "name": "Kalimantan Timur",
+                "administrative_code": "64",
+                "created_at": "2024-07-22T17:47:31.000000Z",
+                "updated_at": "2024-07-22T17:47:31.000000Z"
+            }
+        }
+    ],
+    "pagination": {
+        "total": 515,
+        "count": 10,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 52
+    }
+}

@@ -1,0 +1,84 @@
+{
+    "error": false,
+    "message": "Successfully",
+    "status_code": 200,
+    "data": [
+        {
+            "id": 96,
+            "name": "aceh",
+            "administrative_code": "02",
+            "created_at": "2024-12-04T08:18:02.000000Z",
+            "updated_at": "2024-12-04T08:18:02.000000Z"
+        },
+        {
+            "id": 94,
+            "name": "test prov",
+            "administrative_code": "111111111111",
+            "created_at": "2024-10-16T00:58:21.000000Z",
+            "updated_at": "2024-10-16T00:58:21.000000Z"
+        },
+        {
+            "id": 11,
+            "name": "Aceh",
+            "administrative_code": "11",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z"
+        },
+        {
+            "id": 12,
+            "name": "Sumatera Utara",
+            "administrative_code": "12",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z"
+        },
+        {
+            "id": 13,
+            "name": "Sumatera Barat",
+            "administrative_code": "13",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z"
+        },
+        {
+            "id": 14,
+            "name": "Riau",
+            "administrative_code": "14",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z"
+        },
+        {
+            "id": 15,
+            "name": "Jambi",
+            "administrative_code": "15",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z"
+        },
+        {
+            "id": 16,
+            "name": "Sumatera Selatan",
+            "administrative_code": "16",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z"
+        },
+        {
+            "id": 17,
+            "name": "Bengkulu",
+            "administrative_code": "17",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z"
+        },
+        {
+            "id": 18,
+            "name": "Lampung",
+            "administrative_code": "18",
+            "created_at": "2024-07-22T17:47:31.000000Z",
+            "updated_at": "2024-07-22T17:47:31.000000Z"
+        }
+    ],
+    "pagination": {
+        "total": 36,
+        "count": 10,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 4
+    }
+}

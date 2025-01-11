@@ -1,0 +1,682 @@
+{
+    "status_code": 200,
+    "error": false,
+    "message": "Successfully",
+    "data": [
+        {
+            "id": 30,
+            "company_id": 43,
+            "disposition_by": {
+                "id": 9,
+                "name": "Joko Kustanto",
+                "username": "joko_kustanto",
+                "email": "joko_kustanto@smk.com",
+                "email_verified_at": null,
+                "is_ministry": 1,
+                "is_active": true,
+                "deleted_at": null,
+                "created_at": "2023-11-29 19:41:12",
+                "updated_at": "2023-11-29 19:41:12",
+                "nip": null,
+                "work_unit_id": 1
+            },
+            "disposition_to": {
+                "id": 4397,
+                "name": "Iqbal Firmansyah",
+                "username": "iqbalfirmansyah",
+                "email": "iqbalfirmansyah592@gmail.com",
+                "email_verified_at": null,
+                "is_ministry": 1,
+                "is_active": true,
+                "deleted_at": null,
+                "created_at": "2024-05-02 23:11:35",
+                "updated_at": "2024-05-02 23:12:46",
+                "nip": null,
+                "work_unit_id": 1
+            },
+            "status": "not_passed_interview",
+            "is_active": true,
+            "created_at": "2024-12-23 09:57:11",
+            "updated_at": "2024-12-23 10:55:18",
+            "application_letter": null,
+            "schedule_interview": null,
+            "company_name": "PT TRISTAR JAVA TRANSINDO",
+            "regnumber": "20240000030",
+            "company": {
+                "id": 43,
+                "name": "PT TRISTAR JAVA TRANSINDO",
+                "username": "ANGHOEYTIONG",
+                "phone_number": "08128249628",
+                "email": "admtjt26@gmail.com",
+                "email_verified_at": null,
+                "nib": "9120109831421",
+                "nib_file": "-",
+                "province_id": 31,
+                "city_id": 3175,
+                "address": "JL. RAYA BOULEVARD BLOK WB II NO. 7-8, KLP GADING TIMUR, KLP. GADING",
+                "company_phone_number": "0216281700",
+                "pic_name": "ANG HOEY TIONG",
+                "pic_phone": "0216281700",
+                "request_date": "2024-12-20 11:35:02",
+                "approved_at": null,
+                "approved_by": null,
+                "is_active": false,
+                "created_at": null,
+                "updated_at": null,
+                "deleted_at": null,
+                "established": null,
+                "exist_spionam": null,
+                "service_types": [
+                    {
+                        "id": 7,
+                        "name": "Angkutan B3",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 43,
+                            "service_type_id": 7
+                        }
+                    },
+                    {
+                        "id": 6,
+                        "name": "Angkutan barang umum",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 43,
+                            "service_type_id": 6
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 29,
+            "company_id": 20,
+            "disposition_by": {
+                "id": 9,
+                "name": "Joko Kustanto",
+                "username": "joko_kustanto",
+                "email": "joko_kustanto@smk.com",
+                "email_verified_at": null,
+                "is_ministry": 1,
+                "is_active": true,
+                "deleted_at": null,
+                "created_at": "2023-11-29 19:41:12",
+                "updated_at": "2023-11-29 19:41:12",
+                "nip": null,
+                "work_unit_id": 1
+            },
+            "disposition_to": {
+                "id": 3,
+                "name": "Penilai",
+                "username": "penilai",
+                "email": "penilai@smk.com",
+                "email_verified_at": null,
+                "is_ministry": 1,
+                "is_active": true,
+                "deleted_at": null,
+                "created_at": "2024-07-22 17:47:32",
+                "updated_at": "2024-07-22 17:47:32",
+                "nip": null,
+                "work_unit_id": 1
+            },
+            "status": "completed_interview",
+            "is_active": true,
+            "created_at": "2024-12-23 07:28:16",
+            "updated_at": "2024-12-23 08:24:04",
+            "application_letter": null,
+            "schedule_interview": "2024-12-24 00:00:00",
+            "company_name": "GARIN CITRA MANDIRI",
+            "regnumber": "20240000029",
+            "company": {
+                "id": 20,
+                "name": "GARIN CITRA MANDIRI",
+                "username": "HADI IWAWAN",
+                "phone_number": "085230297776",
+                "email": "gar_rin@yahoo.co.id",
+                "email_verified_at": null,
+                "nib": "9120200722406",
+                "nib_file": "-",
+                "province_id": 35,
+                "city_id": 3515,
+                "address": "PONDOK JATI BLOK CL - 03",
+                "company_phone_number": "081332232375",
+                "pic_name": "HERY SUDARMONO",
+                "pic_phone": "-",
+                "request_date": "2023-11-30 15:46:12",
+                "approved_at": null,
+                "approved_by": null,
+                "is_active": false,
+                "created_at": "2023-11-30 01:46:12",
+                "updated_at": "2024-01-15 04:44:43",
+                "deleted_at": null,
+                "established": "2021-05-01",
+                "exist_spionam": true,
+                "service_types": [
+                    {
+                        "id": 4,
+                        "name": "Pariwisata",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 20,
+                            "service_type_id": 4
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 28,
+            "company_id": 42,
+            "disposition_by": {
+                "id": 9,
+                "name": "Joko Kustanto",
+                "username": "joko_kustanto",
+                "email": "joko_kustanto@smk.com",
+                "email_verified_at": null,
+                "is_ministry": 1,
+                "is_active": true,
+                "deleted_at": null,
+                "created_at": "2023-11-29 19:41:12",
+                "updated_at": "2023-11-29 19:41:12",
+                "nip": null,
+                "work_unit_id": 1
+            },
+            "disposition_to": {
+                "id": 4397,
+                "name": "Iqbal Firmansyah",
+                "username": "iqbalfirmansyah",
+                "email": "iqbalfirmansyah592@gmail.com",
+                "email_verified_at": null,
+                "is_ministry": 1,
+                "is_active": true,
+                "deleted_at": null,
+                "created_at": "2024-05-02 23:11:35",
+                "updated_at": "2024-05-02 23:12:46",
+                "nip": null,
+                "work_unit_id": 1
+            },
+            "status": "certificate_validation",
+            "is_active": true,
+            "created_at": "2024-12-17 03:37:00",
+            "updated_at": "2024-12-17 03:47:01",
+            "application_letter": null,
+            "schedule_interview": "2024-12-17 00:00:00",
+            "company_name": "PT GIRA NIRWANA PUTRA",
+            "regnumber": "20240000028",
+            "company": {
+                "id": 42,
+                "name": "PT GIRA NIRWANA PUTRA",
+                "username": "GIRA NIRWANA",
+                "phone_number": "089375482647",
+                "email": "giranirwanaputra@gmail.com",
+                "email_verified_at": null,
+                "nib": "0220209812352",
+                "nib_file": "-",
+                "province_id": 13,
+                "city_id": 1306,
+                "address": "Jalan Syeh Burhanuddin Simpang Sungai Asam",
+                "company_phone_number": "08116601543",
+                "pic_name": "RUDI HERMANTO",
+                "pic_phone": "08116001543",
+                "request_date": "2024-12-16 10:09:02",
+                "approved_at": null,
+                "approved_by": null,
+                "is_active": false,
+                "created_at": null,
+                "updated_at": null,
+                "deleted_at": null,
+                "established": null,
+                "exist_spionam": null,
+                "service_types": [
+                    {
+                        "id": 3,
+                        "name": "AJAP",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 42,
+                            "service_type_id": 3
+                        }
+                    },
+                    {
+                        "id": 1,
+                        "name": "AKAP",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 42,
+                            "service_type_id": 1
+                        }
+                    },
+                    {
+                        "id": 4,
+                        "name": "Pariwisata",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 42,
+                            "service_type_id": 4
+                        }
+                    },
+                    {
+                        "id": 2,
+                        "name": "AKDP",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 42,
+                            "service_type_id": 2
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 26,
+            "company_id": 16,
+            "disposition_by": {
+                "id": 10,
+                "name": "Diah",
+                "username": "diah",
+                "email": "diah@smk.com",
+                "email_verified_at": null,
+                "is_ministry": 1,
+                "is_active": true,
+                "deleted_at": null,
+                "created_at": "2023-11-29 19:41:14",
+                "updated_at": "2024-01-07 23:39:31",
+                "nip": null,
+                "work_unit_id": 1
+            },
+            "disposition_to": {
+                "id": 3,
+                "name": "Penilai",
+                "username": "penilai",
+                "email": "penilai@smk.com",
+                "email_verified_at": null,
+                "is_ministry": 1,
+                "is_active": true,
+                "deleted_at": null,
+                "created_at": "2024-07-22 17:47:32",
+                "updated_at": "2024-07-22 17:47:32",
+                "nip": null,
+                "work_unit_id": 1
+            },
+            "status": "completed_interview",
+            "is_active": true,
+            "created_at": "2024-12-06 02:03:36",
+            "updated_at": "2024-12-10 06:02:05",
+            "application_letter": null,
+            "schedule_interview": "2024-12-10 00:00:00",
+            "company_name": "SAROHA TRANSPORT ABADI",
+            "regnumber": "20240000026",
+            "company": {
+                "id": 16,
+                "name": "SAROHA TRANSPORT ABADI",
+                "username": "saroha-transport-abadi",
+                "phone_number": "02122940093",
+                "email": "saroha.abadi@gmail.com",
+                "email_verified_at": null,
+                "nib": "8120017232115",
+                "nib_file": "-",
+                "province_id": 32,
+                "city_id": 3201,
+                "address": "Jalan Kampung Bojong Nangka",
+                "company_phone_number": "081219757333",
+                "pic_name": "SUDIRMAN",
+                "pic_phone": "081219757333",
+                "request_date": "2023-11-30 15:37:27",
+                "approved_at": null,
+                "approved_by": null,
+                "is_active": false,
+                "created_at": "2023-11-30 01:37:27",
+                "updated_at": "2024-01-15 04:44:42",
+                "deleted_at": null,
+                "established": "2021-01-01",
+                "exist_spionam": true,
+                "service_types": [
+                    {
+                        "id": 7,
+                        "name": "Angkutan B3",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 16,
+                            "service_type_id": 7
+                        }
+                    },
+                    {
+                        "id": 6,
+                        "name": "Angkutan barang umum",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 16,
+                            "service_type_id": 6
+                        }
+                    },
+                    {
+                        "id": 5,
+                        "name": "Angkot\/Angdes",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 16,
+                            "service_type_id": 5
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 25,
+            "company_id": 38,
+            "disposition_by": {
+                "id": 10,
+                "name": "Diah",
+                "username": "diah",
+                "email": "diah@smk.com",
+                "email_verified_at": null,
+                "is_ministry": 1,
+                "is_active": true,
+                "deleted_at": null,
+                "created_at": "2023-11-29 19:41:14",
+                "updated_at": "2024-01-07 23:39:31",
+                "nip": null,
+                "work_unit_id": 1
+            },
+            "disposition_to": {
+                "id": 3,
+                "name": "Penilai",
+                "username": "penilai",
+                "email": "penilai@smk.com",
+                "email_verified_at": null,
+                "is_ministry": 1,
+                "is_active": true,
+                "deleted_at": null,
+                "created_at": "2024-07-22 17:47:32",
+                "updated_at": "2024-07-22 17:47:32",
+                "nip": null,
+                "work_unit_id": 1
+            },
+            "status": "certificate_validation",
+            "is_active": true,
+            "created_at": "2024-12-04 13:13:31",
+            "updated_at": "2024-12-05 02:58:56",
+            "application_letter": null,
+            "schedule_interview": "2024-12-05 00:00:00",
+            "company_name": "PT JAYA BERSAMA HUTAMA",
+            "regnumber": "20240000025",
+            "company": {
+                "id": 38,
+                "name": "PT JAYA BERSAMA HUTAMA",
+                "username": "jaya",
+                "phone_number": "08967542719",
+                "email": "jb_hutama78@yahoo.com",
+                "email_verified_at": null,
+                "nib": "2208230181037",
+                "nib_file": "-",
+                "province_id": 32,
+                "city_id": 3273,
+                "address": "Dusun I Nomor 18",
+                "company_phone_number": "081278466999",
+                "pic_name": "ANDY IRAWAN HALIM",
+                "pic_phone": "085268360000",
+                "request_date": "2024-01-16 13:42:40",
+                "approved_at": null,
+                "approved_by": null,
+                "is_active": false,
+                "created_at": "2024-01-15 23:42:40",
+                "updated_at": "2024-01-15 23:44:39",
+                "deleted_at": null,
+                "established": "2017-04-25",
+                "exist_spionam": false,
+                "service_types": [
+                    {
+                        "id": 1,
+                        "name": "AKAP",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 38,
+                            "service_type_id": 1
+                        }
+                    },
+                    {
+                        "id": 6,
+                        "name": "Angkutan barang umum",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 38,
+                            "service_type_id": 6
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 24,
+            "company_id": 10,
+            "disposition_by": {
+                "id": 9,
+                "name": "Joko Kustanto",
+                "username": "joko_kustanto",
+                "email": "joko_kustanto@smk.com",
+                "email_verified_at": null,
+                "is_ministry": 1,
+                "is_active": true,
+                "deleted_at": null,
+                "created_at": "2023-11-29 19:41:12",
+                "updated_at": "2023-11-29 19:41:12",
+                "nip": null,
+                "work_unit_id": 1
+            },
+            "disposition_to": {
+                "id": 3,
+                "name": "Penilai",
+                "username": "penilai",
+                "email": "penilai@smk.com",
+                "email_verified_at": null,
+                "is_ministry": 1,
+                "is_active": true,
+                "deleted_at": null,
+                "created_at": "2024-07-22 17:47:32",
+                "updated_at": "2024-07-22 17:47:32",
+                "nip": null,
+                "work_unit_id": 1
+            },
+            "status": "certificate_validation",
+            "is_active": true,
+            "created_at": "2024-12-04 10:06:04",
+            "updated_at": "2025-01-01 18:54:33",
+            "application_letter": null,
+            "schedule_interview": "2024-12-20 00:00:00",
+            "company_name": "PT Rajawali berat",
+            "regnumber": "20240000024",
+            "company": {
+                "id": 10,
+                "name": "PT Rajawali berat",
+                "username": "rajawali",
+                "phone_number": "0813340003",
+                "email": "rajawali@mail.com",
+                "email_verified_at": null,
+                "nib": "3890002333",
+                "nib_file": "-",
+                "province_id": 32,
+                "city_id": 3273,
+                "address": "jl Mampang Prapatan",
+                "company_phone_number": "7727727727",
+                "pic_name": "Pak Raja",
+                "pic_phone": "08120000700",
+                "request_date": "2023-11-30 09:41:23",
+                "approved_at": "2023-11-30 09:41:23",
+                "approved_by": 5,
+                "is_active": false,
+                "created_at": "2023-11-29 19:41:23",
+                "updated_at": "2024-01-15 04:48:14",
+                "deleted_at": null,
+                "established": "2020-11-01",
+                "exist_spionam": false,
+                "service_types": [
+                    {
+                        "id": 8,
+                        "name": "Alat berat",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 10,
+                            "service_type_id": 8
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 23,
+            "company_id": 39,
+            "rejection_notes" : "Perbaiki Dokumen A karena data yang diberikan belum tepat.",
+            "disposition_by": {
+                "id": 9,
+                "name": "Joko Kustanto",
+                "username": "joko_kustanto",
+                "email": "joko_kustanto@smk.com",
+                "email_verified_at": null,
+                "is_ministry": 1,
+                "is_active": true,
+                "deleted_at": null,
+                "created_at": "2023-11-29 19:41:12",
+                "updated_at": "2023-11-29 19:41:12",
+                "nip": null,
+                "work_unit_id": 1
+            },
+            "disposition_to": {
+                "id": 3,
+                "name": "Penilai",
+                "username": "penilai",
+                "email": "penilai@smk.com",
+                "email_verified_at": null,
+                "is_ministry": 1,
+                "is_active": true,
+                "deleted_at": null,
+                "created_at": "2024-07-22 17:47:32",
+                "updated_at": "2024-07-22 17:47:32",
+                "nip": null,
+                "work_unit_id": 1
+            },
+            "status": "rejected",
+            "is_active": true,
+            "created_at": "2024-12-04 09:41:04",
+            "updated_at": "2024-12-10 06:13:33",
+            "application_letter": null,
+            "schedule_interview": "2024-12-10 00:00:00",
+            "company_name": "PT WIRASWASTA GEMILANG INDONESIA",
+            "regnumber": "20240000023",
+            "company": {
+                "id": 39,
+                "name": "PT WIRASWASTA GEMILANG INDONESIA",
+                "username": "wirawasta",
+                "phone_number": "08123456789",
+                "email": "info@ptwgi.com",
+                "email_verified_at": null,
+                "nib": "8120004962755",
+                "nib_file": "-",
+                "province_id": 32,
+                "city_id": 3216,
+                "address": "GEDUNG THE CITY TOWER LT.5 UNIT 1S JL.MH THAMRIN NO.81",
+                "company_phone_number": "02131996245",
+                "pic_name": "FAUZY ALDJUFRIE",
+                "pic_phone": "-",
+                "request_date": "2024-05-14 12:46:08",
+                "approved_at": null,
+                "approved_by": null,
+                "is_active": false,
+                "created_at": "2024-05-13 22:46:08",
+                "updated_at": "2024-05-13 22:46:08",
+                "deleted_at": null,
+                "established": "2019-02-06",
+                "exist_spionam": null,
+                "service_types": [
+                    {
+                        "id": 2,
+                        "name": "AKDP",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 39,
+                            "service_type_id": 2
+                        }
+                    },
+                    {
+                        "id": 3,
+                        "name": "AJAP",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 39,
+                            "service_type_id": 3
+                        }
+                    },
+                    {
+                        "id": 7,
+                        "name": "Angkutan B3",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 39,
+                            "service_type_id": 7
+                        }
+                    },
+                    {
+                        "id": 9,
+                        "name": "Angkutan lintas batas negara",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 39,
+                            "service_type_id": 9
+                        }
+                    },
+                    {
+                        "id": 8,
+                        "name": "Alat berat",
+                        "created_at": "2024-07-22T17:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 39,
+                            "service_type_id": 8
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "pagination": {
+        "total": 7,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1
+    }
+}

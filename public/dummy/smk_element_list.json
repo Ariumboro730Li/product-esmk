@@ -1,0 +1,56 @@
+{
+    "error": false,
+    "message": "Berhasil Di Tampilkan",
+    "status_code": 200,
+    "data": [
+        {
+            "id": 24,
+            "title": "smk_elements_1734340205644",
+            "is_active": false,
+            "created_at": "2024-12-16 09:04:32"
+        },
+        {
+            "id": 23,
+            "title": "smk_elements_1734339590230",
+            "is_active": false,
+            "created_at": "2024-12-16 08:54:17"
+        },
+        {
+            "id": 22,
+            "title": "smk_elements_1734005237531",
+            "is_active": false,
+            "created_at": "2024-12-12 12:07:17"
+        },
+        {
+            "id": 21,
+            "title": "smk_elements_1733816571589",
+            "is_active": false,
+            "created_at": "2024-12-10 07:42:52"
+        },
+        {
+            "id": 20,
+            "title": "smk_elements_1733644152713",
+            "is_active": false,
+            "created_at": "2024-12-08 07:49:13"
+        },
+        {
+            "id": 1,
+            "title": "smk_elements_1",
+            "is_active": true,
+            "created_at": "2023-11-29 19:41:24"
+        },
+        {
+            "id": 2,
+            "title": "smk_elements_2",
+            "is_active": false,
+            "created_at": "2023-11-29 19:41:24"
+        }
+    ],
+    "paginate": {
+        "total": 7,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1
+    }
+}

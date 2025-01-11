@@ -1,0 +1,20 @@
+{
+    "error": false,
+    "message": "Successfully",
+    "status_code": 200,
+    "data": {
+        "id": 4400,
+        "name": "DEVELOPER",
+        "email": "developer@kemenhub.go.id",
+        "username": "developer",
+        "is_active": 1,
+        "nip": "0000000000000001",
+        "role_id": 3,
+        "role_name": "Assessor",
+        "work_unit_id": 1,
+        "work_unit_name": "Kementerian Perhubungan Darat",
+        "province_id": 31,
+        "city_id": 3173,
+        "created_at": "2024-12-07 00:11:55"
+    }
+}

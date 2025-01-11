@@ -1,0 +1,19 @@
+{
+    "error": false,
+    "message": "Successfully",
+    "status_code": 200,
+    "data": {
+        "id": 4400,
+        "name": "PT GIRA NIRWANA PUTRA",
+        "email": "giranirwanaputra@gmail.com",
+        "username": "PT GIRA NIRWANA PUTRA",
+        "is_active": 1,
+        "nib": "12345756453",
+        "role_id": 3,
+        "role_name": "Perusahaan",
+        "work_unit_id": 1,
+        "province_id": 31,
+        "city_id": 3173,
+        "created_at": "2024-12-07 00:11:55"
+    }
+}

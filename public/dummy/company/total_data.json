@@ -1,0 +1,10 @@
+{
+    "error": false,
+    "message": "Data Berhasil diTampilkan",
+    "status_code": 200,
+    "data": {
+        "total_perusahaan_terverifikasi" : 10,
+        "terdaftar_spionam" : 1,
+        "belum_terdaftar_spionam" : 10
+    }
+}

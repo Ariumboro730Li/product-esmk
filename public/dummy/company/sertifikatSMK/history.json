@@ -1,0 +1,49 @@
+{
+    "error": false,
+    "message": "Berhasil",
+    "status_code": 200,
+    "data": [
+        {
+            "id": 727,
+            "status": "passed_assessment_verification",
+            "updated_by" : "Ketua Tim",
+            "created_at": "2024-12-09 18:46:12"
+        },
+        {
+            "id": 726,
+            "status": "passed_assessment",
+            "updated_by" : "Penilai",
+            "created_at": "2024-12-09 18:43:34"
+        },
+        {
+            "id": 725,
+            "status": "submission_revision",
+            "updated_by" : "PT Cahaya AKAP",
+            "created_at": "2024-12-09 18:19:08"
+        },
+        {
+            "id": 724,
+            "status": "not_passed_assessment",
+            "updated_by" : "Penilai",
+            "created_at": "2024-12-09 18:08:59"
+        },
+        {
+            "id": 723,
+            "status": "request",
+            "updated_by" : "PT Cahaya AKAP",
+            "created_at": "2024-12-09 17:45:57"
+        },
+        {
+            "id": 722,
+            "status": "rejected",
+            "updated_by" : "Ketua Tim",
+            "created_at": "2024-12-09 17:22:40"
+        },
+        {
+            "id": 721,
+            "status": "request",
+            "updated_by" : "PT Cahaya AKAP",
+            "created_at": "2024-12-09 17:04:01"
+        }
+    ]
+}

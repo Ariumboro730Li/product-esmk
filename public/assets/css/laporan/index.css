@@ -1,0 +1,9 @@
+.paginationjs {
+    float: right !important;
+}
+
+.daterangepicker .ranges {
+    max-height: 200px;
+    /* Atur tinggi maksimum yang diinginkan */
+    overflow-y: auto;
+}

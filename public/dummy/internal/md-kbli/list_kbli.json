@@ -1,0 +1,41 @@
+{
+    "error": false,
+    "message": "Data ditemukan",
+    "status_code": 200,
+    "data": [
+        {
+            "id": 3,
+            "kbli": "49432",
+            "name": "Angkutan Bermotor Untuk Barang Khusus",
+            "description": null,
+            "created_at": "2024-01-15T23:37:01.000000Z",
+            "updated_at": "2024-01-15T23:37:01.000000Z",
+            "deleted_at": null
+        },
+        {
+            "id": 1,
+            "kbli": "49431",
+            "name": "Angkutan Bermotor untuk Barang Umum",
+            "description": null,
+            "created_at": null,
+            "updated_at": null,
+            "deleted_at": null
+        },
+        {
+            "id": 2,
+            "kbli": "49229",
+            "name": "Angkutan Bus Tidak Dalam Trayek Lainnya",
+            "description": null,
+            "created_at": null,
+            "updated_at": null,
+            "deleted_at": null
+        }
+    ],
+    "pagination": {
+        "total": 3,
+        "count": 3,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1
+    }
+}

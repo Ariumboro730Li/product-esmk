@@ -1,0 +1,367 @@
+{
+    "error": false,
+    "status_code": 200,
+    "data": {
+        "id": 30,
+        "company_id": 43,
+        "disposition_by": {
+            "id": 9,
+            "name": "Joko Kustanto",
+            "username": "joko_kustanto",
+            "email": "joko_kustanto@smk.com",
+            "email_verified_at": null,
+            "is_ministry": 1,
+            "is_active": true,
+            "deleted_at": null,
+            "created_at": "2023-11-29 19:41:12",
+            "updated_at": "2023-11-29 19:41:12",
+            "nip": null,
+            "work_unit_id": 1
+        },
+        "disposition_to": {
+            "id": 4397,
+            "name": "Iqbal Firmansyah",
+            "username": "iqbalfirmansyah",
+            "email": "iqbalfirmansyah592@gmail.com",
+            "email_verified_at": null,
+            "is_ministry": 1,
+            "is_active": true,
+            "deleted_at": null,
+            "created_at": "2024-05-02 23:11:35",
+            "updated_at": "2024-05-02 23:12:46",
+            "nip": null,
+            "work_unit_id": 1
+        },
+        "status": "passed_assessment",
+        "is_active": true,
+        "created_at": "2024-12-23 09:57:11",
+        "updated_at": "2024-12-23 10:55:18",
+        "application_letter": null,
+        "certificate_request_assessor": 4397,
+        "element_properties": {
+            "ui_schema": {
+                "element_1": {
+                    "deskripsiKomitmenDanKebijakanKeselamatan": {
+                        "ui:order": 1,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": ".pdf"
+                        }
+                    },
+                    "seluruhPemegangKepentinganAtauBagianDalamPerusahaanMempunyaiPeranSertaDanKeterlibatanAktifDalamMeningkatkanKinerjaKeselamatan": {
+                        "ui:order": 4,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": ".pdf"
+                        }
+                    },
+                    "perusahaanMempunyaiKomitmenYangKuatDariManajemenYangTerdokumentasikanTertulisDanDitandatanganiOlehPimpinanperusahaanTertinggiSebagaiLamngkahNyataTerhadapAspekKeselamatanYangDitunjukkanDalamSikapSehari-hari": {
+                        "ui:order": 2,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": ".pdf"
+                        }
+                    },
+                    "perusahaanMempunyaiKebijakanKeselamatanTertulisDariManajemenYangMemuatVisiMisiDanTujuanYangHendakDicapaiDanMempunyaiSasaranKeselamatanUntukMendukungPerwujudanKebijakanKeselamatanPerusahaanMenujuPeningkatanBerkelanjutan": {
+                        "ui:order": 3,
+                        "ui:widget": "files",
+                        "ui:options": {
+                            "accept": ".pdf"
+                        }
+                    }
+                },
+                "element_2": {
+                    "deskripsiPengorganisasian": {
+                        "ui:order": 1,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": ".pdf"
+                        }
+                    },
+                    "perusahaanMenetapkanStandardOperasionalProsedurSOPTentangKriteriaPenerimaanPengemudimekanikDll": {
+                        "ui:order": 4,
+                        "ui:widget": "files",
+                        "ui:options": {
+                            "accept": ".pdf"
+                        }
+                    },
+                    "perusahaanMempunyaiStrukturOrganisasiPengelolaanDiBidangKeselamatanSepertiUnitManajemenKeselamatanAtauPetugasKeselamatan": {
+                        "ui:order": 2,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": ".pdf"
+                        }
+                    },
+                    "perusahaanDapatMenjabarkanUraianTugasDanFungsiDiMasing-masingJabatanPadaStrukturOrganisasiHubunganAntarStrukturOrganisasiTersebut": {
+                        "ui:order": 3,
+                        "ui:widget": "file",
+                        "ui:options": {
+                            "accept": ".pdf"
+                        }
+                    }
+                }
+            },
+            "max_assesment": {
+                "element_1": {
+                    "deskripsiKomitmenDanKebijakanKeselamatan": "2.5",
+                    "seluruhPemegangKepentinganAtauBagianDalamPerusahaanMempunyaiPeranSertaDanKeterlibatanAktifDalamMeningkatkanKinerjaKeselamatan": "2.5",
+                    "perusahaanMempunyaiKomitmenYangKuatDariManajemenYangTerdokumentasikanTertulisDanDitandatanganiOlehPimpinanperusahaanTertinggiSebagaiLamngkahNyataTerhadapAspekKeselamatanYangDitunjukkanDalamSikapSehari-hari": "2.5",
+                    "perusahaanMempunyaiKebijakanKeselamatanTertulisDariManajemenYangMemuatVisiMisiDanTujuanYangHendakDicapaiDanMempunyaiSasaranKeselamatanUntukMendukungPerwujudanKebijakanKeselamatanPerusahaanMenujuPeningkatanBerkelanjutan": "2.5"
+                },
+                "element_2": {
+                    "deskripsiPengorganisasian": "2.5",
+                    "perusahaanMenetapkanStandardOperasionalProsedurSOPTentangKriteriaPenerimaanPengemudimekanikDll": "2.5",
+                    "perusahaanMempunyaiStrukturOrganisasiPengelolaanDiBidangKeselamatanSepertiUnitManajemenKeselamatanAtauPetugasKeselamatan": "2.5",
+                    "perusahaanDapatMenjabarkanUraianTugasDanFungsiDiMasing-masingJabatanPadaStrukturOrganisasiHubunganAntarStrukturOrganisasiTersebut": "2.5"
+                }
+            },
+            "question_schema": {
+                "properties": {
+                    "element_1": {
+                        "type": "object",
+                        "title": "1. KOMITMEN DAN KEBIJAKAN KESELAMATAN",
+                        "required": [
+                            "deskripsiKomitmenDanKebijakanKeselamatan",
+                            "perusahaanMempunyaiKomitmenYangKuatDariManajemenYangTerdokumentasikanTertulisDanDitandatanganiOlehPimpinanperusahaanTertinggiSebagaiLangkahNyataTerhadapAspekKeselamatanYangDitunjukkanDalamSikapSehari-hari",
+                            "perusahaanMempunyaiKebijakanKeselamatanTertulisDariManajemenYangMemuatVisiMisiDanTujuanYangHendakDicapaiDanMempunyaiSasaranKeselamatanUntukMendukungPerwujudanKebijakanKeselamatanPerusahaanMenujuPeningkatanBerkelanjutan",
+                            "seluruhPemegangKepentinganAtauBagianDalamPerusahaanMempunyaiPeranSertaDanKeterlibatanAktifDalamMeningkatkanKinerjaKeselamatan"
+                        ],
+                        "properties": {
+                            "deskripsiKomitmenDanKebijakanKeselamatan": {
+                                "type": "string",
+                                "title": "Deskripsi Komitmen dan Kebijakan Keselamatan (Persyaratan, Ekspektasi, Implementasi, Prosedur Terkait)",
+                                "format": "data-url",
+                                "description": "Deskripsi Komitmen dan Kebijakan Keselamatan",
+                                "attachmentName": "Deskripsi Komitmen dan Kebijakan Keselamatan Persyaratan, Ekspektasi, Implementasi, Prosedur Terkait"
+                            },
+                            "seluruhPemegangKepentinganAtauBagianDalamPerusahaanMempunyaiPeranSertaDanKeterlibatanAktifDalamMeningkatkanKinerjaKeselamatan": {
+                                "type": "string",
+                                "title": "Seluruh pemegang kepentingan atau bagian dalam Perusahaan mempunyai peran serta dan keterlibatan aktif dalam meningkatkan kinerja keselamatan",
+                                "format": "data-url",
+                                "description": "Dokumen\/foto-foto rapat terkait\/yang mendukung keselamatan",
+                                "attachmentName": "Laporan Kegiatan Sosialisasi"
+                            },
+                            "perusahaanMempunyaiKomitmenYangKuatDariManajemenYangTerdokumentasikanTertulisDanDitandatanganiOlehPimpinanperusahaanTertinggiSebagaiLamngkahNyataTerhadapAspekKeselamatanYangDitunjukkanDalamSikapSehari-hari": {
+                                "type": "string",
+                                "title": "Perusahaan mempunyai komitmen yang kuat dari Manajemen yang terdokumentasikan, tertulis dan ditandatangani oleh Pimpinan Perusahaan tertinggi sebagai lamngkah nyata terhadap aspek keselamatan  yang ditunjukkan dalam sikap sehari-hari",
+                                "format": "data-url",
+                                "description": "Bukti Pernyataan Dokumen (foto pernyataan komitmen)",
+                                "attachmentName": "Dokumen Komitmen"
+                            },
+                            "perusahaanMempunyaiKebijakanKeselamatanTertulisDariManajemenYangMemuatVisiMisiDanTujuanYangHendakDicapaiDanMempunyaiSasaranKeselamatanUntukMendukungPerwujudanKebijakanKeselamatanPerusahaanMenujuPeningkatanBerkelanjutan": {
+                                "type": "array",
+                                "items": [
+                                    {
+                                        "dokumenKebijakan": {
+                                            "name": "Dokumen Kebijakan",
+                                            "type": "string",
+                                            "format": "data-url"
+                                        }
+                                    },
+                                    {
+                                        "dokumenVisiMisi": {
+                                            "name": "Dokumen Visi Misi",
+                                            "type": "string",
+                                            "format": "data-url"
+                                        }
+                                    }
+                                ],
+                                "title": "Perusahaan mempunyai kebijakan keselamatan tertulis dari manajemen yang memuat  visi, misi dan tujuan yang hendak dicapai dan mempunyai sasaran keselamatan untuk mendukung perwujudan kebijakan keselamatan perusahaan menuju peningkatan berkelanjutan",
+                                "description": "Bukti Pernyataan Dokumen (foto pernyataan kebijakan dan Visi Misi)"
+                            }
+                        },
+                        "description": "-"
+                    },
+                    "element_2": {
+                        "type": "object",
+                        "title": "2. PENGORGANISASIAN",
+                        "required": [
+                            "deskripsiPengorganisasian",
+                            "perusahaanMempunyaiStrukturOrganisasiPengelolaanDiBidangKeselamatanSepertiUnitManajemenKeselamatanAtauPetugasKeselamatan",
+                            "perusahaanDapatMenjabarkanUraianTugasDanFungsiDiMasing-masingJabatanPadaStrukturOrganisasiHubunganAntarStrukturOrganisasiTersebut",
+                            "perusahaanMenetapkanStandardOperasionalProsedurSOPTentangKriteriaPenerimaanPengemudimekanik"
+                        ],
+                        "properties": {
+                            "deskripsiPengorganisasian": {
+                                "type": "string",
+                                "title": "Deskripsi Pengorganisasian",
+                                "format": "data-url",
+                                "description": "Deskripsi Pengorganisasian (Persyaratan, Ekspektasi, Implementasi, Prosedur Terkait)",
+                                "attachmentName": "Deskripsi Komitmen dan Kebijakan Keselamatan Persyaratan, Ekspektasi, Implementasi, Prosedur Terkait"
+                            },
+                            "perusahaanMenetapkanStandardOperasionalProsedurSOPTentangKriteriaPenerimaanPengemudimekanikDll": {
+                                "type": "array",
+                                "items": [
+                                    {
+                                        "prosedurPengemudi": {
+                                            "name": "Prosedur Pengemudi",
+                                            "type": "string",
+                                            "format": "data-url"
+                                        }
+                                    },
+                                    {
+                                        "prosedurMekanik": {
+                                            "name": "Prosedur Mekanik",
+                                            "type": "string",
+                                            "format": "data-url"
+                                        }
+                                    }
+                                ],
+                                "title": "Perusahaan menetapkan Standard Operasional Prosedur (SOP) tentang kriteria penerimaan pengemudi,mekanik, dll",
+                                "description": "Dokumen SOP penerimaan pengemudi, mekanik, dll"
+                            },
+                            "perusahaanMempunyaiStrukturOrganisasiPengelolaanDiBidangKeselamatanSepertiUnitManajemenKeselamatanAtauPetugasKeselamatan": {
+                                "type": "string",
+                                "title": "Perusahaan mempunyai struktur organisasi pengelolaan di bidang keselamatan, seperti Unit Manajemen Keselamatan atau Petugas Keselamatan",
+                                "format": "data-url",
+                                "description": "Dokumen struktur organisasi Unit Manajemen Keselamatan Petugas Keselamatan",
+                                "attachmentName": "Struktur Organisasi"
+                            },
+                            "perusahaanDapatMenjabarkanUraianTugasDanFungsiDiMasing-masingJabatanPadaStrukturOrganisasiHubunganAntarStrukturOrganisasiTersebut": {
+                                "type": "string",
+                                "title": "Perusahaan dapat menjabarkan uraian tugas dan fungsi di masing-masing jabatan pada struktur organisasi hubungan antar struktur organisasi tersebut",
+                                "format": "data-url",
+                                "description": "Dokumen tugas dan fungsi uraian tugas",
+                                "attachmentName": "Prosedur Pengorganisasian"
+                            }
+                        },
+                        "description": "Deskripsi Pengorganisasian (Persyaratan, Ekspektasi, Implementasi, Prosedur Terkait)"
+                    }
+                }
+            }
+        },
+        "answers": {
+            "element_1": {
+                "deskripsiKomitmenDanKebijakanKeselamatan": "https:\/\/storage.hubdat.dephub.go.id\/esmk\/testing-Dl4mwnbwK6_weugM6U-KC.pdf",
+                "seluruhPemegangKepentinganAtauBagianDalamPerusahaanMempunyaiPeranSertaDanKeterlibatanAktifDalamMeningkatkanKinerjaKeselamatan": "https:\/\/storage.hubdat.dephub.go.id\/esmk\/testing-96Me8-ZyZdJGPxVQKgCgM.pdf",
+                "perusahaanMempunyaiKomitmenYangKuatDariManajemenYangTerdokumentasikanTertulisDanDitandatanganiOlehPimpinanperusahaanTertinggiSebagaiLamngkahNyataTerhadapAspekKeselamatanYangDitunjukkanDalamSikapSehari-hari": "https:\/\/storage.hubdat.dephub.go.id\/esmk\/testing-XzDlSB7jNPzebw6f6uYkW.pdf",
+                "perusahaanMempunyaiKebijakanKeselamatanTertulisDariManajemenYangMemuatVisiMisiDanTujuanYangHendakDicapaiDanMempunyaiSasaranKeselamatanUntukMendukungPerwujudanKebijakanKeselamatanPerusahaanMenujuPeningkatanBerkelanjutan": [
+                    {
+                        "dokumenKebijakan": "https:\/\/storage.hubdat.dephub.go.id\/esmk\/testing-qR7nUC2Va4_JxfERJftrc.pdf"
+                    },
+                    {
+                        "dokumenVisiMisi": "https:\/\/storage.hubdat.dephub.go.id\/esmk\/testing-B0bEndlh0z88X5MQHCfI6.pdf"
+                    }
+                ]
+            },
+            "element_2": {
+                "deskripsiPengorganisasian": "https:\/\/storage.hubdat.dephub.go.id\/esmk\/testing-4vg8jLFxSjIay6qLFrVFl.pdf",
+                "perusahaanMenetapkanStandardOperasionalProsedurSOPTentangKriteriaPenerimaanPengemudimekanikDll": [
+                    {
+                        "prosedurPengemudi": "https:\/\/storage.hubdat.dephub.go.id\/esmk\/testing-zH8zuYwL5mCv_H8vRO8E1.pdf"
+                    },
+                    {
+                        "prosedurMekanik": "https:\/\/storage.hubdat.dephub.go.id\/esmk\/testing-zmeQ7IowzhQIHDFgpgMUP.pdf"
+                    }
+                ],
+                "perusahaanMempunyaiStrukturOrganisasiPengelolaanDiBidangKeselamatanSepertiUnitManajemenKeselamatanAtauPetugasKeselamatan": "https:\/\/storage.hubdat.dephub.go.id\/esmk\/testing-xAI5zCvlKpHxqABXoppBe.pdf",
+                "perusahaanDapatMenjabarkanUraianTugasDanFungsiDiMasing-masingJabatanPadaStrukturOrganisasiHubunganAntarStrukturOrganisasiTersebut": "https:\/\/storage.hubdat.dephub.go.id\/esmk\/testing-9UN8dlThrnZr54eeKV-V_.pdf"
+            }
+        },
+        "assessments": {
+            "element_1": {
+                "deskripsiKomitmenDanKebijakanKeselamatan": {
+                    "value": "2.5"
+                },
+                "seluruhPemegangKepentinganAtauBagianDalamPerusahaanMempunyaiPeranSertaDanKeterlibatanAktifDalamMeningkatkanKinerjaKeselamatan": {
+                    "value": "2.5"
+                },
+                "perusahaanMempunyaiKomitmenYangKuatDariManajemenYangTerdokumentasikanTertulisDanDitandatanganiOlehPimpinanperusahaanTertinggiSebagaiLamngkahNyataTerhadapAspekKeselamatanYangDitunjukkanDalamSikapSehari-hari": {
+                    "value": "2",
+                    "reason": "perbaiki"
+                },
+                "perusahaanMempunyaiKebijakanKeselamatanTertulisDariManajemenYangMemuatVisiMisiDanTujuanYangHendakDicapaiDanMempunyaiSasaranKeselamatanUntukMendukungPerwujudanKebijakanKeselamatanPerusahaanMenujuPeningkatanBerkelanjutan": {
+                    "value": "2.5",
+                    "reason": null
+                }
+            },
+            "element_2": {
+                "deskripsiPengorganisasian": {
+                    "value": "2.5"
+                },
+                "perusahaanMenetapkanStandardOperasionalProsedurSOPTentangKriteriaPenerimaanPengemudimekanikDll": {
+                    "value": "2",
+                    "reason": "perbaiki"
+                },
+                "perusahaanMempunyaiStrukturOrganisasiPengelolaanDiBidangKeselamatanSepertiUnitManajemenKeselamatanAtauPetugasKeselamatan": {
+                    "value": "2.5",
+                    "reason": null
+                },
+                "perusahaanDapatMenjabarkanUraianTugasDanFungsiDiMasing-masingJabatanPadaStrukturOrganisasiHubunganAntarStrukturOrganisasiTersebut": {
+                    "value": "2.5",
+                    "reason": null
+                }
+            }
+        },
+        "revision": null,
+        "assessment_status": "passed_assessment",
+        "validation_notes": null,
+        "number_of_application_letter": "SRT-02",
+        "date_of_application_letter": "2024-12-10",
+        "file_of_application_letter": "https:\/\/storage.hubdat.dephub.go.id\/esmk\/testing-4XQZaotmHvLdqgLAFImnt.pdf",
+        "company": {
+            "id": 43,
+            "name": "PT TRISTAR JAVA TRANSINDO",
+            "username": "ANGHOEYTIONG",
+            "phone_number": "08128249628",
+            "email": "admtjt26@gmail.com",
+            "email_verified_at": null,
+            "nib": "9120109831421",
+            "nib_file": "-",
+            "province_id": 31,
+            "city_id": 3175,
+            "address": "JL. RAYA BOULEVARD BLOK WB II NO. 7-8, KLP GADING TIMUR, KLP. GADING",
+            "company_phone_number": "0216281700",
+            "pic_name": "ANG HOEY TIONG",
+            "pic_phone": "0216281700",
+            "request_date": "2024-12-20 11:35:02",
+            "approved_at": null,
+            "approved_by": null,
+            "is_active": false,
+            "created_at": null,
+            "updated_at": null,
+            "deleted_at": null,
+            "established": null,
+            "exist_spionam": null,
+            "service_types": [
+                {
+                    "id": 7,
+                    "name": "Angkutan B3",
+                    "created_at": "2024-07-22T17:47:32.000000Z",
+                    "updated_at": null,
+                    "deleted_at": null,
+                    "pivot": {
+                        "company_id": 43,
+                        "service_type_id": 7
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "Angkutan barang umum",
+                    "created_at": "2024-07-22T17:47:32.000000Z",
+                    "updated_at": null,
+                    "deleted_at": null,
+                    "pivot": {
+                        "company_id": 43,
+                        "service_type_id": 6
+                    }
+                }
+            ],
+            "province": {
+                "id": 31,
+                "name": "DKI Jakarta",
+                "administrative_code": "31",
+                "created_at": "2024-07-22T17:47:31.000000Z",
+                "updated_at": "2024-07-22T17:47:31.000000Z"
+            },
+            "city": {
+                "id": 3175,
+                "province_id": 31,
+                "name": "Kota Adm. Jakarta Utara",
+                "administrative_code": "31.72",
+                "created_at": "2024-07-22T17:47:31.000000Z",
+                "updated_at": "2024-07-22T17:47:31.000000Z"
+            }
+        }
+    }
+}

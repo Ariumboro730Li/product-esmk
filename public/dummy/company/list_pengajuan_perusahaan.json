@@ -1,0 +1,38 @@
+{
+    "error": false,
+    "message": "Berhasil",
+    "status_code": 200,
+    "data": [
+        {
+            "id": 25,
+            "company_id": 38,
+            "disposition_by": {
+                "id": 10,
+                "name": "Diah"
+            },
+            "disposition_to": {
+                "id": 3,
+                "name": "Penilai"
+            },
+            "status": "Validasi Sertifikat",
+            "is_active": true,
+            "created_at": "2024-12-04",
+            "updated_at": "2024-12-05",
+            "application_letter": null,
+            "schedule_interview": "2024-12-05",
+            "nama_perusahaan": "PT JAYA BERSAMA HUTAMA",
+            "regnumber": "20240000025",
+            "company": {
+                "id": 38,
+                "name": "PT JAYA BERSAMA HUTAMA"
+            }
+        }
+    ],
+    "paginate": {
+        "total": 1,
+        "count": 1,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1
+    }
+}

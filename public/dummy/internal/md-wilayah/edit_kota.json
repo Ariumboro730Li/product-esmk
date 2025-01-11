@@ -1,0 +1,20 @@
+{
+    "error": false,
+    "message": "Succesfully",
+    "status_code": 200,
+    "data": {
+        "id": 9472,
+        "province_id": 94,
+        "name": "test nama kota -e",
+        "administrative_code": "111111111111.1111111111112",
+        "created_at": "2024-10-16T01:00:50.000000Z",
+        "updated_at": "2024-10-16T01:01:29.000000Z",
+        "province": {
+            "id": 94,
+            "name": "test prov",
+            "administrative_code": "11243",
+            "created_at": "2024-10-16T00:58:21.000000Z",
+            "updated_at": "2025-01-01T07:02:43.000000Z"
+        }
+    }
+}

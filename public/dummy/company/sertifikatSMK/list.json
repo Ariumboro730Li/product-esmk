@@ -1,0 +1,117 @@
+{
+    "error": false,
+    "message": "Successfully",
+    "status_code": 200,
+    "data": [
+        {
+            "id": 166,
+            "company_id": 1,
+            "disposition_by": 9,
+            "disposition_to": 3,
+            "updated_by" : "Penilai",
+            "status": "disposition",
+            "is_active": true,
+            "created_at": "2024-12-23 09:05:34",
+            "updated_at": "2024-12-23 09:47:51",
+            "rejection_notes" : "Curabitur lorem metus, tristique nec posuere at, egestas eu mi. Mauris eros sem, varius eget auctor at, tempor at orci. Vivamus dignissim nulla a lectus scelerisque, a luctus urna varius. Praesent malesuada mollis imperdiet. Cras vitae dictum risus. Donec imperdiet elementum finibus. Mauris accumsan libero sit amet odio tincidunt tincidunt. Aliquam venenatis porta leo id ultricies. Nulla sit amet eros eu velit mattis convallis nec a lacus. Duis rhoncus magna velit, ut lacinia turpis gravida nec. Nullam sollicitudin dui at neque rutrum, sed pharetra nisi blandit. Suspendisse non nunc efficitur, laoreet ex malesuada, scelerisque odio. Nulla pretium arcu vitae eros accumsan, sed finibus libero scelerisque.",
+            "application_letter": null,
+            "number_of_application_letter": "COBA123123",
+            "company": {
+                "id": 1,
+                "name": "PT Cahaya AKAP",
+                "username": "cahaya",
+                "phone_number": "081207380001",
+                "email": "cahaya@mail.com",
+                "email_verified_at": null,
+                "nib": "1165411111",
+                "nib_file": "-",
+                "province_id": 31,
+                "city_id": 3173,
+                "address": "jl Tegal Parang no 14",
+                "company_phone_number": "22232222",
+                "pic_name": "Pak Cahaya 1",
+                "pic_phone": "081207380001",
+                "request_date": "2023-11-30 09:41:21",
+                "approved_at": "2023-11-30 09:41:21",
+                "approved_by": 3,
+                "is_active": false,
+                "created_at": "2023-11-30 02:41:21",
+                "updated_at": null,
+                "deleted_at": null,
+                "established": "2020-02-01",
+                "exist_spionam": true,
+                "service_types": [
+                    {
+                        "id": 2,
+                        "name": "AKDP",
+                        "created_at": "2024-07-23T00:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 1,
+                            "service_type_id": 2
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 165,
+            "company_id": 1,
+            "disposition_by": null,
+            "disposition_to": null,
+            "updated_by" : null,
+            "status": "draft",
+            "is_active": true,
+            "created_at": "2024-12-11 12:07:33",
+            "updated_at": "2024-12-11 12:07:33",
+            "application_letter": null,
+            "number_of_application_letter": "COBA123123",
+            "company": {
+                "id": 1,
+                "name": "PT Cahaya AKAP",
+                "username": "cahaya",
+                "phone_number": "081207380001",
+                "email": "cahaya@mail.com",
+                "email_verified_at": null,
+                "nib": "1165411111",
+                "nib_file": "-",
+                "province_id": 31,
+                "city_id": 3173,
+                "address": "jl Tegal Parang no 14",
+                "company_phone_number": "22232222",
+                "pic_name": "Pak Cahaya 1",
+                "pic_phone": "081207380001",
+                "request_date": "2023-11-30 09:41:21",
+                "approved_at": "2023-11-30 09:41:21",
+                "approved_by": 3,
+                "is_active": false,
+                "created_at": "2023-11-30 02:41:21",
+                "updated_at": null,
+                "deleted_at": null,
+                "established": "2020-02-01",
+                "exist_spionam": true,
+                "service_types": [
+                    {
+                        "id": 2,
+                        "name": "AKDP",
+                        "created_at": "2024-07-23T00:47:32.000000Z",
+                        "updated_at": null,
+                        "deleted_at": null,
+                        "pivot": {
+                            "company_id": 1,
+                            "service_type_id": 2
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "pagination": {
+        "total": 4,
+        "count": 4,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1
+    }
+}

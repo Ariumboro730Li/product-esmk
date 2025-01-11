@@ -1,0 +1,79 @@
+{
+    "error": false,
+    "message": "Berhasil",
+    "status_code": 200,
+    "data": [
+        {
+            "id": 171,
+            "status": "passed_assessment",
+            "created_at": "2024-12-23 10:55:18",
+            "updated_by": "Internal"
+        },
+        {
+            "id": 170,
+            "status": "submission_revision",
+            "created_at": "2024-12-23 10:54:46",
+            "updated_by": "Internal"
+        },
+        {
+            "id": 169,
+            "status": "not_passed_assessment",
+            "created_at": "2024-12-23 10:43:10",
+            "updated_by": "Penilai"
+        },
+        {
+            "id": 168,
+            "status": "passed_assessment_verification",
+            "created_at": "2024-12-23 10:42:26",
+            "updated_by": "Penilai"
+        },
+        {
+            "id": 167,
+            "status": "passed_assessment",
+            "created_at": "2024-12-23 10:39:51",
+            "updated_by": "Penilai"
+        },
+        {
+            "id": 166,
+            "status": "request",
+            "created_at": "2024-12-23 10:35:02",
+            "updated_by": "Perusahaan"
+        },
+        {
+            "id": 165,
+            "status": "rejected",
+            "created_at": "2024-12-23 10:27:07",
+            "updated_by": "Penilai"
+        },
+        {
+            "id": 164,
+            "status": "request",
+            "created_at": "2024-12-23 10:25:00",
+            "updated_by": "Perusahaan"
+        },
+        {
+            "id": 163,
+            "status": "rejected",
+            "created_at": "2024-12-23 10:03:36",
+            "updated_by": "Penilai"
+        },
+        {
+            "id": 162,
+            "status": "request",
+            "created_at": "2024-12-23 09:57:47",
+            "updated_by": "Perusahaan"
+        },
+        {
+            "id": 161,
+            "status": "rejected",
+            "created_at": "2024-12-23 09:57:37",
+            "updated_by": "Penilai"
+        },
+        {
+            "id": 160,
+            "status": "request",
+            "created_at": "2024-12-23 09:57:20",
+            "updated_by": "Perusahaan"
+        }
+    ]
+}

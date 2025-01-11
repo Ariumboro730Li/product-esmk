@@ -1,0 +1,53 @@
+{
+    "error": false,
+    "message": "Data Berhasil Di Tampilkan",
+    "status_code": 200,
+    "data": {
+        "id": 1,
+        "name": "PT Cahaya AKAP",
+        "username": "cahaya",
+        "phone_number": "081207380001",
+        "email": "cahaya@mail.com",
+        "email_verified_at": null,
+        "nib": "1165411111",
+        "nib_file": "-",
+        "province_id": 31,
+        "city_id": 3173,
+        "address": "jl Tegal Parang no 14",
+        "company_phone_number": "22232222",
+        "pic_name": "Pak Cahaya 1",
+        "pic_phone": "081207380001",
+        "request_date": "2023-11-30 09:41:21",
+        "approved_at": "2023-11-30 09:41:21",
+        "approved_by": 3,
+        "is_active": false,
+        "created_at": "2023-11-30 02:41:21",
+        "updated_at": null,
+        "deleted_at": null,
+        "established": "2020-02-01",
+        "exist_spionam": true,
+        "province": {
+            "id": 31,
+            "name": "DKI Jakarta",
+            "administrative_code": "31"
+        },
+        "city": {
+            "id": 3173,
+            "name": "Kota Adm. Jakarta Pusat",
+            "administrative_code": "31.71"
+        },
+        "service_types": [
+            {
+                "id": 2,
+                "name": "AKDP",
+                "created_at": "2024-07-23T00:47:32.000000Z",
+                "updated_at": null,
+                "deleted_at": null,
+                "pivot": {
+                    "company_id": 1,
+                    "service_type_id": 2
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "error": false,
+    "message": "Berhasil ditampilkan",
+    "status_code": 200,
+    "data": [
+        {
+            "id": 5,
+            "title": "monitoring_elements_1733814974349",
+            "is_active": false,
+            "created_at": "2024-12-10 07:16:22"
+        },
+        {
+            "id": 4,
+            "title": "monitoring_elements_1733755531165",
+            "is_active": false,
+            "created_at": "2024-12-09 14:45:41"
+        },
+        {
+            "id": 1,
+            "title": "monitoring Element",
+            "is_active": true,
+            "created_at": "2023-11-29 19:41:25"
+        }
+    ],
+    "paginate": {
+        "total": 3,
+        "count": 3,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1
+    }
+}

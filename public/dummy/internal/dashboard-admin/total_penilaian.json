@@ -1,0 +1,39 @@
+{
+    "error": false,
+    "message": "Successfully",
+    "status_code": 200,
+    "data": {
+        "total_penilaian": [
+            {
+                "date": "2025-01-01",
+                "pengajuan_awal": 10,
+                "proses_pengajuan": 8,
+                "proses_selesai": 5
+            },
+            {
+                "date": "2025-01-02",
+                "pengajuan_awal": 12,
+                "proses_pengajuan": 9,
+                "proses_selesai": 7
+            },
+            {
+                "date": "2025-01-03",
+                "pengajuan_awal": 15,
+                "proses_pengajuan": 11,
+                "proses_selesai": 8
+            },
+            {
+                "date": "2025-01-04",
+                "pengajuan_awal": 20,
+                "proses_pengajuan": 15,
+                "proses_selesai": 10
+            },
+            {
+                "date": "2025-01-05",
+                "pengajuan_awal": 18,
+                "proses_pengajuan": 12,
+                "proses_selesai": 9
+            }
+        ]
+    }
+}

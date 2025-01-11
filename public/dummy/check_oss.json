@@ -1,0 +1,9 @@
+{
+    "error": false,
+    "message": "Berhasil Di Tampilkan",
+    "status_code": 200,
+    "data": {
+       "is_active" : false
+    }
+}
+

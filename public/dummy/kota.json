@@ -1,0 +1,105 @@
+{
+    "data": [
+        {
+            "id": "01",
+            "nama": "KABUPATEN SIMEULUE"
+        },
+        {
+            "id": "02",
+            "nama": "KABUPATEN ACEH SINGKIL"
+        },
+        {
+            "id": "03",
+            "nama": "KABUPATEN ACEH SELATAN"
+        },
+        {
+            "id": "04",
+            "nama": "KABUPATEN ACEH TENGGARA"
+        },
+        {
+            "id": "05",
+            "nama": "KABUPATEN ACEH TIMUR"
+        },
+        {
+            "id": "06",
+            "nama": "KABUPATEN ACEH TENGAH"
+        },
+        {
+            "id": "07",
+            "nama": "KABUPATEN ACEH BARAT"
+        },
+        {
+            "id": "08",
+            "nama": "KABUPATEN ACEH BESAR"
+        },
+        {
+            "id": "09",
+            "nama": "KABUPATEN PIDIE"
+        },
+        {
+            "id": "10",
+            "nama": "KABUPATEN BIREUEN"
+        },
+        {
+            "id": "11",
+            "nama": "KABUPATEN ACEH UTARA"
+        },
+        {
+            "id": "12",
+            "nama": "KABUPATEN ACEH BARAT DAYA"
+        },
+        {
+            "id": "13",
+            "nama": "KABUPATEN GAYO LUES"
+        },
+        {
+            "id": "14",
+            "nama": "KABUPATEN ACEH TAMIANG"
+        },
+        {
+            "id": "15",
+            "nama": "KABUPATEN NAGAN RAYA"
+        },
+        {
+            "id": "16",
+            "nama": "KABUPATEN ACEH JAYA"
+        },
+        {
+            "id": "17",
+            "nama": "KABUPATEN BENER MERIAH"
+        },
+        {
+            "id": "18",
+            "nama": "KABUPATEN PIDIE JAYA"
+        },
+        {
+            "id": "71",
+            "nama": "KOTA BANDA ACEH"
+        },
+        {
+            "id": "72",
+            "nama": "KOTA SABANG"
+        },
+        {
+            "id": "73",
+            "nama": "KOTA LANGSA"
+        },
+        {
+            "id": "74",
+            "nama": "KOTA LHOKSEUMAWE"
+        },
+        {
+            "id": "75",
+            "nama": "KOTA SUBULUSSALAM"
+        }
+    ],
+    "status_code": 200,
+    "errors": true,
+    "message": "Berhasil",
+    "pagination": {
+        "total": 23,
+        "per_page": 30,
+        "current_page": 1,
+        "total_pages": 1
+    }
+}
