@@ -249,22 +249,19 @@
                 // Populate other data
                 document.getElementById('name').innerText = data.name || '-';
                 document.getElementById('nib').innerText = "NIB : "+data.nib || '-';
-                $('.company-province').html(data.province_name);
-                $('.company-city').html(data.city_name);
-                $('.company-phone').html(data.company_phone_number);
-                $('.company-email').html(data.email);
-                $('.company-address').html(data.address);
-                $('.company-service-types').html(`<li class="list-item">${data.service_types}</li>`);
-                $('.company-established').html(data.established);
-                $('.company-joined-date').html(data.created_at);
-                $('.company-pic-name').html(data.pic_name);
-                $('.company-pic-phone').html(data.pic_phone);
-                $('.company-user-name').html(data.username);
-                $('.company-user-phone').html(data.phone_number);
+                $('.company-province').html(data.province_name || '-');
+                $('.company-city').html(data.city_name|| '-');
+                $('.company-phone').html(data.company_phone_number || '-');
+                $('.company-email').html(data.email|| '-');
+                $('.company-address').html(data.address|| '-');
+                $('.company-service-types').html(`<li class="list-item">${data.service_types || '-'}</li>`);
+                $('.company-established').html(data.established|| '-');
+                $('.company-joined-date').html(data.created_at|| '-');
+                $('.company-pic-name').html(data.pic_name|| '-');
+                $('.company-pic-phone').html(data.pic_phone|| '-');
+                $('.company-user-name').html(data.username|| '-');
+                $('.company-user-phone').html(data.phone_number|| '-');
                 $('.company-is-active').addClass(`${data.is_active.icon_status} ${data.is_active.color}`);
-
-                document.getElementById('email').innerText = data.email || 'No Email';
-
                 document.getElementById('createdAt').innerText =
                     `Terdaftar: ${data.created_at ? new Date(data.created_at).toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' }) : '-'}`;
             }

@@ -343,7 +343,7 @@
                 const certificatePdfContainer = $('#certificate-pdf');
                 certificatePdfContainer.html(`
                     <h4 class="mt-4 fw-semibold">Sertifikat belum ada</h4>
-                    <p class="text-muted mt-3">Silahkan lengkapi proses pengajuan sertifikat SMK <a href="/company/certificate/list">Disini</a></p>
+                    <p class="text-muted mt-3">Silahkan lengkapi proses pengajuan sertifikat SMK <a href="{{ route('company.certificate.list') }}">Disini</a></p>
                     <div class="mt-4">
                         <div class="row justify-content-center mt-5 mb-2">
                             <div class="col-sm-7 col-8 mb-4">
