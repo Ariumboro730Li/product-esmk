@@ -424,7 +424,7 @@ class PengajuanSMKPerusahaanController extends Controller
             ];
         }
 
-        $this->generateNotificationByStatus($tempCertificateRequest['status'], $recipients);
+        // $this->generateNotificationByStatus($tempCertificateRequest['status'], $recipients);
 
         return true;
     }
