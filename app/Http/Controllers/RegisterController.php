@@ -60,7 +60,7 @@ class RegisterController extends Controller
             "address" => "required|string",
             "phone_number" =>  [
                 'required',
-                'regex:/^(628|08)[0-9]{6,13}$/'
+                'regex:/^(62|0)[0-9]{6,13}$/'
             ],
             "email" => "required|email",
             'province_id' => 'required|exists:provinces,id',
@@ -69,19 +69,19 @@ class RegisterController extends Controller
             "pic_name" => "required|string",
             "pic_phone" => [
                 'nullable',
-                'regex:/^(628|08)[0-9]{6,13}$/'
+                'regex:/^(62|0)[0-9]{6,13}$/'
             ],
             "company_phone_number" =>  [
                 'required',
-                'regex:/^(628|08)[0-9]{6,13}$/'
+                'regex:/^(62|0)[0-9]{6,13}$/'
             ],
 
         ], [
             'password.min' => 'Kata sandi harus memiliki minimal 8 karakter.',
             'password.regex' => 'Kata sandi harus mengandung huruf besar, huruf kecil, angka, dan simbol.',
-            'phone_number.regex' => 'Nomor Telepon harus diawali dengan 628 | 08  dan hanya terdiri dari angka.',
-            'pic_phone.regex' => 'Nomor Telepon PIC harus diawali dengan 628 | 08  dan hanya terdiri dari angka.',
-            'company_phone_number.regex' => 'Nomor Telepon Perusahaan harus diawali dengan 628 | 08 dan hanya terdiri dari angka.',
+            'phone_number.regex' => 'Nomor Telepon harus diawali dengan 62 | 0  dan hanya terdiri dari angka.',
+            'pic_phone.regex' => 'Nomor Telepon PIC harus diawali dengan 62 | 0  dan hanya terdiri dari angka.',
+            'company_phone_number.regex' => 'Nomor Telepon Perusahaan harus diawali dengan 62 | 0 dan hanya terdiri dari angka.',
         ]);
 
         if($validator->fails()){
