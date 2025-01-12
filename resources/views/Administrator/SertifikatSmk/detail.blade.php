@@ -1188,6 +1188,7 @@
                 buildActionByRequestStatus(response.data.data.status, response.data.data.assessment_status, response
                     .data.data.disposition_to, response.data.data.disposition_by);
                 mappingCompanyInformation(response.data.data);
+
                 mappingCertificateRequestCard(response.data.data.status, response.data.data.disposition_by?.name,
                     response.data.data.disposition_to, response.data.data.updated_at, response.data.data
                     .validation_notes, response.data.data);
@@ -1840,6 +1841,8 @@
             rowValidationReason = '';
             rowStatus = '';
             let serviceTypeValidation = '';
+
+            console.log(dispositionBy)
 
             const mappingStatusToReadable = {
                 'assessment_revision': 'Revisi Penilaian',
@@ -3580,9 +3583,11 @@
             const formObject = {};
 
             formArrayData.forEach(field => {
-                // Konversi ke integer jika field-nya adalah `assessor_head`
-                formObject[field.name] = field.name === 'assessor_head' ? parseInt(field.value, 10) : field.value;
+
+
+                formObject[field.name] = field.value
             });
+
 
             $('#change-assessor-head').modal('hide');
             updateCertificateRequest(formObject, 'Pengajuan akan ditugaskan kepada ketua tim baru');
