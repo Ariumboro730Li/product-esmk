@@ -219,29 +219,8 @@
         let companyID = urlParams.get('company_id');
         let elementProperties;
         let monitoringElement;
-
-        const mappingAssessmentStatus = {
-            'new_request': 'Pengajuan baru',
-            'not_pass': 'Belum Sesuai',
-            'revision': 'Revisi',
-            'passed': 'Lulus penilaian',
-            'need_validation': 'Verifikasi penilaian',
-            'need_recheck_assessment': 'Assessment tidak valid'
-        }
-
-        const mappingAssessmentStatusV2 = {
-            'draft': 'Draft',
-            'request': 'Pengajuan',
-            'not_passed_assessment': 'Tidak Lulus Penilaian',
-            'submission_revision': 'Perbaikan Dokumen Pengajuan',
-            'passed_assessment': 'Lulus Penilaian',
-            'not_passed_assessment_verification': 'Tidak Lulus verifikasi Penilaian',
-            'assessment_revision': 'Revisi Penilaian',
-            'passed_assessment_verification': 'Lulus verifikasi Penilaian',
-            'rejected': 'Ditolak',
-            'cancelled': 'Dibatalkan',
-            'expired': 'Kedaluwarsa'
-        }
+        let assessmentColumn;
+        let formInputColumn = '';
 
         const mappingYearlyReportStatus = {
             request: {
@@ -280,79 +259,6 @@
                 bgColor: 'bg-danger',
                 textColor: 'text-white'
             }
-        }
-
-        const mappingProcessBy = (status, dispositionBy) => {
-            let prosessBy = '-'
-
-            if (['request',
-                    'revision',
-                    'need_recheck_assessment'
-                ].includes(status)) {
-
-                if (dispositionBy) {
-                    prosessBy = 'Penilai'
-                } else {
-                    prosessBy = 'Ketua Tim'
-                }
-            }
-
-            if (['need_revision'].includes(status)) {
-                prosessBy = 'Perusahaan'
-            }
-
-            if (['need_validation', 'need_interview'].includes(status)) {
-                prosessBy = 'Ketua Tim'
-            }
-
-            return `<span>${prosessBy}</span>`
-        }
-
-        const mappingProcessByV2 = (status, dispositionBy) => {
-            let prosessBy = '-'
-
-            let processByCompany = ['not_passed_assessment'],
-                processByAssessorHead = [
-                    'request',
-                    'passed_assessment',
-                    'assessment_revision',
-                    'passed_assessment_verification',
-                    'scheduling_interview',
-                    'scheduled_interview'
-                ],
-                processByAssessor = [
-                    'disposition',
-                    'submission_revision',
-                    'not_passed_assessment_verification'
-                ],
-                processByDirector = ['completed_interview'],
-                processByDirjen = ['verification_director']
-
-            if (processByCompany.includes(status)) {
-                prosessBy = 'Perusahaan'
-            }
-
-            if (processByAssessorHead.includes(status)) {
-                prosessBy = 'Ketua tim'
-            }
-
-            if (processByAssessor.includes(status)) {
-                prosessBy = 'Penilai'
-            }
-
-            if (processByDirector.includes(status)) {
-                prosessBy = 'Direktur'
-            }
-
-            if (processByDirjen.includes(status)) {
-                prosessBy = 'Dirjen'
-            }
-
-            if (status === 'certificate_validation') {
-                prosessBy = 'Selesai'
-            }
-
-            return `<span>${prosessBy}</span>`
         }
 
         async function getMonitoringElement() {
@@ -440,9 +346,7 @@
                         const subElementSchema = {
                             elementKey,
                             subElementKey: subElement[0],
-                            questionProperties: questionSchema.properties[elementKey]?.properties?.[
-                                subElement[0]
-                            ],
+                            questionProperties: questionSchema.properties[elementKey]?.properties?.[subElement[0]],
                             monitoringProperties: monitoringElements[elementKey]?.[subElement[0]],
                             answers: answers[elementKey]?.[subElement[0]],
                             assessments: assessments?.[elementKey]?.[subElement[0]] || null,
@@ -663,8 +567,7 @@
                 answers: answerSchema,
             };
 
-            console.log(formData)
-            // await submitData(formData);
+            await submitData(formData);
         });
 
         async function submitData(formData) {
@@ -750,8 +653,8 @@
                     ${titleColumn}
                     ${questionColumn}
                     ${answerColumn}
-                    ${assessmentColumn ? assessmentColumn : ""}
-                    ${formInputColumn ? formInputColumn : ""}
+                    ${assessmentColumn ?? ""}
+                    ${formInputColumn ?? ""}
                 </tr>
             `
 
@@ -760,7 +663,6 @@
 
         function buildAnswerSchmema() {
             let elements = {}
-
             $.each(elementProperties.max_assesment, function(elementKey, elementValue) {
                 const rowData = {}
 
@@ -808,8 +710,6 @@
 
         function generateAssessmentColumn(assessmentProperties) {
 
-            let assessmentColumn
-
             if (typeof assessmentProperties === undefined) {
                 return
             }
@@ -834,10 +734,10 @@
                 return '';
             }
 
-            let formInputColumn = '';
+
 
             if (assessmentProperties.assessmentValue === null || assessmentProperties.assessmentValue) {
-                let assessmentColumn = `
+                assessmentColumn = `
                     <td>
                         <input type="hidden"
                             class="answer-element"
@@ -976,6 +876,7 @@
         }
 
         function uploadFile(sourceElement, inputTarget, isRequired) {
+
             const csrfToken = $('meta[name="csrf-token"]').attr('content')
 
             let removeButton = $(`#${sourceElement}`).closest('td').prev().find("[type=radio]")
@@ -1005,9 +906,10 @@
                         request.onload = function() {
                             if (request.status >= 200 && request.status < 300) {
                                 const resp = request.response
+
                                 load(request.response);
 
-                                $(`#${inputTarget}`).val(resp.url)
+                                $(`#${inputTarget}`).val(resp.file_url)
                             } else {
                                 error('oh no, Internal Server Error');
                             }
