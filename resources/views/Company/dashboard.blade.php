@@ -232,8 +232,11 @@
                                         </div>
                                     </div>
                                     <hr class="my-3">
-                                    <div class="row d-flex justify-content-center align-items-center text-center"
-                                        id="certificate-pdf" style="min-height: 600px;">
+                                    <div id="certificate-pdf"
+                                        class="row d-flex justify-content-center align-items-center text-center"
+                                        style="min-height: 600px;">
+                                        <div id="pdf-viewer-container"
+                                            style="width: 100%; height: 400px; position: relative; overflow: auto;"></div>
                                     </div>
                                 </div>
                             </div>
@@ -380,37 +383,6 @@
             updateCountdown(annualReportDates, expiredDate);
         }
 
-        // Fungsi menghitung countdown
-        // function updateCountdown(annualReportDates, expiredDate) {
-        //     const now = new Date(); // Waktu saat ini
-
-        //     // Cek jika expired sudah lewat
-        //     if (now >= expiredDate) {
-        //         document.getElementById('countdown-timer').innerHTML = 'Kadaluwarsa';
-        //         document.getElementById('countdown-card').style.background = "rgba(139, 0, 0, 0.9)";
-        //         return;
-        //     }
-
-        //     // Temukan laporan tahunan berikutnya
-        //     let nextReportDate = annualReportDates.find(date => date > now);
-
-        //     if (!nextReportDate) {
-        //         document.getElementById('countdown-timer').innerHTML = 'Tidak ada laporan tahunan lagi.';
-        //         document.getElementById('countdown-card').style.background = "rgba(139, 0, 0, 0.9)";
-        //         return;
-        //     }
-
-        //     // Hitung selisih waktu
-        //     let diff = nextReportDate - now;
-        //     let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        //     let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        //     let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        //     let seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-        //     // Tampilkan countdown
-        //     document.getElementById('countdown-timer').innerHTML =
-        //         `${days} hari, ${hours} jam, ${minutes} menit, ${seconds} detik`;
-        // }
         function updateCountdown(annualReportDates, expiredDate) {
             const now = new Date(); // Waktu saat ini
 
@@ -418,7 +390,7 @@
             if (now >= expiredDate) {
                 document.getElementById('countdown-timer').innerHTML = 'Kadaluwarsa';
                 document.getElementById('countdown-card').style.background =
-                "rgba(139, 0, 0, 0.9)"; // Warna merah untuk kadaluwarsa
+                    "rgba(139, 0, 0, 0.9)"; // Warna merah untuk kadaluwarsa
                 return;
             }
 
@@ -428,7 +400,7 @@
             if (!nextReportDate) {
                 document.getElementById('countdown-timer').innerHTML = 'Tidak ada laporan tahunan lagi.';
                 document.getElementById('countdown-card').style.background =
-                "rgba(139, 0, 0, 0.9)"; // Warna merah jika tidak ada laporan
+                    "rgba(139, 0, 0, 0.9)"; // Warna merah jika tidak ada laporan
                 return;
             }
 
@@ -517,34 +489,6 @@
             return handleData;
         }
 
-        async function setSertifikatData(data) {
-            const certificatePdfContainer = $('#certificate-pdf');
-
-            if (data.certificate_file && data.certificate_file !== '-') {
-                certificatePdfContainer.html(`
-                <div id="pdf-viewer-container" style="width: 100%; height: 400px; position: relative; overflow: auto;"></div>
-            `);
-                await loadPDF(data.certificate_file);
-            } else {
-                certificatePdfContainer.html(`
-                <h4 class="mt-4 fw-semibold">Sertifikat belum ada</h4>
-                <p class="text-muted mt-3">Silahkan lengkapi proses pengajuan sertifikat SMK <a href="javascript:void(0)">Disini</a></p>
-                <div class="mt-4">
-                    <div class="row justify-content-center mt-5 mb-2">
-                        <div class="col-sm-7 col-8 mb-4">
-                            <img src="{{ asset('assets/images/verification-img.png') }}" alt="Informasi Sertifikat" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-            `);
-            }
-
-            $('.certificate-number').html(data.number_of_certificate);
-            $('.certificate-status').html(data.is_active.text_status).addClass(`badge ${data.is_active.color}`);
-            $('.certificate-publish').html(data.publish_date);
-            $('.certificate-expired').html(data.expired_date).addClass(`badge ${data.expired.color}`);
-
-        }
 
         async function checkOSS() {
             loadingPage(true);
@@ -573,6 +517,86 @@
                         btnSync.style.display = 'none';
                     }
                 }
+            }
+        }
+
+        async function setSertifikatData(data) {
+            const certificatePdfContainer = $('#certificate-pdf');
+            if (data.certificate_file && data.certificate_file !== '-') {
+                certificatePdfContainer.html(`
+                    <div id="pdf-viewer-container" style="width: 100%; height: 400px; position: relative; overflow: auto;"></div>
+                `);
+                await showViewDocument(data.certificate_file);
+            } else {
+                certificatePdfContainer.html(`
+                    <h4 class="mt-4 fw-semibold">Sertifikat belum ada</h4>
+                    <p class="text-muted mt-3">Silahkan lengkapi proses pengajuan sertifikat SMK <a href="javascript:void(0)">Disini</a></p>
+                    <div class="mt-4">
+                        <div class="row justify-content-center mt-5 mb-2">
+                            <div class="col-sm-7 col-8 mb-4">
+                                <img src="{{ asset('assets/images/verification-img.png') }}" alt="Informasi Sertifikat" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                `);
+            }
+
+            $('.certificate-number').html(data.number_of_certificate);
+            $('.certificate-status').html(data.is_active.text_status).addClass(`badge ${data.is_active.color}`);
+            $('.certificate-publish').html(data.publish_date);
+            $('.certificate-expired').html(data.expired_date).addClass(`badge ${data.expired.color}`);
+        }
+
+        async function showViewDocument(loc) {
+            $.ajax({
+                url: "{{ env('SERVICE_BASE_URL') }}/api/company/laporan-tahunan/getView",
+                method: 'GET',
+                data: {
+                    url: loc
+                },
+                error: function(xhr) {
+                    let message = xhr.responseJSON?.message || 'An error occurred';
+                    showAlert('error', message);
+                },
+                success: async function(response) {
+
+                    if (response.data && response.data.certificate_file_base64) {
+                        const base64File = response.data.certificate_file_base64;
+                        const pdfViewerContainer = $('#pdf-viewer-container');
+
+                        pdfViewerContainer.html(`
+                        <embed src="${base64File}" style="width: 100%; height: 100%; border: none;" />
+                    `);
+                    } else {
+                        showAlert('error', 'Document not found');
+                    }
+                }
+            });
+        }
+
+        async function showViewDocumentv1(loc) {
+            try {
+                const response = await $.ajax({
+                    url: "{{ env('SERVICE_BASE_URL') }}/api/company/laporan-tahunan/getView",
+                    method: 'GET',
+                    data: {
+                        url: loc
+                    },
+                });
+
+                if (response.data && response.data.certificate_file_base64) {
+                    const base64File = response.data.certificate_file_base64;
+                    const pdfViewerContainer = $('#pdf-viewer-container');
+
+                    pdfViewerContainer.html(`
+                        <embed src="${base64File}" style="width: 100%; height: 100%; border: none;" />
+                    `);
+                } else {
+                    notificationAlert('info', 'Pemberitahuan', "File tidak ditemukan")
+                }
+            } catch (error) {
+                const message = error.responseJSON?.message || 'Terjadi kesalahan saat memuat file';
+                notificationAlert('info', 'Pemberitahuan', message)
             }
         }
 
@@ -613,47 +637,6 @@
                 }).catch(swal.noop);
             })
         }
-
-        async function loadPDF(url) {
-            const loadingTask = pdfjsLib.getDocument(url);
-            const pdf = await loadingTask.promise;
-
-            const container = document.getElementById('pdf-viewer');
-            const canvas = document.createElement('canvas');
-            const context = canvas.getContext('2d');
-            let scale = 1.5;
-            let currentPage = 1;
-
-            const renderPage = async (pageNum) => {
-                const page = await pdf.getPage(pageNum);
-                const viewport = page.getViewport({
-                    scale: scale
-                });
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
-                container.innerHTML = '';
-                container.appendChild(canvas);
-
-                const renderContext = {
-                    canvasContext: context,
-                    viewport: viewport
-                };
-                await page.render(renderContext).promise;
-            };
-
-            await renderPage(currentPage);
-
-            container.style.overflow = 'auto';
-            container.style.maxHeight = '100%';
-            container.style.position = 'relative';
-            canvas.style.maxWidth = '100%';
-            canvas.style.height = 'auto';
-            canvas.style.display = 'block';
-            canvas.style.margin = '0 auto';
-
-        }
-
-
 
         async function initPageLoad() {
             await Promise.all([
