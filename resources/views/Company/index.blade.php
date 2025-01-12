@@ -211,7 +211,7 @@
                     element.innerText = appData.nama;
                 });
 
-                document.querySelector('.nama_instansi').innerText = appData.nama_instansi || '';
+                document.querySelector('#nama_instansi').innerText = appData.nama_instansi || '';
                 document.getElementById('kredit_by').innerText = `${appData.nama_instansi}`;
 
                 // Mengupdate email, no telepon, dan alamat aplikasi
