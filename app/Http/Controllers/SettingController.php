@@ -87,9 +87,11 @@ class SettingController extends Controller
             ]
         ]);
 
-        if($response){
+        if(isset($response)){
             return $response;
         }
+
+
 
         $message = $request->is_active ? 'Pengaturan OSS berhasil diaktifkan.' : 'Pengaturan OSS berhasil dinonaktifkan.';
         return response()->json([
