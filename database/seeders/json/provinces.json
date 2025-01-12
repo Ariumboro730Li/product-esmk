@@ -1,0 +1,171 @@
+[{
+        "id": 11,
+        "name": "Aceh",
+        "administrative_code": "11"
+    },
+    {
+        "id": 12,
+        "name": "Sumatera Utara",
+        "administrative_code": "12"
+    },
+    {
+        "id": 13,
+        "name": "Sumatera Barat",
+        "administrative_code": "13"
+    },
+    {
+        "id": 14,
+        "name": "Riau",
+        "administrative_code": "14"
+    },
+    {
+        "id": 15,
+        "name": "Jambi",
+        "administrative_code": "15"
+    },
+    {
+        "id": 16,
+        "name": "Sumatera Selatan",
+        "administrative_code": "16"
+    },
+    {
+        "id": 17,
+        "name": "Bengkulu",
+        "administrative_code": "17"
+    },
+    {
+        "id": 18,
+        "name": "Lampung",
+        "administrative_code": "18"
+    },
+    {
+        "id": 19,
+        "name": "Kepulauan Bangka Belitung",
+        "administrative_code": "19"
+    },
+    {
+        "id": 21,
+        "name": "Kepulauan Riau",
+        "administrative_code": "21"
+    },
+    {
+        "id": 31,
+        "name": "DKI Jakarta",
+        "administrative_code": "31"
+    },
+    {
+        "id": 32,
+        "name": "Jawa Barat",
+        "administrative_code": "32"
+    },
+    {
+        "id": 33,
+        "name": "Jawa Tengah",
+        "administrative_code": "33"
+    },
+    {
+        "id": 34,
+        "name": "DI Yogyakarta",
+        "administrative_code": "34"
+    },
+    {
+        "id": 35,
+        "name": "Jawa Timur",
+        "administrative_code": "35"
+    },
+    {
+        "id": 36,
+        "name": "Banten",
+        "administrative_code": "36"
+    },
+    {
+        "id": 51,
+        "name": "Bali",
+        "administrative_code": "51"
+    },
+    {
+        "id": 52,
+        "name": "Nusa Tenggara Barat",
+        "administrative_code": "52"
+    },
+    {
+        "id": 53,
+        "name": "Nusa Tenggara Timur",
+        "administrative_code": "53"
+    },
+    {
+        "id": 61,
+        "name": "Kalimantan Barat",
+        "administrative_code": "61"
+    },
+    {
+        "id": 62,
+        "name": "Kalimantan Tengah",
+        "administrative_code": "62"
+    },
+    {
+        "id": 63,
+        "name": "Kalimantan Selatan",
+        "administrative_code": "63"
+    },
+    {
+        "id": 64,
+        "name": "Kalimantan Timur",
+        "administrative_code": "64"
+    },
+    {
+        "id": 65,
+        "name": "Kalimantan Utara",
+        "administrative_code": "65"
+    },
+    {
+        "id": 71,
+        "name": "Sulawesi Utara",
+        "administrative_code": "71"
+    },
+    {
+        "id": 72,
+        "name": "Sulawesi Tengah",
+        "administrative_code": "72"
+    },
+    {
+        "id": 73,
+        "name": "Sulawesi Selatan",
+        "administrative_code": "73"
+    },
+    {
+        "id": 74,
+        "name": "Sulawesi Tenggara",
+        "administrative_code": "74"
+    },
+    {
+        "id": 75,
+        "name": "Gorontalo",
+        "administrative_code": "75"
+    },
+    {
+        "id": 76,
+        "name": "Sulawesi Barat",
+        "administrative_code": "76"
+    },
+    {
+        "id": 81,
+        "name": "Maluku",
+        "administrative_code": "81"
+    },
+    {
+        "id": 82,
+        "name": "Maluku Utara",
+        "administrative_code": "82"
+    },
+    {
+        "id": 91,
+        "name": "Papua",
+        "administrative_code": "91"
+    },
+    {
+        "id": 92,
+        "name": "Papua Barat",
+        "administrative_code": "92"
+    }
+]
