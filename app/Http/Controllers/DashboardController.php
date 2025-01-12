@@ -58,9 +58,9 @@ class DashboardController extends Controller
         $dateFrom = $request->date_from;
         $dateTo = $request->date_to;
         $queryCompany = Company::with('serviceTypes')
-        ->join('users', 'companies.user_id', '=', 'users.id')
-        ->select('companies.*', 'users.email as email');
-        $queryCompany->whereBetween('created_at', [$dateFrom, $dateTo]);
+        ->join('users', 'companies.id', '=', 'users.id')
+        ->select('companies.id', 'companies.name', 'companies.created_at', 'users.email as email');
+        $queryCompany->whereBetween('companies.created_at', [$dateFrom, $dateTo]);
         return $queryCompany->get();
     }
 
