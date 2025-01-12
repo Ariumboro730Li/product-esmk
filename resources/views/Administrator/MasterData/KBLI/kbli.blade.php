@@ -119,7 +119,7 @@
                             </div>
                             <div class="mb-3">
                                 <div class="form-floating mb-0">
-                                    <textarea class="form-control" name="input_deskripsi_kbli" required id="input_deskripsi_kbli" rows="3"></textarea>
+                                    <textarea class="form-control" name="input_deskripsi_kbli" id="input_deskripsi_kbli" rows="3"></textarea>
                                     <label for="input_deskripsi_kbli">Deskripsi KBLI</label>
                                 </div>
                             </div>
