@@ -93,7 +93,18 @@ class SkNumberController extends Controller
 
     public function destroy(Request $request)
     {
-        $data = DecreeNumber::findOrFail($request->id);
+        $data = DecreeNumber::find($request->id);
+
+        $Active = DecreeNumber::where('id', $request->id)->first();
+        if ($Active->is_active == 1) {
+            return response()->json([
+                'errors' => true,
+                'message' => 'Data Aktif tidak dapat di hapus',
+                'status_code' => HttpStatusCodes::HTTP_NOT_FOUND,
+            ], status: HttpStatusCodes::HTTP_NOT_FOUND);
+        }
+
+
         if (!$data) {
             return response()->json([
                 'status_code' => HttpStatusCodes::HTTP_NOT_FOUND,

@@ -269,6 +269,16 @@ class DirJenController extends Controller
         }
 
         $data = Signer::where('id', $request->id);
+
+        $Active = Signer::where('id', $request->id)->first();
+        if ($Active->is_active == 1) {
+            return response()->json([
+                'errors' => true,
+                'message' => 'Data Aktif tidak dapat di hapus',
+                'status_code' => HttpStatusCodes::HTTP_NOT_FOUND,
+            ], status: HttpStatusCodes::HTTP_NOT_FOUND);
+        }
+
         $penandatangan = $data->delete();
         if ($penandatangan) {
             return response()->json([
