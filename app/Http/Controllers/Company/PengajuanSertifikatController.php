@@ -244,17 +244,17 @@ class PengajuanSertifikatController extends Controller
 
         $currentDate = Carbon::now()->timestamp;
 
-        if ($request->request_status === 'submission_revision') {
-            $newTopicForCompany = "notification-employee-{$certificateRequest->disposition_to}";
-            dispatch(new NotificationUser([
-                [
-                    'type'        => 'success',
-                    'title'       => 'Revisi pengajuan',
-                    'description' => $certificateRequest->company->name . ' telah melakukan perbaikan dokumen pengajuan.',
-                    'delivery_at' => $currentDate
-                ]
-            ]))->delay(Carbon::now()->addSeconds(3));
-        }
+        // if ($request->request_status === 'submission_revision') {
+        //     $newTopicForCompany = "notification-employee-{$certificateRequest->disposition_to}";
+        //     dispatch(new NotificationUser([
+        //         [
+        //             'type'        => 'success',
+        //             'title'       => 'Revisi pengajuan',
+        //             'description' => $certificateRequest->company->name . ' telah melakukan perbaikan dokumen pengajuan.',
+        //             'delivery_at' => $currentDate
+        //         ]
+        //     ]))->delay(Carbon::now()->addSeconds(3));
+        // }
         return $certificateRequest;
     }
 
