@@ -222,11 +222,11 @@ class BeritaAcaraController extends Controller
                     'company' => $companyRecipients
                 ];
 
-                $this->generateNotificationByStatus(
-                    'new_assessor_interview',
-                    $newRecipients,
-                    $otherInformation
-                );
+                // $this->generateNotificationByStatus(
+                //     'new_assessor_interview',
+                //     $newRecipients,
+                //     $otherInformation
+                // );
             }
 
             $recipients = [
@@ -235,11 +235,11 @@ class BeritaAcaraController extends Controller
             ];
 
             // send notification for new employee
-            $this->generateNotificationByStatus(
-                'update_inteview_assessment',
-                $recipients,
-                $otherInformation
-            );
+            // $this->generateNotificationByStatus(
+            //     'update_inteview_assessment',
+            //     $recipients,
+            //     $otherInformation
+            // );
         }
 
         if ($request->request_status === 'completed_interview') {
@@ -258,10 +258,10 @@ class BeritaAcaraController extends Controller
                 'employee' => $oldAssessorRecipients
             ];
 
-            $this->generateNotificationByStatus(
-                $request->request_status,
-                $recipients
-            );
+            // $this->generateNotificationByStatus(
+            //     $request->request_status,
+            //     $recipients
+            // );
         }
         return [
             'assessment_interview' => $newInterview->refresh(),
