@@ -528,24 +528,25 @@ class PengajuanSMKPerusahaanController extends Controller
 
         // Ambil data sekaligus dengan grouping
         $data = CertificateRequest::selectRaw("
-            SUM(CASE WHEN status = 'request' THEN 1 ELSE 0 END) as pengajuanAwalcoUNT,
-            SUM(CASE WHEN status = 'certificate_validation' THEN 1 ELSE 0 END) as pengajuanSelesai,
-            SUM(CASE WHEN status NOT IN ('request', 'draft', 'certificate_validation') THEN 1 ELSE 0 END) as prosesPengajuan
-        ")
+                SUM(CASE WHEN status = 'certificate_validation' THEN 1 ELSE 0 END) as pengajuanSelesai,
+                SUM(CASE WHEN status = 'expired' THEN 1 ELSE 0 END) as pengajuanExpired,
+                SUM(CASE WHEN status NOT IN ('draft', 'certificate_validation', 'expired') THEN 1 ELSE 0 END) as prosesPengajuan,
+                COUNT(*) - SUM(CASE WHEN status = 'draft' THEN 1 ELSE 0 END) as totalPengajuan
+            ")
             ->get();
-
-        // Format ulang hasil data
         $result = $data->map(function ($item) {
             return [
-                'pengajuan_awal' => (int) $item->pengajuanAwalcoUNT,
-                'proses_pengajuan' => (int) $item->pengajuanSelesai,
-                'proses_selesai' => (int) $item->prosesPengajuan
+                'pengajuan_ekspired' => (int) $item->pengajuanExpired,
+                'pengajuan_total' => (int) $item->totalPengajuan,
+                'proses_pengajuan' => (int) $item->prosesPengajuan,
+                'proses_selesai' => (int) $item->pengajuanSelesai
+
             ];
         });
 
         return response()->json([
             'error' => false,
-            'message' => 'User details retrieved successfully',
+            'message' => 'Berhasil ditemukan',
             'status_code' => HttpStatusCodes::HTTP_OK,
             'data' => $result
         ], HttpStatusCodes::HTTP_OK);

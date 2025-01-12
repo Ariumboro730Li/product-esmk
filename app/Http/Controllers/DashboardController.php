@@ -57,9 +57,13 @@ class DashboardController extends Controller
     {
         $dateFrom = $request->date_from;
         $dateTo = $request->date_to;
+        // $queryCompany = Company::with('serviceTypes')
+        //     ->join('users', 'companies.id', '=', 'users.id')
+        //     ->select('companies.id', 'companies.name', 'companies.created_at', 'users.email as email');
+
         $queryCompany = Company::with('serviceTypes')
-        ->join('users', 'companies.id', '=', 'users.id')
-        ->select('companies.id', 'companies.name', 'companies.created_at', 'users.email as email');
+            ->leftJoin('certificate_requests', 'companies.id', '=', 'certificate_requests.company_id')
+            ->select('companies.*', 'certificate_requests.status as certificate_status');
         $queryCompany->whereBetween('companies.created_at', [$dateFrom, $dateTo]);
         return $queryCompany->get();
     }
@@ -133,7 +137,8 @@ class DashboardController extends Controller
         $dateFrom = $request->date_from;
         $dateTo = $request->date_to;
         $queryUser = User::select(
-            "name","nip"
+            "name",
+            "nip"
         )
             ->withCount([
                 'certificate_request_disposisition' => function ($query) use ($dateFrom, $dateTo) {
@@ -219,8 +224,8 @@ class DashboardController extends Controller
             return [
                 'date' => $item->date,
                 'pengajuan_awal' => (int) $item->pengajuanAwalcoUNT,
-                'proses_pengajuan' => (int) $item->pengajuanSelesai,
-                'proses_selesai' => (int) $item->prosesPengajuan
+                'proses_pengajuan' => (int) $item->prosesPengajuan,
+                'proses_selesai' => (int) $item->pengajuanSelesai
             ];
         });
 
