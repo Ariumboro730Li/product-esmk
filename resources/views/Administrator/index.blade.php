@@ -105,7 +105,7 @@
     </script>
 
     <script>
-        change_box_container('false');
+        // change_box_container('false');
     </script>
 
     <script>
@@ -225,7 +225,7 @@
 
                 const favicon = document.getElementById('logo_favicon');
                 favicon.href = finalLogoFav;
-                
+
                 let deskripsi_dashboard = document.getElementById('deskripsi_aplikasi');
                 if (deskripsi_dashboard) {
                     deskripsi_dashboard.innerText = appData.deskripsi || '';
@@ -240,7 +240,7 @@
                 }
             }
         }
-        
+
         window.onload = getDataApps;
 
         function loadingPage(show) {

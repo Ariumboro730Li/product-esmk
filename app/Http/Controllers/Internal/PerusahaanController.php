@@ -191,10 +191,12 @@ class PerusahaanController extends Controller
             ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
 
-        $data = Company::where('id', $request->id)
+        $data = Company::where('companies.id', $request->id)
+            ->select('companies.*', 'users.username', 'users.email')
             ->with('province')
             ->with('city')
             ->with('serviceTypes')
+            ->join('users', 'companies.user_id', '=', 'users.id')
             ->first();
         // $dataPengajuan = CertificateRequest::where('company_id', $data->id)->get();
         // $dataLaporanTahunan = YearlyReport::where('company_id', $data->id)->get();

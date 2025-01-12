@@ -59,13 +59,13 @@
                                         <hr class="my-3 border border-secondary-subtle">
                                         <div class="row g-3">
                                             <div class="col-4">
-                                                <h5 class="mb-0 total_aodt"></h5><small class="text-muted">AODT</small>
+                                                <h5 class="mb-0"></h5><small class="text-muted"></small>
                                             </div>
                                             <div class="col-4 border border-top-0 border-bottom-0">
-                                                <h5 class="mb-0 total_aotdt"></h5><small class="text-muted">AOTDT</small>
+                                                <h5 class="mb-0"></h5><small class="text-muted"></small>
                                             </div>
                                             <div class="col-4">
-                                                <h5 class="mb-0 total_ab"></h5><small class="text-muted">AB</small>
+                                                <h5 class="mb-0"></h5><small class="text-muted"></small>
                                             </div>
                                         </div>
                                         <hr class="my-3 border border-secondary-subtle">

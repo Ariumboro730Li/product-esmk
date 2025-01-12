@@ -101,7 +101,7 @@
     </script>
 
     <script>
-        change_box_container('false');
+        // change_box_container('false');
     </script>
 
     <script>

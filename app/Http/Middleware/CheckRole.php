@@ -50,7 +50,6 @@ class CheckRole
                 $roleUserInternal = $roleModel->name;
                 $payload['internal_role'] = $roleUserInternal;
             }
-
         }
 
         $request->user = $user;
