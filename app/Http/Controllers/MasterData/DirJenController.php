@@ -216,12 +216,6 @@ class DirJenController extends Controller
         $existingActiveSk = Signer::where('is_active', 1)
             ->first();
 
-        if ($existingActiveSk) {
-            $data->is_active = 0;
-        } else {
-            $data->is_active = 1;
-        }
-
         $data->name = $request->input('name');
         $data->position = $request->input('position');
         $data->identity_number = $request->input('identity_number');
