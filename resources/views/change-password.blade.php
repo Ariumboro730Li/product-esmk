@@ -171,7 +171,6 @@
         }
 
         async function getDataApps() {
-            loadingPage(true); // Menampilkan indikator loading
 
             const getDataRest = await CallAPI(
                     'GET',
@@ -188,43 +187,59 @@
                 });
 
             if (getDataRest.status === 200) {
-                loadingPage(false);
-
                 const appData = getDataRest.data.data;
+
+                const currentPort = window.location.port || '80'; 
+                let logoPort;
+                let logoFavicon;
+                try {
+                    logoPort = new URL(appData.logo_aplikasi).port || '80';
+                    logoFavicon = new URL(appData.logo_favicon).port || '80'; 
+                } catch {
+                    logoFavicon = null; 
+                    logoPort = null; 
+                }
+
+                const defaultLogo = '{{ asset('assets/images/logoapp.png') }}';
+                const finalLogo = (logoPort && logoPort !== currentPort) ?
+                    defaultLogo :
+                    (appData.logo_aplikasi || defaultLogo);
+                const finalLogoFav = (logoFavicon && logoFavicon !== currentPort) ?
+                    defaultLogo :
+                    (appData.logo_favicon || defaultLogo);
+
+                const isDefaultLogo = finalLogo === defaultLogo;
+                loadingPage(false);
 
                 document.querySelectorAll('.nama_aplikasi').forEach(function(element) {
                     element.innerText = appData.nama;
                 });
+
                 document.querySelector('.nama_instansi').innerText = appData.nama_instansi || '';
-                document.querySelector('.logo_aplikasi').innerHTML = 
-                `<a href="#">
-                    <img src="${appData.logo_aplikasi || `{{ asset('assets') }}/images/logoapp.png`}" alt="img"
-                        style="width: 60px;border-radius:50%;" />
-                </a>`;
-                
-                // Mengupdate logo aplikasi di welcome banner (gunakan gambar default jika kosong)
+
+                document.querySelector('.logo_aplikasi').innerHTML = `
+                    <a href="#">
+                        <img src="${finalLogo}" alt="img"
+                            style="width: 60px; border-radius:50%;" />
+                    </a>`;
+
                 let sideLogo = document.getElementById('side-content-logo');
                 if (sideLogo) {
                     sideLogo.innerHTML = `
-                   <div class="auth-sidecontent" style="position: relative;">
+                <div class="auth-sidecontent" style="position: relative;">
                         <!-- Gambar latar belakang -->
                         <img src="{{ asset('assets') }}/images/authentication/3.jpg" alt="images" class="img-fluid img-auth-side" />
                     
                         <!-- Logo, diposisikan di tengah gambar -->
-                        <img src="${appData.logo_aplikasi || '{{ asset('assets') }}/images/logoapp.png'}" alt="images" 
-                            class="img-fluid img-auth-side" 
-                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 8rem; height: 8rem;border-radius:50%;" />
+                        <img src="${finalLogo}" alt="images" 
+                            class="img-fluid img-auth-side"  
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 8rem; height: ${isDefaultLogo ? '9rem' : '8rem'}; border-radius:50%;" />
                     </div>
                 `;
                 }
 
-                if (appData.logo_favicon) {
-                    const favicon = document.getElementById('logo_favicon');
-                    favicon.href = appData.logo_favicon;
-                } else {
-                    const favicon = document.getElementById('logo_favicon');
-                    favicon.href = '{{ asset('assets') }}/images/logoapp.png';
-                }
+                const favicon = document.getElementById('logo_favicon');
+                favicon.href = finalLogoFav;
             }
         }
         window.onload = getDataApps;

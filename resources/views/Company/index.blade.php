@@ -14,7 +14,7 @@
     <meta name="author" content="Phoenixcoded" />
 
     <link rel="stylesheet" href="{{ asset('assets') }}/css/plugins/style.css" />
-    <link id="logo_favicon" rel="icon" href="{{ asset('assets') }}/images/logoapp.png" type="image/x-icon"  />
+    <link id="logo_favicon" rel="icon" href="{{ asset('assets') }}/images/logoapp.png" type="image/x-icon" />
     <link rel="stylesheet" href="{{ asset('assets') }}/fonts/inter/inter.css" id="main-font-link" />
     <link rel="stylesheet" href="{{ asset('assets') }}/fonts/phosphor/duotone/style.css" />
     <link rel="stylesheet" href="{{ asset('assets') }}/fonts/tabler-icons.min.css" />
@@ -165,11 +165,11 @@
         let deskripsi_aplikasi;
 
         async function getDataApps() {
-            loadingPage(true); // Menampilkan indikator loading
+            loadingPage(true);
 
             const getDataRest = await CallAPI(
                     'GET',
-                    `{{ url('') }}/api/internal/admin-panel/setting/find`, {
+                    `{{ url('') }}/api/setting/find`, {
                         name: "aplikasi"
                     }
                 )
@@ -186,13 +186,32 @@
 
                 const appData = getDataRest.data.data;
 
-                // Mengupdate nama aplikasi
+                const currentPort = window.location.port || '80';
+                let logoPort;
+                let logoFavicon;
+                try {
+                    logoPort = new URL(appData.logo_aplikasi).port || '80';
+                    logoFavicon = new URL(appData.logo_favicon).port || '80';
+                } catch {
+                    logoFavicon = null;
+                    logoPort = null;
+                }
+
+                const defaultLogo = '{{ asset('assets/images/logoapp.png') }}';
+                const finalLogo = (logoPort && logoPort !== currentPort) ?
+                    defaultLogo :
+                    (appData.logo_aplikasi || defaultLogo);
+                const finalLogoFav = (logoFavicon && logoFavicon !== currentPort) ?
+                    defaultLogo :
+                    (appData.logo_favicon || defaultLogo);
+
+                const isDefaultLogo = finalLogo === defaultLogo;
+
                 document.querySelectorAll('.nama_aplikasi').forEach(function(element) {
                     element.innerText = appData.nama;
                 });
 
-                // Mengupdate nama instansi
-                document.getElementById('nama_instansi').innerText = appData.nama_instansi;
+                document.querySelector('.nama_instansi').innerText = appData.nama_instansi || '';
                 document.getElementById('kredit_by').innerText = `${appData.nama_instansi}`;
 
                 // Mengupdate email, no telepon, dan alamat aplikasi
@@ -202,19 +221,11 @@
 
                 // Mengupdate logo aplikasi (gunakan gambar default jika kosong)
                 $('.logo_aplikasi').html(`
-                    <img src="${appData.logo_aplikasi || '{{ asset('assets') }}/images/logoapp.png'}" alt="img" style="width: 45px; height: 47px; border-radius: 50%;">
+                    <img src="${finalLogo}" alt="img" style="width: 45px; height: ${isDefaultLogo ? '45px' : '47px'}; border-radius: 50%;">
                 `);
 
-                // Mengupdate favicon aplikasi (gunakan gambar default jika kosong)
-                if (appData.logo_favicon) {
-                    const favicon = document.getElementById('logo_favicon');
-                    favicon.href = appData.logo_favicon;
-                } else {
-                    const favicon = document.getElementById('logo_favicon');
-                    favicon.href = '{{ asset('assets') }}/images/logoapp.png';
-                }
-
-                // Mengupdate deskripsi aplikasi
+                const favicon = document.getElementById('logo_favicon');
+                favicon.href = finalLogoFav;
                 let deskripsi_dashboard = document.getElementById('deskripsi_aplikasi');
                 if (deskripsi_dashboard) {
                     deskripsi_dashboard.innerText = appData.deskripsi || '';
@@ -224,8 +235,8 @@
                 let logoFooter = document.getElementById('logo_footer');
                 if (logoFooter) {
                     logoFooter.innerHTML = `
-                <img src="${appData.logo_aplikasi || '{{ asset('assets') }}/images/logoapp.png'}" alt="Logo" style="width: 45px; height: 47px; border-radius: 50%;">
-            `;
+                        <img src="${finalLogo}" alt="Logo" style="width: 45px; height: ${isDefaultLogo ? '45px' : '47px'}; border-radius: 50%;">
+                    `;
                 }
             }
         }

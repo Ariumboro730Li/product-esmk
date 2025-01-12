@@ -153,7 +153,93 @@
                 text: message
             });
         }
+        async function getDataApps() {
+            loadingPage(true);
 
+            const getDataRest = await CallAPI(
+                    'GET',
+                    `{{ url('') }}/api/setting/find`, {
+                        name: "aplikasi"
+                    }
+                )
+                .then(response => response)
+                .catch(error => {
+                    loadingPage(false);
+                    let resp = error.response;
+                    notificationAlert('info', 'Pemberitahuan', 'Error');
+                    return resp;
+                });
+
+            if (getDataRest.status === 200) {
+                loadingPage(false);
+
+                const appData = getDataRest.data.data;
+
+                const currentPort = window.location.port || '80';
+                let logoPort;
+                let logoFavicon;
+                try {
+                    logoPort = new URL(appData.logo_aplikasi).port || '80';
+                    logoFavicon = new URL(appData.logo_favicon).port || '80';
+                } catch {
+                    logoFavicon = null;
+                    logoPort = null;
+                }
+
+                const defaultLogo = '{{ asset('assets/images/logoapp.png') }}';
+                const finalLogo = (logoPort && logoPort !== currentPort) ?
+                    defaultLogo :
+                    (appData.logo_aplikasi || defaultLogo);
+                const finalLogoFav = (logoFavicon && logoFavicon !== currentPort) ?
+                    defaultLogo :
+                    (appData.logo_favicon || defaultLogo);
+
+                const isDefaultLogo = finalLogo === defaultLogo;
+
+                document.querySelectorAll('.nama_aplikasi').forEach(function(element) {
+                    element.innerText = appData.nama;
+                });
+
+                document.querySelector('.nama_instansi').innerText = appData.nama_instansi || '';
+                document.getElementById('kredit_by').innerText = `${appData.nama_instansi}`;
+
+                // Mengupdate email, no telepon, dan alamat aplikasi
+                $('#email_app').html(`<i class="fa fa-envelope me-2"></i>${appData.email}`);
+                $('#no_telepon_app').html(`<i class="fa fa-phone me-2"></i>${appData.whatsapp}`);
+                $('#alamat_app').html(`<i class="fa-solid fa-location-dot me-2"></i> ${appData.alamat}`);
+
+                // Mengupdate logo aplikasi (gunakan gambar default jika kosong)
+                $('.logo_aplikasi').html(`
+                    <img src="${finalLogo}" alt="img" style="width: 45px; height: ${isDefaultLogo ? '45px' : '47px'}; border-radius: 50%;">
+                `);
+
+                let imgLogoApp = document.querySelector('.img-logo-app');
+                if (imgLogoApp) {
+                    imgLogoApp.innerHTML = `
+                    <div class="img-welcome-banner">
+                        <img src="${finalLogo}" alt="img" class="img-fluid mt-2"
+                            style="width: 100px; height: ${isDefaultLogo ? '100px' : '101px'}; border-radius: 50%;" />
+                    </div>
+                `;
+                }
+
+                const favicon = document.getElementById('logo_favicon');
+                favicon.href = finalLogoFav;
+                
+                let deskripsi_dashboard = document.getElementById('deskripsi_aplikasi');
+                if (deskripsi_dashboard) {
+                    deskripsi_dashboard.innerText = appData.deskripsi || '';
+                }
+
+                // Mengupdate logo footer (gunakan gambar default jika kosong)
+                let logoFooter = document.getElementById('logo_footer');
+                if (logoFooter) {
+                    logoFooter.innerHTML = `
+                        <img src="${finalLogo}" alt="Logo" style="width: 45px; height: ${isDefaultLogo ? '45px' : '47px'}; border-radius: 50%;">
+                    `;
+                }
+            }
+        }
         async function getDataApps() {
             loadingPage(true); // Menampilkan indikator loading
 
