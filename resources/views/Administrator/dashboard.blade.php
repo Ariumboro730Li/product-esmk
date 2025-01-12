@@ -51,7 +51,7 @@
                                     keselamatan secara berkelanjutan.
                             </div>
                         </div>
-                        <div class="col-sm-6 text-center img-logo-app">
+                        <div class="col-sm-6 text-center img-logo-app mt-2">
                         </div>
                     </div>
                 </div>

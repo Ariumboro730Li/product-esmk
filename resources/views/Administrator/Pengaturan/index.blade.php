@@ -391,9 +391,25 @@
                 document.getElementById('namaInstansi').innerText = appData.nama_instansi;
                 $('#email').html(`<i class="fa fa-envelope me-2"></i>${appData.email}`);
                 $('#noWaHelpdesk').html(`<i class="fa fa-phone me-2"></i>${appData.whatsapp}`);
+
+                const defaultLogo = '{{ asset('assets/images/logoapp.png') }}';
+                const currentPort = window.location.port || '80';
+                let logoPort;
+                try {
+                    logoPort = new URL(appData.logo_aplikasi).port || '80';
+                } catch {
+                    logoFavicon = null;
+                }
+
+                const finalLogo = (logoPort && logoPort !== currentPort) ?
+                    defaultLogo :
+                    (appData.logo_aplikasi || defaultLogo);
+
+                const isDefaultLogo = finalLogo === defaultLogo;
+
                 $('.logoApp').html(`
-                <a href="#"><img src="${appData.logo_aplikasi}" alt="img"
-                    style="width: 60px; height: 62px; border-radius: 50%;" /></a>
+                <a href="#"><img src="${finalLogo}" alt="img"
+                    style="width: 60px; height: ${isDefaultLogo ? '65px' : '62px'}; border-radius: 50%;" /></a>
                 `);
                 $('#alamat').html(`<i class="fa-solid fa-location-dot me-2"></i> ${appData.alamat}`);
 

@@ -210,7 +210,7 @@
 
                 // Mengupdate logo aplikasi (gunakan gambar default jika kosong)
                 $('.logo_aplikasi').html(`
-                    <img src="${finalLogo}" alt="img" style="width: 45px; height: ${isDefaultLogo ? '45px' : '47px'}; border-radius: 50%;">
+                    <img src="${finalLogo}" alt="img" style="width: 45px; height: ${isDefaultLogo ? '50px' : '47px'}; border-radius: 50%;">
                 `);
 
                 let imgLogoApp = document.querySelector('.img-logo-app');
@@ -225,7 +225,7 @@
 
                 const favicon = document.getElementById('logo_favicon');
                 favicon.href = finalLogoFav;
-
+                
                 let deskripsi_dashboard = document.getElementById('deskripsi_aplikasi');
                 if (deskripsi_dashboard) {
                     deskripsi_dashboard.innerText = appData.deskripsi || '';
@@ -235,13 +235,12 @@
                 let logoFooter = document.getElementById('logo_footer');
                 if (logoFooter) {
                     logoFooter.innerHTML = `
-                        <img src="${finalLogo}" alt="Logo" style="width: 45px; height: ${isDefaultLogo ? '45px' : '47px'}; border-radius: 50%;">
+                        <img src="${finalLogo}" alt="Logo" style="width: 45px; height: ${isDefaultLogo ? '50px' : '47px'}; border-radius: 50%;">
                     `;
                 }
             }
         }
-
-        // Panggil getDataApps saat window onload
+        
         window.onload = getDataApps;
 
         function loadingPage(show) {

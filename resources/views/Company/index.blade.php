@@ -221,7 +221,7 @@
 
                 // Mengupdate logo aplikasi (gunakan gambar default jika kosong)
                 $('.logo_aplikasi').html(`
-                    <img src="${finalLogo}" alt="img" style="width: 45px; height: ${isDefaultLogo ? '45px' : '47px'}; border-radius: 50%;">
+                    <img src="${finalLogo}" alt="img" style="width: 45px; height: ${isDefaultLogo ? '50px' : '47px'}; border-radius: 50%;">
                 `);
 
                 const favicon = document.getElementById('logo_favicon');
@@ -235,7 +235,7 @@
                 let logoFooter = document.getElementById('logo_footer');
                 if (logoFooter) {
                     logoFooter.innerHTML = `
-                        <img src="${finalLogo}" alt="Logo" style="width: 45px; height: ${isDefaultLogo ? '45px' : '47px'}; border-radius: 50%;">
+                        <img src="${finalLogo}" alt="Logo" style="width: 45px; height: ${isDefaultLogo ? '50px' : '47px'}; border-radius: 50%;">
                     `;
                 }
             }
