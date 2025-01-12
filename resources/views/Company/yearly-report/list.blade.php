@@ -26,8 +26,7 @@
     </div>
     <div class="row"><!-- [ sample-page ] start -->
         <div class="col-12">
-            <div
-                class="datatable-wrapper datatable-loading no-footer searchable fixed-columns datatable-empty">
+            <div class="datatable-wrapper datatable-loading no-footer searchable fixed-columns datatable-empty">
                 <div class="datatable-top">
                     <div class="datatable-dropdown">
                         <label>
@@ -40,9 +39,8 @@
                         </label>
                     </div>
                     <div class="datatable-search">
-                        <input id="searchInput" class="datatable-input" placeholder="Cari..."
-                            type="search" name="search" title="Search within table"
-                            aria-controls="pc-dt-simple-1">
+                        <input id="searchInput" class="datatable-input" placeholder="Cari..." type="search" name="search"
+                            title="Search within table" aria-controls="pc-dt-simple-1">
                     </div>
                 </div>
             </div>
@@ -92,11 +90,11 @@
 @section('page_js')
     <script>
         let defaultLimitPage = 10;
-        let currentPage      = 1;
-        let totalPage        = 1;
+        let currentPage = 1;
+        let totalPage = 1;
         let defaultAscending = 0;
-        let defaultSearch    = "";
-        let paramsTable      = {};
+        let defaultSearch = "";
+        let paramsTable = {};
 
 
         async function getListData(paramsTable) {
@@ -107,8 +105,7 @@
 
             const getDataRest = await CallAPI(
                     'GET',
-                    `{{url('')}}/api/company/laporan-tahunan/monitoring-element`,
-                    {
+                    `{{ url('') }}/api/company/laporan-tahunan/monitoring-element`, {
                         page: paramsTable.currentPage,
                         limit: paramsTable.defaultLimitPage,
                         ascending: paramsTable.defaultAscending,
@@ -177,12 +174,16 @@
                                 colorBage = 'primary';
                                 break;
                             case "revision":
-                                statusLabel = '<span class="badge bg-light-danger">Revisi</span>';
-                                colorBage = 'danger';
+                                statusLabel = '<span class="badge bg-light-warning">Telah direvisi</span>';
+                                colorBage = 'warning';
                                 break;
                             case "verified":
                                 statusLabel = '<span class="badge bg-light-success">Terverifikasi</span>';
                                 colorBage = 'success';
+                                break;
+                            case "not_passed":
+                                statusLabel = '<span class="badge bg-light-danger">Tidak lulus penilaian</span>';
+                                colorBage = 'danger';
                                 break;
                             default:
                                 statusLabel = '<span class="badge bg-light-warning">Status Tidak Diketahui</span>';
@@ -231,29 +232,29 @@
                                                 </ul>
                                             </div>
                                             ${element.rejection_notes ? `
-                                                    <div class="h5 mt-3">
-                                                        <i class="material-icons-two-tone f-16 me-1">notification_important</i>Catatan Permohonan
-                                                    </div>
-                                                    <div class="help-md-hidden">
-                                                        <div class="bg-body mb-3 p-3">
-                                                            <h6>
-                                                                <img src="{{ asset('assets') }}/images/user/avatar-5.jpg"
-                                                                    alt="" class="wid-20 avatar me-2 rounded">
-                                                                Last comment from <a href="#" class="link-secondary">${element.updated_by}:</a>
-                                                            </h6>
-                                                            <p class="mb-0">
-                                                                ${truncatedNotes}
-                                                            </p>
+                                                        <div class="h5 mt-3">
+                                                            <i class="material-icons-two-tone f-16 me-1">notification_important</i>Catatan Permohonan
                                                         </div>
-                                                    </div>` :
+                                                        <div class="help-md-hidden">
+                                                            <div class="bg-body mb-3 p-3">
+                                                                <h6>
+                                                                    <img src="{{ asset('assets') }}/images/user/avatar-5.jpg"
+                                                                        alt="" class="wid-20 avatar me-2 rounded">
+                                                                    Last comment from <a href="#" class="link-secondary">${element.updated_by}:</a>
+                                                                </h6>
+                                                                <p class="mb-0">
+                                                                    ${truncatedNotes}
+                                                                </p>
+                                                            </div>
+                                                        </div>` :
                                                     ''}
                                         </div>
                                         <div class="mt-4">
                                             ${element.rejection_notes ? `
-                                                    <button type="button" class="me-2 btn btn-sm btn-light-danger"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
-                                                        <i class="ti ti-eye me-1"></i> Lihat Catatan
-                                                    </button>` : ''}
+                                                        <button type="button" class="me-2 btn btn-sm btn-light-danger"
+                                                            data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
+                                                            <i class="ti ti-eye me-1"></i> Lihat Catatan
+                                                        </button>` : ''}
                                             <a href="/company/yearly-report/detail?id=${element.id}&company_id=${element.company_id}"
                                                 class="me-2 btn btn-sm btn-light-secondary" style="border-radius: 5px;">
                                                 <i class="feather icon-eye mx-1"></i>Lihat Pengajuan
