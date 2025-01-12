@@ -188,11 +188,14 @@ class RegisterController extends Controller
                 return $dataNib;
             }
         }
-        $companyType = $this->companyType;
-        if ($companyType[$dataNib['jenis_perseroan']]) {
-            $companyTypeName = $companyType[$dataNib['jenis_perseroan']];
+
+        if($settingOss){
+            $companyType = $this->companyType;
+            if ($companyType[$dataNib['jenis_perseroan']]) {
+                $companyTypeName = $companyType[$dataNib['jenis_perseroan']];
+            }
+            $companyName    = $companyTypeName .' '. $dataNib['nama_perseroan'];
         }
-        $companyName    = $companyTypeName .' '. $dataNib['nama_perseroan'];
 
         $request->merge([
             'name' => $companyName,
