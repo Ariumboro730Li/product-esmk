@@ -223,7 +223,7 @@ class PengajuanSMKPerusahaanController extends Controller
 
         if ($request->status === 'disposition') {
             $tempCertificateRequest['disposition_by'] = $userId;
-            $tempCertificateRequest['disposition_to'] = (int)$request->assessor;
+            $tempCertificateRequest['disposition_to'] = $request->assessor;
             $tempCertificateRequest['status'] = $request->status;
         }
 

@@ -1589,7 +1589,7 @@
                 // }
                 if (dispositionBy?.id === currentUser) {
                     htmlReject =
-                        `<button type="button" class="btn btn-primary mt-3" style="font-weight: 600; width: 100%;" onClick="showDispositionBy(${dispositionBy?.id})">
+                        `<button type="button" class="btn btn-primary mt-3" style="font-weight: 600; width: 100%;" onClick="showDispositionBy('${dispositionBy?.id}')">
                         <i class="fas fa-sync-alt me-2" style="color: #ffffff;"></i> Ubah Ketua Tim
                     </button>`;
                 }
@@ -1609,7 +1609,7 @@
                 isShowAlert = true
                 alertMessage = `<p class="p-0 lead"><strong>Pengajuan baru</strong></p>`
                 actionButton =
-                    `<button type="button" class="btn btn-primary" style="font-weight: 600; width: 100%;" onClick="showDisposition(${dispositionTo?.id})">
+                    `<button type="button" class="btn btn-primary" style="font-weight: 600; width: 100%;" onClick="showDisposition('${dispositionTo?.id}')">
                         <i class="fas fa-sync-alt me-2" style="color: #ffffff;"></i> Ubah Penilai
                     </button>
                     `
@@ -2833,7 +2833,9 @@
             }, false);
 
             $('#add-disposition').on('hidden.bs.modal', function() {
-                window.location.reload();
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1500);
             });
         }
         async function showDispositionBy(id = '') {
@@ -3380,11 +3382,12 @@
                 formObject[field.name] = field.value;
             });
 
+            console.log(formObject)
+
             // Tambahkan field 'status' ke object
             formObject['status'] = 'disposition';
             $('#add-disposition').modal('hide');
 
-            // Panggil fungsi updateCertificateRequest
             updateCertificateRequest(formObject, 'Pengajuan akan ditugaskan kepada penilai');
         }
 
@@ -3581,6 +3584,7 @@
                 formObject[field.name] = field.name === 'assessor_head' ? parseInt(field.value, 10) : field.value;
             });
 
+            $('#change-assessor-head').modal('hide');
             updateCertificateRequest(formObject, 'Pengajuan akan ditugaskan kepada ketua tim baru');
         }
 
