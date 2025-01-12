@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('is_company')->default(false);
-            $table->json('info_company')->nullable();
+            $table->longText('info_company')->nullable();
             $table->boolean('is_active')->default(true);
             $table->string('remember_token')->nullable();
             $table->timestamps();

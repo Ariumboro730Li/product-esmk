@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('location')->nullable();
             $table->string('notes')->nullable();
             $table->string('number_of_letter')->nullable();
-            $table->json('photos_of_event')->nullable();
-            $table->json('photos_of_attendance_list')->nullable();
-            $table->json('name_of_participants')->nullable();
+            $table->longText('photos_of_event')->nullable();
+            $table->longText('photos_of_attendance_list')->nullable();
+            $table->longText('name_of_participants')->nullable();
             $table->boolean('is_active')->default(true);
             $table->enum('status', ['scheduling','not_pass','completed']);
             $table->timestamps();

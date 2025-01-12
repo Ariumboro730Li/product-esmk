@@ -42,7 +42,7 @@ class UserManagementController extends Controller
         )
             ->leftjoin('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
             ->leftjoin('roles', 'model_has_roles.role_id', '=', 'roles.id');
-            
+
         $query->where('roles.name','!=','Perusahaan');
         $query->when($term->id_role != null, function ($query) use ($term) {
             return $query->where('roles.id', '=', $term->id_role);
@@ -309,7 +309,7 @@ class UserManagementController extends Controller
     public function updateAkunCompany(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            "email" => "required|exists:companies,email",
+            "email" => "required|exists:users,email",
             "old_password" => "required",
             'password' => [
                 'required',

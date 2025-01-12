@@ -67,6 +67,15 @@ class SettingController extends Controller
             ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
 
+        if($request->is_active){
+            $ossController = new OssController();
+            $response = $ossController->loginOss($request);
+            if($response->status() !== 200){
+                return $response;
+            }
+
+        }
+
         Setting::where('name', $settingName)->updateOrCreate([
             'name' => $settingName,
         ], [
@@ -78,10 +87,15 @@ class SettingController extends Controller
             ]
         ]);
 
+        if($response){
+            return $response;
+        }
+
+        $message = $request->is_active ? 'Pengaturan OSS berhasil diaktifkan.' : 'Pengaturan OSS berhasil dinonaktifkan.';
         return response()->json([
             'status_code'   => HttpStatusCodes::HTTP_OK,
             'error'         => false,
-            'message'       => 'Setting berhasil disimpan.'
+            'message'       => $message
         ], HttpStatusCodes::HTTP_OK);
 
     }

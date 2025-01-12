@@ -20,8 +20,8 @@ return new class extends Migration
             $table->bigInteger('disposition_by')->nullable();
             $table->bigInteger('disposition_to')->nullable();
             $table->bigInteger('assessor')->nullable();
-            $table->json('answers')->nullable();
-            $table->json('assessments')->nullable();
+            $table->longText('answers')->nullable();
+            $table->longText('assessments')->nullable();
             $table->boolean('is_active')->default(true)->nullable();
             $table->timestamp('approved_at')->nullable();
             $table->timestamps();

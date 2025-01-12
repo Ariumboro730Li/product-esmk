@@ -545,7 +545,7 @@
 
                             const request = new XMLHttpRequest()
                             request.open('POST',
-                                '{{ url('') }}/api/company/documents/upload-file')
+                                '{{ url('') }}/api/file/upload')
                             request.setRequestHeader('X-CSRF-TOKEN', csrfToken)
                             request.setRequestHeader('Accept', 'application/json')
                             request.setRequestHeader('Authorization', `Bearer ${Cookies.get('auth_token')}`);

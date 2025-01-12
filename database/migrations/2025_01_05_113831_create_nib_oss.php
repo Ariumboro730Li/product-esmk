@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('nib_oss', function (Blueprint $table) {
             $table->id();
             $table->string('nib');
-            $table->json('data_nib');
+            $table->longText('data_nib');
             $table->timestamps();
 
             $table->index('nib');

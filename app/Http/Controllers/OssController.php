@@ -277,4 +277,42 @@ class OssController extends Controller
             'message' => 'Data berhasil di sinkronisasi.'
         ], HttpStatusCodes::HTTP_OK);
     }
+
+    public function loginOss(Request $request){
+        $username = $request->username;
+        $password = $request->password;
+        $url = $request->url;
+
+        $getMe = Http::asForm()->post($url."/login",[
+            "username"      => $username,
+            "password"      => $password
+        ])->json();
+
+        if($getMe) {
+            if(isset($getMe['rc'])){
+                if($getMe['rc'] != "200"){
+                    return response()->json([
+                        'status_code' => HttpStatusCodes::HTTP_BAD_REQUEST,
+                        'error' => true,
+                        'message' => $getMe['message']
+                    ], HttpStatusCodes::HTTP_BAD_REQUEST);
+                }
+            }
+            if(isset($getMe['token'])){
+                return response()->json([
+                    'status_code' => HttpStatusCodes::HTTP_OK,
+                    'error' => false,
+                    'message' => 'Berhasil login ke OSS. Pengaturan OSS diaktifkan.',
+                    'data' => $getMe
+                ], HttpStatusCodes::HTTP_OK);
+            }
+        } else {
+            return response()->json([
+                'status_code' => HttpStatusCodes::HTTP_BAD_REQUEST,
+                'error' => true,
+                'message' => 'Gagal login ke OSS.'
+            ], HttpStatusCodes::HTTP_BAD_REQUEST);
+        }
+
+    }
 }

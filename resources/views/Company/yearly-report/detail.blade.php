@@ -93,8 +93,8 @@
                                         </div>
                                         <div>
                                             <div class="d-flex flex-column flex-sm-row align-items-start">
-                                                <h4 class="d-inline-block mb-0 me-2">PT TRISTAR JAVA TRANSINDO |</h4>
-                                                <p class="mb-0"><b> NIB : 9120109831421</b></p>
+                                                <h4 class="d-inline-block mb-0 me-2"> |</h4>
+                                                <p class="mb-0"><b></b></p>
                                             </div>
                                             <div class="help-sm-hidden">
                                                 <ul class="list-unstyled mt-0 mb-0 text-muted">
@@ -1091,7 +1091,7 @@
                         formData.append('file', file, file.name)
 
                         const request = new XMLHttpRequest()
-                        request.open('POST', '{{ url('') }}/api/company/documents/upload-file')
+                        request.open('POST', '{{ url('') }}/api/file/upload')
                         request.setRequestHeader('X-CSRF-TOKEN', csrfToken)
                         request.setRequestHeader('Accept', 'application/json')
                         request.setRequestHeader('Authorization', `Bearer ${Cookies.get('auth_token')}`);

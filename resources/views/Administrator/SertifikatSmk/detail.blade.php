@@ -2451,17 +2451,12 @@
 
 
         async function showViewDocument(loc) {
-            const authToken = Cookies.get('auth_token');
-            if (!authToken) {
-                showAlert('error', 'Authentication token not found');
-                return;
-            }
+
+            // $('.view-document-print').attr('src', loc);
+            //             await $('#view-document').modal('show');
             $.ajax({
                 url: "{{ url('') }}/api/internal/admin-panel/laporan-tahunan/getView",
                 method: 'GET',
-                headers: {
-                    Authorization: `Bearer ${authToken}`
-                },
                 data: {
                     url: loc
                 },

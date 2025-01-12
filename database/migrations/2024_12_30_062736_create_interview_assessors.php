@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('assessment_interview_id');
             $table->uuid('assessor');
-            $table->bigInteger('disposition_by');
+            $table->uuid('disposition_by', 36)->change();
             $table->timestamps();
             $table->softDeletes();
         });

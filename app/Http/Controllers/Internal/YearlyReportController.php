@@ -14,6 +14,7 @@ use App\Models\WorkUnitHasService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Storage;
 
 class YearlyReportController extends Controller
 {
@@ -180,7 +181,13 @@ class YearlyReportController extends Controller
                 "verify_peer_name" => false,
             ),
         );
-        $b64Doc = chunk_split(base64_encode(file_get_contents($term->url, false, stream_context_create($confGetContent))));
+        $url = $term->url; // Misal URL yang sudah disimpan
+        $url = preg_replace('/https?:\/\/[^\/]+\/storage/', '', $url);
+        $filePath = str_replace(asset('storage'), '', $url); // Hapus bagian URL
+        $fileContent = Storage::get('public' . $filePath);
+
+        $b64Doc = chunk_split(base64_encode($fileContent));
+        // $b64Doc = chunk_split(base64_encode(file_get_contents($term->url, false, stream_context_create($confGetContent))));
         return response()->json([
             'status_code'   => HttpStatusCodes::HTTP_OK,
             'error'         => false,

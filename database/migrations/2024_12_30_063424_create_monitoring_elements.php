@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('monitoring_elements', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->json('element_properties')->nullable();
-            $table->json('monitoring_elements')->nullable();
-            $table->json('additional_questions')->nullable();
+            $table->longText('element_properties')->nullable();
+            $table->longText('monitoring_elements')->nullable();
+            $table->longText('additional_questions')->nullable();
             $table->boolean('is_active')->default(true)->nullable();
             $table->timestamps();
         });

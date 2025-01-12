@@ -249,6 +249,7 @@ class PengajuanSertifikatController extends Controller
             dispatch(new NotificationUser([
                 [
                     'type'        => 'success',
+                    'topic'       => $newTopicForCompany,
                     'title'       => 'Revisi pengajuan',
                     'description' => $certificateRequest->company->name . ' telah melakukan perbaikan dokumen pengajuan.',
                     'delivery_at' => $currentDate

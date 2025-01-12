@@ -378,6 +378,9 @@
                 case 'verified':
                     statusLabel = '<span class="badge bg-success ms-2">Terverifikasi</span>';
                     break;
+                case 'not_passed':
+                    statusLabel = '<span class="badge bg-danger ms-2">Tidak lolos Verifikasi</span>';
+                    break;
                 default:
                     statusLabel = '<span class="badge bg-warning ms-2">Status Tidak Diketahui</span>';
                     break;
@@ -648,7 +651,7 @@
                 ${defaultValue === 'no' ? 'checked' : ''}>
             <label class="btn btn-outline-warning bg-opacity-50 bg-gradient"
                 for="${properties.noOption.id}"
-                style="width: 40%;">${properties.noOption.label}</label>
+                >${properties.noOption.label}</label>
         </div>`
 
             return $customRadioButton
@@ -818,17 +821,9 @@
         }
 
         async function showViewDocument(loc) {
-            const authToken = Cookies.get('auth_token');
-            if (!authToken) {
-                showAlert('error', 'Authentication token not found');
-                return;
-            }
             $.ajax({
                 url: "{{ url('') }}/api/internal/admin-panel/laporan-tahunan/getView",
                 method: 'GET',
-                headers: {
-                    Authorization: `Bearer ${authToken}`
-                },
                 data: {
                     url: loc
                 },

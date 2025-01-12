@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('smk_elements', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->json('element_properties');
+            $table->longText('element_properties');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

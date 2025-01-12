@@ -15,11 +15,11 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('topic');
             $table->string('type');
-            $table->uuid('user_id');
+            $table->uuid('user_id')->nullable();
             $table->string('path_url')->nullable();
             $table->string('title');
             $table->string('description')->nullable();
-            $table->json('data')->nullable();
+            $table->longText('data')->nullable();
             $table->dateTime('delivery_at');
             $table->dateTime('read_at')->nullable();
             $table->timestamps();

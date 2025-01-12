@@ -232,7 +232,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12" hidden>
                         <div class="card mt-4 shadow-none border mb-0 h-100">
                             <div class="card-body">
                                 <h6 class="mb-3">Berbagi Data</h6>
@@ -538,7 +538,10 @@
 
             if (getDataRest && getDataRest.status === 200) {
                 loadingPage(false);
-                notificationAlert('success', 'Pemberitahuan', 'Data berhasil diubah')
+                notificationAlert('success', 'Pemberitahuan', getDataRest.data.message || "Data berhasil diubah")
+            } else {
+                loadingPage(false);
+                notificationAlert('warning', 'Pemberitahuan', getDataRest.data.message || "Error")
             }
         }
 

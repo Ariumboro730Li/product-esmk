@@ -62,7 +62,7 @@ class RegisterController extends Controller
                 'required',
                 'regex:/^(62|0)[0-9]{6,13}$/'
             ],
-            "email" => "required|email",
+            "email" => "required|email|unique:users,email,NULL,id",
             'province_id' => 'required|exists:provinces,id',
             'city_id' => 'required|exists:cities,id',
             "service_types" => "required|array",
