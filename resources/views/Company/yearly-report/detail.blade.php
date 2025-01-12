@@ -93,22 +93,22 @@
                                         </div>
                                         <div>
                                             <div class="d-flex flex-column flex-sm-row align-items-start">
-                                                <h4 class="d-inline-block mb-0 me-2"> |</h4>
-                                                <p class="mb-0"><b></b></p>
+                                                <h4 class="d-inline-block mb-0 me-2" id="c_name"></h4>
+                                                <p class="mb-0"><b> NIB : <span id="c_nib"></span></b></p>
                                             </div>
                                             <div class="help-sm-hidden">
                                                 <ul class="list-unstyled mt-0 mb-0 text-muted">
                                                     <li class="d-sm-inline-block d-block mt-1 me-3">
-                                                        <i class="fa-solid fa-phone me-1"></i>
-                                                        +6289 4562 8963
+                                                        <i class="fa-solid fa-phone me-1" id="company_phone"></i>
+                                                        <span id="c_phone"></span>
                                                     </li>
                                                     <li class="d-sm-inline-block d-block mt-1 me-3">
-                                                        <i class="fa-regular fa-envelope me-1"></i>
-                                                        tristarjava@mail.com
+                                                        <i class="fa-regular fa-envelope me-1" id="company_email"></i>
+                                                        <span id="c_email"></span>
                                                     </li>
                                                     <li class="d-sm-inline-block d-block mt-1 me-3">
-                                                        <i class="fa-solid fa-location-dot me-1"></i>
-                                                        Street 110-B Kalians Bag, Dewan, M.P. New York
+                                                        <i class="fa-solid fa-location-dot me-1" id="company_address"></i>
+                                                        <span id="c_address"></span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -120,31 +120,36 @@
                         <div class="col-lg-4 col-12 d-flex">
                             <div class="border rounded p-3 w-100">
                                 <h5>Jenis Pelayanan</h5>
-                                <ol>
-                                    <li>AJAP</li>
-                                    <li>Angkutan barang umum</li>
-                                </ol>
+                                <div style="max-height: 80px; overflow-y: scroll;">
+                                    <ol id="c_serviceType">
+
+                                    </ol>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-12 d-flex">
                             <div class="border rounded p-3 w-100">
                                 <h5>Penanggung Jawab</h5>
-                                <p class="mb-0"><i class="fa-solid fa-user me-2"></i>Ang Hoey Tiong</p>
-                                <p class="mb-0"><i class="fa-solid fa-phone me-2"></i>(970) 982-3353</p>
+                                <p class="mb-0"><i class="fa-solid fa-user me-2"></i><span id="pic_name"></span></p>
+                                <p class="mb-0"><i class="fa-solid fa-phone me-2"></i><span id="pic_phone"></span></p>
                             </div>
                         </div>
                         <div class="col-lg-5 col-12 d-flex">
                             <div class="border rounded p-3 w-100">
-                                <h5>Sertifikat SMK</h5>
+                                <h5>Informasi Pengguna</h5>
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <p class="mb-0">No. Sertifikat</p>
-                                        <p class="mb-0"><i class="fa-solid fa-file me-2"></i>SK/90012/12/1299/XVI</p>
+                                        <p class="mb-0"><i class="fa-solid fa-circle-user me-2"></i><span
+                                                id="u_name"></span></p>
+                                        <p class="mb-0"><i class="fa-solid fa-phone me-2"></i><span id="u_phone"></span>
+                                        </p>
                                     </div>
                                     <div class="col-lg-6">
-                                        <p class="mb-0">Tahun Laporan
+                                        <p class="mb-0"><i class="fa-solid fa-envelope me-2"></i><span
+                                                id="u_email"></span>
                                         </p>
-                                        <p class="mb-0"><i class="fa-solid fa-calendar-day me-2"></i>2023</p>
+                                        <p class="mb-0"><i class="fa-solid fa-calendar-day me-2"></i><span
+                                                id="establish_date"></span></p>
                                     </div>
                                 </div>
 
@@ -177,6 +182,14 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="view-document" data-bs-keyboard="false" tabindex="-1" role="dialog"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <embed class="view-document-print" src="" frameborder="0" width="100%" height="700px">
+            </div>
+        </div>
+    </div>
 @endsection
 @section('scripts')
     <script src="{{ asset('assets') }}/js/plugins/moment.js"></script>
@@ -206,191 +219,6 @@
         let companyID = urlParams.get('company_id');
         let elementProperties;
         let monitoringElement;
-        const mappingRequestStatus = {
-            'new_request': {
-                status: 'Pengajuan',
-                message: 'Pengajuan anda sedang diproses',
-                bgColor: 'bg-dark-subtle',
-                textColor: 'text-body'
-            },
-            'need_revision': {
-                status: 'Penilaian Belum Sesuai',
-                message: 'Pengajuan anda membutuhkan perbaikan data',
-                bgColor: 'bg-warning-subtle',
-                textColor: 'text-warning'
-            },
-            'revision': {
-                status: 'Pengajuan Revisi',
-                message: 'Pengajuan revisi anda sedang diproses',
-                bgColor: 'bg-secondary-subtle',
-                textColor: 'text-secondary'
-            },
-            'need_validation': {
-                status: 'Verifikasi Penilaian',
-                message: 'Pengajuan anda sedang diverifikasi oleh ketua tim',
-                bgColor: 'bg-info-subtle',
-                textColor: 'text-info'
-            },
-            'need_recheck_assessment': {
-                status: 'Tinjau ulang penilaian',
-                message: 'Pengajuan anda sedang ditinjau ulang oleh penilai',
-                bgColor: 'bg-info-subtle',
-                textColor: 'text-warning'
-            },
-            'need_interview': {
-                status: 'Penjadwalan interview',
-                message: 'Selamat! pengajuan anda lulus uji dan akan dijadwalkan untuk wawancara',
-                bgColor: 'bg-info-subtle',
-                textColor: 'text-info'
-            },
-            'scheduled_interview': {
-                status: 'Interview Terjadwal',
-                message: 'Interview sudah terjadwal',
-                bgColor: 'bg-info',
-                textColor: 'text-white'
-            },
-            'not_pass_interview': {
-                status: 'Tidak Lulus interview',
-                message: 'Interview anda tidak lulus',
-                bgColor: 'bg-danger-subtle',
-                textColor: 'text-danger'
-            },
-            'need_director_verification': {
-                status: 'Butuh verifikasi direktur',
-                message: 'Interview anda tidak lulus',
-                bgColor: 'bg-info',
-                textColor: 'text-white'
-            },
-            'need_signature': {
-                status: 'Butuh tanda tangan',
-                message: 'Interview anda tidak lulus',
-                bgColor: 'bg-info',
-                textColor: 'text-white'
-            },
-            'completed': {
-                status: 'Lulus penilaian',
-                message: 'Selamat! pengajuan anda lulus uji dan akan dijadwalkan untuk wawancara',
-                bgColor: 'bg-success',
-                textColor: 'text-white'
-            },
-            'rejected': {
-                status: 'Pengajuan ditolak',
-                message: 'Pengajuan anda ditolak!',
-                bgColor: 'bg-danger',
-                textColor: 'text-white'
-            }
-        }
-
-        const mappingRequestStatusV2 = {
-            'request': {
-                status: 'Pengajuan',
-                message: 'Berhasil melakukan pengajuan',
-                bgColor: 'bg-dark-subtle',
-                textColor: 'text-body'
-            },
-            'disposition': {
-                status: 'Disposisi',
-                message: 'Pengajuan sudah di disposisi dan akan segera dilakukan penilaian',
-                bgColor: 'bg-warning-subtle',
-                textColor: 'text-warning'
-            },
-            'not_passed_assessment': {
-                status: 'Tidak lulus penilaian',
-                message: 'Pengajuan tidak lulus penilaian dan dibutuhkan perbaikan dokumen',
-                bgColor: 'bg-danger-subtle',
-                textColor: 'text-danger'
-            },
-            'submission_revision': {
-                status: 'Revisi pengajuan',
-                message: 'Perbaikan dokumen pengajuan',
-                bgColor: 'bg-dark-subtle',
-                textColor: 'text-body'
-            },
-            'passed_assessment': {
-                status: 'Lulus penilaian',
-                message: 'Dokumen pengajuan sudah dinilai dan diteruskan untuk verifikasi penilaian',
-                bgColor: 'bg-info-subtle',
-                textColor: 'text-info'
-            },
-            'not_passed_assessment_verification': {
-                status: 'Penilaian tidak lulus verifikasi',
-                message: 'Penilaian tidak valid dan akan akan dilakukan penilaian ulang',
-                bgColor: 'bg-danger-subtle',
-                textColor: 'text-danger'
-            },
-            'assessment_revision': {
-                status: 'Revisi penilaian',
-                message: 'Penilaian ulang oleh penilai',
-                bgColor: 'bg-info-subtle',
-                textColor: 'text-info'
-            },
-            'passed_assessment_verification': {
-                status: 'Penilaian terverifikasi',
-                message: 'Selamat! pengajuan telah terverifikasi dan akan dijadwalkan untuk wawancara',
-                bgColor: 'bg-info',
-                textColor: 'text-white'
-            },
-            'scheduling_interview': {
-                status: 'Penjadwalan wawancara',
-                message: 'Selamat! pengajuan anda lulus uji dan akan dijadwalkan untuk wawancara',
-                bgColor: 'bg-info-subtle',
-                textColor: 'text-info'
-            },
-            'scheduled_interview': {
-                status: 'Wawancara Terjadwal',
-                message: 'Wawancara sudah terjadwal',
-                bgColor: 'bg-info',
-                textColor: 'text-white'
-            },
-            'not_passed_interview': {
-                status: 'Tidak lulus wawancara',
-                message: 'Tidak lulus wawancara',
-                bgColor: 'bg-danger-subtle',
-                textColor: 'text-danger'
-            },
-            'completed_interview': {
-                status: 'Wawancara selesai',
-                message: 'Wawancara telah berhasil',
-                bgColor: 'bg-success-subtle',
-                textColor: 'text-success'
-            },
-            'verification_director': {
-                status: 'Validasi direktur',
-                message: 'Pengajuan telah diverifikasi oleh direktur',
-                bgColor: 'bg-success',
-                textColor: 'text-white'
-            },
-            'certificate_validation': {
-                status: 'Pengesahan sertifikat',
-                message: 'Selamat! sertikat sudah diterbitkan',
-                bgColor: 'bg-success',
-                textColor: 'text-white'
-            },
-            'rejected': {
-                status: 'Pengajuan ditolak',
-                message: 'Pengajuan ditolak!',
-                bgColor: 'bg-danger',
-                textColor: 'text-white'
-            },
-            'cancelled': {
-                status: 'Pengajuan dibatalkan',
-                message: 'Pengajuan dibatalkan!',
-                bgColor: 'bg-danger',
-                textColor: 'text-white'
-            },
-            'expired': {
-                status: 'Pengajuan Kedaluwarsa',
-                message: 'Pengajuan Kedaluwarsa!',
-                bgColor: 'bg-danger',
-                textColor: 'text-white'
-            },
-            'draft': {
-                status: 'Draft',
-                message: 'Draft!',
-                bgColor: 'bg-dark-subtle',
-                textColor: 'text-body'
-            }
-        }
 
         const mappingAssessmentStatus = {
             'new_request': 'Pengajuan baru',
@@ -527,101 +355,6 @@
             return `<span>${prosessBy}</span>`
         }
 
-        function generateRowOfElementTitle(colSpanTitle, numbering, title) {
-            let $templateRow = `
-                    <div class="accordion-item shadow-sm border-0 mb-4">
-                        <h2 class="accordion-header" id="flush-heading-${numbering}">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapse-${numbering}" aria-expanded="false" aria-controls="flush-collapse-${numbering}"
-                                style="background: linear-gradient(90deg, rgb(4, 60, 132) 0%, rgb(69, 114, 184) 100%);
-                                color: white; border-radius: 8px; font-weight: bold; padding: 12px 20px;
-                                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
-                                <i class="fa-regular fa-file-lines me-2"></i>
-                                <span class="fw-bold me-2 me-lg-0">${numbering}. ${title}</span>
-                            </button>
-                        </h2>
-                        <div id="flush-collapse-${numbering}" class="accordion-collapse collapse" aria-labelledby="flush-heading-${numbering}">
-                            <div class="accordion-body">
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Uraian</th>
-                                                <th>Pertanyaan</th>
-                                                <th>Jawaban</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="body-${numbering}">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>`
-
-            return $templateRow;
-        }
-
-        function mappingColumnOfRow(subElementSchema, status, numberColumn) {
-            let $rowTable = ''
-            if (subElementSchema.inputType === 'files') {
-                for (let i in subElementSchema.monitoringProperties) {
-                    let itemKey = Object.keys(subElementSchema.monitoringProperties[i])[0]
-
-                    let newAssessment
-
-                    if (typeof subElementSchema.assessments !== 'undefined') {
-
-                        if (subElementSchema.assessments === null) {
-                            newAssessment = null
-                        } else {
-                            newAssessment = subElementSchema.assessments[i][itemKey]
-                        }
-                    }
-
-
-
-                    let newAnswer
-                    if (typeof subElementSchema.answers[i][itemKey] !== 'undefined') {
-                        newAnswer = subElementSchema.answers[i][itemKey]
-                    }
-
-                    let itemSubElementSchema = {
-                        elementKey: subElementSchema.elementKey,
-                        subElementKey: itemKey,
-                        questionProperties: subElementSchema.questionProperties,
-                        monitoringProperties: subElementSchema.monitoringProperties[i][itemKey],
-                        answers: newAnswer,
-                        assessments: newAssessment,
-                        inputType: subElementSchema.inputType,
-                        lengthOfItems: subElementSchema.monitoringProperties.length
-                    }
-
-                    let newNumber = numberColumn
-
-                    if (i != 0) {
-                        newNumber = ''
-                    }
-                    $rowTable += generateRowsTable(
-                        itemSubElementSchema,
-                        status,
-                        newNumber
-                    )
-
-                }
-            } else {
-                $rowTable += generateRowsTable(
-                    subElementSchema,
-                    status,
-                    numberColumn
-                )
-            }
-
-            return $rowTable
-
-        }
-
         async function getMonitoringElement() {
             loadingPage(true);
             let getDataRest;
@@ -645,7 +378,7 @@
 
             if (getDataRest?.status === 200) {
                 const responseData = getDataRest.data;
-
+                mappingCompanyInformation(getDataRest.data.data);
                 monitoringElement = responseData.data.monitoring_elements
                 elementProperties = responseData.data.element_properties
 
@@ -742,8 +475,176 @@
                     isNeedSubmitButton = true
                 }
 
-                buildSubmitButton(isNeedSubmitButton)
+                buildSubmitButton(isNeedSubmitButton);
             }
+        }
+
+        function mappingCompanyInformation(data) {
+            let serviceTypes = '';
+            if (data.company_info?.service_types?.length > 0) {
+                data.company_info.service_types.forEach((serviceType) => {
+                    serviceTypes += `<li>${serviceType?.name || '-'}</li>`;
+                });
+            } else {
+                serviceTypes = '-';
+            }
+
+            const fileUrl = data.company_info?.nib_file || '';
+            let fileName = '-';
+            let fileExtension = '';
+            if (fileUrl) {
+                const splitFileURL = fileUrl.split('/');
+                fileName = splitFileURL[splitFileURL.length - 1] || '-';
+                fileExtension = fileUrl.substring(fileUrl.lastIndexOf('.')) || '';
+            }
+
+            let nibPreview = '';
+            const imageType = ['.jpeg', '.jpg', '.png'];
+            if (imageType.includes(fileExtension)) {
+                nibPreview = `<img class="img-fluid" src="${fileUrl}"/>`;
+            } else {
+                nibPreview = '-';
+            }
+
+            $('#c_name').text(`${data.company_info?.name || '-'} |`);
+            $('#c_nib').text(data.company_info?.nib || '-');
+            $('#c_address').text(
+                `${data.company_info?.address || ''} ${data.company_info?.city?.name || ''} ${data.company_info?.province?.name || ''}`
+                .trim() || '-'
+            );
+            $('#c_phone').text(data.company_info?.company_phone_number || '-');
+            $('#c_email').text(data.company_info?.email || '-');
+            $('#c_serviceType').empty().append(serviceTypes);
+            $('#pic_name').text(data.company_info?.pic_name || '-');
+            $('#pic_phone').text(data.company_info?.pic_phone || '-');
+            $('#u_name').text(data.company_info?.username || '-');
+            $('#u_email').text(data.company_info?.email || '-');
+            $('#u_phone').text(data.company_info?.phone_number || '-');
+            $('#current_preview').text(data.company_info?.id || '-');
+            $('#establish_date').text(
+                data.company_info?.establish ? moment(data.company_info.establish).format('D/MM/YYYY') : '-'
+            );
+            $('#request_date').text(
+                data.company_info?.request_date ? moment(data.company_info.request_date).format('D/MM/YYYY') : '-'
+            );
+        }
+
+        function generateRowOfElementTitle(colSpanTitle, numbering, title) {
+            let $templateRow = `
+                    <div class="accordion-item shadow-sm border-0 mb-4">
+                        <h2 class="accordion-header" id="flush-heading-${numbering}">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse-${numbering}" aria-expanded="false" aria-controls="flush-collapse-${numbering}"
+                                style="background: linear-gradient(90deg, rgb(4, 60, 132) 0%, rgb(69, 114, 184) 100%);
+                                color: white; border-radius: 8px; font-weight: bold; padding: 12px 20px;
+                                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+                                <i class="fa-regular fa-file-lines me-2"></i>
+                                <span class="fw-bold me-2 me-lg-0">${numbering}. ${title}</span>
+                            </button>
+                        </h2>
+                        <div id="flush-collapse-${numbering}" class="accordion-collapse collapse" aria-labelledby="flush-heading-${numbering}">
+                            <div class="accordion-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Uraian</th>
+                                                <th>Pertanyaan</th>
+                                                <th>Jawaban</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="body-${numbering}">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`
+
+            return $templateRow;
+        }
+
+        async function showViewDocument(loc) {
+            $.ajax({
+                url: "{{ env('SERVICE_BASE_URL') }}/api/company/laporan-tahunan/getView",
+                method: 'GET',
+                data: {
+                    url: loc
+                },
+                error: function(xhr) {
+                    let message = xhr.responseJSON?.message || 'An error occurred';
+                    showAlert('error', message);
+                },
+                success: async function(response) {
+
+                    if (response.data && response.data.certificate_file_base64) {
+                        $('.view-document-print').attr('src', response.data.certificate_file_base64);
+                        await $('#view-document').modal('show');
+                    } else {
+                        showAlert('error', 'Document not found');
+                    }
+                }
+            });
+        }
+
+        function mappingColumnOfRow(subElementSchema, status, numberColumn) {
+            let $rowTable = ''
+            if (subElementSchema.inputType === 'files') {
+                for (let i in subElementSchema.monitoringProperties) {
+                    let itemKey = Object.keys(subElementSchema.monitoringProperties[i])[0]
+
+                    let newAssessment
+
+                    if (typeof subElementSchema.assessments !== 'undefined') {
+
+                        if (subElementSchema.assessments === null) {
+                            newAssessment = null
+                        } else {
+                            newAssessment = subElementSchema.assessments[i][itemKey]
+                        }
+                    }
+
+
+
+                    let newAnswer
+                    if (typeof subElementSchema.answers[i][itemKey] !== 'undefined') {
+                        newAnswer = subElementSchema.answers[i][itemKey]
+                    }
+
+                    let itemSubElementSchema = {
+                        elementKey: subElementSchema.elementKey,
+                        subElementKey: itemKey,
+                        questionProperties: subElementSchema.questionProperties,
+                        monitoringProperties: subElementSchema.monitoringProperties[i][itemKey],
+                        answers: newAnswer,
+                        assessments: newAssessment,
+                        inputType: subElementSchema.inputType,
+                        lengthOfItems: subElementSchema.monitoringProperties.length
+                    }
+
+                    let newNumber = numberColumn
+
+                    if (i != 0) {
+                        newNumber = ''
+                    }
+                    $rowTable += generateRowsTable(
+                        itemSubElementSchema,
+                        status,
+                        newNumber
+                    )
+
+                }
+            } else {
+                $rowTable += generateRowsTable(
+                    subElementSchema,
+                    status,
+                    numberColumn
+                )
+            }
+
+            return $rowTable
+
         }
 
         const $form = document.getElementById('fCreate');
@@ -761,7 +662,9 @@
                 year: $('#iReportYear').val(),
                 answers: answerSchema,
             };
-            await submitData(formData);
+
+            console.log(formData)
+            // await submitData(formData);
         });
 
         async function submitData(formData) {
@@ -789,41 +692,6 @@
             } finally {
                 loadingPage(false); // Menyembunyikan loading
             }
-        }
-
-        function buildAnswerSchmema() {
-            let elements = {}
-
-            $.each(elementProperties.max_assesment, function(elementKey, elementValue) {
-                const rowData = {}
-
-                $.each(elementValue, function(subElementKey) {
-                    let newData, question = elementProperties['question_schema']['properties'][elementKey][
-                        'properties'
-                    ][subElementKey]
-
-                    if (question['items']) {
-                        newData = []
-
-                        for (let i in question['items']) {
-
-                            let itemKey = Object.keys(question['items'][i])[0],
-                                answerValue = $(`#${elementKey}_${itemKey}`).val()
-
-                            newData.push({
-                                [itemKey]: answerValue
-                            })
-                        }
-                        rowData[subElementKey] = newData
-                    } else {
-                        rowData[subElementKey] = $(`#${elementKey}_${subElementKey}`).val()
-                    }
-
-                })
-                elements[elementKey] = rowData
-            })
-
-            return elements
         }
 
         function generateRowsTable(subElementSchema, status, numberOfColumn) {
@@ -890,6 +758,43 @@
             return $templateRow
         }
 
+        function buildAnswerSchmema() {
+            let elements = {}
+
+            $.each(elementProperties.max_assesment, function(elementKey, elementValue) {
+                const rowData = {}
+
+                $.each(elementValue, function(subElementKey) {
+                    let newData, question = elementProperties['question_schema']['properties'][elementKey][
+                        'properties'
+                    ][subElementKey]
+
+                    if (question['items']) {
+                        newData = []
+
+                        for (let i in question['items']) {
+
+                            let itemKey = Object.keys(question['items'][i])[0],
+                                answerValue = $(`#${elementKey}_${itemKey}`).val()
+
+                            newData.push({
+                                [itemKey]: answerValue
+                            })
+                        }
+                        rowData[subElementKey] = newData
+                    } else {
+                        rowData[subElementKey] = $(`#${elementKey}_${subElementKey}`).val()
+                    }
+
+                })
+                elements[elementKey] = rowData
+            })
+
+            return elements
+        }
+
+
+
         function buildSubmitButton(isNeedSubmitButton) {
             if (isNeedSubmitButton) {
                 $('.action-button').empty().append(`
@@ -899,6 +804,29 @@
                             </button>
         `)
             }
+        }
+
+        function generateAssessmentColumn(assessmentProperties) {
+
+            let assessmentColumn
+
+            if (typeof assessmentProperties === undefined) {
+                return
+            }
+
+            if (assessmentProperties.assessmentValue === null) {
+                assessmentColumn = '<td></td>'
+
+                return assessmentColumn
+            }
+
+            if (assessmentProperties.assessmentValue) {
+                assessmentColumn = `<td><span class="badge bg-success">Sesuai</span></td>`
+            } else {
+                assessmentColumn = `<td><span>${nl2br(assessmentProperties.assessmentReason)}</span></td>`
+            }
+
+            return assessmentColumn
         }
 
         function generateInputColumn(assessmentProperties, subElementSchema) {
@@ -1041,29 +969,6 @@
 
             return $htmlInput
 
-        }
-
-        function generateAssessmentColumn(assessmentProperties) {
-
-            let assessmentColumn
-
-            if (typeof assessmentProperties === undefined) {
-                return
-            }
-
-            if (assessmentProperties.assessmentValue === null) {
-                assessmentColumn = '<td></td>'
-
-                return assessmentColumn
-            }
-
-            if (assessmentProperties.assessmentValue) {
-                assessmentColumn = `<td><span class="badge bg-success">Sesuai</span></td>`
-            } else {
-                assessmentColumn = `<td><span>${nl2br(assessmentProperties.assessmentReason)}</span></td>`
-            }
-
-            return assessmentColumn
         }
 
         function nl2br(str) {

@@ -185,7 +185,7 @@ class LaporanTahunanController extends Controller
     public function show(Request $request)
     {
         $id = $this->getModel($request);
-        $companyID = Company::where('id', $id)->value('id');
+        $company = Company::with('serviceTypes')->where('id', $id)->first();
         $yearlyReport = YearlyReport::select(
             'additional_questions',
             'answers',
@@ -195,7 +195,7 @@ class LaporanTahunanController extends Controller
             'year',
             'status',
         )->join('monitoring_elements', 'monitoring_element_id', 'monitoring_elements.id')
-            ->where('company_id', $companyID)
+            ->where('company_id', $company->id)
             ->where('yearly_reports.id', $request->id)
             ->first();
 
@@ -214,6 +214,7 @@ class LaporanTahunanController extends Controller
             'monitoring_elements' => json_decode($yearlyReport->monitoring_elements),
             'year' => $yearlyReport->year,
             'status' => $yearlyReport->status,
+            'company_info' => $company
         ];
 
         if($data){
