@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
-    if(Auth::check()) {
+    if (Auth::check()) {
         return redirect()->route('admin.dashboard');
     }
     return redirect()->route('auth.login');
@@ -29,17 +29,17 @@ Route::get('/forgot-password', function () {
     return view('forgotPassword');
 });
 
-Route::get('/change-password', function (){
+Route::get('/change-password', function () {
     return view('change-password');
 })->name('forgot.change');
 
-Route::middleware('auth')->group( function(){
+Route::middleware('auth')->group(function () {
 
     // Route::controller(DashbController::class)->group(function () {
     //     Route::get('/dashboard', 'index')->name('dashboard');
     // });
 
-    Route::middleware('check_role:internal')->group(function(){
+    Route::middleware('check_role:internal')->group(function () {
         Route::prefix('admin')->group(function () {
             Route::get('/dashboard', function () {
                 return view('Administrator.dashboard');
@@ -64,9 +64,9 @@ Route::middleware('auth')->group( function(){
             });
 
             //satuanKerja
-            Route::get('/satuan-kerja', function () {
-                return view('Administrator.MasterData.SatuanKerja.satuanKerja');
-            });
+            // Route::get('/satuan-kerja', function () {
+            //     return view('Administrator.MasterData.SatuanKerja.satuanKerja');
+            // });
 
             //element
             Route::get('/element-pemantauan/list', function () {
@@ -162,18 +162,17 @@ Route::middleware('auth')->group( function(){
             });
         });
     });
-    Route::middleware(['check_role:company'])->group(function(){
+    Route::middleware(['check_role:company'])->group(function () {
         Route::prefix('company')->group(function () {
             Route::get('/dashboard-company', function () {
                 return view('Company.dashboard');
             })->name('company.dashboard');
 
-            Route::prefix('certificate')->group(function () {
-                Route::get('/list', function () {
-                    return view('Company.sertifikat-smk.list');
-                })->name('company.certificate.list');
-
-            });
+            // Route::prefix('certificate')->group(function () {
+            //     Route::get('/list', function () {
+            //         return view('Company.sertifikat-smk.list');
+            //     })->name('company.certificate.list');
+            // });
             Route::prefix('yearly-report')->group(function () {
                 Route::get('/list', function () {
                     return view('Company.yearly-report.list');
@@ -185,8 +184,12 @@ Route::middleware('auth')->group( function(){
                 Route::get('/detail', function () {
                     return view('Company.yearly-report.detail');
                 });
-
             });
+
+            Route::get('/pengajuan-sertifikat/list', function () {
+                return view('Company.Pengajuan.list');
+            })->name('company.certificate.list');
+
             Route::get('/pengajuan-sertifikat/create', function () {
                 return view('Company.Pengajuan.create');
             })->name('company.certificate.create');

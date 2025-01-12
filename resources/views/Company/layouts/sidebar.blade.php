@@ -25,7 +25,7 @@
                     </svg>
                 </li>
                 <li class="pc-item">
-                    <a href="/company/certificate/list" class="pc-link">
+                    <a href="{{ route('company.certificate.list') }}" class="pc-link">
                         <span class="pc-micon">
                             <i class="fa-solid fa-certificate"></i>
                         </span>

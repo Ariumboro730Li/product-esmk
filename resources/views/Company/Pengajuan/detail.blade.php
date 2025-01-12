@@ -465,7 +465,7 @@
                             <tr class="${rowClassName}" style="${styleName}; color: black;">
                                     <td class="text-center" style="word-wrap: break-word; white-space: normal; max-width: 300px;">${numbering}.${rowIndex}</td>
                                     <td class="" style="word-wrap: break-word; white-space: normal; max-width: 300px;">${questionProperties['title']}</td>
-                                    <td class="" style="word-wrap: break-word; white-space: normal; max-width: 300px;">${questionProperties['description']}</td>
+                                    <td class="" style="word-wrap: break-word; white-space: normal; max-width: 300px;">${questionProperties['description'] || "-"}</td>
                                     ${answerColumn}
                                     ${assessmentColumn}
                                     ${formInputColumn}
