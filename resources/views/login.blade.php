@@ -182,28 +182,10 @@
             });
             if(getDataRest.status == 200) {
                 let rest_data = getDataRest.data;
-                let token = rest_data.token;
-                let tokenParse = parseJwt(token);
-                console.log("🚀 ~ submitLogin ~ getDataRest.data:", getDataRest.data)
-                Cookies.remove('auth_token')
-                Cookies.set('auth_token', token, {
-                  expires: tokenParse.exp,
-                  user: rest_data.user
-                })
                 setTimeout(function(){
                     window.location.href = "{{ route('admin.dashboard') }}"
                 },500);
             }
-        }
-
-        function parseJwt (token) {
-            var base64Url = token.split('.')[1];
-            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
-
-            return JSON.parse(jsonPayload);
         }
     </script>
 </body>

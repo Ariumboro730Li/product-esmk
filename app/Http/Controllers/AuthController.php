@@ -92,25 +92,11 @@ class AuthController extends Controller
             ], HttpStatusCodes::HTTP_UNAUTHORIZED); // 401 untuk unauthorized
         }
 
-        // Buat payload untuk token
-        $payload = [
-            'sub' => $user->id,
-            'username' => $user->username,
-            'name' => $user->name,
-            'iat' => time(), // Waktu token dibuat
-        ];
-        $token = $this->generateToken($payload);
-        $request->merge([
-            'app_user' => $user
-        ]);
-
-
-        // Kembalikan token jika login berhasil
+        // // Buat payload untuk token
         return response()->json([
             'error' => false,
             'message' => 'Login berhasil.',
             'user' => $user,
-            'token' => $token,
         ], 200);
 
     }
@@ -176,18 +162,6 @@ class AuthController extends Controller
                 'permission' => $permissionRole
         ]
     ], HttpStatusCodes::HTTP_OK); // 403 Forbidden
-    }
-
-    public static function generateToken($payload)
-    {
-        $key = env('JWT_SECRET'); // Ambil kunci rahasia dari .env
-        $ttl = env('JWT_TTL', 60); // Waktu token berlaku (dalam menit)
-
-        // Tambahkan waktu kedaluwarsa ke payload
-        $payload['exp'] = time() + ($ttl * 60); // Token berlaku selama `ttl` menit
-
-        // Encode token JWT
-        return JWT::encode($payload, $key, 'HS256');
     }
 
     public function logout(Request $request)
