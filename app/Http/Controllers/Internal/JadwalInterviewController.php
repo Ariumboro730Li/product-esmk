@@ -301,11 +301,11 @@ class JadwalInterviewController extends Controller
             'schedule' => $request->schedule
         ];
 
-        $this->generateNotificationByStatus(
-            $request->request_status,
-            $recipients,
-            $information
-        );
+        // $this->generateNotificationByStatus(
+        //     $request->request_status,
+        //     $recipients,
+        //     $information
+        // );
 
         return [
             'assessment_interview' => $newAssessment,
@@ -315,6 +315,8 @@ class JadwalInterviewController extends Controller
 
     public function storeNewAssessmentInterview($requestID, $request)
     {
+
+
         $newInterview = new AssessmentInterview();
         $newInterview->certificate_request_id = $requestID;
         $newInterview->assessor_head = $request->assessor_head;
@@ -324,8 +326,6 @@ class JadwalInterviewController extends Controller
         $newInterview->schedule = $request->schedule;
         $newInterview->location = $request->location;
         $newInterview->status = $request->assessment_status;
-
-        // Menyimpan data ke database
         $newInterview->save();
 
         return $newInterview;
@@ -614,6 +614,7 @@ class JadwalInterviewController extends Controller
                 'status_code' => HttpStatusCodes::HTTP_NOT_FOUND,
             ], HttpStatusCodes::HTTP_NOT_FOUND);
         }
+
 
         $data = [
             'id' => $assessmentInterview->id,
