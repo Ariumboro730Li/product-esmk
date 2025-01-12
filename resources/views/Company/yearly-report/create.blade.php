@@ -643,8 +643,6 @@
 
         })
 
-
-
         async function submitData(formData) {
             loadingPage(true);
             try {
@@ -656,17 +654,9 @@
 
                 if (postData.status === 200) {
                     notificationAlert('success', 'Berhasil', postData.data.message);
-                    Swal.fire({
-                        title: 'Berhasil!',
-                        text: successMessage,
-                        icon: 'success',
-                        timer: 5000,
-                        timerProgressBar: true,
-                        showConfirmButton: false,
-                    }).then(() => {
+                    setTimeout(() => {
                         window.location.reload();
-
-                    });
+                    }, 1200);
                 }
             } catch (error) {
                 const resp = error.response;
