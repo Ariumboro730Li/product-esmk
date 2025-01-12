@@ -1564,9 +1564,9 @@
         function buildActionByRequestStatus(requestStatus, assessmentStatus, dispositionTo = '', dispositionBy = '') {
             let alertMessage, actionButton, htmlReject = '',
                 isShowAlert = false
-
+            // console.log(assessmentStatus)
             // action for disposition
-            if ((assessmentStatus === 'request' || assessmentStatus === 'submission_revision') && dispositionTo === null) {
+            if ((requestStatus === 'request' || requestStatus === 'submission_revision') && dispositionTo === null) {
                 alertMessage = `<i class="fas fa-file-alt me-2"></i>Pengajuan baru`
                 actionButton =
                     `<button class="btn w-100" style="background-color: #28a745; color: #ffffff;" onClick="showDisposition()">
@@ -1609,7 +1609,7 @@
                 isShowAlert = true
                 alertMessage = `<p class="p-0 lead"><strong>Pengajuan baru</strong></p>`
                 actionButton =
-                    `<button type="button" class="btn btn-primary" style="font-weight: 600; width: 100%;" onClick="showDisposition(${dispositionTo.id})">
+                    `<button type="button" class="btn btn-primary" style="font-weight: 600; width: 100%;" onClick="showDisposition(${dispositionTo?.id})">
                         <i class="fas fa-sync-alt me-2" style="color: #ffffff;"></i> Ubah Penilai
                     </button>
                     `
@@ -1809,9 +1809,9 @@
             $('#pic_name').html(`<i class="fa-solid fa-user me-2"></i>${data.company.pic_name}`);
             $('#pic_phone').html(`${data.company.pic_phone}`);
             // User
-            $('#u_name').html(`${data.company.username}`);
-            $('#u_phone').html(`${data.company.phone_number}`);
-            $('#u_email').html(`${data.company.email}`);
+            $('#u_name').html(`${data.company.username ?? '-'}`);
+            $('#u_phone').html(`${data.company.phone_number ?? '-'}`);
+            $('#u_email').html(`${data.company.email ?? '-'}`);
             $('#request_date').html(
                 `<i class="fa-solid fa-calendar-day me-2"></i>${moment(data.company.request_date).format('D/MM/YYYY')}`);
 
