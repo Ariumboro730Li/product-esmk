@@ -501,18 +501,18 @@ class JadwalInterviewController extends Controller
             ];
 
             // Send notification for new interview assessors
-            if (count($newAssessorRecipients) > 0) {
-                $newRecipients = [
-                    'employee' => $newAssessorRecipients,
-                    'company' => $companyRecipients
-                ];
+            // if (count($newAssessorRecipients) > 0) {
+            //     $newRecipients = [
+            //         'employee' => $newAssessorRecipients,
+            //         'company' => $companyRecipients
+            //     ];
 
-                $this->generateNotificationByStatus(
-                    'new_assessor_interview',
-                    $newRecipients,
-                    $otherInformation
-                );
-            }
+            //     $this->generateNotificationByStatus(
+            //         'new_assessor_interview',
+            //         $newRecipients,
+            //         $otherInformation
+            //     );
+            // }
 
             // Send notification for updated interview assessment
             $recipients = [
@@ -520,11 +520,11 @@ class JadwalInterviewController extends Controller
                 'employee' => $oldAssessorRecipients
             ];
 
-            $this->generateNotificationByStatus(
-                'update_inteview_assessment',
-                $recipients,
-                $otherInformation
-            );
+            // $this->generateNotificationByStatus(
+            //     'update_inteview_assessment',
+            //     $recipients,
+            //     $otherInformation
+            // );
         }
 
         // Handle completed interview status

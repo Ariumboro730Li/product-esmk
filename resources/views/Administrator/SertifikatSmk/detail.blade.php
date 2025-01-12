@@ -1184,7 +1184,6 @@
                     }
                 });
 
-
                 buildActionByRequestStatus(response.data.data.status, response.data.data.assessment_status, response
                     .data.data.disposition_to, response.data.data.disposition_by);
                 mappingCompanyInformation(response.data.data);
@@ -1562,7 +1561,7 @@
             return sortable
         }
 
-        function buildActionByRequestStatus(requestStatus, assessmentStatus, dispositionTo = '', dispositionBy = '') {
+        function buildActionByRequestStatus(requestStatus, assessmentStatus, dispositionTo, dispositionBy) {
             let alertMessage, actionButton, htmlReject = '',
                 isShowAlert = false
             // console.log(assessmentStatus)
@@ -1619,13 +1618,15 @@
             // action for assessment verification
             if (requestStatus === 'passed_assessment') {
                 alertMessage = `
-                <div class="alert alert-success d-flex align-items-center" role="alert">
-                    <i class="fas fa-check-circle me-2" style="font-size: 1.5rem;"></i>
-                    <div>
-                        <p class="mb-0 lead">Pengajuan telah lulus penilaian!</p>
+                    <div class="alert alert-success d-flex align-items-center" role="alert">
+                        <i class="fas fa-check-circle me-2" style="font-size: 1.5rem;"></i>
+                        <div>
+                            <p class="mb-0 lead">Pengajuan telah lulus penilaian!</p>
+                        </div>
                     </div>
-                </div>
-            `;
+                `;
+
+                console.log(dispositionBy)
                 if (dispositionBy.id === currentUser) {
                     actionButton = `
                     <button type="button" class="btn btn-warning" style="font-weight: 600; width:100%; color: #333333;" onClick="showAssessmentValidation()">
@@ -3115,7 +3116,7 @@
 
             for (const option of assessorSelect.options) {
                 if (option.selected) {
-                    assessors.push(parseInt(option.value));
+                    assessors.push(option.value);
                 }
             }
 
@@ -3238,11 +3239,10 @@
 
             for (const option of assessorSelect.options) {
                 if (option.selected) {
-                    assessors.push(parseInt(option.value));
+                    assessors.push(option.value);
                 }
             }
             formObject['assessors'] = assessors;
-
             try {
                 const postData = await CallAPI(
                     'POST',
