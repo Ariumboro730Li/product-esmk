@@ -393,7 +393,7 @@
                 $('#noWaHelpdesk').html(`<i class="fa fa-phone me-2"></i>${appData.whatsapp}`);
                 $('.logoApp').html(`
                 <a href="#"><img src="${appData.logo_aplikasi}" alt="img"
-                    style="width: 60px; height: 60px; border-radius: 50%;" /></a>
+                    style="width: 60px; height: 62px; border-radius: 50%;" /></a>
                 `);
                 $('#alamat').html(`<i class="fa-solid fa-location-dot me-2"></i> ${appData.alamat}`);
 
@@ -447,7 +447,7 @@
                 .catch((error) => {
                     loadingPage(false);
                     let resp = error.response;
-                    notificationAlert('info', 'Pemberitahuan', 'Error')
+                    notificationAlert('warning', 'Pemberitahuan', resp.data.message || "Error")
                     return resp;
                 });
 

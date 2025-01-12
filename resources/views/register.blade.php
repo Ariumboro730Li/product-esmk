@@ -14,7 +14,7 @@
         content="Bootstrap admin template, Dashboard UI Kit, Dashboard Template, Backend Panel, react dashboard, angular dashboard" />
     <meta name="author" content="Phoenixcoded" />
 
-    <link rel="icon" href="{{ asset('assets') }}/images/logoapp.png" type="image/x-icon" />
+    <link rel="icon" id="logo_favicon" href="{{ asset('assets') }}/images/logoapp.png" type="image/x-icon" />
     <link rel="stylesheet" href="{{ asset('assets') }}/fonts/inter/inter.css" id="main-font-link" />
     <link rel="stylesheet" href="{{ asset('assets') }}/fonts/phosphor/duotone/style.css" />
     <link rel="stylesheet" href="{{ asset('assets') }}/fonts/tabler-icons.min.css" />
@@ -37,6 +37,40 @@
         background-size: 600%;
 
     } */
+    #passwordHelp ul {
+        padding-left: 2;
+    }
+
+    #passwordHelp li {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    #passwordHelp li span {
+        display: inline-flex;
+        align-items: center;
+        color: #6c757d;
+    }
+
+    #passwordHelp li span i {
+        color: green;
+        margin-left: 5px;
+        display: none;
+    }
+
+    #passwordHelp li.valid span {
+        color: green;
+    }
+
+    #passwordHelp li.invalid span {
+        color: #dc3545;
+    }
+
+
+    .select2-container {
+        width: 100% !important;
+    }
+
     .passcode-switch {
         color: #6c757d;
         /* Warna ikon */
@@ -71,20 +105,17 @@
 
     <div class="auth-main">
         <div class="auth-wrapper v2">
-            <div class="auth-sidecontent">
-                <img src="{{ asset('assets') }}/images/authentication/2.jpg" alt="images"
-                    class="img-fluid img-auth-side" />
+            <div id="side-content-logo">
             </div>
+
             <div class="auth-form">
                 <div class="card my-5" style="max-width:70%">
                     <div class="card-body">
-                        <div class="text-center">
-                            <a href="#"><img src="{{ asset('assets') }}/images/logoapp.png" alt="img"
-                                    style="width: 60px;" /></a>
+                        <div class="text-center logo_aplikasi">
                         </div>
-                        <h4 class="text-center mt-4">DAFTAR SMK-TD</h4>
+                        <h4 class="text-center mt-4 nama_aplikasi"></h4>
                         <div class="saprator mb-5 text-center">
-                            <span>Dinas Perhubungan Kabupaten</span>
+                            <span class=" nama_instansi">Dinas Perhubungan Kabupaten</span>
                         </div>
 
                         <form id="wizard-form">
@@ -236,7 +267,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="mb-3">
+                                        <div class="mb-4">
                                             <div class="form-floating mb-0">
                                                 <input type="number" class="form-control"
                                                     id="data-informasi-akun-no-telepon" placeholder="" />
@@ -247,8 +278,8 @@
                                 </div>
                                 <div class="mb-3 position-relative">
                                     <div class="form-floating">
-                                        <input type="password" class="form-control"  id="data-informasi-akun-password" placeholder="Kata Sandi"
-                                            required />
+                                        <input type="password" class="form-control" id="data-informasi-akun-password"
+                                            placeholder="Kata Sandi" required />
                                         <label for="data-informasi-akun-password">Kata Sandi</label>
                                     </div>
                                     <!-- Ikon mata -->
@@ -267,16 +298,37 @@
                                         </div>
                                     </div>
                                 </div> --}}
-                                <div class="d-flex mt-1 justify-content-between align-items-center">
-                                    <div class="form-check">
+                                <div class="d-flex mt-1 justify-content-between align-items-start">
+                                    <small id="passwordHelp" class="mt-2">
+                                        <b>Kata sandi yang baik mengandung:</b>
+                                        <ul>
+                                            <li id="is8">
+                                                <span>Minimal 8 karakter <i style="display: none" class="ti ti-check"
+                                                        id="is8Check" aria-hidden="true"></i></span>
+                                            </li>
+                                            <li id="isCapLow">
+                                                <span>Huruf Besar & Huruf Kecil (Aa) <i style="display: none"
+                                                        class="ti ti-check" id="isCapLowCheck"
+                                                        aria-hidden="true"></i></span>
+                                            </li>
+                                            <li id="isAngka">
+                                                <span>Angka (1234567890) <i style="display: none" class="ti ti-check"
+                                                        id="isAngkaCheck" aria-hidden="true"></i></span>
+                                            </li>
+                                            <li id="isSymbol">
+                                                <span>Symbol (?!@#$%^&*.) <i style="display: none" class="ti ti-check"
+                                                        id="isSymbolCheck" aria-hidden="true"></i></span>
+                                            </li>
+                                        </ul>
+                                    </small>
+                                    <div class="form-check ms-4 ms-md-0 mt-2">
                                         <input class="form-check-input input-primary" type="checkbox"
-                                        name="cp1-save-register" id="cp1-save-register" value="1" required/>
-                                        <label class="form-check-label text-muted" for="cp1-save-register">Saya menyetujui
+                                            name="cp1-save-register" id="cp1-save-register" value="1"
+                                            required />
+                                        <label class="form-check-label text-muted" for="cp1-save-register">Saya
+                                            menyetujui
                                             syarat dan ketentuan yang berlaku.</label>
                                     </div>
-                                    <h6 class="text-secondary f-w-400 mb-0">
-                                        <a href=""> </a>
-                                    </h6>
                                 </div>
 
                                 <div class="d-flex justify-content-center mt-5 flex-column flex-sm-row">
@@ -303,6 +355,8 @@
     <!-- [ Main Content ] end -->
 
     <!-- Required Js -->
+    <script src="{{ asset('assets/js/form/validate.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
     <script src="{{ asset('assets') }}/js/plugins/popper.min.js"></script>
     <script src="{{ asset('assets') }}/js/plugins/simplebar.min.js"></script>
     <script src="{{ asset('assets') }}/js/plugins/bootstrap.min.js"></script>
@@ -311,11 +365,78 @@
     <script src="{{ asset('assets') }}/js/plugins/feather.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.3/js.cookie.js"></script>
     <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
-    <script src="{{ asset('assets') }}/js/select2/select2.full.min.js"></script>
     <script src="{{ asset('assets') }}/js/select2/select2.min.js"></script>
     <script src="{{ asset('assets') }}/js/axios.js"></script>
     <script src="{{ asset('assets') }}/js/restAPI.js"></script>
+
     <script>
+        let totalPasswordLine = 0
+        let totalPasswordLine1 = 0
+        let totalPasswordLine2 = 0
+        let totalPasswordLine3 = 0
+        let totalPasswordLine4 = 0
+        let passwordConfirmStatus = 0
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dapatkan elemen-elemen yang dibutuhkan
+            const passwordInput = document.getElementById('data-informasi-akun-password'); // ID input password
+            const passwordHelp = document.getElementById('passwordHelp');
+            const is8Check = document.getElementById('is8Check');
+            const isCapLowCheck = document.getElementById('isCapLowCheck');
+            const isAngkaCheck = document.getElementById('isAngkaCheck');
+            const isSymbolCheck = document.getElementById('isSymbolCheck');
+
+            const cp1SaveRegister = document.getElementById(
+            'cp1-save-register'); // Checkbox untuk syarat dan ketentuan
+
+            // Fungsi untuk memvalidasi password
+            function validatePassword() {
+                const passwordValue = passwordInput.value;
+
+                // Cek panjang password (minimal 8 karakter)
+                const isLengthValid = passwordValue.length >= 8;
+                toggleValidation(is8Check, isLengthValid, is8);
+
+                // Cek huruf besar dan kecil
+                const isCapLowValid = /[a-z]/.test(passwordValue) && /[A-Z]/.test(passwordValue);
+                toggleValidation(isCapLowCheck, isCapLowValid, isCapLow);
+
+                // Cek angka
+                const isAngkaValid = /\d/.test(passwordValue);
+                toggleValidation(isAngkaCheck, isAngkaValid, isAngka);
+
+                // Cek simbol
+                const isSymbolValid = /[!@#$%^&*()_+{}\[\]:;"'<>,.?\/\\|]/.test(passwordValue);
+                toggleValidation(isSymbolCheck, isSymbolValid, isSymbol);
+
+                // Pastikan checkbox syarat dan ketentuan aktif jika password valid
+                if (isLengthValid && isCapLowValid && isAngkaValid && isSymbolValid) {
+                    cp1SaveRegister.disabled = false;
+                } else {
+                    cp1SaveRegister.disabled = true;
+                }
+            }
+
+            // Fungsi untuk menampilkan atau menyembunyikan tanda centang dan mengubah warna teks
+            function toggleValidation(iconElement, isValid, listItem) {
+                if (isValid) {
+                    // Menampilkan tanda centang dan memberi warna hijau pada teks
+                    iconElement.style.display = 'inline'; // Menampilkan tanda centang
+                    listItem.classList.remove('invalid');
+                    listItem.classList.add('valid');
+                } else {
+                    // Menyembunyikan tanda centang dan memberi warna merah pada teks
+                    iconElement.style.display = 'none'; // Menyembunyikan tanda centang
+                    listItem.classList.remove('valid');
+                    listItem.classList.add('invalid');
+                }
+            }
+
+            // Event listener untuk validasi saat password diketik
+            passwordInput.addEventListener('input', validatePassword);
+        });
+
+
+
         let languageIndonesian = {
             inputTooShort: function(args) {
                 var remainingChars = args.minimum - args.input.length;
@@ -382,6 +503,66 @@
                 const active = getDataRest.data.data.is_active;
                 if (active === 0) {
                     adjustWizardSteps();
+                }
+            }
+        }
+
+        async function getDataApps() {
+            loadingPage(true); // Menampilkan indikator loading
+
+            const getDataRest = await CallAPI(
+                    'GET',
+                    `{{ url('') }}/api/setting/find`, {
+                        name: "aplikasi"
+                    }
+                )
+                .then(response => response)
+                .catch(error => {
+                    loadingPage(false);
+                    let resp = error.response;
+                    notificationAlert('info', 'Pemberitahuan', 'Error');
+                    return resp;
+                });
+
+            if (getDataRest.status === 200) {
+                loadingPage(false);
+
+                const appData = getDataRest.data.data;
+
+                document.querySelectorAll('.nama_aplikasi').forEach(function(element) {
+                    element.innerText = 'Daftar ' + appData.nama;
+                });
+
+                document.querySelector('.nama_instansi').innerText = appData.nama_instansi || '';
+
+                document.querySelector('.logo_aplikasi').innerHTML =
+                    `<a href="#">
+                    <img src="${appData.logo_aplikasi || `{{ asset('assets') }}/images/logoapp.png`}" alt="img"
+                        style="width: 60px;border-radius:50%;" />
+                </a>`;
+
+                // Mengupdate logo aplikasi di welcome banner (gunakan gambar default jika kosong)
+                let sideLogo = document.getElementById('side-content-logo');
+                if (sideLogo) {
+                    sideLogo.innerHTML = `
+                   <div class="auth-sidecontent" style="position: relative;">
+                        <!-- Gambar latar belakang -->
+                        <img src="{{ asset('assets') }}/images/authentication/3.jpg" alt="images" class="img-fluid img-auth-side" />
+                    
+                        <!-- Logo, diposisikan di tengah gambar -->
+                        <img src="${appData.logo_aplikasi || '{{ asset('assets') }}/images/logoapp.png'}" alt="images" 
+                            class="img-fluid img-auth-side"  
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 8rem; height: 8rem;border-radius:50%;" />
+                    </div>
+                `;
+                }
+
+                if (appData.logo_favicon) {
+                    const favicon = document.getElementById('logo_favicon');
+                    favicon.href = appData.logo_favicon;
+                } else {
+                    const favicon = document.getElementById('logo_favicon');
+                    favicon.href = '{{ asset('assets') }}/images/logoapp.png';
                 }
             }
         }
@@ -648,6 +829,7 @@
             checkOSS();
             submitCompany();
             togglePass();
+            getDataApps();
 
         });
     </script>

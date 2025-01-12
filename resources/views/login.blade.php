@@ -15,7 +15,7 @@
     <meta name="author" content="Phoenixcoded" />
 
     <!-- [Favicon] icon -->
-    <link rel="icon" href="{{ asset('assets') }}/images/logoapp.png" type="image/x-icon" />
+    <link rel="icon" id="logo_favicon" href="{{ asset('assets') }}/images/logoapp.png" type="image/x-icon" />
     <!-- [Font] Family -->
     <link rel="stylesheet" href="{{ asset('assets') }}/fonts/inter/inter.css" id="main-font-link" />
     <!-- [phosphor Icons] https://phosphoricons.com/ -->
@@ -75,20 +75,17 @@
 
     <div class="auth-main">
         <div class="auth-wrapper v2">
-                <div class="auth-sidecontent">
-                    <img src="{{ asset('assets') }}/images/authentication/2.jpg" alt="images" class="img-fluid img-auth-side"/>
-                </div>
+            <div id="side-content-logo">
+            </div>
 
             <div class="auth-form">
                 <div class="card my-5" style="max-width:70%">
                     <div class="card-body">
-                        <div class="text-center">
-                            <a href="#"><img src="{{ asset('assets') }}/images/logoapp.png" alt="img"
-                                    style="width: 60px;" /></a>
+                        <div class="text-center logo_aplikasi">
                         </div>
-                        <h4 class="text-center mt-4">PERIZINAN SMK-TD</h4>
+                        <h4 class="text-center mt-4 nama_aplikasi"></h4>
                         <div class="saprator mb-5">
-                            <span>Dinas Perhubungan</span>
+                            <span class=" nama_instansi">Dinas Perhubungan Kabupaten</span>
                         </div>
 
                         <div class="mb-3">
@@ -199,6 +196,66 @@
                 tipe
             );
         }
+
+
+        async function getDataApps() {
+            loadingPage(true); // Menampilkan indikator loading
+
+            const getDataRest = await CallAPI(
+                    'GET',
+                    `{{ url('') }}/api/setting/find`, {
+                        name: "aplikasi"
+                    }
+                )
+                .then(response => response)
+                .catch(error => {
+                    loadingPage(false);
+                    let resp = error.response;
+                    notificationAlert('info', 'Pemberitahuan', 'Error');
+                    return resp;
+                });
+
+            if (getDataRest.status === 200) {
+                loadingPage(false);
+
+                const appData = getDataRest.data.data;
+
+                document.querySelectorAll('.nama_aplikasi').forEach(function(element) {
+                    element.innerText = appData.nama;
+                });
+                document.querySelector('.nama_instansi').innerText = appData.nama_instansi || '';
+                document.querySelector('.logo_aplikasi').innerHTML = 
+                `<a href="#">
+                    <img src="${appData.logo_aplikasi || `{{ asset('assets') }}/images/logoapp.png`}" alt="img"
+                        style="width: 60px;border-radius:50%;" />
+                </a>`;
+                
+                // Mengupdate logo aplikasi di welcome banner (gunakan gambar default jika kosong)
+                let sideLogo = document.getElementById('side-content-logo');
+                if (sideLogo) {
+                    sideLogo.innerHTML = `
+                   <div class="auth-sidecontent" style="position: relative;">
+                        <!-- Gambar latar belakang -->
+                        <img src="{{ asset('assets') }}/images/authentication/3.jpg" alt="images" class="img-fluid img-auth-side" />
+                    
+                        <!-- Logo, diposisikan di tengah gambar -->
+                        <img src="${appData.logo_aplikasi || '{{ asset('assets') }}/images/logoapp.png'}" alt="images" 
+                            class="img-fluid img-auth-side" 
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 8rem; height: 8rem;border-radius:50%;" />
+                    </div>
+                `;
+                }
+
+                if (appData.logo_favicon) {
+                    const favicon = document.getElementById('logo_favicon');
+                    favicon.href = appData.logo_favicon;
+                } else {
+                    const favicon = document.getElementById('logo_favicon');
+                    favicon.href = '{{ asset('assets') }}/images/logoapp.png';
+                }
+            }
+        }
+        window.onload = getDataApps;
 
         async function submitLogin() {
             loadingPage(true);

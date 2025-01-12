@@ -14,7 +14,7 @@
     <meta name="author" content="Phoenixcoded" />
 
     <link rel="stylesheet" href="{{ asset('assets') }}/css/plugins/style.css" />
-    <link id="logo_favicon" rel="icon" href="{{ asset('assets') }}/images/logoapp.png" type="image/x-icon" />
+    <link id="logo_favicon" rel="icon" href="" type="image/x-icon" />
     <link rel="stylesheet" href="{{ asset('assets') }}/fonts/inter/inter.css" id="main-font-link" />
     <link rel="stylesheet" href="{{ asset('assets') }}/fonts/phosphor/duotone/style.css" />
     <link rel="stylesheet" href="{{ asset('assets') }}/fonts/tabler-icons.min.css" />
@@ -176,44 +176,61 @@
 
                 const appData = getDataRest.data.data;
 
+                // Mengupdate nama aplikasi
                 document.querySelectorAll('.nama_aplikasi').forEach(function(element) {
                     element.innerText = appData.nama;
                 });
+
+                // Mengupdate nama instansi
                 document.getElementById('nama_instansi').innerText = appData.nama_instansi;
                 document.getElementById('kredit_by').innerText = `${appData.nama_instansi}`;
+
+                // Mengupdate email, no telepon, dan alamat aplikasi
                 $('#email_app').html(`<i class="fa fa-envelope me-2"></i>${appData.email}`);
                 $('#no_telepon_app').html(`<i class="fa fa-phone me-2"></i>${appData.whatsapp}`);
                 $('#alamat_app').html(`<i class="fa-solid fa-location-dot me-2"></i> ${appData.alamat}`);
-                $('.logo_aplikasi').html(
-                    `<img src="${appData.logo_aplikasi}" alt="img" style="width: 45px; height: 45px; border-radius: 50%;">`
-                );
-                let imgLogoApp = document.querySelector('.img-logo-app'); // Menggunakan querySelector untuk satu elemen
 
+                // Mengupdate logo aplikasi (gunakan gambar default jika kosong)
+                $('.logo_aplikasi').html(`
+                    <img src="${appData.logo_aplikasi || '{{ asset('assets') }}/images/logoapp.png'}" alt="img" style="width: 45px; height: 47px; border-radius: 50%;">
+                `);
+
+                // Mengupdate logo aplikasi di welcome banner (gunakan gambar default jika kosong)
+                let imgLogoApp = document.querySelector('.img-logo-app');
                 if (imgLogoApp) {
                     imgLogoApp.innerHTML = `
                     <div class="img-welcome-banner">
-                        <img src="${appData.logo_aplikasi}" alt="img" class="img-fluid mt-2"
-                            style="width: 100px; height: 100px; border-radius: 50%;" />
+                        <img src="${appData.logo_aplikasi || '{{ asset('assets') }}/images/logoapp.png'}" alt="img" class="img-fluid mt-2"
+                            style="width: 100px; height: 101px; border-radius: 50%;" />
                     </div>
-                    `;
+                `;
                 }
 
-
+                // Mengupdate favicon aplikasi (gunakan gambar default jika kosong)
                 if (appData.logo_favicon) {
                     const favicon = document.getElementById('logo_favicon');
                     favicon.href = appData.logo_favicon;
+                } else {
+                    const favicon = document.getElementById('logo_favicon');
+                    favicon.href = '{{ asset('assets') }}/images/logoapp.png';
                 }
+
+                // Mengupdate deskripsi aplikasi
                 let deskripsi_dashboard = document.getElementById('deskripsi_aplikasi');
                 if (deskripsi_dashboard) {
                     deskripsi_dashboard.innerText = appData.deskripsi;
                 }
+
+                // Mengupdate logo footer (gunakan gambar default jika kosong)
                 let logoFooter = document.getElementById('logo_footer');
                 if (logoFooter) {
-                    logoFooter.innerHTML =
-                        `<img src="${appData.logo_aplikasi}" alt="Logo" style="width: 45px; height: 45px; border-radius: 50%;">`;
+                    logoFooter.innerHTML = `
+                <img src="${appData.logo_aplikasi || '{{ asset('assets') }}/images/logoapp.png'}" alt="Logo" style="width: 45px; height: 47px; border-radius: 50%;">
+            `;
                 }
             }
         }
+        // Panggil getDataApps saat window onload
         window.onload = getDataApps;
 
         function loadingPage(show) {

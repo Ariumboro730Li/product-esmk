@@ -15,7 +15,7 @@
     <meta name="author" content="Phoenixcoded" />
 
     <!-- [Favicon] icon -->
-    <link rel="icon" href="{{ asset('assets') }}/images/logoapp.png" type="image/x-icon" />
+    <link rel="icon" id="logo_favicon" href="{{ asset('assets') }}/images/logoapp.png" type="image/x-icon" />
     <!-- [Font] Family -->
     <link rel="stylesheet" href="{{ asset('assets') }}/fonts/inter/inter.css" id="main-font-link" />
     <!-- [phosphor Icons] https://phosphoricons.com/ -->
@@ -67,8 +67,7 @@
 
     <div class="auth-main">
         <div class="auth-wrapper v2">
-            <div class="auth-sidecontent">
-                <img src="{{ asset('assets') }}/images/authentication/2.jpg" alt="images" class="img-fluid img-auth-side"/>
+            <div id="side-content-logo">
             </div>
 
             <div class="auth-form">
@@ -76,15 +75,40 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="text-center">
-                                    <a href="#"><img src="{{ asset('assets') }}/images/logoapp.png"
-                                            alt="img" style="width: 60px;" /></a>
+                                <div class="text-center logo_aplikasi">
                                 </div>
-                                <h4 class="text-center mt-4">PERIZINAN SMK-TD</h4>
+                                <h4 class="text-center mt-4 nama_aplikasi">PERIZINAN SMK-TD</h4>
                                 <div class="saprator mb-5">
-                                    <span>Dinas Perhubungan</span>
+                                    <span class="nama_instansi">Dinas Perhubungan</span>
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-3 position-relative">
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control" id="newPassword" placeholder="Kata Sandi Baru"
+                                            required />
+                                        <label for="newPassword">Kata Sandi Baru</label>
+                                    </div>
+                                    <!-- Ikon mata -->
+                                    <a  href="javascript:void(0);" class="passcode-switch position-absolute"
+                                                        onclick="togglePasswordVisibility('newPassword', this)"
+                                        style="right: 10px; top: 50%; transform: translateY(-50%); text-decoration: none;"
+                                        id="togglePassword">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                <div class="mb-3 position-relative">
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control" id="confirmPassword" placeholder="Konfirmasi Kata Sandi"
+                                            required />
+                                        <label for="confirmPassword">Konfirmasi Kata Sandi</label>
+                                    </div>
+                                    <!-- Ikon mata -->
+                                    <a href="javascript:void(0);" class="passcode-switch position-absolute"
+                                    onclick="togglePasswordVisibility('confirmPassword', this)"
+                                        style="right: 10px; top: 50%; transform: translateY(-50%); text-decoration: none;"
+                                        id="togglePassword">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                </div>
+                                {{-- <div class="mb-3">
                                     <div class="form-floating mb-0">
                                         <input type="password" class="form-control" id="newPassword"
                                             placeholder="Masukkan Kata Sandi Baru" />
@@ -97,7 +121,7 @@
                                             placeholder="Masukkan Kata Sandi Baru" />
                                         <label for="confirmPassword">Konfirmasi Kata Sandi</label>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
 
@@ -131,6 +155,81 @@
         let queryString = window.location.search;
         let urlParams = new URLSearchParams(queryString);
         let token = urlParams.get('token');
+
+        async function togglePasswordVisibility(inputId, toggleElement) {
+            const passwordField = document.getElementById(inputId);
+            const icon = toggleElement.querySelector('i');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        async function getDataApps() {
+            loadingPage(true); // Menampilkan indikator loading
+
+            const getDataRest = await CallAPI(
+                    'GET',
+                    `{{ url('') }}/api/setting/find`, {
+                        name: "aplikasi"
+                    }
+                )
+                .then(response => response)
+                .catch(error => {
+                    loadingPage(false);
+                    let resp = error.response;
+                    notificationAlert('info', 'Pemberitahuan', 'Error');
+                    return resp;
+                });
+
+            if (getDataRest.status === 200) {
+                loadingPage(false);
+
+                const appData = getDataRest.data.data;
+
+                document.querySelectorAll('.nama_aplikasi').forEach(function(element) {
+                    element.innerText = appData.nama;
+                });
+                document.querySelector('.nama_instansi').innerText = appData.nama_instansi || '';
+                document.querySelector('.logo_aplikasi').innerHTML = 
+                `<a href="#">
+                    <img src="${appData.logo_aplikasi || `{{ asset('assets') }}/images/logoapp.png`}" alt="img"
+                        style="width: 60px;border-radius:50%;" />
+                </a>`;
+                
+                // Mengupdate logo aplikasi di welcome banner (gunakan gambar default jika kosong)
+                let sideLogo = document.getElementById('side-content-logo');
+                if (sideLogo) {
+                    sideLogo.innerHTML = `
+                   <div class="auth-sidecontent" style="position: relative;">
+                        <!-- Gambar latar belakang -->
+                        <img src="{{ asset('assets') }}/images/authentication/3.jpg" alt="images" class="img-fluid img-auth-side" />
+                    
+                        <!-- Logo, diposisikan di tengah gambar -->
+                        <img src="${appData.logo_aplikasi || '{{ asset('assets') }}/images/logoapp.png'}" alt="images" 
+                            class="img-fluid img-auth-side" 
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 8rem; height: 8rem;border-radius:50%;" />
+                    </div>
+                `;
+                }
+
+                if (appData.logo_favicon) {
+                    const favicon = document.getElementById('logo_favicon');
+                    favicon.href = appData.logo_favicon;
+                } else {
+                    const favicon = document.getElementById('logo_favicon');
+                    favicon.href = '{{ asset('assets') }}/images/logoapp.png';
+                }
+            }
+        }
+        window.onload = getDataApps;
+
+
         loadingPage(false);
         document.getElementById('email').addEventListener('keydown', (event) => {
             if (event.key === 'Enter') {
