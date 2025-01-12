@@ -126,12 +126,6 @@ class SkNumberController extends Controller
         $existingActiveSk = DecreeNumber::where('is_active', 1)
             ->first();
 
-        if ($existingActiveSk) {
-            $newData->is_active = 0;
-        } else {
-            $newData->is_active = 1;
-        }
-
         $newData->decree_number = $request->sk_number;
         $newData->save();
 
