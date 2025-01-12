@@ -189,6 +189,7 @@ class CityController extends Controller
     {
         // Validasi input
         $validator = Validator::make($request->all(), [
+            'id' => 'required',
             'name' => 'required|string|max:255',
             'province_id' => 'required|exists:provinces,id',
             'administrative_code' => 'required|string|max:255',

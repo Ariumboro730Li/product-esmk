@@ -229,8 +229,8 @@
                     province_id: $('#input_province_id').val()
                 };
 
-                let id = $("#form-create").data("id");
-                if (id) {
+                if (isActionForm==='update') {
+                    let id = $('.edit-data').attr("data-id");
                     formData.id = id;
                 }
 
