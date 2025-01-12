@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CertificateTemplateSeeder::class,
             ServiceTypeSeeder::class,
-
+            MonitoringElementSeeder::class,
+            SmkElementSeeder::class
         ]);
     }
 }
