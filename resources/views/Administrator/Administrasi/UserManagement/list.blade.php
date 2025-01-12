@@ -1,6 +1,14 @@
 @extends('...Administrator.index', ['title' => 'User Manajemen | Master Data Administrasi'])
 @section('asset_css')
     <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}">
+    <style>
+        .passcode-switch {
+            color: #6c757d;
+            font-size: 1rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+    </style>
 @endsection
 @section('content')
     <div class="page-header">
@@ -161,38 +169,37 @@
                             </div>
                             <div class="row g-4">
                                 <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <div class="form-floating mb-0 position-relative">
+                                    <div class="mb-3 position-relative">
+                                        <div class="form-floating">
                                             <input type="password" class="form-control" id="password" name="password"
-                                                placeholder="Masukkan kata sandi" autocomplete="off" required />
-                                            <label for="password">Kata Sandi
-                                                <sup class="required-pass text-danger ms-1">*</sup>
-                                            </label>
-                                            {{-- <a href="javascript:void(0);"
-                                                class="form-icon form-icon-right passcode-switch lg"
-                                                onclick="togglePasswordVisibility('password', this)">
-                                                <em class="passcode-icon icon-show icon ni ni-eye"></em>
-                                                <em class="passcode-icon icon-hide icon ni ni-eye-off d-none"></em>
-                                            </a> --}}
+                                                placeholder="Kata Sandi" required autocomplete="off" />
+                                            <label for="password">Kata Sandi <sup
+                                                    class="required-pass text-danger ms-1">*</sup></label>
                                         </div>
+                                        <!-- Ikon mata -->
+                                        <a href="javascript:void(0);" class="passcode-switch position-absolute"
+                                            onclick="togglePasswordVisibility('password', this)"
+                                            style="right: 10px; top: 50%; transform: translateY(-50%); text-decoration: none;"
+                                            id="togglePassword">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <div class="form-floating mb-0 position-relative">
-                                            <input type="password" class="form-control" id="password-confirm"
-                                                name="password-confirm" placeholder="Masukkan kata sandi"
-                                                autocomplete="off" required />
-                                            <label for="password-confirm">Konfirmasi Kata Sandi
-                                                <sup class="required-pass text-danger ms-1">*</sup>
-                                            </label>
-                                            {{-- <a href="javascript:void(0);"
-                                                class="form-icon form-icon-right passcode-switch lg"
-                                                onclick="togglePasswordVisibility('password-confirm', this)">
-                                                <em class="passcode-icon icon-show icon ni ni-eye"></em>
-                                                <em class="passcode-icon icon-hide icon ni ni-eye-off d-none"></em>
-                                            </a> --}}
+                                    <div class="mb-3 position-relative">
+                                        <div class="form-floating">
+                                            <input type="password" class="form-control" id="password-confirm" name="password-confirm"
+                                                placeholder="Kata Sandi" required autocomplete="off" />
+                                            <label for="password-confirm">Konfirmasi Kata Sandi <sup
+                                                    class="required-pass text-danger ms-1">*</sup></label>
                                         </div>
+                                        <!-- Ikon mata -->
+                                        <a href="javascript:void(0);" class="passcode-switch position-absolute"
+                                            onclick="togglePasswordVisibility('password-confirm', this)"
+                                            style="right: 10px; top: 50%; transform: translateY(-50%); text-decoration: none;"
+                                            id="togglePassword">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -263,19 +270,17 @@
             email: "Silakan masukkan email yang valid."
         });
 
-        function togglePasswordVisibility(inputId, toggleElement) {
-            const input = document.getElementById(inputId);
-            const showIcon = toggleElement.querySelector('.icon-show');
-            const hideIcon = toggleElement.querySelector('.icon-hide');
-
-            if (input.type === 'password') {
-                input.type = 'text';
-                showIcon.classList.add('d-none');
-                hideIcon.classList.remove('d-none');
+        async function togglePasswordVisibility(inputId, toggleElement) {
+            const passwordField = document.getElementById(inputId);
+            const icon = toggleElement.querySelector('i');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
             } else {
-                input.type = 'password';
-                showIcon.classList.remove('d-none');
-                hideIcon.classList.add('d-none');
+                passwordField.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
             }
         }
 
@@ -699,6 +704,7 @@
                 setStatus(),
                 editData(),
                 submitForm(),
+                togglePasswordVisibility(),
                 // selectList('#input_satuan_kerja_id',
                 //     '{{ url('') }}/api/internal/admin-panel/satuan-kerja/list',
                 //     'Pilih Satuan Kerja', true),

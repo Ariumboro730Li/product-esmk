@@ -54,18 +54,18 @@
                                                 class="rounded-circle img-fluid wid-70"
                                                 src="{{ asset('assets') }}/images/user/perusahaan.jpg" alt="User image">
                                         </div>
-                                        <h5 class="mb-0 company-name">PT. NUSANTARA TECH INOVATOR</h5>
+                                        <h5 class="mb-0 company-name"></h5>
                                         <p class="text-muted text-sm c-nib"></p>
                                         <hr class="my-3 border border-secondary-subtle">
                                         <div class="row g-3">
                                             <div class="col-4">
-                                                <h5 class="mb-0 total_aodt">86</h5><small class="text-muted">AODT</small>
+                                                <h5 class="mb-0 total_aodt"></h5><small class="text-muted">AODT</small>
                                             </div>
                                             <div class="col-4 border border-top-0 border-bottom-0">
-                                                <h5 class="mb-0 total_aotdt">40</h5><small class="text-muted">AOTDT</small>
+                                                <h5 class="mb-0 total_aotdt"></h5><small class="text-muted">AOTDT</small>
                                             </div>
                                             <div class="col-4">
-                                                <h5 class="mb-0 total_ab">4.5K</h5><small class="text-muted">AB</small>
+                                                <h5 class="mb-0 total_ab"></h5><small class="text-muted">AB</small>
                                             </div>
                                         </div>
                                         <hr class="my-3 border border-secondary-subtle">
@@ -73,18 +73,18 @@
                                             <i class="ti ti-mail me-2"></i>
                                             <p class="mb-0 company-email"
                                                 style="word-break: break-word; overflow-wrap: anywhere; text-align: left;">
-                                                anshan@gmail.com</p>
+                                                </p>
                                         </div>
 
                                         <div class="d-inline-flex align-items-center justify-content-start w-100 mb-3"><i
                                                 class="ti ti-phone me-2"></i>
-                                            <p class="mb-0 company-phone">(+1-876) 8654 239 581</p>
+                                            <p class="mb-0 company-phone"></p>
                                         </div>
                                         <div class="d-inline-flex align-items-center justify-content-start w-100 mb-3"><i
                                                 class="ti ti-map-pin me-2"></i>
                                             <p class="mb-0 company-address"
                                                 style="word-break: break-word; overflow-wrap: anywhere; text-align: left;">
-                                                New York</p>
+                                                </p>
                                         </div>
                                     </div>
                                 </div>
@@ -494,6 +494,9 @@
 
         async function setUserData(data) {
             let color = data.is_active.init === 1 || data.is_active.init === true ? 'success' : 'danger';
+            $('.total_aodt').html(data.aodt || '-');
+            $('.total_aotdt').html(data.aotdt || '-');
+            $('.total_ab').html(data.ab || '-');
             $('.company-name').html(data.name);
             $('.c-nib').html(`NIB: ${data.nib}`);
             $('.c_stastus_active').html(`
@@ -1089,9 +1092,10 @@
                     );
                     await setListKbli(handleDataArray, getDataRest.data.paginate);
                 } else {
+                    let errorMessages = getDataRest.data?.message || errorMessage1;
                     getDataTableKbli = `
                 <tr class="nk-tb-item">
-                    <th class="text-center" colspan="${$('th').length}"> ${errorMessage1} </th>
+                    <th class="text-center" colspan="${$('th').length}"> ${errorMessages} </th>
                 </tr>`;
                     $('#listDataKbli tr').remove();
                     $('#listDataKbli').append(getDataTableKbli);
@@ -1270,8 +1274,8 @@
         }
 
         async function initPageLoad() {
+            await checkOSS();
             await Promise.all([
-                checkOSS(),
                 getPerusahaanData(referenceId),
                 initDataOnTablePengajuanSmk(defaultLimitPage1, currentPage1, defaultAscending1, defaultSearch1),
                 manipulationDataOnTablePengajuanSmk(),

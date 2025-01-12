@@ -42,6 +42,15 @@
         background-size: 600%;
 
     } */
+    .passcode-switch {
+        color: #6c757d;
+        /* Warna ikon */
+        font-size: 1rem;
+        /* Ukuran ikon */
+        cursor: pointer;
+        z-index: 10;
+        /* Pastikan di atas elemen lain */
+    }
 </style>
 
 <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-layout="vertical" data-pc-direction="ltr"
@@ -89,13 +98,26 @@
                                 <label for="email">Email</label>
                             </div>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 position-relative">
+                            <div class="form-floating">
+                                <input type="password" class="form-control" id="password" placeholder="Kata Sandi"
+                                    required />
+                                <label for="password">Kata Sandi</label>
+                            </div>
+                            <!-- Ikon mata -->
+                            <a href="#" class="passcode-switch position-absolute"
+                                style="right: 10px; top: 50%; transform: translateY(-50%); text-decoration: none;"
+                                id="togglePassword">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                        </div>
+                        {{-- <div class="mb-3">
                             <div class="form-floating mb-3">
                                 <input type="password" class="form-control" id="password"
                                     placeholder="Password" required />
                                 <label for="password">Kata Sandi</label>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="d-flex mt-1 justify-content-between align-items-center">
                             <div class="form-check">
                                 <input class="form-check-input input-primary" type="checkbox" id="customCheckc1" />
@@ -134,6 +156,21 @@
 
     <script>
         loadingPage(false);
+        document.getElementById('togglePassword').addEventListener('click', function(e) {
+            e.preventDefault();
+            const passwordField = document.getElementById('password');
+            const icon = this.querySelector('i');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        });
+
         document.getElementById('email').addEventListener('keydown', (event) => {
           if (event.key === 'Enter') {
             submitLogin();

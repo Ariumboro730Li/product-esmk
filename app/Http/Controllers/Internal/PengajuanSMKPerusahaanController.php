@@ -522,7 +522,6 @@ class PengajuanSMKPerusahaanController extends Controller
 
         return $oldData;
     }
-
     public function totalPenilaian(Request $request)
     {
 
@@ -551,6 +550,7 @@ class PengajuanSMKPerusahaanController extends Controller
             'data' => $result
         ], HttpStatusCodes::HTTP_OK);
     }
+
 
     public function generateNotificationByStatus($status, $recipients, $information = [])
     {

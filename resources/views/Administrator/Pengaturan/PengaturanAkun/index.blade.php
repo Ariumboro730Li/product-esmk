@@ -1,5 +1,12 @@
 @extends('...Administrator.index', ['title' => 'Pengaturan Akun | Pengaturan'])
-
+<style>
+    .passcode-switch {
+        color: #6c757d;
+        font-size: 1rem;
+        cursor: pointer;
+        z-index: 10;
+    }
+</style>
 @section('content')
     <div class="page-header">
         <div class="page-block">
@@ -79,26 +86,49 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <div class="mb-3">
-                                                    <div class="form-floating mb-0">
-                                                        <input type="password" class="form-control" id="password-old"
-                                                            placeholder="Masukkan Kata Sandi Lama" />
-                                                        <label for="password-old">Kata Sandi Lama</label>
+                                                <div class="mb-3 position-relative">
+                                                    <div class="form-floating">
+                                                        <input type="password" class="form-control" id="password-old" name="password-old"
+                                                            placeholder="Kata Sandi" required autocomplete="off" />
+                                                        <label for="password-old">Kata Sandi Lama<sup
+                                                                class="required-pass text-danger ms-1">*</sup></label>
                                                     </div>
+                                                    <!-- Ikon mata -->
+                                                    <a href="javascript:void(0);" class="passcode-switch position-absolute"
+                                                        onclick="togglePasswordVisibility('password-old', this)"
+                                                        style="right: 10px; top: 50%; transform: translateY(-50%); text-decoration: none;"
+                                                        id="togglePassword">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <div class="form-floating mb-0">
-                                                        <input type="password" class="form-control" id="password"
-                                                            placeholder="Masukkan Kata Sandi Baru" />
-                                                        <label for="password">Kata Sandi Baru</label>
+                                                <div class="mb-3 position-relative">
+                                                    <div class="form-floating">
+                                                        <input type="password" class="form-control" id="password" name="password"
+                                                            placeholder="Kata Sandi" required autocomplete="off" />
+                                                        <label for="password">Kata Sandi Baru<sup
+                                                                class="required-pass text-danger ms-1">*</sup></label>
                                                     </div>
+                                                    <a href="javascript:void(0);" class="passcode-switch position-absolute"
+                                                        onclick="togglePasswordVisibility('password', this)"
+                                                        style="right: 10px; top: 50%; transform: translateY(-50%); text-decoration: none;"
+                                                        id="togglePassword">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <div class="form-floating mb-0">
-                                                        <input type="password" class="form-control" id="confirmPassword"
-                                                            placeholder="Masukkan Kata Sandi Baru" />
-                                                        <label for="confirmPassword">Konfirmasi Kata Sandi</label>
+                                                <div class="mb-3 position-relative">
+                                                    <div class="form-floating">
+                                                        <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+                                                            placeholder="Kata Sandi" required autocomplete="off" />
+                                                        <label for="confirmPassword">Konfirmasi Kata Sandi <sup
+                                                                class="required-pass text-danger ms-1">*</sup></label>
                                                     </div>
+                                                    <!-- Ikon mata -->
+                                                    <a href="javascript:void(0);" class="passcode-switch position-absolute"
+                                                        onclick="togglePasswordVisibility('confirmPassword', this)"
+                                                        style="right: 10px; top: 50%; transform: translateY(-50%); text-decoration: none;"
+                                                        id="togglePassword">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6 mt-5 mt-md-0">
@@ -336,12 +366,25 @@
             });
         }
 
-
+        async function togglePasswordVisibility(inputId, toggleElement) {
+            const passwordField = document.getElementById(inputId);
+            const icon = toggleElement.querySelector('i');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
 
         async function initPageLoad() {
             await getData();
             await handlePasswordInput(); // Menangani input password dinamis
             await submitPasswordForm();
+            await togglePasswordVisibility();
         }
     </script>
 @endsection

@@ -37,6 +37,15 @@
         background-size: 600%;
 
     } */
+    .passcode-switch {
+        color: #6c757d;
+        /* Warna ikon */
+        font-size: 1rem;
+        /* Ukuran ikon */
+        cursor: pointer;
+        z-index: 10;
+        /* Pastikan di atas elemen lain */
+    }
 </style>
 
 <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-layout="vertical" data-pc-direction="ltr"
@@ -236,7 +245,20 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-3 position-relative">
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control"  id="data-informasi-akun-password" placeholder="Kata Sandi"
+                                            required />
+                                        <label for="data-informasi-akun-password">Kata Sandi</label>
+                                    </div>
+                                    <!-- Ikon mata -->
+                                    <a href="#" class="passcode-switch position-absolute"
+                                        style="right: 10px; top: 50%; transform: translateY(-50%); text-decoration: none;"
+                                        id="togglePassword">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                </div>
+                                {{-- <div class="mb-3">
                                     <div class="col-md-12">
                                         <div class="form-floating mb-0">
                                             <input type="password" class="form-control"
@@ -244,7 +266,7 @@
                                             <label for="data-informasi-akun-password">Password</label>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="d-flex mt-1 justify-content-between align-items-center">
                                     <div class="form-check">
                                         <input class="form-check-input input-primary" type="checkbox"
@@ -322,6 +344,24 @@
             '18': 'Badan Layanan Umum (BLU)',
             '19': 'Badan Hukum',
         };
+
+        async function togglePass() {
+            document.getElementById('togglePassword').addEventListener('click', function(e) {
+                e.preventDefault();
+                const passwordField = document.getElementById('data-informasi-akun-password');
+                const icon = this.querySelector('i');
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    passwordField.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            });
+        }
+
         async function checkOSS() {
             loadingPage(true);
             const getDataRest = await CallAPI(
@@ -607,6 +647,7 @@
             showStep(currentStep);
             checkOSS();
             submitCompany();
+            togglePass();
 
         });
     </script>
