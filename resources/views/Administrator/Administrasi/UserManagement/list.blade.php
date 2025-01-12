@@ -490,7 +490,7 @@
                 showCancelButton: true,
                 confirmButtonText: "Ya, Saya Yakin!",
                 cancelButtonText: "Batal",
-                reverseButtons: true
+                reverseButtons: false
             }).then(async (result) => {
                 if (result.isConfirmed == true) {
                     loadingPage(true)

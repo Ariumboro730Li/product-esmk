@@ -583,7 +583,7 @@ class EsmkController extends Controller
         ->join('model_has_roles','users.id', '=', 'model_has_roles.model_id')
         ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
         ->join('work_units', 'work_units.id', 'work_unit_id');
-
+        
         $query->when($term->id_role != null, function($query) use($term) {
             return $query->where('roles.id','=',$term->id_role);
         });

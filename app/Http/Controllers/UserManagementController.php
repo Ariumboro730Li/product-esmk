@@ -42,7 +42,8 @@ class UserManagementController extends Controller
         )
             ->leftjoin('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
             ->leftjoin('roles', 'model_has_roles.role_id', '=', 'roles.id');
-
+            
+        $query->where('roles.name','!=','Perusahaan');
         $query->when($term->id_role != null, function ($query) use ($term) {
             return $query->where('roles.id', '=', $term->id_role);
         });
