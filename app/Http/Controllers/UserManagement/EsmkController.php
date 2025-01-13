@@ -35,6 +35,16 @@ class EsmkController extends Controller
         '17' => 'Perseorangan',
         '18' => 'Badan Layanan Umum (BLU)',
         '19' => 'Badan Hukum',
+        '20' => 'Badan Usaha Lainnya', // Badan Usaha Lainnya (Khusus STPW Luar Negeri)
+        '21' => 'Perum', // Perusahaan Umum (PERUM)
+        '22' => 'Perumda', // Perusahaan Umum Daerah (PERUMDA)
+        '23' => 'Perusda', // Perusahaan Daerah (PERUSDA)
+        '24' => 'BOB' , // Badan Operasi Bersama (BOB)
+        '25' => 'Badan Usaha Perwakilan',
+        '26' => 'PT Peorangan' , // PT Perorangan
+        '27' => 'PBA', // Pedagang Berjangka Asing (PBA)
+        '28' => 'BUM Desa', // Badan Usaha Milik Desa (BUM Desa)
+        '29' => 'BUM Desa Bersama'
     ];
 
     public function externalList(Request $term) {
