@@ -1,10 +1,10 @@
 <nav class="pc-sidebar">
     <div class="navbar-wrapper">
         <div class="m-header text-center">
-            <a href="" class="b-brand text-primary">
-                <div class="logo_aplikasi"></div>
+            <a href="javascript:void(0)" class="b-brand text-primary">
+                <img src="{{ request()->app_setting->value->logo_aplikasi }}" alt="img" style="width: auto; height: 50px; border-radius: 50%;">
             </a>
-            <h5 class="fw-bold nama_aplikasi" style="padding-left:10px;"></h5>
+            <h5 class="fw-bold" style="margin-left: 0.5rem;">{{ request()->app_setting->value->nama }}</h5>
             </a>
         </div>
         <div class="navbar-content">

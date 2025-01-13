@@ -62,7 +62,7 @@ class AuthController extends Controller
             return response()->json([
                 'status_code'  => HttpStatusCodes::HTTP_UNAUTHORIZED,
                 'error' => true,
-                'message' => 'Username tidak terdaftar.'
+                'message' => 'Kata sandi salah.'
             ], HttpStatusCodes::HTTP_UNAUTHORIZED); // 401 untuk unauthorized
         }
 
@@ -77,26 +77,26 @@ class AuthController extends Controller
 
         if (!auth()->attempt($credentials)) {
             return response()->json([
-                'status_code'  => HttpStatusCodes::HTTP_INTERNAL_SERVER_ERROR,
-                'error'   => true,
-                'message' => 'Terjadi kesalahan saat mencoba login.'
+                'status_code'   => HttpStatusCodes::HTTP_INTERNAL_SERVER_ERROR,
+                'error'         => true,
+                'message'       => 'Terjadi kesalahan saat mencoba login.'
             ], HttpStatusCodes::HTTP_INTERNAL_SERVER_ERROR); // 500 untuk error server
         }
 
         if(!$user->is_active){
             Auth::logout();
             return response()->json([
-                'status_code'  => HttpStatusCodes::HTTP_UNAUTHORIZED,
-                'error'   => true,
-                'message' => 'Akun anda belum aktif, silahkan hubungi admin.'
+                'status_code'   => HttpStatusCodes::HTTP_UNAUTHORIZED,
+                'error'         => true,
+                'message'       => 'Akun anda dinonaktifkan, silahkan hubungi admin.'
             ], HttpStatusCodes::HTTP_UNAUTHORIZED); // 401 untuk unauthorized
         }
 
         // // Buat payload untuk token
         return response()->json([
-            'error' => false,
-            'message' => 'Login berhasil.',
-            'user' => $user,
+            'error'     => false,
+            'message'   => 'Login berhasil.',
+            'user'      => $user,
         ], 200);
 
     }

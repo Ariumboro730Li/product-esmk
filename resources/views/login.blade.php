@@ -1,66 +1,56 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<!-- [Head] start -->
-
 <head>
-    <title>Login | {{ env('APP_NAME') }}</title>
+    <title>Masuk | {{ request()->app_setting->value->nama }}</title>
     <!-- [Meta] -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description"
-        content="Able Pro is trending dashboard template made using Bootstrap 5 design framework. Able Pro is available in Bootstrap, React, CodeIgniter, Angular,  and .net Technologies." />
-    <meta name="keywords"
-        content="Bootstrap admin template, Dashboard UI Kit, Dashboard Template, Backend Panel, react dashboard, angular dashboard" />
-    <meta name="author" content="Phoenixcoded" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- [Favicon] icon -->
-    <link rel="icon" id="logo_favicon" href="{{ asset('assets') }}/images/logoapp.png" type="image/x-icon" />
+    <link rel="icon" href="{{ request()->app_setting->value->logo_favicon }}" type="image/x-icon" />
     <!-- [Font] Family -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/fonts/inter/inter.css" id="main-font-link" />
+    <link rel="stylesheet" href="{{ asset('assets/fonts/inter/inter.css') }}" id="main-font-link" />
     <!-- [phosphor Icons] https://phosphoricons.com/ -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/fonts/phosphor/duotone/style.css" />
+    <link rel="stylesheet" href="{{ asset('assets/fonts/phosphor/duotone/style.css') }}" />
     <!-- [Tabler Icons] https://tablericons.com -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/fonts/tabler-icons.min.css" />
+    <link rel="stylesheet" href="{{ asset('assets/fonts/tabler-icons.min.css') }}" />
     <!-- [Feather Icons] https://feathericons.com -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/fonts/feather.css" />
+    <link rel="stylesheet" href="{{ asset('assets/fonts/feather.css') }}" />
     <!-- [Font Awesome Icons] https://fontawesome.com/icons -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/fonts/fontawesome.css" />
+    <link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome.css') }}" />
     <!-- [Material Icons] https://fonts.google.com/icons -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/fonts/material.css" />
+    <link rel="stylesheet" href="{{ asset('assets/fonts/material.css') }}" />
     <!-- [Template CSS Files] -->
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/style.css" id="main-style-link" />
-    <script src="{{ asset('assets') }}/js/tech-stack.js"></script>
-    <link rel="stylesheet" href="{{ asset('assets') }}/css/style-preset.css" />
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" id="main-style-link" />
+    <link rel="stylesheet" href="{{ asset('assets/css/style-preset.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/loading.css') }}" />
-    <link href="{{ asset('assets/css/sweetalert2.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" type="text/css" />
+    <style>
+        .passcode-switch {
+            color: #6c757d;
+            font-size: 1rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+    </style>
+    <script src="{{ asset('assets/js/tech-stack.js') }}"></script>
+    <script>
+        document.onreadystatechange = function() {
+            var state = document.readyState;
+            if (state == 'complete') {
+                setTimeout(function() {
+                    document.getElementById('preloaderLoadingPage').style.display = 'none';
+                }, 100);
+            }
+        }
+    </script>
 </head>
-<style>
-    /* .welcome-banner::after {
-        opacity: 0.1;
-        background-position: bottom;
-        background-size: 600%;
 
-    } */
-    .passcode-switch {
-        color: #6c757d;
-        /* Warna ikon */
-        font-size: 1rem;
-        /* Ukuran ikon */
-        cursor: pointer;
-        z-index: 10;
-        /* Pastikan di atas elemen lain */
-    }
-</style>
-
-<body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-layout="vertical" data-pc-direction="ltr"
-    data-pc-theme_contrast="" data-pc-theme="light">
+<body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-layout="vertical" data-pc-direction="ltr" data-pc-theme_contrast="" data-pc-theme="light">
     <!-- [ Pre-loader ] start -->
-    <div class="loader-bg">
-        <div class="loader-track">
-            <div class="loader-fill"></div>
-        </div>
-    </div>
     <div id="preloaderLoadingPage">
         <div class="sk-three-bounce">
             <div class="centerpreloader">
@@ -76,16 +66,27 @@
     <div class="auth-main">
         <div class="auth-wrapper v2">
             <div id="side-content-logo">
+                <div class="auth-sidecontent" style="position: relative;">
+                    <!-- Gambar latar belakang -->
+                    <img src="{{ asset('assets/images/authentication/3.jpg') }}" alt="images" class="img-fluid img-auth-side" />
+
+                    <!-- Logo, diposisikan di tengah gambar -->
+                    <img src="{{ request()->app_setting->value->logo_aplikasi }}" class="img-fluid img-auth-side" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 8rem; height: 8rem; border-radius:50%;" />
+                </div>
             </div>
 
             <div class="auth-form">
                 <div class="card my-5" style="max-width:70%">
                     <div class="card-body">
-                        <div class="text-center logo_aplikasi">
+                        <div class="text-center">
+                            <a href="javascript:void(0)">
+                                <img src="{{ request()->app_setting->value->logo_aplikasi }}" alt="img"
+                                    style="width: 3.75rem; height: '4.25rem'; border-radius:50%;" />
+                            </a>
                         </div>
-                        <h4 class="text-center mt-4 nama_aplikasi"></h4>
+                        <h4 class="text-center mt-4">{{ request()->app_setting->value->nama }}</h4>
                         <div class="saprator mb-5">
-                            <span class=" nama_instansi">Dinas Perhubungan</span>
+                            <span class="nama_instansi">{{ request()->app_setting->value->nama_instansi }}</span>
                         </div>
 
                         <div class="mb-3">
@@ -140,12 +141,11 @@
     <script src="{{ asset('assets') }}/js/fonts/custom-font.js"></script>
     <script src="{{ asset('assets') }}/js/pcoded.js"></script>
     <script src="{{ asset('assets') }}/js/plugins/feather.min.js"></script>
-    <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
+    <script src="{{ asset('assets/sweetalert2/sweetalert2.min.js') }}"></script>
     <script src="{{ asset('assets/js/axios.js') }}"></script>
     <script src="{{ asset('assets/js/restAPI.js') }}"></script>
 
     <script>
-        loadingPage(false);
         document.getElementById('togglePassword').addEventListener('click', function(e) {
             e.preventDefault();
             const passwordField = document.getElementById('password');
@@ -183,93 +183,20 @@
         }
 
         function notificationAlert(tipe, title, message) {
-            swal(
-                title,
-                message,
-                tipe
-            );
+            Swal.fire({
+                title: title,
+                text: message,
+                icon: tipe,
+                showCancelButton: false,
+                showConfirmButton: false
+            });
         }
-
-        async function getDataApps() {
-
-            const getDataRest = await CallAPI(
-                    'GET',
-                    `{{ url('') }}/api/setting/find`, {
-                        name: "aplikasi"
-                    }
-                )
-                .then(response => response)
-                .catch(error => {
-                    loadingPage(false);
-                    let resp = error.response;
-                    notificationAlert('info', 'Pemberitahuan', 'Error');
-                    return resp;
-                });
-
-            if (getDataRest.status === 200) {
-                const appData = getDataRest.data.data;
-
-                const currentPort = window.location.port || '80';
-                let logoPort;
-                let logoFavicon;
-                try {
-                    logoPort = new URL(appData.logo_aplikasi).port || '80';
-                    logoFavicon = new URL(appData.logo_favicon).port || '80';
-                } catch {
-                    logoFavicon = null;
-                    logoPort = null;
-                }
-
-                const defaultLogo = '{{ asset('assets/images/logoapp.png') }}';
-                const finalLogo = (logoPort && logoPort !== currentPort) ?
-                defaultLogo :
-                (appData.logo_aplikasi || defaultLogo);
-                const finalLogoFav = (logoFavicon && logoFavicon !== currentPort) ?
-                    defaultLogo :
-                    (appData.logo_favicon || defaultLogo);
-
-                const isDefaultLogo = finalLogo === defaultLogo;
-                loadingPage(false);
-
-                document.querySelectorAll('.nama_aplikasi').forEach(function(element) {
-                    element.innerText = appData.nama;
-                });
-
-                document.querySelector('.nama_instansi').innerText = appData.nama_instansi || '';
-
-                document.querySelector('.logo_aplikasi').innerHTML = `
-                    <a href="#">
-                        <img src="${finalLogo}" alt="img"
-                            style="width: 3.75rem; height: ${isDefaultLogo ? '4.25rem' : '4.25rem'}; border-radius:50%;" />
-                    </a>`;
-
-                let sideLogo = document.getElementById('side-content-logo');
-                if (sideLogo) {
-                    sideLogo.innerHTML = `
-                <div class="auth-sidecontent" style="position: relative;">
-                        <!-- Gambar latar belakang -->
-                        <img src="{{ asset('assets') }}/images/authentication/3.jpg" alt="images" class="img-fluid img-auth-side" />
-
-                        <!-- Logo, diposisikan di tengah gambar -->
-                        <img src="${finalLogo}" alt="images"
-                            class="img-fluid img-auth-side"
-                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 8rem; height: ${isDefaultLogo ? '9rem' : '8rem'}; border-radius:50%;" />
-                    </div>
-                `;
-                }
-
-                const favicon = document.getElementById('logo_favicon');
-                favicon.href = finalLogoFav;
-            }
-        }
-
-        window.onload = getDataApps;
 
         async function submitLogin() {
             loadingPage(true);
             const getDataRest = await CallAPI(
             'POST',
-            '{{url('')}}/api/auth/login',
+            '{{url("/api/auth/login")}}',
             {
                 email : $('#email').val(),
                 password : $('#password').val()
