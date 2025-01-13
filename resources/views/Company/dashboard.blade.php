@@ -334,6 +334,7 @@
         }
 
         async function getSertifikatData() {
+            $('#countdown-card').hide()
             loadingPage(true);
             const getDataRest = await CallAPI(
                 'GET',
@@ -363,6 +364,7 @@
 
             loadingPage(false);
             if (getDataRest.status == 200) {
+                $('#countdown-card').show()
                 let data = getDataRest.data.data;
                 let skIssueDate = new Date(data.publish_date);
                 let expiredDate = new Date(data.expired_date);
@@ -388,7 +390,7 @@
 
             // Cek jika expired sudah lewat
             if (now >= expiredDate) {
-                document.getElementById('countdown-timer').innerHTML = 'Kadaluwarsa';
+                document.getElementById('countdown-timer').innerHTML = 'Sertifikat SMK Sudah Kadaluwarsa';
                 document.getElementById('countdown-card').style.background =
                     "rgba(139, 0, 0, 0.9)"; // Warna merah untuk kadaluwarsa
                 return;
@@ -492,6 +494,10 @@
 
         async function checkOSS() {
             loadingPage(true);
+            const btnSync = document.querySelector('.btn-sync-oss');
+            if (btnSync) {
+                btnSync.style.display = 'none'; // Default disembunyikan
+            }
             const getDataRest = await CallAPI(
                 'GET',
                 '{{ url('') }}/api/company/setting/find', {
@@ -515,6 +521,11 @@
                     const btnSync = document.querySelector('.btn-sync-oss');
                     if (btnSync) {
                         btnSync.style.display = 'none';
+                    }
+                } else {
+                    const btnSync = document.querySelector('.btn-sync-oss');
+                    if (btnSync) {
+                        btnSync.style.display = 'inline-block';
                     }
                 }
             }
