@@ -369,12 +369,17 @@
                                 statusLabel = '<span class="badge bg-light-success ms-2">Terverifikasi</span>';
                                 colorBage = 'success';
                                 break;
+                            case "not_passed":
+                                statusLabel = '<span class="badge bg-light-danger ms-2">Tidak lulus verifikasi</span>';
+                                colorBage = 'danger';
+                                break;
                             default:
                                 statusLabel = '<span class="badge bg-light-warning ms-2">Status Tidak Diketahui</span>';
                                 colorBage = 'warning';
                                 break;
                         }
 
+                        
                         let lastUpdate = new Date(element.updated_at).toLocaleDateString();
                         let createdDate = new Date(element.created_at).toLocaleDateString();
 
@@ -433,28 +438,28 @@
                                                     </ul>
                                                 </div>
                                                 ${element.rejection_notes ? `
-                                                                        <div class="h5 mt-3">
-                                                                            <i class="material-icons-two-tone f-16 me-1">notification_important</i>Catatan Permohonan
-                                                                        </div>
-                                                                        <div class="help-md-hidden">
-                                                                            <div class="bg-body mb-3 p-3">
-                                                                                <h6>
-                                                                                    <img src="{{ asset('assets') }}/images/user/user-profil2.jpg"
-                                                                                        alt="" class="wid-20 avatar me-2 rounded">
-                                                                                    Last comment from <a href="#" class="link-secondary">${element.updated_by}:</a>
-                                                                                </h6>
-                                                                                <p class="mb-0">
-                                                                                    ${truncatedNotes}
-                                                                                </p>
+                                                                            <div class="h5 mt-3">
+                                                                                <i class="material-icons-two-tone f-16 me-1">notification_important</i>Catatan Permohonan
                                                                             </div>
-                                                                        </div>` : ''}
+                                                                            <div class="help-md-hidden">
+                                                                                <div class="bg-body mb-3 p-3">
+                                                                                    <h6>
+                                                                                        <img src="{{ asset('assets') }}/images/user/user-profil2.jpg"
+                                                                                            alt="" class="wid-20 avatar me-2 rounded">
+                                                                                        Last comment from <a href="#" class="link-secondary">${element.updated_by}:</a>
+                                                                                    </h6>
+                                                                                    <p class="mb-0">
+                                                                                        ${truncatedNotes}
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>` : ''}
                                             </div>
                                             <div class="mt-4">
                                                 ${element.rejection_notes ? `
-                                                                        <button type="button" class="me-2 btn btn-sm btn-light-danger"
-                                                                            data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
-                                                                            <i class="ti ti-eye me-1"></i> Lihat Catatan
-                                                                        </button>` : ''}
+                                                                            <button type="button" class="me-2 btn btn-sm btn-light-danger"
+                                                                                data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
+                                                                                <i class="ti ti-eye me-1"></i> Lihat Catatan
+                                                                            </button>` : ''}
                                                 <a href="/admin/laporan-tahunan/detail?id=${element.id}&companyID=${element.company_id}"
                                                     class="me-2 btn btn-sm btn-light-secondary" style="border-radius: 5px;">
                                                     <i class="feather icon-eye mx-1"></i>Lihat Pengajuan
