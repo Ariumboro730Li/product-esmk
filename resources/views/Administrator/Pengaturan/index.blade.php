@@ -224,10 +224,6 @@
                                             <label for="urlOss">URL OSS</label>
                                         </div>
                                     </div>
-                                    <div class="text-end m-t-15">
-                                        <button class="btn btn-sm btn-outline-primary p-2" onclick="updateDataOSS()"
-                                            style="border-radius:5px;">Simpan Perubahan</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -360,7 +356,7 @@
         async function getDataApps() {
             loadingPage(true);
 
-            const getDataRest = await CallAPI(
+            let getDataRest = await CallAPI(
                     'GET',
                     `{{ url('') }}/api/internal/admin-panel/setting/find`, {
                         name: "aplikasi"
@@ -378,7 +374,7 @@
                 loadingPage(false);
 
                 // Ambil data dari response
-                const appData = getDataRest.data.data;
+                let appData = getDataRest.data.data;
                 document.getElementById('input_nama').value = appData.nama;
                 document.getElementById('input_nama_instansi').value = appData.nama_instansi;
                 document.getElementById('deskripsiAplikasi').value = appData.deskripsi;
@@ -392,8 +388,8 @@
                 $('#email').html(`<i class="fa fa-envelope me-2"></i>${appData.email}`);
                 $('#noWaHelpdesk').html(`<i class="fa fa-phone me-2"></i>${appData.whatsapp}`);
 
-                const defaultLogo = '{{ asset('assets/images/logoapp.png') }}';
-                const currentPort = window.location.port || '80';
+                let defaultLogo = '{{ asset('assets/images/logoapp.png') }}';
+                let currentPort = window.location.port || '80';
                 let logoPort;
                 try {
                     logoPort = new URL(appData.logo_aplikasi).port || '80';
@@ -401,11 +397,11 @@
                     logoFavicon = null;
                 }
 
-                const finalLogo = (logoPort && logoPort !== currentPort) ?
+                let finalLogo = (logoPort && logoPort !== currentPort) ?
                     defaultLogo :
                     (appData.logo_aplikasi || defaultLogo);
 
-                const isDefaultLogo = finalLogo === defaultLogo;
+                let isDefaultLogo = finalLogo === defaultLogo;
 
                 $('.logoApp').html(`
                 <a href="#"><img src="${finalLogo}" alt="img"
@@ -415,8 +411,8 @@
 
 
                 // Jika ada dropdown disabled, update value-nya
-                const provinsiSelect = document.querySelector('#select_provinsi');
-                const citySelect = document.querySelector('#select_kota');
+                let provinsiSelect = document.querySelector('#select_provinsi');
+                let citySelect = document.querySelector('#select_kota');
 
                 if (provinsiSelect) {
                     provinsiSelect.innerHTML = `<option selected>${appData.kota}</option>`;
@@ -442,8 +438,6 @@
             let faviconUrl = document.getElementById('faviconFileUrl').value;
             let logoUrl = document.getElementById('logoFileUrl').value;
 
-
-            // Persiapkan data untuk dikirim
             let payload = {
                 nama_instansi: namaInstansi,
                 nama: namaAplikasi,
@@ -477,7 +471,7 @@
         async function getDataOSS() {
             loadingPage(true);
 
-            const getDataRest = await CallAPI(
+            let getDataRest = await CallAPI(
                     'GET',
                     `{{ url('') }}/api/internal/admin-panel/setting/find`, {
                         name: "oss"
@@ -487,7 +481,6 @@
                 .catch(error => {
                     loadingPage(false);
                     let resp = error.response;
-                    notificationAlert('info', 'Pemberitahuan', 'Error')
                     return resp;
                 });
 
@@ -497,8 +490,8 @@
                 let appData = getDataRest.data.data;
                 let active = appData.is_active;
 
-                const akunOssCheckbox = document.getElementById('akunOssActive');
-                const formAkunOss = document.getElementById('form-akun-oss');
+                let akunOssCheckbox = document.getElementById('akunOssActive');
+                let formAkunOss = document.getElementById('form-akun-oss');
 
                 akunOssCheckbox.checked = active === 1;
                 formAkunOss.style.display = active === 1 ? 'block' : 'none';
@@ -512,13 +505,15 @@
         async function updateDataOSS(isActive = null) {
             loadingPage(true);
 
-            const ossUsername = document.getElementById('username').value;
-            const ossPassword = document.getElementById('password').value;
-            const ossUrl = document.getElementById('urlOss').value;
+            let ossUsername = document.getElementById('username').value;
+            let ossPassword = document.getElementById('password').value;
+            let ossUrl = document.getElementById('urlOss').value;
 
-            const akunOssCheckbox = document.getElementById('akunOssActive');
+            let akunOssCheckbox = document.getElementById('akunOssActive');
 
-            const payload = {
+            console.log(akunOssCheckbox);
+
+            let payload = {
                 username: ossUsername,
                 password: ossPassword,
                 url: ossUrl,
@@ -526,7 +521,7 @@
                     0),
             };
 
-            const getDataRest = await CallAPI('POST',
+            let getDataRest = await CallAPI('POST',
                     '{{ url('') }}/api/internal/admin-panel/setting/oss', payload)
                 .then((response) => response)
                 .catch((error) => {
@@ -546,7 +541,7 @@
         }
 
         function uploadFile(sourceElement, inputTarget, isRequired, fileUrl = null) {
-            const csrfToken = $('meta[name="csrf-token"]').attr('content');
+            let csrfToken = $('meta[name="csrf-token"]').attr('content');
 
             let customUpload = FilePond.create(
                 document.querySelector(`#${sourceElement}`)
@@ -555,10 +550,10 @@
             customUpload.setOptions({
                 server: {
                     process: (fieldName, file, metadata, load, error, progress, abort, transfer, options) => {
-                        const formData = new FormData();
+                        let formData = new FormData();
                         formData.append('file', file, file.name);
 
-                        const request = new XMLHttpRequest();
+                        let request = new XMLHttpRequest();
                         request.open('POST', '{{ url('') }}/api/internal/admin-panel/upload-file');
                         request.setRequestHeader('X-CSRF-TOKEN', csrfToken);
                         request.setRequestHeader('Accept', 'application/json');
@@ -567,7 +562,7 @@
 
                         request.onload = function() {
                             if (request.status >= 200 && request.status < 300) {
-                                const resp = request.response;
+                                let resp = request.response;
                                 load(resp.file_url);
 
                                 // Set hidden input value
@@ -608,7 +603,7 @@
                     })
                     .then(blob => {
                         // Buat objek file dari Blob
-                        const file = new File([blob], fileUrl.split('/').pop(), {
+                        let file = new File([blob], fileUrl.split('/').pop(), {
                             type: blob.type
                         });
 
@@ -627,8 +622,8 @@
 
 
         document.addEventListener('DOMContentLoaded', function() {
-            const akunOssCheckbox = document.getElementById('shareActive');
-            const formAkunOss = document.getElementById('form-berbagi-data');
+            let akunOssCheckbox = document.getElementById('shareActive');
+            let formAkunOss = document.getElementById('form-berbagi-data');
 
             akunOssCheckbox.addEventListener('change', function() {
                 if (akunOssCheckbox.checked) {
@@ -655,13 +650,32 @@
 
             const akunOssCheckbox = document.getElementById('akunOssActive');
             const formAkunOss = document.getElementById('form-akun-oss');
+            const simpanButton = document.createElement('button');
 
+            // Tambahkan tombol simpan perubahan
+            simpanButton.textContent = "Simpan Perubahan";
+            simpanButton.className = "btn btn-sm btn-outline-primary p-2";
+            simpanButton.style.borderRadius = "5px";
+            simpanButton.addEventListener('click', () => updateDataOSS());
+            formAkunOss.appendChild(simpanButton);
+
+            akunOssCheckbox.addEventListener('change', async function() {
+                let isActive = akunOssCheckbox.checked;
+
+                if (isActive) {
+                    formAkunOss.style.display = 'block';
+                } else {
+                    // Jika false, langsung update tanpa tombol
+                    formAkunOss.style.display = 'none';
+                    await updateDataOSS(isActive);
+                }
+            });
 
             async function syncCheckboxStatus() {
-                const getDataRest = await getDataOSS();
+                let getDataRest = await getDataOSS();
                 if (getDataRest.status === 200) {
-                    const appData = getDataRest.data.data;
-                    const isActive = appData.is_active === 1;
+                    let appData = getDataRest.data.data;
+                    let isActive = appData.is_active === 1;
 
 
                     akunOssCheckbox.checked = isActive;
@@ -669,12 +683,6 @@
                 }
             }
 
-
-            akunOssCheckbox.addEventListener('change', async function() {
-                const isActive = akunOssCheckbox.checked;
-                await updateDataOSS(isActive);
-                formAkunOss.style.display = isActive ? 'block' : 'none';
-            });
             await Promise.all([
                 getDataApps(),
                 getDataOSS()
