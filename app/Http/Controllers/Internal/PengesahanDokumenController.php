@@ -10,6 +10,7 @@ use App\Models\CertificateRequest;
 use App\Models\CertificateRequestAssessment;
 use App\Models\CertificateSmk;
 use App\Models\CertificateTemplate;
+use App\Models\Setting;
 use App\Models\Signer;
 use App\Models\YearlyReportLog;
 use App\Services\FileService;
@@ -197,17 +198,16 @@ class PengesahanDokumenController extends Controller
 
     public function getGenerateSK(Request $request)
     {
-        // Memastikan parameter 'signer' dan 'sk_number' ada
+
         if (!$request->signer || !$request->sk_number) {
             return '';
         }
 
-        // Ambil data berdasarkan certificate_request_id
+
         $data = CertificateRequestAssessment::where('certificate_request_id', $request->id)
             ->orderBy('created_at', 'desc')
             ->get();
 
-        // Decode element_properties dari data yang pertama
         $elementProperties = $data->isEmpty() ? collect() : json_decode($data->first()->element_properties, true);
 
         $elementTitles = collect();
@@ -232,7 +232,10 @@ class PengesahanDokumenController extends Controller
         $signer = $this->getSignerByID($request->signer);
         $assessmentInterview = $this->getLatestAssessmentInterviewByRequestID($request->id);
 
-        // Jika signer ditemukan, buat PDF
+        $setting = Setting::where('name', "aplikasi")->first();
+        $dataSetting = json_decode($setting, true);
+        $namaInstansi = $dataSetting['value']['nama_instansi'];
+
         if ($signer) {
             $data = [
                 'count_element' => $elementCount, // Menyimpan jumlah elemen yang ditemukan
@@ -240,6 +243,7 @@ class PengesahanDokumenController extends Controller
                 'address' => $smkCertificatepdf->company->address,
                 'pic_name' => $smkCertificatepdf->company->pic_name,
                 'name_dirjen' => $signer->name,
+                'nama_instansi' => $namaInstansi,
                 'number_of_application_letter' => $smkCertificatepdf->number_of_application_letter,
                 'sk_number' => $request->sk_number,
                 'date_of_application_letter' => isset($smkCertificatepdf->date_of_application_letter) ? Carbon::parse($smkCertificatepdf->date_of_application_letter)->translatedFormat('d F Y') : '-',
@@ -248,7 +252,7 @@ class PengesahanDokumenController extends Controller
                 'letterhead' => "data:image/png;base64," . base64_encode(file_get_contents(public_path('assets/images/cover.jpg'))),
                 'penyebut' => function ($nilai) {
                     return $this->penyebut($nilai);
-                }, // Tambahkan penyebut sebagai callable function
+                },
             ];
 
             // Generate PDF menggunakan data yang sudah dikumpulkan

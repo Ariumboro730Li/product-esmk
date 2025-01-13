@@ -310,7 +310,7 @@
                             ?></td>
                         </tr>
                             <tr>
-                            <td style="vertical-align: top; text-align: center; line-height: 2.5;" colspan="3">DIREKTUR JENDERAL PERHUBUNGAN DARAT,</td>
+                            <td style="vertical-align: top; text-align: center; line-height: 2.5;" colspan="3">KEPALA {{ Str::upper($data['nama_instansi']) }} </td>
                         </tr>
                         <tr><td>&nbsp;</td><td></td></tr>
                         <tr><td>&nbsp;</td><td></td></tr>
@@ -346,7 +346,7 @@
                 <td>3. Direktur Angkutan Jalan;</td>
             </tr>
             <tr>
-                <td>4. Kepala Dinas Perhubungan Provinsi Jawa Barat;</td>
+                <td>4. Kepala {{ $data['nama_instansi']}};</td>
             </tr>
             <tr>
                 <td>5. {{ Str::upper($data['companies_name']) }}</td>
@@ -388,7 +388,7 @@
                             ?></td>
                         </tr>
                             <tr>
-                            <td style="vertical-align: top; text-align: center; line-height: 2.5;" colspan="3">DIREKTUR JENDERAL PERHUBUNGAN DARAT,</td>
+                            <td style="vertical-align: top; text-align: center; line-height: 2.5;" colspan="3">{{ $data['nama_instansi']}},</td>
                         </tr>
                         <tr><td>&nbsp;</td><td></td></tr>
                         <tr><td>&nbsp;</td><td></td></tr>
@@ -424,7 +424,7 @@
                 <td>3. Direktur Angkutan Jalan;</td>
             </tr>
             <tr>
-                <td>4. Kepala Dinas Perhubungan Provinsi Jawa Barat;</td>
+                <td>4. Kepala {{$data['nama_instansi']}};</td>
             </tr>
             <tr>
                 <td>5. {{ Str::upper($data['companies_name']) }}</td>
