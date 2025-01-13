@@ -42,9 +42,9 @@
                         <div class="col-lg-4 col-xxl-3">
                             <div class="card">
                                 <div class="card-body position-relative">
-                                    <div class="position-absolute end-0 top-0 p-3" id="is_active">
+                                    {{-- <div class="position-absolute end-0 top-0 p-3" id="is_active">
                                         <span class="badge bg-success mb-4">Aktif</span>
-                                    </div>
+                                    </div> --}}
                                     <div class="text-center mt-5">
                                         <div class="chat-avtar d-inline-flex mx-auto"><img
                                                 class="rounded-circle img-fluid wid-70"
@@ -68,7 +68,7 @@
                                                 <h5 class="mb-0 total_ab"></h5><small class="text-muted"></small>
                                             </div>
                                         </div>
-                                        <hr class="my-3 border border-secondary-subtle">
+                                        {{-- <hr class="my-3 border border-secondary-subtle"> --}}
                                         <div class="d-inline-flex align-items-center justify-content-start w-100 mb-3">
                                             <i class="ti ti-mail me-2"></i>
                                             <p class="mb-0 company-email" style="word-break: break-word; overflow-wrap: anywhere; text-align: left;"></p>
@@ -242,12 +242,12 @@
                 let data = getDataRest.data.data;
                 email = data.email;
                 // Set is_active badge
-                let isActiveElement = document.getElementById('is_active');
-                if (exist_spionam === 1 || exist_spionam === true) {
-                    isActiveElement.innerHTML = '<span class="badge bg-success">Terdaftar Spionam</span>';
-                } else {
-                    isActiveElement.innerHTML = '<span class="badge bg-danger">Belum Terdaftar Spionam</span>';
-                }
+                // let isActiveElement = document.getElementById('is_active');
+                // if (exist_spionam === 1 || exist_spionam === true) {
+                //     isActiveElement.innerHTML = '<span class="badge bg-success">Terdaftar Spionam</span>';
+                // } else {
+                //     isActiveElement.innerHTML = '<span class="badge bg-danger">Belum Terdaftar Spionam</span>';
+                // }
 
                 // Populate other data
                 document.getElementById('name').innerText = data.name || '-';
