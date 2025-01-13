@@ -147,7 +147,7 @@ class DashboardController extends Controller
                 if (isset($item['kbli']) && strpos(strtolower($item['kbli']), $search) !== false) {
                     return true;
                 }
-                if (isset($item['data_proyek_produk']['jenis_produksi']) && strpos(strtolower($item['data_proyek_produk']['jenis_produksi']), $search) !== false) {
+                if (isset($item['data_proyek_produk'][0]['jenis_produksi']) && strpos(strtolower($item['data_proyek_produk']['jenis_produksi']), $search) !== false) {
                     return true;
                 }
                 return false;

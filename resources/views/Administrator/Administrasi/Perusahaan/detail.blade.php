@@ -1,5 +1,13 @@
 @extends('...Administrator.index', ['title' => 'Detail | Data Perusahaan'])
 @section('asset_css')
+<style>
+    .jenis-produksi {
+        white-space: pre-wrap; /* Melakukan auto wrap pada teks panjang */
+        word-wrap: break-word; /* Memastikan kata panjang terpotong dengan baik */
+        word-break: break-word; /* Memotong kata jika terlalu panjang */
+        overflow-wrap: break-word; /* Untuk kompatibilitas tambahan */
+    }
+</style>
 @endsection
 
 @section('content')
@@ -239,6 +247,7 @@
                                                             <th>No</th>
                                                             <th>Kode KBLI</th>
                                                             <th>Nama KBLI</th>
+                                                            <th>Jenis Produksi</th>
                                                             <th>Status</th>
                                                         </tr>
                                                     </thead>
@@ -1110,6 +1119,7 @@
             let handleData = {
                 id: data['id'] ?? '-',
                 uraian_usaha: data['uraian_usaha'] ?? '-',
+                jenis_produksi: data['jenis_produksi'] ?? '-',
                 kbli: data['kbli'] ?? '-',
                 description: data['description'] ?? '-',
                 created_at: data['created_at'] ?? '-',
@@ -1138,17 +1148,9 @@
                 getDataTableKbli += `
                 <tr>
                     <td>${index_loop}.</td>
-                    <td><div class="row align-items-center">
-                        <div class="col-auto pe-0">
-                            <div class="wid-40 hei-40 rounded-circle bg-secondary d-flex align-items-center justify-content-center">
-                                <i class="fa-solid fa-file-lines text-white"></i>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <h6 class="mb-1"><span class="text-truncate w-100">${element.kbli || '-'}</span> </h6>
-                        </div>
-                    </div></td>
+                    <td><h6 class="mb-1"><span class="text-truncate w-100">${element.kbli || '-'}</span> </h6></td>
                     <td>${element.uraian_usaha}</td>
+                    <td><p class="jenis-produksi">${element.jenis_produksi}</p></td>
                     <td><span class="badge ${colorMatch}">${textMatch}</span></td>
                 </tr>
                 `;
