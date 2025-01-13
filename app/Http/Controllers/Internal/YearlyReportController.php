@@ -127,8 +127,8 @@ class YearlyReportController extends Controller
     {
         $result['status'] = 200;
 
-        $id = $this->getModel($request);
-        $companyID = Company::where('id', $id)->value('id');
+        // $id = $this->getModel($request);
+        // $companyID = Company::where('id', $id)->value('id');
 
         $yearlyReportData = $this->getDetailByID($request);
 
@@ -140,8 +140,9 @@ class YearlyReportController extends Controller
             ],  HttpStatusCodes::HTTP_BAD_REQUEST);
         }
 
+        $companyData = Company::with('city', 'province', 'serviceTypes')->where('id', $yearlyReportData->company_id)->first();
         $data = [
-            'company' => $yearlyReportData->company,
+            'company' => $companyData,
             'year' => $yearlyReportData->year,
             'monitoring_elements' => json_decode($yearlyReportData->monitoring_elements, true),
             'element_properties' => json_decode($yearlyReportData->element_properties, true),
