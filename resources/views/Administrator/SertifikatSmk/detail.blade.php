@@ -153,8 +153,8 @@
                             <div class="border rounded p-3 w-100">
                                 <h5>Jenis Pelayanan</h5>
                                 <div style="max-height: 100px; overflow-y: auto; padding: 10px; border-radius: 5px;">
-                                    <ul id="c_serviceTypeList" class="mb-3"
-                                        style="margin: 0; padding: 0; list-style: none;">
+                                    <ul id="c_serviceTypeList" class="mb-3 ms-3"
+                                        style="margin: 0; padding: 0;">
                                         <!-- Hasil serviceTypes akan masuk di sini -->
                                     </ul>
                                 </div>
@@ -184,7 +184,8 @@
                     <h3>Informasi Pengajuan</h3>
                     <div id="alertMessage" class="mb-4 rounded-lg border-0"></div>
                     <div id="interviewInformation" class="mb-4 rounded-lg border-0"></div>
-                    <div id="requestInformation" class="shadow rounded-lg border-0"></div>
+                    <hr>
+                    <div id="requestInformation" class="rounded-lg border-0"></div>
                 </div>
             </div>
         </div>
@@ -1536,7 +1537,7 @@
 
             // Combine the interview information and action buttons into the final template
             let $template =
-                `<div class="invoice-box p-4 rounded shadow" style="background-color: #ffffff; color: #333;">
+                `<div class="p-4 " style="background-color: #ffffff; color: #333;">
                 ${$informationTemplate}
                 ${editButton}
                 ${rovButton}
@@ -1952,7 +1953,7 @@
 
             // Template for the task list
             let taskListTemplate = `
-                <div class="card mb-4" id="${uniqueId}" style="border: none;">
+                <div class="mb-4" id="${uniqueId}" style="border: none;">
                     <div class="task-card p-3" style="max-height: 400px; overflow-y: auto;">
                         <h5 class="mb-3">Riwayat Pengajuan</h5>
                         <ul class="list-unstyled task-list" id="taskList-${uniqueId}" style="list-style: none; padding: 0; max-height: 210px; overflow-y: auto;">
