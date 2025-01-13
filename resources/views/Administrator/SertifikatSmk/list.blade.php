@@ -69,7 +69,7 @@
                         <div class="flex-grow-1 ms-3">
                             <p class="mb-1">Permohonan Berlangsung</p>
                             <div class="d-flex align-items-start">
-                                <h4 class="mb-0 me-2" id="total_proses">1</h4>
+                                <h4 class="mb-0 me-2" id="total_proses"></h4>
                                 <span class="fw-bold f-16 ket_proses">Berlangsung</span>
                             </div>
                         </div>
@@ -1352,20 +1352,17 @@
                 });
 
             if (getDataRest.status === 200) {
-                let data = getDataRest.data.data[0]; // Mengambil data pertama (karena data adalah array)
-                console.log("🚀 ~ getCount ~ data:", data)
-
-                // Memasukkan data ke elemen HTML
-                document.getElementById('total_permohonan').innerText = data.pengajuan_total || '-';
+                let data = getDataRest.data.data[0]; 
+                document.getElementById('total_permohonan').innerText = data.pengajuan_total ?? 0;
                 document.getElementById('ket_total').innerText = data.pengajuan_total ? 'Permohonan' : '';
 
-                document.getElementById('total_proses').innerText = data.proses_pengajuan || '-';
+                document.getElementById('total_proses').innerText = data.proses_pengajuan
                 document.querySelector('.ket_proses').innerText = data.proses_pengajuan ? 'Berlangsung' : '';
 
-                document.getElementById('total_kadaluwarsa').innerText = data.pengajuan_ekspired || '-';
+                document.getElementById('total_kadaluwarsa').innerText = data.pengajuan_ekspired ?? 0;
                 document.querySelector('.ket_kadaluwarsa').innerText = data.pengajuan_ekspired ? 'Kadaluwarsa' : '';
 
-                document.getElementById('total_verified').innerText = data.proses_selesai || '-';
+                document.getElementById('total_verified').innerText = data.proses_selesai ?? 0;
                 document.querySelector('.ket_verified').innerText = data.proses_selesai ? 'Selesai' : '';
             }
         }
