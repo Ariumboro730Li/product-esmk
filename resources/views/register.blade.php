@@ -423,7 +423,7 @@
                 toggleValidation(isSymbolCheck, isSymbolValid, isSymbol);
 
                 if (isLengthValid && isCapLowValid && isAngkaValid && isSymbolValid && cp1SaveRegister.checked) {
-                    daftarAkunBtn.disabled = false; 
+                    daftarAkunBtn.disabled = false;
                 } else {
                     daftarAkunBtn.disabled = true;
                 }
@@ -508,8 +508,8 @@
                 return response;
             }).catch(function(error) {
                 loadingPage(false);
+                adjustWizardSteps();
                 let resp = error.response;
-                notificationAlert('info', 'Pemberitahuan', resp.data.message);
                 return resp;
             });
             if (getDataRest.status == 200) {
@@ -518,6 +518,8 @@
                 if (active === 0) {
                     adjustWizardSteps();
                 }
+            }else{
+                adjustWizardSteps();
             }
         }
 
@@ -581,10 +583,10 @@
                 <div class="auth-sidecontent" style="position: relative;">
                         <!-- Gambar latar belakang -->
                         <img src="{{ asset('assets') }}/images/authentication/3.jpg" alt="images" class="img-fluid img-auth-side" />
-                    
+
                         <!-- Logo, diposisikan di tengah gambar -->
-                        <img src="${finalLogo}" alt="images" 
-                            class="img-fluid img-auth-side"  
+                        <img src="${finalLogo}" alt="images"
+                            class="img-fluid img-auth-side"
                             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 8rem; height: ${isDefaultLogo ? '9rem' : '8rem'}; border-radius:50%;" />
                     </div>
                 `;
