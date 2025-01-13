@@ -124,7 +124,8 @@
                                     <i class="fa-solid fa-circle-info fa-lg me-2"></i>Data Perusahaan
                                 </h5>
                                 <div class="mb-3">
-                                    <label class="form-label fw-bold" for="nib">Nomor Induk Berusaha (NIB)</label>
+                                    <label class="form-label fw-bold" for="nib">Nomor Induk Berusaha (NIB)<sup
+                                            class="text-danger ms-1">*</sup></label>
                                     <div class="input-group">
                                         <div class="input-group-text">
                                             <i class="fa-solid fa-magnifying-glass text-dark"></i>
@@ -143,20 +144,22 @@
 
                             <div class="wizard-step step-2" data-step="2">
                                 <h5 class="text-left mb-4" style="color:#214f96;"><i
-                                        class="fa-solid fa-circle-info fa-lg me-2"></i>Data Perusahaan</h5>
+                                        class="fa-solid fa-circle-info fa-lg me-2"></i>Data Perusahaan<sup
+                                        class="text-danger ms-1">*</sup></h5>
                                 <div class="row g-4">
                                     <div class="col-md-6">
                                         <div class="form-floating mb-0">
                                             <input type="text" class="form-control" id="data-perusahaan-nib"
                                                 placeholder="" />
-                                            <label for="nib">NIB</label>
+                                            <label for="nib">NIB<sup class="text-danger ms-1">*</sup></label>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <div class="form-floating mb-0">
                                             <input type="text" class="form-control"
                                                 id="data-perusahaan-nama-perusahaan" placeholder="" />
-                                            <label for="namaPerusahaan">Nama Perusahaan</label>
+                                            <label for="namaPerusahaan">Nama Perusahaan<sup
+                                                    class="text-danger ms-1">*</sup></label>
                                         </div>
                                     </div>
                                 </div>
@@ -166,7 +169,8 @@
                                             <div class="form-floating mb-0">
                                                 <input type="number" class="form-control"
                                                     id="data-perusahaan-no-telepon-perusahaan" placeholder="" />
-                                                <label for="noTelp">No. Telepon Perusahaan</label>
+                                                <label for="noTelp">No. Telepon Perusahaan<sup
+                                                        class="text-danger ms-1">*</sup></label>
                                             </div>
                                         </div>
                                     </div>
@@ -175,7 +179,8 @@
                                             <div class="form-floating mb-0">
                                                 <input type="email" class="form-control" id="data-perusahaan-email"
                                                     placeholder="Email address" />
-                                                <label for="email">Email</label>
+                                                <label for="email">Email<sup
+                                                        class="text-danger ms-1">*</sup></label>
                                             </div>
                                         </div>
                                     </div>
@@ -183,7 +188,8 @@
                                 <div class="row g-4">
                                     <div class="col-md-6">
                                         <div class="mb-0">
-                                            <label class="fw-normal" for="data-perusahaan-provinsi">Provinsi</label>
+                                            <label class="fw-normal" for="data-perusahaan-provinsi">Provinsi<sup
+                                                    class="text-danger ms-1">*</sup></label>
                                             <select class="form-control form-control-sm"
                                                 name="data-perusahaan-provinsi" id="data-perusahaan-provinsi"
                                                 required></select>
@@ -191,7 +197,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-4">
-                                            <label class="fw-normal" for="data-perusahaan-kota">Kota</label>
+                                            <label class="fw-normal" for="data-perusahaan-kota">Kota<sup
+                                                    class="text-danger ms-1">*</sup></label>
                                             <select class="form-control form-control-sm" name="data-perusahaan-kota"
                                                 id="data-perusahaan-kota" required></select>
                                         </div>
@@ -202,13 +209,15 @@
                                     <div class="col-md-12">
                                         <div class="form-floating mb-0">
                                             <textarea class="form-control" id="data-perusahaan-alamat" rows="3"></textarea>
-                                            <label for="floatingdeskripsi">Alamat</label>
+                                            <label for="floatingdeskripsi">Alamat<sup
+                                                    class="text-danger ms-1">*</sup></label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <div class="col-md-12">
-                                        <label class="fw-normal" for="data-jenis-pelayanan">Jenis Pelayanan</label>
+                                        <label class="fw-normal" for="data-jenis-pelayanan">Jenis Pelayanan<sup
+                                                class="text-danger ms-1">*</sup></label>
                                         <select class="form-control form-control-sm" name="data-jenis-pelayanan"
                                             id="data-jenis-pelayanan" multiple required></select>
                                     </div>
@@ -231,7 +240,8 @@
                                             <div class="form-floating mb-0">
                                                 <input type="text" class="form-control" id="data-pic-nama"
                                                     placeholder="" />
-                                                <label for="namaPic">Nama PIC</label>
+                                                <label for="namaPic">Nama PIC<sup
+                                                        class="text-danger ms-1">*</sup></label>
                                             </div>
                                         </div>
                                     </div>
@@ -240,7 +250,8 @@
                                             <div class="form-floating mb-0">
                                                 <input type="text" class="form-control" id="data-pic-no-telepon"
                                                     placeholder="" />
-                                                <label for="noTelpPic">No. Telepon PIC</label>
+                                                <label for="noTelpPic">No. Telepon PIC<sup
+                                                        class="text-danger ms-1">*</sup></label>
                                             </div>
                                         </div>
                                     </div>
@@ -262,7 +273,8 @@
                                             <div class="form-floating mb-0">
                                                 <input type="text" class="form-control"
                                                     id="data-informasi-akun-username" placeholder="" />
-                                                <label for="data-informasi-akun-username">Username</label>
+                                                <label for="data-informasi-akun-username">Username<sup
+                                                        class="text-danger ms-1">*</sup></label>
                                             </div>
                                         </div>
                                     </div>
@@ -271,7 +283,8 @@
                                             <div class="form-floating mb-0">
                                                 <input type="number" class="form-control"
                                                     id="data-informasi-akun-no-telepon" placeholder="" />
-                                                <label for="data-informasi-akun-no-telepon">No. Telepon</label>
+                                                <label for="data-informasi-akun-no-telepon">No. Telepon<sup
+                                                        class="text-danger ms-1">*</sup></label>
                                             </div>
                                         </div>
                                     </div>
@@ -280,7 +293,8 @@
                                     <div class="form-floating">
                                         <input type="password" class="form-control" id="data-informasi-akun-password"
                                             placeholder="Kata Sandi" required />
-                                        <label for="data-informasi-akun-password">Kata Sandi</label>
+                                        <label for="data-informasi-akun-password">Kata Sandi<sup
+                                                class="text-danger ms-1">*</sup></label>
                                     </div>
                                     <!-- Ikon mata -->
                                     <a href="#" class="passcode-switch position-absolute"
@@ -385,8 +399,8 @@
             const isAngkaCheck = document.getElementById('isAngkaCheck');
             const isSymbolCheck = document.getElementById('isSymbolCheck');
 
-            const cp1SaveRegister = document.getElementById(
-                'cp1-save-register'); // Checkbox untuk syarat dan ketentuan
+            const cp1SaveRegister = document.getElementById('cp1-save-register');
+            const daftarAkunBtn = document.getElementById('daftar-akun');
 
             // Fungsi untuk memvalidasi password
             function validatePassword() {
@@ -408,11 +422,10 @@
                 const isSymbolValid = /[!@#$%^&*()_+{}\[\]:;"'<>,.?\/\\|]/.test(passwordValue);
                 toggleValidation(isSymbolCheck, isSymbolValid, isSymbol);
 
-                // Pastikan checkbox syarat dan ketentuan aktif jika password valid
-                if (isLengthValid && isCapLowValid && isAngkaValid && isSymbolValid) {
-                    cp1SaveRegister.disabled = false;
+                if (isLengthValid && isCapLowValid && isAngkaValid && isSymbolValid && cp1SaveRegister.checked) {
+                    daftarAkunBtn.disabled = false; 
                 } else {
-                    cp1SaveRegister.disabled = true;
+                    daftarAkunBtn.disabled = true;
                 }
             }
 
@@ -433,6 +446,7 @@
 
             // Event listener untuk validasi saat password diketik
             passwordInput.addEventListener('input', validatePassword);
+            cp1SaveRegister.addEventListener('change', validatePassword);
         });
 
 
@@ -524,19 +538,19 @@
                 });
 
             if (getDataRest.status === 200) {
-                
+
 
                 const appData = getDataRest.data.data;
 
-                const currentPort = window.location.port || '80'; 
+                const currentPort = window.location.port || '80';
                 let logoPort;
                 let logoFavicon;
                 try {
                     logoPort = new URL(appData.logo_aplikasi).port || '80';
-                    logoFavicon = new URL(appData.logo_favicon).port || '80'; 
+                    logoFavicon = new URL(appData.logo_favicon).port || '80';
                 } catch {
-                    logoFavicon = null; 
-                    logoPort = null; 
+                    logoFavicon = null;
+                    logoPort = null;
                 }
 
                 const defaultLogo = '{{ asset('assets/images/logoapp.png') }}';

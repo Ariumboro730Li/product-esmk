@@ -85,14 +85,14 @@
                         </div>
                         <h4 class="text-center mt-4 nama_aplikasi"></h4>
                         <div class="saprator mb-5">
-                            <span class=" nama_instansi">Dinas Perhubungan Kabupaten</span>
+                            <span class=" nama_instansi">Dinas Perhubungan</span>
                         </div>
 
                         <div class="mb-3">
                             <div class="form-floating mb-0">
                                 <input type="email" class="form-control" id="email"
                                     placeholder="Email address" required />
-                                <label for="email">Email</label>
+                                <label for="email">Email / Nama Pengguna (Username)</label>
                             </div>
                         </div>
                         <div class="mb-3 position-relative">
@@ -108,13 +108,6 @@
                                 <i class="fa fa-eye"></i>
                             </a>
                         </div>
-                        {{-- <div class="mb-3">
-                            <div class="form-floating mb-3">
-                                <input type="password" class="form-control" id="password"
-                                    placeholder="Password" required />
-                                <label for="password">Kata Sandi</label>
-                            </div>
-                        </div> --}}
                         <div class="d-flex mt-1 justify-content-between align-items-center">
                             <div class="form-check" hidden>
                                 <input class="form-check-input input-primary" type="checkbox" id="customCheckc1" />
@@ -229,8 +222,8 @@
 
                 const defaultLogo = '{{ asset('assets/images/logoapp.png') }}';
                 const finalLogo = (logoPort && logoPort !== currentPort) ?
-                    defaultLogo :
-                    (appData.logo_aplikasi || defaultLogo);
+                defaultLogo :
+                (appData.logo_aplikasi || defaultLogo);
                 const finalLogoFav = (logoFavicon && logoFavicon !== currentPort) ?
                     defaultLogo :
                     (appData.logo_favicon || defaultLogo);
@@ -247,7 +240,7 @@
                 document.querySelector('.logo_aplikasi').innerHTML = `
                     <a href="#">
                         <img src="${finalLogo}" alt="img"
-                            style="width: 60px; border-radius:50%;" />
+                            style="width: 3.75rem; height: ${isDefaultLogo ? '4.25rem' : '4.25rem'}; border-radius:50%;" />
                     </a>`;
 
                 let sideLogo = document.getElementById('side-content-logo');
