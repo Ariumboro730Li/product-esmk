@@ -75,7 +75,7 @@
                     <div class="card-body">
                         <div class="text-center logo_aplikasi">
                         </div>
-                        <h4 class="text-center mt-4 nama_aplikasi">PERIZINAN SMK-TD</h4>
+                        <h4 class="text-center mt-4 nama_aplikasi"> PERIZINAN</h4>
                         <div class="saprator mb-5">
                             <span class="nama_instansi">Dinas Perhubungan</span>
                         </div>
@@ -159,19 +159,19 @@
                 });
 
             if (getDataRest.status === 200) {
-                
+
 
                 const appData = getDataRest.data.data;
 
-                const currentPort = window.location.port || '80'; 
+                const currentPort = window.location.port || '80';
                 let logoPort;
                 let logoFavicon;
                 try {
                     logoPort = new URL(appData.logo_aplikasi).port || '80';
-                    logoFavicon = new URL(appData.logo_favicon).port || '80'; 
+                    logoFavicon = new URL(appData.logo_favicon).port || '80';
                 } catch {
-                    logoFavicon = null; 
-                    logoPort = null; 
+                    logoFavicon = null;
+                    logoPort = null;
                 }
 
                 const defaultLogo = '{{ asset('assets/images/logoapp.png') }}';
@@ -203,10 +203,10 @@
                 <div class="auth-sidecontent" style="position: relative;">
                         <!-- Gambar latar belakang -->
                         <img src="{{ asset('assets') }}/images/authentication/3.jpg" alt="images" class="img-fluid img-auth-side" />
-                    
+
                         <!-- Logo, diposisikan di tengah gambar -->
-                        <img src="${finalLogo}" alt="images" 
-                            class="img-fluid img-auth-side"  
+                        <img src="${finalLogo}" alt="images"
+                            class="img-fluid img-auth-side"
                             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 8rem; height: ${isDefaultLogo ? '9rem' : '8rem'}; border-radius:50%;" />
                     </div>
                 `;

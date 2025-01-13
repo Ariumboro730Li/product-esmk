@@ -1,6 +1,6 @@
-@extends('...Company.index', ['title' => 'Form Pengajuan Sertifikat | SMK-TD'])
+@extends('...Company.index', ['title' => 'Form Pengajuan Sertifikat '])
 @section('asset_css')
-    
+
 @endsection
 
 @section('content')
@@ -107,7 +107,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </form>
                         </div>

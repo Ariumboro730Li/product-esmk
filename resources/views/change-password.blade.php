@@ -77,7 +77,7 @@
                             <div class="col-md-12">
                                 <div class="text-center logo_aplikasi">
                                 </div>
-                                <h4 class="text-center mt-4 nama_aplikasi">PERIZINAN SMK-TD</h4>
+                                <h4 class="text-center mt-4 nama_aplikasi"> PERIZINAN</h4>
                                 <div class="saprator mb-5">
                                     <span class="nama_instansi">Dinas Perhubungan</span>
                                 </div>

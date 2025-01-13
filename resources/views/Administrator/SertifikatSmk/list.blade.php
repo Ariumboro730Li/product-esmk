@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'Detail Sertifikat SMK | SMK-TD'])
+@extends('...Administrator.index', ['title' => 'Detail Sertifikat SMK '])
 @section('asset_css')
     <link rel="stylesheet" href="{{ asset('assets') }}/css/plugins/datepicker-bs5.min.css" />
     <link rel="stylesheet" href="{{ asset('assets') }}/css/daterange.css" />

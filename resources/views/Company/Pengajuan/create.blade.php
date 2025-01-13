@@ -1,4 +1,4 @@
-@extends('...Company.index', ['title' => 'Form Pengajuan Sertifikat | SMK-TD'])
+@extends('...Company.index', ['title' => 'Form Pengajuan Sertifikat '])
 @section('asset_css')
     <link rel="stylesheet" href="{{ asset('assets') }}/css/plugins/style.css" />
     <link rel="stylesheet" href="{{ asset('assets') }}/js/libs/filepond/filepond.min.css">
