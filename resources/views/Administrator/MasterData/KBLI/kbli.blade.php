@@ -517,9 +517,12 @@
                     infoOss.style.display = 'none';
                 }
             } else {
-                    const infoOss = document.querySelector('.infoOss');
-                    infoOss.style.display = 'none';
-                    is_active_oss = 1;
+                const btnTambah = document.getElementById('tambahContainer');
+                    const thAksi = document.querySelector('.aksiContainer');
+                    if (btnTambah) {
+                        btnTambah.style.display = 'none';
+                        thAksi.style.display = 'none';
+                    }
             }
         }
 
