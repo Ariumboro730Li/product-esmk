@@ -317,7 +317,7 @@
                                                             <!--[if mso]><table width="100%"><tr><td><![endif]-->
                                                             <h1 class="v-text-align v-font-size"
                                                                 style="margin: 0px; line-height: 140%; text-align: center; word-wrap: break-word; font-size: 22px; font-weight: 400;">
-                                                                <strong>{{ $nama_instansi}}</strong>
+                                                                <strong>{{ $nama_aplikasi}}</strong>
                                                             </h1>
                                                             <!--[if mso]></td></tr></table><![endif]-->
 
@@ -338,7 +338,7 @@
                                                             <!--[if mso]><table width="100%"><tr><td><![endif]-->
                                                             <h1 class="v-text-align v-font-size"
                                                                 style="margin: 0px; color: #5c5c5c; line-height: 140%; text-align: center; word-wrap: break-word; font-size: 14px; font-weight: 400;">
-                                                               {{ $alamat }}
+                                                               {{ $nama_instansi }}
                                                             </h1>
                                                             <!--[if mso]></td></tr></table><![endif]-->
 
@@ -424,7 +424,7 @@
                                                                 style="font-size: 14px; line-height: 140%; text-align: justify; word-wrap: break-word;">
                                                                 <p style="line-height: 140%;">Kami mohon maaf atas
                                                                     ketidaknyamanan yang Anda alami saat mencoba masuk
-                                                                    ke website SMK. Kami menerima informasi bahwa Anda
+                                                                    ke website {{ $nama_aplikasi}}. Kami menerima informasi bahwa Anda
                                                                     telah melaporkan lupa kata sandi Anda.</p>
                                                                 <p style="line-height: 140%; margin-bottom: 15px;">
                                                                     Anda dapat mengatur ulang kata sandi Anda dengan
@@ -485,12 +485,9 @@
                                                                         abaikan email ini.</li>
                                                                     <li>Email ini dikirimkan otomatis oleh sistem, mohon
                                                                         untuk tidak membalas email ini.</li>
-                                                                    <li>Link email reset kata sandi ini akan kedaluwarsa
-                                                                        dalam 1 jam ke depan.</li>
                                                                 </ul>
                                                                 <p style="line-height: 140%;">Hormat Kami,</p>
-                                                                <p style="line-height: 140%;">Direktorat Jenderal
-                                                                    Perhubungan Darat</p>
+                                                                <p style="line-height: 140%;">{{ $nama_instansi }}</p>
                                                             </div>
 
 
@@ -606,7 +603,7 @@
                                                             <div class="v-text-align v-font-size"
                                                                 style="font-size: 14px; color: #ced4d9; line-height: 140%; text-align: justify; word-wrap: break-word;">
                                                                 <p style="line-height: 140%;">&copy; Copyright 2025
-                                                                    SMK | All rights
+                                                                    {{ $nama_aplikasi}} | All rights
                                                                     reserved.</p>
                                                                 <p style="line-height: 140%;">{{ $nama_instansi }}</p>
                                                             </div>

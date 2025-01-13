@@ -43,6 +43,7 @@ class ForgotPasswordMail extends Mailable
         $setting = Setting::where('name', 'aplikasi')->first();
         $nama_instansi = $setting['value']['nama_instansi'];
         $alamat =  $setting['value']['alamat'];
+        $nama_aplikasi = $setting['value']['nama'];
         return new Content(
             view: 'email.auth.forgot-password',
             with: [
@@ -50,7 +51,8 @@ class ForgotPasswordMail extends Mailable
                 'logoApp' => $setting ? $setting->value['logo_aplikasi'] : env('url').'/assets/images/logoapp.png',
                 'nama_instansi' => $nama_instansi,
                 'alamat' => $alamat,
-                'email' => $this->email
+                'email' => $this->email,
+                'nama_aplikasi' => $nama_aplikasi
             ],
         );
     }
