@@ -143,30 +143,42 @@ class UserManagementController extends Controller
     public function active(Request $term)
     {
         $validator = Validator::make($term->all(), [
-            'id_user'  => 'required'
+            'id_user' => 'required'
         ]);
+
         if ($validator->fails()) {
             return response()->json([
-                'status_code'   => HttpStatusCodes::HTTP_BAD_REQUEST,
-                'error'         => true,
-                'message'       => $validator->errors()->all()[0]
+                'status_code' => HttpStatusCodes::HTTP_BAD_REQUEST,
+                'error'       => true,
+                'message'     => $validator->errors()->first()
             ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
-        $find = User::where('id', '=', $term->id_user)->first();
-        if ($find) {
-            User::where('id', '=', $term->id_user)->update([
-                'is_active' => true
-            ]);
+
+        // Cari user berdasarkan id
+        $user = User::where('id', $term->id_user)->first();
+        // Cari company berdasarkan user_id
+        $company = Company::where('user_id', $term->id_user)->first();
+
+        if ($user) {
+            // Update `is_active` di tabel users
+            $user->update(['is_active' => true]);
+
+            // Update `is_active` di tabel companies jika ditemukan
+            if ($company) {
+                $company->update(['is_active' => true]);
+            }
+
             return response()->json([
-                'status_code'   => HttpStatusCodes::HTTP_OK,
-                'error'         => false,
-                'message'       => "Berhasil aktifkan user."
+                'status_code' => HttpStatusCodes::HTTP_OK,
+                'error'       => false,
+                'message'     => "Berhasil mengaktifkan user dan perusahaan."
             ], HttpStatusCodes::HTTP_OK);
         }
+
         return response()->json([
-            'status_code'   => HttpStatusCodes::HTTP_BAD_REQUEST,
-            'error'         => true,
-            'message'       => "Data tidak ditemukan."
+            'status_code' => HttpStatusCodes::HTTP_BAD_REQUEST,
+            'error'       => true,
+            'message'     => "Data user tidak ditemukan."
         ], HttpStatusCodes::HTTP_BAD_REQUEST);
     }
 
@@ -175,31 +187,73 @@ class UserManagementController extends Controller
         $validator = Validator::make($term->all(), [
             'id_user' => 'required'
         ]);
+
         if ($validator->fails()) {
             return response()->json([
-                'status_code'   => HttpStatusCodes::HTTP_BAD_REQUEST,
-                'error'         => true,
-                'message'       => $validator->errors()->all()[0]
+                'status_code' => HttpStatusCodes::HTTP_BAD_REQUEST,
+                'error'       => true,
+                'message'     => $validator->errors()->first()
             ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
-        $find = User::where('id', '=', $term->id_user)->first();
-        if ($find) {
-            User::where('id', '=', $term->id_user)->update([
-                'is_active' => false
-            ]);
+
+        // Cari user berdasarkan id
+        $user = User::where('id', $term->id_user)->first();
+        // Cari company berdasarkan user_id
+        $company = Company::where('user_id', $term->id_user)->first();
+
+        if ($user) {
+            // Update `is_active` di tabel users
+            $user->update(['is_active' => false]);
+
+            // Update `is_active` di tabel companies jika ditemukan
+            if ($company) {
+                $company->update(['is_active' => false]);
+            }
+
             return response()->json([
-                'status_code'   => HttpStatusCodes::HTTP_OK,
-                'error'         => false,
-                'message'       => "Berhasil nonaktifkan user."
+                'status_code' => HttpStatusCodes::HTTP_OK,
+                'error'       => false,
+                'message'     => "Berhasil mengaktifkan user dan perusahaan."
             ], HttpStatusCodes::HTTP_OK);
         }
 
         return response()->json([
-            'status_code'   => HttpStatusCodes::HTTP_BAD_REQUEST,
-            'error'         => true,
-            'message'       => "Data tidak ditemukan."
+            'status_code' => HttpStatusCodes::HTTP_BAD_REQUEST,
+            'error'       => true,
+            'message'     => "Data user tidak ditemukan."
         ], HttpStatusCodes::HTTP_BAD_REQUEST);
     }
+
+    // public function inactive(Request $term)
+    // {
+    //     $validator = Validator::make($term->all(), [
+    //         'id_user' => 'required'
+    //     ]);
+    //     if ($validator->fails()) {
+    //         return response()->json([
+    //             'status_code'   => HttpStatusCodes::HTTP_BAD_REQUEST,
+    //             'error'         => true,
+    //             'message'       => $validator->errors()->all()[0]
+    //         ], HttpStatusCodes::HTTP_BAD_REQUEST);
+    //     }
+    //     $find = User::where('id', '=', $term->id_user)->first();
+    //     if ($find) {
+    //         User::where('id', '=', $term->id_user)->update([
+    //             'is_active' => false
+    //         ]);
+    //         return response()->json([
+    //             'status_code'   => HttpStatusCodes::HTTP_OK,
+    //             'error'         => false,
+    //             'message'       => "Berhasil nonaktifkan user."
+    //         ], HttpStatusCodes::HTTP_OK);
+    //     }
+
+    //     return response()->json([
+    //         'status_code'   => HttpStatusCodes::HTTP_BAD_REQUEST,
+    //         'error'         => true,
+    //         'message'       => "Data tidak ditemukan."
+    //     ], HttpStatusCodes::HTTP_BAD_REQUEST);
+    // }
 
     public function update(Request $term)
     {
