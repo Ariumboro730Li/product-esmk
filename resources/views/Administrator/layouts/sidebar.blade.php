@@ -165,32 +165,6 @@
                         </a>
                     </li>
                 @endif
-
-                {{-- PENGATURAN --}}
-                <li class="pc-item pc-caption">
-                    <label>Pengaturan</label>
-                    <svg class="pc-icon">
-                        <use xlink:href="#custom-presentation-chart"></use>
-                    </svg>
-                </li>
-                @if (request()->payload['internal_role'] === 'Super Admin')
-                    <li class="pc-item">
-                        <a href="/admin/pengaturan" class="pc-link">
-                            <span class="pc-micon">
-                                <i class="fa fa-cogs"></i>
-                            </span>
-                            <span class="pc-mtext">Pengaturan Aplikasi</span>
-                        </a>
-                    </li>
-                @endif
-                <li class="pc-item">
-                    <a href="/admin/pengaturan-akun" class="pc-link">
-                        <span class="pc-micon">
-                            <i class="fa-solid fa-user-gear"></i>
-                        </span>
-                        <span class="pc-mtext">Pengaturan Akun</span>
-                    </a>
-                </li>
             </ul>
         </div>
     </div>

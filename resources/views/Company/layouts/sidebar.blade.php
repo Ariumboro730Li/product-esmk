@@ -47,21 +47,6 @@
                         <span class="pc-mtext">Laporan Tahunan</span>
                     </a>
                 </li>
-
-                <li class="pc-item pc-caption">
-                    <label>Pengaturan</label>
-                    <svg class="pc-icon">
-                        <use xlink:href="#custom-presentation-chart"></use>
-                    </svg>
-                </li>
-                <li class="pc-item">
-                    <a href="/company/pengaturan-akun/index" class="pc-link">
-                        <span class="pc-micon">
-                            <i class="fa fa-cogs"></i>
-                        </span>
-                        <span class="pc-mtext">Pengaturan Akun</span>
-                    </a>
-                </li>
             </ul>
         </div>
     </div>
