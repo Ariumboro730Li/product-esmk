@@ -42,7 +42,7 @@
         </div>
     </div>
     <div class="row d-flex">
-        <div class="col-lg-3 col-md-6 col-12">
+        <div class="col-lg-6 col-md-6 col-12">
             <div class="card">
                 <div class="card-body" style=" height: 9rem; ">
                     <div class="d-flex align-items-center">
@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-12">
+        <div class="col-lg-6 col-md-6 col-12">
             <div class="card">
                 <div class="card-body" style=" height: 9rem; ">
                     <div class="d-flex align-items-center">
@@ -77,7 +77,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-12">
+        <div class="col-lg-3 col-12" hidden>
             <div class="card">
                 <div class="card-body" style=" height: 9rem; ">
                     <div class="d-flex align-items-center">
@@ -94,7 +94,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-12">
+        <div class="col-lg-3 col-12" hidden>
             <div class="card">
                 <div class="card-body" style=" height: 9rem; ">
                     <div class="d-flex align-items-center">
@@ -477,7 +477,7 @@
                             </div>
                         </div>
                     </td>
-                   
+
                     <td>
                         <ul style="padding-left: 20px; margin: 0;">
                             ${Array.isArray(element.service_types)
