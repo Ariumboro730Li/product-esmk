@@ -406,9 +406,9 @@
                         value="${properties.yesOption.value}"
                         id="${properties.yesOption.id}"
                         ${defaultValue === 'yes' ? 'checked' : ''}>
-                    <label class="btn btn-outline-primary"
+                    <label class="btn btn-outline-primary btn-md"
                         for="${properties.yesOption.id}"
-                        style="width: 45%;">${properties.yesOption.label}</label>
+                        >${properties.yesOption.label}</label>
 
                     <input type="radio"
                         class="btn-check"
@@ -416,9 +416,9 @@
                         value="${properties.noOption.value}"
                         id="${properties.noOption.id}"
                         ${defaultValue === 'no' ? 'checked' : ''}>
-                    <label class="btn btn-outline-warning bg-opacity-50 bg-gradient"
+                    <label class="btn btn-outline-warning bg-opacity-50 bg-gradient btn-md"
                         for="${properties.noOption.id}"
-                        style="width: 45%;">${properties.noOption.label}</label>
+                        >${properties.noOption.label}</label>
                 </div>`
 
             return $customRadioButton
