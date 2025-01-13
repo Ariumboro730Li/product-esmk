@@ -1,4 +1,4 @@
-@extends('...Company.index', ['title' => 'SMK TD | Detail Pengajuan'])
+@extends('...Company.index', ['title' => 'Detail Pengajuan'])
 @section('asset_css')
     <link rel="stylesheet" href="{{ asset('assets') }}/css/plugins/datepicker-bs5.min.css" />
     <link rel="stylesheet" href="{{ asset('assets') }}/js/libs/filepond/filepond.min.css">

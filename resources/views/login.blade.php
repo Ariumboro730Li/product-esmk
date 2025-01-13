@@ -89,7 +89,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group ms-2">
-                                        <a class="text-hover" href="page-forgot-password.html"
+                                        <a class="text-hover" href="/forgot-password"
                                             style="color: white;">Lupa kata sandi?</a>
                                     </div>
                                 </div>
