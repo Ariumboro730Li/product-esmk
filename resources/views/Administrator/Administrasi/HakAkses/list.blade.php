@@ -204,11 +204,12 @@
         }
 
 
-        $(document).on('change', '.checkbox-permission', function() {
+        $(document).on('change', '.checkbox-permission', async function() {
+            loadingPage(true)
             let permissionID = $(this).val()
             let isAssign = $(this).prop('checked')
 
-            let getDataRest = CallAPI(
+            let getDataRest = await CallAPI(
                     'PUT',
                     `{{ url('') }}/api/internal/admin-panel/sync-permission`, {
                         isAssign: isAssign,
@@ -221,22 +222,13 @@
                 .catch(error => {
                     loadingPage(false);
                     let resp = error.response;
-                    Swal.fire({
-                        icon: 'info',
-                        title: 'Pemberitahuan',
-                        text: resp.data.message,
-                        confirmButtonColor: '#28a745',
-                    });
+                    notificationAlert("info", "Pemberitahuan", resp.data.message);
                     return resp;
                 });
 
             if (getDataRest.status === 200) {
-                Swal.fire({
-                    icon: 'info',
-                    title: 'Pemberitahuan',
-                    text: "Berhasil merubah role",
-                    confirmButtonColor: '#28a745',
-                });
+                loadingPage(false)
+                notificationAlert("success", "Berhasil", "Berhasil mengubah hak akses")
             }
         })
 
@@ -271,27 +263,32 @@
                         };
                     },
                 },
-                allowClear: true,
-                placeholder: 'Pilih peran'
+                placeholder: 'Pilih peran',
+                allowClear: false, // Tidak mengizinkan opsi clear
+                minimumResultsForSearch: Infinity, // Menyembunyikan kotak pencarian jika tidak dibutuhkan
             });
 
-            // Fetch the first item and set it as default
-            $.ajax({
-                url: `{{ url('') }}/api/internal/admin-panel/role-options`,
-                headers: {
-                    Authorization: `Bearer ${Cookies.get('auth_token')}`
-                },
-                success: function(res) {
-                    if (res.data && res.data.length > 0) {
-                        const firstItem = res.data[0];
+            // Fetch data pertama dan set sebagai default
+            try {
+                const response = await $.ajax({
+                    url: `{{ url('') }}/api/internal/admin-panel/role-options`,
+                    headers: {
+                        Authorization: `Bearer ${Cookies.get('auth_token')}`
+                    },
+                });
 
-                        // Set the first item as selected
-                        const option = new Option(firstItem.name, firstItem.id, true, true);
-                        $('#input-role').append(option).trigger('change');
-                    }
+                if (response.data && response.data.length > 0) {
+                    const firstItem = response.data[0];
+
+                    // Set opsi pertama sebagai default dan aktif
+                    const option = new Option(firstItem.name, firstItem.id, true, true);
+                    $('#input-role').append(option).trigger('change');
                 }
-            });
+            } catch (error) {
+                console.error('Error fetching roles:', error);
+            }
         }
+
 
         async function addRole() {
             loadingPage(true);
