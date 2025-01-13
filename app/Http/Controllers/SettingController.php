@@ -117,8 +117,8 @@ class SettingController extends Controller
             "alamat" => "required|string",
             "provinsi" => "required|string",
             "kota" => "required|string",
-            "logo_favicon" => "required|string",
-            "logo_aplikasi" => "required|string",
+            "logo_favicon" => "string",
+            "logo_aplikasi" => "string",
         ], [
             'nama.min' => 'Nama aplikasi minimal 5 karakter.', //
             'nama.max' => 'Nama aplikasi maksimal 20 karakter.', //

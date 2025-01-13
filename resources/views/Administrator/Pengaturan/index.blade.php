@@ -460,6 +460,8 @@
                 logo_aplikasi: logoUrl
             };
 
+            console.log(payload);
+
             let getDataRest = await CallAPI('POST',
                     '{{ url('') }}/api/internal/admin-panel/setting/aplikasi', payload)
                 .then((response) => response)
@@ -556,9 +558,9 @@
                     if (data) {
                         data = JSON.parse(data);
                         if (isSelector=="#faviconFileUrl") {
-                            faviconFileUrl = data.data;
+                            faviconFileUrl = data.file_url;
                         } else if (isSelector=="#logoFileUrl") {
-                            logoFileUrl = data.data;
+                            logoFileUrl = data.file_url;
                         }
                         load(data);
                     }
