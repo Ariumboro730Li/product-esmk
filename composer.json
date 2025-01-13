@@ -10,6 +10,7 @@
         "firebase/php-jwt": "^6.10",
         "guzzlehttp/guzzle": "^7.2",
         "hidehalo/nanoid-php": "^2.0",
+        "intervention/image": "^3.10",
         "laravel/framework": "^10.10",
         "laravel/octane": "^2.6",
         "laravel/sanctum": "^3.3",

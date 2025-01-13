@@ -186,6 +186,7 @@ return [
         // 'Example' => App\Facades\Example::class,
         'PDF' => Barryvdh\DomPDF\Facade\Pdf::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
+       'Image' => Intervention\Image\ImageManagerStatic::class,
     ])->toArray(),
 
 ];

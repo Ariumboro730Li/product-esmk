@@ -118,9 +118,11 @@
                         <li class="nav-item" role="presentation"><a class="nav-link active" id="followers-tab"
                                 data-bs-toggle="tab" href="#followers" role="tab" aria-selected="false"
                                 tabindex="-1"><i class="ti ti-building me-2"></i> Informasi Perusahaan</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" id="followers-tab"
-                                data-bs-toggle="tab" href="#kbli" role="tab" aria-selected="false"
-                                tabindex="-1"><i class="ti ti-file-text me-2"></i> KBLI Perusahaan</a></li>
+                        <div id="nav-kbli">
+                            <li class="nav-item" role="presentation"><a class="nav-link" id="followers-tab"
+                                    data-bs-toggle="tab" href="#kbli" role="tab" aria-selected="false"
+                                    tabindex="-1"><i class="ti ti-file-text me-2"></i> KBLI Perusahaan</a></li>
+                        </div>
                         <li class="nav-item" role="presentation"><a class="nav-link" id="profile-tab" data-bs-toggle="tab"
                                 href="#profile" role="tab" aria-selected="true"><i
                                     class="ti ti-file-certificate fa-lg me-2"></i>
@@ -361,6 +363,7 @@
                     </tr>`;
                     $('#listDataKbli tr').remove();
                     $('#listDataKbli').append(getDataTableKbli);
+                    totalPageKbli = 0;
                 }
 
             }
@@ -749,7 +752,7 @@
             }).catch(function(error) {
                 loadingPage(false);
                 let resp = error.response;
-                notificationAlert('info', 'Pemberitahuan', resp.data.message);
+                // notificationAlert('info', 'Pemberitahuan', resp.data.message);
                 return resp;
             });
 
@@ -761,15 +764,26 @@
                 console.log("🚀 ~ checkOSS ~ is_active_kbli:", is_active_kbli)
                 if (data.is_active === 0) {
                     const btnSync = document.querySelector('.btn-sync-oss');
-                    if (btnSync) {
+                    const navKbli = document.querySelector('#nav-kbli');
+                    if (btnSync && navKbli) {
                         btnSync.style.display = 'none';
+                        navKbli.style.display = 'none';
                     }
                 } else {
                     const btnSync = document.querySelector('.btn-sync-oss');
-                    if (btnSync) {
+                    const navKbli = document.querySelector('#nav-kbli');
+                    if (btnSync && navKbli) {
                         btnSync.style.display = 'inline-block';
+                        navKbli.style.display = 'inline-block';
                     }
                 }
+            } else {
+                const btnSync = document.querySelector('.btn-sync-oss');
+                    const navKbli = document.querySelector('#nav-kbli');
+                    if (btnSync && navKbli) {
+                        btnSync.style.display = 'none';
+                        navKbli.style.display = 'none';
+                    }
             }
         }
 

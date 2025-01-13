@@ -495,7 +495,7 @@
             }).catch(function(error) {
                 loadingPage(false);
                 let resp = error.response;
-                notificationAlert('info', 'Pemberitahuan', resp.data.message);
+                // notificationAlert('info', 'Pemberitahuan', resp.data.message);
                 return resp;
             });
 
@@ -516,6 +516,10 @@
                     const infoOss = document.querySelector('.infoOss');
                     infoOss.style.display = 'none';
                 }
+            } else {
+                    const infoOss = document.querySelector('.infoOss');
+                    infoOss.style.display = 'none';
+                    is_active_oss = 1;
             }
         }
 

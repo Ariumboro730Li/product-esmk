@@ -1100,6 +1100,7 @@
                 </tr>`;
                     $('#listDataKbli tr').remove();
                     $('#listDataKbli').append(getDataTableKbli);
+                    totalPageKbli = 0;
                 }
 
             }
@@ -1119,6 +1120,7 @@
         }
 
         async function setListKbli(dataList, pagination) {
+            console.log("🚀 ~ setListKbli ~ pagination:", pagination)
             totalPageKbli = pagination.total;
             let display_from = ((defaultLimitPageKbli * pagination.current_page) + 1) - defaultLimitPageKbli;
             let index_loop = display_from;
@@ -1251,7 +1253,7 @@
             }).catch(function(error) {
                 loadingPage(false);
                 let resp = error.response;
-                notificationAlert('info', 'Pemberitahuan', resp.data.message);
+                // notificationAlert('info', 'Pemberitahuan', resp.data.message);
                 return resp;
             });
 
@@ -1268,6 +1270,13 @@
                         kbliNav.style.display = 'none';
                     }
                 }
+            } else {
+                const kbli = document.getElementById('kbli');
+                    const kbliNav = document.querySelector('.kbli-nav');
+                    if (kbli && kbliNav) {
+                        kbli.style.display = 'none';
+                        kbliNav.style.display = 'none';
+                    }
             }
         }
 
