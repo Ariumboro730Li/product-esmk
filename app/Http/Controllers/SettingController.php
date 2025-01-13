@@ -117,8 +117,8 @@ class SettingController extends Controller
             "alamat" => "required|string",
             "provinsi" => "required|string",
             "kota" => "required|string",
-            "logo_favicon" => "string",
-            "logo_aplikasi" => "string",
+            // "logo_favicon" => "string",
+            // "logo_aplikasi" => "string",
         ], [
             'nama.min' => 'Nama aplikasi minimal 5 karakter.', //
             'nama.max' => 'Nama aplikasi maksimal 20 karakter.', //
@@ -135,24 +135,6 @@ class SettingController extends Controller
             ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
 
-        $setting = Setting::where('name', $settingName)->first();
-
-        if($setting){
-            $value = $setting->value;
-            $value['nama'] = strip_tags($request->nama);
-            $value['nama_instansi'] = strip_tags($request->nama_instansi);
-            $value['deskripsi'] = strip_tags($request->deskripsi);
-            $value['email'] = strip_tags($request->email);
-            $value['whatsapp'] = strip_tags($request->whatsapp);
-            $value['alamat'] = strip_tags($request->alamat);
-            $value['provinsi'] = strip_tags($request->provinsi);
-            $value['kota'] = strip_tags($request->kota);
-            $value['logo_favicon'] = strip_tags($request->logo_favicon ?? $value['logo_favicon']);
-            $value['logo_aplikasi'] = strip_tags($request->logo_aplikasi ?? $value['logo_aplikasi']);
-            $setting->update([
-                'value' => $value
-            ]);
-        } else {
             Setting::where('name', $settingName)->updateOrCreate([
                 'name' => $settingName,
             ], [
@@ -169,7 +151,6 @@ class SettingController extends Controller
                     'logo_aplikasi' => strip_tags($request->logo_aplikasi),
                 ]
             ]);
-        }
 
         return response()->json([
             'status_code'   => HttpStatusCodes::HTTP_OK,
