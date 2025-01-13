@@ -53,7 +53,7 @@
                     imgLogoApp.innerHTML = `
                     <div class="img-welcome-banner">
                         <img src="{{ request()->app_setting->value->logo_aplikasi }}" alt="img" class="img-fluid mt-2"
-                            style="width: 100px; height: 100px; border-radius: 50%;" />
+                            style="width: 5rem; height: 100%; border-radius: 50%;" />
                     </div>
                 `;
             }
