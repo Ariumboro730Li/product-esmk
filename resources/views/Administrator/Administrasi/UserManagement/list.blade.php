@@ -362,7 +362,7 @@
                                 <li class="list-inline-item">
                                     ${actionButton}
                                 </li>
-                                <li class="list-inline-item">
+                                <li class="list-inline-item ${(element.role_name).toLocaleLowerCase() !== 'perusahaan' ? '' : 'd-none'}">
                                         ${getEditButton(elementData, element)}
                                 </li>
                             </td>

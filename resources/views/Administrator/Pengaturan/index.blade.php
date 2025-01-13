@@ -700,7 +700,7 @@
                 getDataApps(),
                 getDataOSS()
             ]);
-
         }
+        $('.filepond--credits').remove();
     </script>
 @endsection
