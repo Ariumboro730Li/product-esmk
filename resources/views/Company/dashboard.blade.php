@@ -118,6 +118,9 @@
                         <li class="nav-item" role="presentation"><a class="nav-link active" id="followers-tab"
                                 data-bs-toggle="tab" href="#followers" role="tab" aria-selected="false"
                                 tabindex="-1"><i class="ti ti-building me-2"></i> Informasi Perusahaan</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" id="followers-tab"
+                                data-bs-toggle="tab" href="#kbli" role="tab" aria-selected="false"
+                                tabindex="-1"><i class="ti ti-file-text me-2"></i> KBLI Perusahaan</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" id="profile-tab" data-bs-toggle="tab"
                                 href="#profile" role="tab" aria-selected="true"><i
                                     class="ti ti-file-certificate fa-lg me-2"></i>
@@ -172,6 +175,62 @@
                                             <p class="company-address mb-4"></p>
                                         </li>
                                     </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="kbli" role="tabpanel" aria-labelledby="followers-tab">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <div
+                                                    class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns">
+                                                    <!-- Top Controls: and Search -->
+                                                    <div class="datatable-top">
+                                                        <div class="datatable-dropdown">
+                                                            <label>
+                                                                <select class="datatable-selector"
+                                                                    style="width: auto;min-width: unset;" name="limitPageKbli"
+                                                                    id="limitPageKbli">
+                                                                    <option value="5">5</option>
+                                                                    <option value="10" selected="">10</option>
+                                                                    <option value="15">15</option>
+                                                                    <option value="20">20</option>
+                                                                    <option value="25">25</option>
+                                                                </select>
+                                                            </label>
+                                                        </div>
+                                                        <div class="datatable-search">
+                                                            <input class="datatable-input search-input-kbli" placeholder="Cari..."
+                                                                type="search" name="search" title="Search within table"
+                                                                aria-controls="pc-dt-simple">
+                                                        </div>
+                                                    </div>
+                                                    <div class="datatable-container">
+                                                        <table class="table table-hover datatable-table" id="pc-dt-simple">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th class="text-start">Klasifikasi Baku Lapangan Usaha
+                                                                        Indonesia (KBLI)</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="listDataKbli">
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="datatable-bottom">
+                                                        <div class="datatable-info">Menampilkan <span id="countPageKbli">0</span>
+                                                            dari <span id="totalPageKbli">0</span> data</div>
+                                                        <nav class="datatable-pagination">
+                                                            <ul id="pagination-js-kbli" class="datatable-pagination-list">
+                                                            </ul>
+                                                        </nav>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -252,11 +311,195 @@
     <script src="{{ asset('assets') }}/js/plugins/date-language-format.js"></script>
     <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="{{ asset('assets/js/paginationjs/pagination.min.js') }}"></script>
 @endsection
 
 @section('page_js')
     <script>
         let nextReportDate;
+        let defaultLimitPageKbli = 10;
+        let currentPageKbli = 1;
+        let totalPageKbli = 1;
+        let defaultAscendingKbli = 0;
+        let defaultSearchKbli = '';
+        let getDataTableKbli = '';
+        let errorMessageKbli = "Terjadi Kesalahan.";
+        let is_active_kbli;
+
+        async function getListKbli(limit = 10, page = 1, ascending = 0, search = '') {
+            if (is_active_kbli === 1 || is_active_kbli === true) {
+                loadingPage(true);
+                const getDataRest = await CallAPI(
+                    'GET',
+                    `{{ url('') }}/api/company/dashboard/company/data-kbli`, {
+                        page: page,
+                        limit: limit,
+                        ascending: ascending,
+                        search: search
+                    }
+                ).then(function(response) {
+                    return response;
+                }).catch(function(error) {
+                    loadingPage(false);
+                    let resp = error.response;
+                    notificationAlert('info', 'Pemberitahuan', resp.data.message);
+                    return resp;
+                });
+                loadingPage(false);
+                if (getDataRest.status == 200) {
+                    let handleDataArray = await Promise.all(
+                        getDataRest.data.data.map(async item => await handleKbli(item))
+                    );
+                    await setListKbli(handleDataArray, getDataRest.data.paginate);
+                } else {
+                    let errorMessages = getDataRest.data?.message || errorMessage1;
+                    getDataTableKbli = `
+                    <tr class="nk-tb-item">
+                        <th class="text-center" colspan="${$('th').length}"> ${errorMessages} </th>
+                    </tr>`;
+                    $('#listDataKbli tr').remove();
+                    $('#listDataKbli').append(getDataTableKbli);
+                }
+
+            }
+        }
+
+        async function handleKbli(data) {
+            let handleData = {
+                id: data['id'] ?? '-',
+                uraian_usaha: data['uraian_usaha'] ?? '-',
+                kbli: data['kbli'] ?? '-',
+                description: data['description'] ?? '-',
+                created_at: data['created_at'] ?? '-',
+                is_match: data['is_match'] ?? '-',
+            };
+
+            return handleData;
+        }
+
+        async function setListKbli(dataList, pagination) {
+            const totalPageKbli = pagination.total;
+            const display_from = ((defaultLimitPageKbli * pagination.current_page) + 1) - defaultLimitPageKbli;
+            let index_loop = display_from;
+            const display_to = currentPageKbli < pagination.total_pages ?
+                dataList.length < defaultLimitPageKbli ?
+                dataList.length :
+                (defaultLimitPageKbli * pagination.current_page) :
+                totalPageKbli;
+
+            let getDataTableKbli = '';
+            for (let index = 0; index < dataList.length; index++) {
+                const element = dataList[index];
+                const textMatch = element.is_match === true || element.is_match === 1 ? 'Sesuai' : 'Tidak Sesuai';
+                const colorMatch = element.is_match === true || element.is_match === 1 ? 'bg-success' : 'bg-danger';
+                getDataTableKbli += `
+                <tr>
+                    <td>
+                        <div class="row align-items-center">
+                            <div class="col-auto pe-0">
+                                <div
+                                    class="wid-40 hei-40 rounded-circle bg-secondary d-flex align-items-center justify-content-center">
+                                    <i class="fa-solid fa-file-lines text-white"></i>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <h5 class="mb-1"><span class="text-truncate w-100">${element.kbli}</span> </h5>
+                                <h6 class="mb-1 fw-normal"><span class="text-truncate w-100">${element.uraian_usaha}</span> </h6>
+                                <a href="#!" class="text-muted"><span class="badge ${colorMatch}">${textMatch}</span></a>
+
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                `;
+                index_loop++;
+            }
+
+            $('#listDataKbli tr').remove();
+
+            if (totalPageKbli === 0) {
+                // Hitung jumlah kolom tabel
+                const colCount = $('#listDataKbli').closest('table').find('thead th').length;
+
+                getDataTableKbli = `
+                <tr>
+                    <td class="text-center" colspan="${colCount}">Tidak ada data.</td>
+                </tr>`;
+                $('#countPageKbli').text("0 - 0");
+            } else {
+                $('#totalPageKbli').text(totalPageKbli);
+                $('#countPageKbli').text(`${display_from} - ${display_to}`);
+
+            }
+
+            $('#listDataKbli').append(getDataTableKbli);
+
+            // Aktifkan tooltip jika ada
+            $('[data-bs-toggle="tooltip"]').tooltip();
+        }
+
+        async function performSearchKbli() {
+            defaultSearchKbli = $('.search-input-kbli').val();
+            defaultLimitPageKbli = $("#limitPageKbli").val();
+            currentPageKbli = 1;
+            await initDataOnTableKbli(defaultLimitPageKbli, currentPageKbli, defaultAscendingKbli, defaultSearchKbli);
+        }
+
+        async function initDataOnTableKbli(defaultLimitPageKbli, currentPageKbli, defaultAscendingKbli, defaultSearchKbli) {
+            await getListKbli(defaultLimitPageKbli, currentPageKbli, defaultAscendingKbli, defaultSearchKbli);
+            await paginationDataOnTableKbli(defaultLimitPageKbli);
+        }
+
+        async function manipulationDataOnTableKbli() {
+            $(document).on("change", "#limitPageKbli", async function() {
+                defaultLimitPageKbli = $(this).val();
+                currentPageKbli = 1;
+                await getListKbli(defaultLimitPageKbli, currentPageKbli, defaultAscendingKbli,
+                    defaultSearchKbli);
+                await paginationDataOnTableKbli(defaultLimitPageKbli);
+            });
+
+            $(document).on("input", ".search-input-kbli", debounce(performSearchKbli, 500));
+            await paginationDataOnTableKbli(defaultLimitPageKbli);
+        }
+
+        function paginationDataOnTableKbli(isPageSize) {
+            $('#pagination-js-kbli').pagination({
+                dataSource: Array.from({
+                    length: totalPageKbli
+                }, (_, i) => i + 1),
+                pageSize: isPageSize,
+                className: 'paginationjs-theme-blue',
+                afterPreviousOnClick: function(e) {
+                    currentPageKbli = parseInt(e.currentTarget.dataset.num);
+                    getListKbli(defaultLimitPageKbli, currentPageKbli, defaultAscendingKbli, defaultSearchKbli);
+                },
+                afterPageOnClick: function(e) {
+                    currentPageKbli = parseInt(e.currentTarget.dataset.num);
+                    getListKbli(defaultLimitPageKbli, currentPageKbli, defaultAscendingKbli, defaultSearchKbli);
+                },
+                afterNextOnClick: function(e) {
+                    currentPageKbli = parseInt(e.currentTarget.dataset.num);
+                    getListKbli(defaultLimitPageKbli, currentPageKbli, defaultAscendingKbli, defaultSearchKbli);
+                },
+            });
+        }
+
+        function debounce(func, wait, immediate) {
+            let timeout;
+            return function() {
+                let context = this,
+                    args = arguments;
+                let later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                let callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        }
 
         async function getUserData() {
             loadingPage(true);
@@ -346,12 +589,11 @@
                 let resp = error.response;
                 const certificatePdfContainer = $('#certificate-pdf');
                 certificatePdfContainer.html(`
-                    <h4 class="mt-4 fw-semibold">Sertifikat belum ada</h4>
-                    <p class="text-muted mt-3">Silahkan lengkapi proses pengajuan sertifikat SMK <a href="{{ route('company.certificate.list') }}">Disini</a></p>
-                    <div class="mt-4">
-                        <div class="row justify-content-center mt-5 mb-2">
+                    <h3 class="mt-4 fw-semibold">Silahkan Ajukan Permohonan Sertifikat SMK</h3>
+                    <div class="">
+                        <div class="row justify-content-center mb-2">
                             <div class="col-sm-7 col-8 mb-4">
-                                <img src="{{ asset('assets/images/verification-img.png') }}" alt="Informasi Sertifikat" class="img-fluid">
+                                <img src="{{ asset('assets/images/AjukanSertifikat.png') }}" alt="Informasi Sertifikat" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -516,7 +758,8 @@
 
             if (getDataRest.status == 200) {
                 let data = getDataRest.data.data;
-
+                is_active_kbli = data.is_active;
+                console.log("🚀 ~ checkOSS ~ is_active_kbli:", is_active_kbli)
                 if (data.is_active === 0) {
                     const btnSync = document.querySelector('.btn-sync-oss');
                     if (btnSync) {
@@ -540,12 +783,11 @@
                 await showViewDocument(data.certificate_file);
             } else {
                 certificatePdfContainer.html(`
-                    <h4 class="mt-4 fw-semibold">Sertifikat belum ada</h4>
-                    <p class="text-muted mt-3">Silahkan lengkapi proses pengajuan sertifikat SMK <a href="javascript:void(0)">Disini</a></p>
-                    <div class="mt-4">
-                        <div class="row justify-content-center mt-5 mb-2">
+                    <h3 class="mt-4 fw-semibold">Silahkan Ajukan Permohonan Sertifikat SMK</h3>
+                    <div class="">
+                        <div class="row justify-content-center mb-2">
                             <div class="col-sm-7 col-8 mb-4">
-                                <img src="{{ asset('assets/images/verification-img.png') }}" alt="Informasi Sertifikat" class="img-fluid">
+                                <img src="{{ asset('assets/images/AjukanSertifikat.png') }}" alt="Informasi Sertifikat" class="img-fluid">
                             </div>
                         </div>
                     </div>
@@ -650,11 +892,14 @@
         }
 
         async function initPageLoad() {
+            await checkOSS();
             await Promise.all([
                 getUserData(),
-                checkOSS(),
                 getSertifikatData(),
                 syncDataOss(),
+                initDataOnTableKbli(defaultLimitPageKbli, currentPageKbli, defaultAscendingKbli,
+                    defaultSearchKbli),
+                manipulationDataOnTableKbli(),
 
             ])
         }
