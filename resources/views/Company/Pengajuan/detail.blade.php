@@ -283,6 +283,7 @@
     <script src="../assets/js/pages/ac-datepicker.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/parsleyjs/dist/parsley.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/locale/id.min.js"></script>
 @endsection
 
 @section('page_js')
@@ -695,6 +696,9 @@
 
         // Fungsi untuk menampilkan data ke modal
         async function loadHistoryModal() {
+            // Pastikan moment menggunakan locale 'id' untuk Bahasa Indonesia
+            moment.locale('id');
+
             const historyData = await getRequestHistory(); // Ambil data dari API
 
             if (!historyData || !historyData.data) return;
@@ -703,42 +707,39 @@
             logContainer.innerHTML = '';
 
             historyData.data.forEach((item) => {
-                // Format waktu ke format Indonesia
-                const formattedDate = new Date(item.created_at).toLocaleString('id-ID', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                });
+                // Format waktu menggunakan moment.js dengan locale Indonesia
+                const formattedDate = moment
+                    .utc(item.created_at) // Konversi waktu ke UTC
+                    .utcOffset("+07:00") // Sesuaikan ke WIB (UTC+7)
+                    .format('dddd, D MMMM YYYY HH:mm'); // Format Indonesia
 
-                // Tentukan warna ikon berdasarkan status
+                // Tentukan warna ikon dan teks berdasarkan status
                 let iconClass = 'bg-primary'; // Default ikon
+                let text = 'Status Tidak Diketahui'; // Default teks
                 switch (item.status) {
                     case 'passed_assessment_verification':
                         iconClass = 'bg-success';
-                        text = 'Lulus Verifikasi Penilaian'
+                        text = 'Lulus Verifikasi Penilaian';
                         break;
                     case 'passed_assessment':
                         iconClass = 'bg-success';
-                        text = 'Lulus Pengajuan'
+                        text = 'Lulus Pengajuan';
                         break;
                     case 'submission_revision':
                         iconClass = 'bg-warning';
-                        text = 'Revisi Pengajuan'
+                        text = 'Revisi Pengajuan';
                         break;
                     case 'not_passed_assessment':
                         iconClass = 'bg-danger';
-                        text = 'Tidak Lulus Penilaian'
+                        text = 'Tidak Lulus Penilaian';
                         break;
                     case 'request':
                         iconClass = 'bg-info';
-                        text = 'Pengajuan Baru'
+                        text = 'Pengajuan Baru';
                         break;
                     case 'rejected':
                         iconClass = 'bg-danger';
-                        text = 'Ditolak'
+                        text = 'Ditolak';
                         break;
                 }
 
@@ -746,19 +747,17 @@
                     <li>
                         <i class="task-icon ${iconClass}"></i>
                         <p class="m-b-5">${formattedDate}</p>
-                        <h5 class="text-muted">${text}</span></h5>
+                        <h5 class="text-muted">${text}</h5>
                     </li>
                 `;
             });
-            if (historyData.data.length == 0) {
-                const formattedDate = new Date().toLocaleString('id-ID', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                });
+
+            // Jika tidak ada data
+            if (historyData.data.length === 0) {
+                // Format waktu menggunakan moment.js dengan locale Indonesia
+                const formattedDate = moment()
+                    .utcOffset("+07:00") // Sesuaikan ke WIB (UTC+7)
+                    .format('dddd, D MMMM YYYY HH:mm'); // Format Indonesia
 
                 logContainer.innerHTML = `
                     <li>
@@ -769,6 +768,8 @@
                 `;
             }
         }
+
+
 
         function generateRowOfElementTitle(colSpanTitle, title, elementId, rowsHtml) {
             const html = `
@@ -871,8 +872,8 @@
                                         ${
                                             applicationLetter.fileOfApplicationLetter
                                                 ? `<a href="${applicationLetter?.fileOfApplicationLetter}" class="link-secondary text-decoration-underline link-underline-opacity-25 link-underline-opacity-100-hover d-block mb-3" target="_blank" rel="noopener noreferrer">
-                                                                                            Lihat dokumen yang dikirim
-                                                                                        </a>`
+                                                                                                    Lihat dokumen yang dikirim
+                                                                                                </a>`
                                                 : ""
                                         }
                                         <input type="file" class="filepond filepond-input application_letter mb-0" id="application_letter_show" accept="application/pdf" ${applicationLetter.fileOfApplicationLetter ? "" : "required"} />

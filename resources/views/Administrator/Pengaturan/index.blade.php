@@ -390,7 +390,7 @@
                 setTimeout(() => {
                     filePondCreate("#logoFileUrl", appData.logo_aplikasi);
                 }, 500);
-                
+
 
                 document.getElementById('namaAplikasi').innerText = appData.nama;
                 document.getElementById('namaInstansi').innerText = appData.nama_instansi;
@@ -424,11 +424,11 @@
                 let citySelect = document.querySelector('#select_kota');
 
                 if (provinsiSelect) {
-                    provinsiSelect.innerHTML = `<option selected>${appData.kota}</option>`;
+                    provinsiSelect.innerHTML = `<option selected>${appData.provinsi}</option>`;
                 }
 
                 if (citySelect) {
-                    citySelect.innerHTML = `<option selected>${appData.provinsi}</option>`;
+                    citySelect.innerHTML = `<option selected>${appData.kota}</option>`;
                 }
             }
         }
@@ -568,7 +568,7 @@
                     load();
                 }
             };
-    
+
             let options = {
                 labelIdle: 'Seret & Jatuhkan file Anda atau <span class="filepond--label-action">Jelajahi File</span>',
                 labelMaxFileSizeExceeded: 'File terlalu besar',
@@ -579,17 +579,17 @@
                 required: 0,
                 checkValidity: true,
             };
-    
+
             if (urlFile=="") {
                 options["server"]           = serverOption;
             } else {
                 options["instantUpload"]    = false;
             }
-    
+
             let filepond = FilePond.create(document.querySelector(`${isSelector}`), options);
-    
+
             let pondDom = document.querySelector(`${isSelector}`);
-    
+
             if (urlFile!="") {
                 pondDom.addEventListener('FilePond:init', (e) => {
                     filepond.addFile(urlFile);
@@ -600,14 +600,14 @@
                 })
             }
         }
-    
+
         async function uploadFileData(file) {
             let csrfToken = $('meta[name="csrf-token"]').attr('content');
             loadingPage(true);
             let auth_token = Cookies.get('auth_token') ?? null;
             let form = new FormData();
             form.append("file", file, file.name);
-    
+
             let settings = {
               "url": "{{ url('api/internal/admin-panel/upload-file') }}",
               "method": "POST",
@@ -621,7 +621,7 @@
               "contentType": false,
               "data": form
             };
-    
+
             let data = await $.ajax(settings);
             if (data) {
                 loadingPage(false);
