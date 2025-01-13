@@ -135,22 +135,41 @@ class SettingController extends Controller
             ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
 
-        Setting::where('name', $settingName)->updateOrCreate([
-            'name' => $settingName,
-        ], [
-            'value' => [
-                'nama' => strip_tags($request->nama),
-                'nama_instansi' => strip_tags($request->nama_instansi),
-                'deskripsi' => strip_tags($request->deskripsi),
-                'email' => strip_tags($request->email),
-                'whatsapp' => strip_tags($request->whatsapp),
-                'alamat' => strip_tags($request->alamat),
-                'provinsi' => strip_tags($request->provinsi),
-                'kota' => strip_tags($request->kota),
-                'logo_favicon' => strip_tags($request->logo_favicon),
-                'logo_aplikasi' => strip_tags($request->logo_aplikasi),
-            ]
-        ]);
+        $setting = Setting::where('name', $settingName)->first();
+
+        if($setting){
+            $value = $setting->value;
+            $value['nama'] = strip_tags($request->nama);
+            $value['nama_instansi'] = strip_tags($request->nama_instansi);
+            $value['deskripsi'] = strip_tags($request->deskripsi);
+            $value['email'] = strip_tags($request->email);
+            $value['whatsapp'] = strip_tags($request->whatsapp);
+            $value['alamat'] = strip_tags($request->alamat);
+            $value['provinsi'] = strip_tags($request->provinsi);
+            $value['kota'] = strip_tags($request->kota);
+            $value['logo_favicon'] = strip_tags($request->logo_favicon ?? $value['logo_favicon']);
+            $value['logo_aplikasi'] = strip_tags($request->logo_aplikasi ?? $value['logo_aplikasi']);
+            $setting->update([
+                'value' => $value
+            ]);
+        } else {
+            Setting::where('name', $settingName)->updateOrCreate([
+                'name' => $settingName,
+            ], [
+                'value' => [
+                    'nama' => strip_tags($request->nama),
+                    'nama_instansi' => strip_tags($request->nama_instansi),
+                    'deskripsi' => strip_tags($request->deskripsi),
+                    'email' => strip_tags($request->email),
+                    'whatsapp' => strip_tags($request->whatsapp),
+                    'alamat' => strip_tags($request->alamat),
+                    'provinsi' => strip_tags($request->provinsi),
+                    'kota' => strip_tags($request->kota),
+                    'logo_favicon' => strip_tags($request->logo_favicon),
+                    'logo_aplikasi' => strip_tags($request->logo_aplikasi),
+                ]
+            ]);
+        }
 
         return response()->json([
             'status_code'   => HttpStatusCodes::HTTP_OK,
