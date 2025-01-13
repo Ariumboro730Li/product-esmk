@@ -761,7 +761,7 @@
                     <td>${element.disposition_by.name}</td>
                     <td>
                         <li class="list-inline-item">
-                            ${getDetailPage(route)}
+                            ${getDetailPage(element.id)}
                         </li>
                     </td>
                 </tr>`;
@@ -785,9 +785,9 @@
             $('[data-bs-toggle="tooltip"]').tooltip();
         }
 
-        function getDetailPage(route) {
+        function getDetailPage(id) {
             return `
-            <a href="${route}"
+            <a href="/admin/sertifikat/detail?r=${id}"
                 class="avtar avtar-s btn-link-info detail-data"
                 data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top"
                 title="Detail Data">
