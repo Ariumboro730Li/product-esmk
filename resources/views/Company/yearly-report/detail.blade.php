@@ -601,7 +601,7 @@
             let numberColumn = '',
                 titleColumn = '',
                 questionColumn = subElementSchema.monitoringProperties.questionValue ?
-                `<td style="word-wrap: break-word; white-space: normal; max-width: 300px;">${subElementSchema.monitoringProperties.questionValue}</td>` :
+                `<td style="word-wrap: break-word; white-space: normal; max-width: 200px;">${subElementSchema.monitoringProperties.questionValue}</td>` :
                 '<td></td>',
                 answerColumn, assessmentColumn, formInputColumn
 
@@ -609,7 +609,7 @@
                 numberColumn =
                     `<td ${subElementSchema.lengthOfItems ?  `rowspan=${subElementSchema.lengthOfItems}` : ''}>${numberOfColumn}</td>`
                 titleColumn =
-                    `<td style="word-wrap: break-word; white-space: normal; max-width: 300px;" ${subElementSchema.lengthOfItems ?  `rowspan=${subElementSchema.lengthOfItems}` : ''}>${subElementSchema.questionProperties['title']}</td>`
+                    `<td style="word-wrap: break-word; white-space: normal; max-width: 200px;" ${subElementSchema.lengthOfItems ?  `rowspan=${subElementSchema.lengthOfItems}` : ''}>${subElementSchema.questionProperties['title']}</td>`
             }
 
             if (subElementSchema.monitoringProperties.isVisibilityValue) {

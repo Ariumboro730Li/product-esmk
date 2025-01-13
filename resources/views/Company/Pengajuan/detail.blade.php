@@ -554,7 +554,7 @@
                 serviceTypes.forEach((service) => {
                     // Buat elemen card
                     let cardDiv = document.createElement("div");
-                    cardDiv.className = "col-12 col-md-4";
+                    cardDiv.className = "col-12";
 
                     cardDiv.innerHTML = `
                        <ul class="list">
