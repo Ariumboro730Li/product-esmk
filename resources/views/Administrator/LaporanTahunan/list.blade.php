@@ -1486,5 +1486,5 @@
             ]);
         }
     </script>
-    @include('Internal.partial-js')
+    @include('Administrator.partial-js')
 @endsection
