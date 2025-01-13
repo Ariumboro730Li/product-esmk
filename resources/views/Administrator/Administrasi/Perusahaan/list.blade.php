@@ -42,12 +42,12 @@
         </div>
     </div>
     <div class="row d-flex">
-        <div class="col-lg-6 col-md-6 col-12">
+        <div class="col-lg-3 col-12">
             <div class="card">
                 <div class="card-body" style=" height: 9rem; ">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 ms-3">
-                            <p class="mb-1">Perusahaan Terverifikasi</p>
+                            <p class="mb-1">Perusahaan Aktif</p>
                             <h4 id="total_perusahaan_terverifikasi"></h4>
                         </div>
                         <div class="flex-shrink-0">
@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 col-md-6 col-12">
+        <div class="col-lg-3 col-12">
             <div class="card">
                 <div class="card-body" style=" height: 9rem; ">
                     <div class="d-flex align-items-center">
@@ -77,12 +77,12 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-12" hidden>
+        <div class="col-lg-3 col-12">
             <div class="card">
                 <div class="card-body" style=" height: 9rem; ">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 ms-3">
-                            <p class="mb-1 fw-medium text-muted">Terdaftar Spionam</p>
+                            <p class="mb-1 fw-medium text-muted">Perusahaan Sudah Sertifikasi</p>
                             <h4 class="mb-1" id="terdaftar_spionam"></h4>
                         </div>
                         <div class="flex-shrink-0">
@@ -94,12 +94,12 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-12" hidden>
+        <div class="col-lg-3 col-12">
             <div class="card">
                 <div class="card-body" style=" height: 9rem; ">
                     <div class="d-flex align-items-center">
                         <div class="flex-grow-1 ms-3">
-                            <p class="mb-1 fw-medium text-muted">Belum Terdaftar Spionam</p>
+                            <p class="mb-1 fw-medium text-muted">Perusahaan Belum Sertifikasi</p>
                             <h4 class="mb-1" id="belum_terdaftar_spionam"></h4>
                         </div>
                         <div class="flex-shrink-0">
@@ -545,12 +545,12 @@
             if (getDataRest.status == 200) {
                 loadingPage(false);
                 await setChartPerusahaanTerverisikasi(getDataRest.data.data);
-                document.getElementById('total_perusahaan').innerText = getDataRest.data.data.total_perusahaan || '-';
+                document.getElementById('total_perusahaan').innerText = getDataRest.data.data.total_perusahaan || 0;
                 document.getElementById('total_perusahaan_terverifikasi').innerText = getDataRest.data.data
-                    .total_perusahaan_terverifikasi || '-';
+                    .total_perusahaan_terverifikasi || 0;
                 document.getElementById('belum_terdaftar_spionam').innerText = getDataRest.data.data
-                    .belum_terdaftar_spionam || '-';
-                document.getElementById('terdaftar_spionam').innerText = getDataRest.data.data.terdaftar_spionam || '-';
+                    .perusahaan_belum_sertifikat || 0;
+                document.getElementById('terdaftar_spionam').innerText = getDataRest.data.data.perusahaan_sertifikat || 0;
             }
         }
         async function setChartPerusahaanTerverisikasi(data) {
