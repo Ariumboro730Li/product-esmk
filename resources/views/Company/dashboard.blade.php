@@ -51,6 +51,12 @@
                 justify-content: center;
             }
         }
+        .jenis-produksi {
+            white-space: pre-wrap; /* Melakukan auto wrap pada teks panjang */
+            word-wrap: break-word; /* Memastikan kata panjang terpotong dengan baik */
+            word-break: break-word; /* Memotong kata jika terlalu panjang */
+            overflow-wrap: break-word; /* Untuk kompatibilitas tambahan */
+        }
     </style>
 @endsection
 @section('content')
@@ -216,6 +222,7 @@
                                                                     <th>No</th>
                                                                     <th>Kode KBLI</th>
                                                                     <th>Nama KBLI</th>
+                                                                    <th>Jenis Produksi</th>
                                                                     <th>Status</th>
                                                                 </tr>
                                                             </thead>
@@ -373,6 +380,7 @@
             let handleData = {
                 id: data['id'] ?? '-',
                 uraian_usaha: data['uraian_usaha'] ?? '-',
+                jenis_produksi: data['jenis_produksi'] ?? '-',
                 kbli: data['kbli'] ?? '-',
                 description: data['description'] ?? '-',
                 created_at: data['created_at'] ?? '-',
@@ -411,6 +419,7 @@
                         </div>
                     </div></td>
                     <td>${element.uraian_usaha}</td>
+                    <td><p class="jenis-produksi">${element.jenis_produksi}</p></td>
                     <td><span class="badge ${colorMatch}">${textMatch}</span></td>
                 </tr>
                 `;
@@ -636,7 +645,7 @@
             if (now >= expiredDate) {
                 document.getElementById('countdown-timer').innerHTML = 'Sertifikat SMK Sudah Kedaluwarsa';
                 document.getElementById('countdown-card').style.background =
-                    "rgba(139, 0, 0, 0.9)"; 
+                    "rgba(139, 0, 0, 0.9)";
                 return;
             }
 

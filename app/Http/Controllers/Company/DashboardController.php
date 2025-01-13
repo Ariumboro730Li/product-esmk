@@ -140,12 +140,14 @@ class DashboardController extends Controller
         $dataKbli = $nib->data_nib;
         if ($request->search !== null) {
             $search = strtolower(trim($request->search));
-
             $dataKbli['data_proyek'] = array_filter($dataKbli['data_proyek'], function ($item) use ($search) {
                 if (isset($item['uraian_usaha']) && strpos(strtolower($item['uraian_usaha']), $search) !== false) {
                     return true;
                 }
                 if (isset($item['kbli']) && strpos(strtolower($item['kbli']), $search) !== false) {
+                    return true;
+                }
+                if (isset($item['data_proyek_produk']['jenis_produksi']) && strpos(strtolower($item['data_proyek_produk']['jenis_produksi']), $search) !== false) {
                     return true;
                 }
                 return false;
@@ -155,6 +157,7 @@ class DashboardController extends Controller
             return [
                 'kbli' => $item['kbli'],
                 'uraian_usaha' => $item['uraian_usaha'] ?? null,
+                'jenis_produksi' => ucwords($item['data_proyek_produk'][0]['jenis_produksi']) ?? null,
             ];
         }, $dataKbli['data_proyek']);
         $existKbli = StandardIndustrialClassification::pluck('kbli')->toArray();
@@ -162,6 +165,7 @@ class DashboardController extends Controller
             return [
                 'kbli' => $item['kbli'],
                 'uraian_usaha' => $item['uraian_usaha'],
+                'jenis_produksi' => $item['jenis_produksi'] ?? null,
                 'is_match' => in_array($item['kbli'], $existKbli) ? 1 : 0,
             ];
         }, $kbliList);
