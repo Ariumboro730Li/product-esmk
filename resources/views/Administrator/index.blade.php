@@ -31,6 +31,12 @@
         select#limitPage {
             width: 35%;
         }
+        body > div.pc-container > div > div.page-header > div > div > div.col-md-12.d-flex.justify-content-between.align-items-center > div > h2 {
+            font-size: 1.2rem;
+        }
+        body > div.pc-container > div > div.page-header > div > div > div.col-md-12.d-flex.d-flex.flex-column.flex-md-row.justify-content-between.align-items-start > div > h2 {
+            font-size: 1.2rem;
+        }
     </style>
     @yield('asset_css')
     <script src="{{ asset('assets/js/tech-stack.js') }}"></script>
@@ -42,7 +48,7 @@
             let address     = "{{ request()->app_setting->value->alamat }}";
 
             document.querySelector('#nama_instansi').innerText  = "{{ request()->app_setting->value->nama_instansi }}";
-            document.getElementById('kredit_by').innerText      = "{{ request()->app_setting->value->nama_instansi }}";
+            // document.getElementById('kredit_by').innerText      = "{{ request()->app_setting->value->nama_instansi }}";
 
             $('#email_app').html(`<i class="fa fa-envelope me-2"></i>${email}`);
             $('#no_telepon_app').html(`<i class="fa fa-phone me-2"></i>${whatsapp}`);
