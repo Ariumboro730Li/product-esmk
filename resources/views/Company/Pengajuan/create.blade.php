@@ -155,7 +155,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-12 d-flex">
+                        <div class="col-lg-6 col-12 d-flex">
                             <div class="border rounded p-3 w-100">
                                 <h5>Jenis Pelayanan</h5>
                                 <div style="max-height: 80px; overflow-y: scroll;">
@@ -165,32 +165,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-12 d-flex">
+                        <div class="col-lg-6 col-12 d-flex">
                             <div class="border rounded p-3 w-100">
                                 <h5>Penanggung Jawab</h5>
                                 <p class="mb-0"><i class="fa-solid fa-user me-2"></i><span id="pic_name"></span></p>
                                 <p class="mb-0"><i class="fa-solid fa-phone me-2"></i><span id="pic_phone"></span></p>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-12 d-flex">
-                            <div class="border rounded p-3 w-100">
-                                <h5>Informasi Pengguna</h5>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <p class="mb-0"><i class="fa-solid fa-circle-user me-2"></i><span
-                                                id="u_name"></span></p>
-                                        <p class="mb-0"><i class="fa-solid fa-phone me-2"></i><span id="u_phone"></span>
-                                        </p>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <p class="mb-0"><i class="fa-solid fa-envelope me-2"></i><span
-                                                id="u_email"></span>
-                                        </p>
-                                        <p class="mb-0"><i class="fa-solid fa-calendar-day me-2"></i><span
-                                                id="establish_date"></span></p>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
