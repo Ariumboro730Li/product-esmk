@@ -57,15 +57,23 @@ class DashboardController extends Controller
     {
         $dateFrom = $request->date_from;
         $dateTo = $request->date_to;
-        // $queryCompany = Company::with('serviceTypes')
-        //     ->join('users', 'companies.id', '=', 'users.id')
-        //     ->select('companies.id', 'companies.name', 'companies.created_at', 'users.email as email');
 
-        $queryCompany = Company::with('serviceTypes')
-            ->leftJoin('certificate_requests', 'companies.id', '=', 'certificate_requests.company_id')
-            ->select('companies.*', 'certificate_requests.status as certificate_status');
-        $queryCompany->whereBetween('companies.created_at', [$dateFrom, $dateTo]);
-        return $queryCompany->get();
+        $query = Company::with(['province', 'city', 'serviceTypes'])
+            ->leftJoinSub(
+                CertificateRequest::select('company_id', 'status as certificate_status')
+                    ->whereIn('id', function ($subquery) {
+                        $subquery->selectRaw('MAX(id)')
+                            ->from('certificate_requests')
+                            ->groupBy('company_id');
+                    }),
+                'latest_certificate_requests',
+                'companies.id',
+                '=',
+                'latest_certificate_requests.company_id'
+            )
+            ->select('companies.*', 'latest_certificate_requests.certificate_status');
+        $query->whereBetween('companies.created_at', [$dateFrom, $dateTo]);
+        return $query->get();
     }
 
     public function serviceTypes(Request $request)
