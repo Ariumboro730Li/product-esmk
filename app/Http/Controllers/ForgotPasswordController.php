@@ -66,7 +66,7 @@ class ForgotPasswordController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        Mail::to(env('MAIL_SAMPLE_USER') ?? $request->eamil )->send(new ForgotPasswordMail($token, $request->email));
+        Mail::to(env('MAIL_SAMPLE_USER') ?? $request->email )->send(new ForgotPasswordMail($token, $request->email));
 
         return response()->json([
             'status_code' => HttpStatusCodes::HTTP_OK,
