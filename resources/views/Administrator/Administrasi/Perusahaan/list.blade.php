@@ -544,6 +544,8 @@
                 document.getElementById('total_perusahaan').innerText = getDataRest.data.data.total_perusahaan || 0;
                 document.getElementById('total_perusahaan_terverifikasi').innerText = getDataRest.data.data
                     .total_perusahaan_terverifikasi || 0;
+
+                    console.log(getDataRest.data.data)
                 document.getElementById('belum_terdaftar_spionam').innerText = getDataRest.data.data
                     .perusahaan_belum_sertifikat || 0;
                 document.getElementById('terdaftar_spionam').innerText = getDataRest.data.data.perusahaan_sertifikat ||
