@@ -41,11 +41,15 @@ class ForgotPasswordMail extends Mailable
     public function content(): Content
     {
         $setting = Setting::where('name', 'aplikasi')->first();
+        $nama_instansi = $setting['value']['nama_instansi'];
+        $alamat =  $setting['value']['alamat'];
         return new Content(
             view: 'email.auth.forgot-password',
             with: [
                 'token' => $this->token,
                 'logoApp' => $setting ? $setting->value['logo_aplikasi'] : env('url').'/assets/images/logoapp.png',
+                'nama_instansi' => $nama_instansi,
+                'alamat' => $alamat,
                 'email' => $this->email
             ],
         );

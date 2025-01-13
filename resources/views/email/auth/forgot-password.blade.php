@@ -1,371 +1,637 @@
-<!DOCTYPE html
-    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
+    xmlns:o="urn:schemas-microsoft-com:office:office">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="x-apple-disable-message-reformatting" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="color-scheme" content="light dark" />
-    <meta name="supported-color-schemes" content="light dark" />
-    <title>Forgot Password</title>
-    <style type="text/css" rel="stylesheet" media="all">
-        /* Base ------------------------------ */
-        @import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,700&display=swap");
+    <!--[if gte mso 9]>
+<xml>
+  <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+  </o:OfficeDocumentSettings>
+</xml>
+<![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x-apple-disable-message-reformatting">
+    <!--[if !mso]><!-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><!--<![endif]-->
+    <title></title>
 
-        body {
-            width: 100% !important;
-            height: 100%;
-            margin: 0;
-            -webkit-text-size-adjust: none;
-        }
-
-        a {
-            color: #3869D4;
-        }
-
-        a img {
-            border: none;
-        }
-
-        td {
-            word-break: break-word;
-        }
-
-        .preheader {
-            display: none !important;
-            visibility: hidden;
-            mso-hide: all;
-            font-size: 1px;
-            line-height: 1px;
-            max-height: 0;
-            max-width: 0;
-            opacity: 0;
-            overflow: hidden;
-        }
-
-        /* Type ------------------------------ */
-
-        body,
-        td,
-        th {
-            font-family: "Nunito Sans", Helvetica, Arial, sans-serif;
-        }
-
-        h1 {
-            margin-top: 0;
-            color: #333333;
-            font-size: 22px;
-            font-weight: bold;
-            text-align: left;
-        }
-
-        h2 {
-            margin-top: 0;
-            color: #333333;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: left;
-        }
-
-        h3 {
-            margin-top: 0;
-            color: #333333;
-            font-size: 14px;
-            font-weight: bold;
-            text-align: left;
-        }
-
-        td,
-        th {
-            font-size: 16px;
-        }
-
-        p,
-        ul,
-        ol,
-        blockquote {
-            margin: .4em 0 1.1875em;
-            font-size: 16px;
-            line-height: 1.625;
-        }
-
-        p.sub {
-            font-size: 13px;
-        }
-
-        .align-center {
-            text-align: center;
-        }
-
-        /* Buttons ------------------------------ */
-
-        .button {
-            background-color: #3869D4;
-            border-top: 10px solid #3869D4;
-            border-right: 18px solid #3869D4;
-            border-bottom: 10px solid #3869D4;
-            border-left: 18px solid #3869D4;
-            display: inline-block;
-            color: #FFF;
-            text-decoration: none;
-            border-radius: 3px;
-            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
-            -webkit-text-size-adjust: none;
-            box-sizing: border-box;
-        }
-
-        .button--green {
-            background-color: #22BC66;
-            border-top: 10px solid #22BC66;
-            border-right: 18px solid #22BC66;
-            border-bottom: 10px solid #22BC66;
-            border-left: 18px solid #22BC66;
-        }
-
-        .button--red {
-            background-color: #FF6136;
-            border-top: 10px solid #FF6136;
-            border-right: 18px solid #FF6136;
-            border-bottom: 10px solid #FF6136;
-            border-left: 18px solid #FF6136;
-        }
-
-        @media only screen and (max-width: 500px) {
-            .button {
-                width: 100% !important;
-                text-align: center !important;
+    <style type="text/css">
+        @media only screen and (min-width: 620px) {
+            .u-row {
+                width: 600px !important;
             }
+
+            .u-row .u-col {
+                vertical-align: top;
+            }
+
+
+            .u-row .u-col-33p33 {
+                width: 199.98px !important;
+            }
+
+
+            .u-row .u-col-66p67 {
+                width: 400.02px !important;
+            }
+
+
+            .u-row .u-col-100 {
+                width: 600px !important;
+            }
+
+        }
+
+        @media only screen and (max-width: 620px) {
+            .u-row-container {
+                max-width: 100% !important;
+                padding-left: 0px !important;
+                padding-right: 0px !important;
+            }
+
+            .u-row {
+                width: 100% !important;
+            }
+
+            .u-row .u-col {
+                display: block !important;
+                width: 100% !important;
+                min-width: 320px !important;
+                max-width: 100% !important;
+            }
+
+            .u-row .u-col>div {
+                margin: 0 auto;
+            }
+
+
+            .u-row .u-col img {
+                max-width: 100% !important;
+            }
+
         }
 
         body {
-            background-color: #F4F4F7;
-            color: #51545E;
+            margin: 0;
+            padding: 0
+        }
+
+        table,
+        td,
+        tr {
+            border-collapse: collapse;
+            vertical-align: top
         }
 
         p {
-            color: #51545E;
+            margin: 0
         }
 
-        p.sub {
-            color: #6B6E76;
+        .ie-container table,
+        .mso-container table {
+            table-layout: fixed
         }
 
-        .email-wrapper {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            -premailer-width: 100%;
-            -premailer-cellpadding: 0;
-            -premailer-cellspacing: 0;
-            background-color: #F4F4F7;
+        * {
+            line-height: inherit
         }
 
-        .email-content {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            -premailer-width: 100%;
-            -premailer-cellpadding: 0;
-            -premailer-cellspacing: 0;
+        a[x-apple-data-detectors=true] {
+            color: inherit !important;
+            text-decoration: none !important
         }
 
-        /* Masthead ----------------------- */
 
-        .email-masthead {
-            text-align: center;
+        table,
+        td {
+            color: #000000;
         }
 
-        .email-masthead_logo {
-            width: 150px;
-            height: auto;
+        #u_body a {
+            color: #0000ee;
+            text-decoration: underline;
         }
 
-        /* Body ------------------------------ */
-
-        .email-body {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            -premailer-width: 100%;
-            -premailer-cellpadding: 0;
-            -premailer-cellspacing: 0;
-            background-color: #FFFFFF;
-        }
-
-        .email-body_inner {
-            width: 570px;
-            margin: 0 auto;
-            padding: 0;
-            -premailer-width: 570px;
-            -premailer-cellpadding: 0;
-            -premailer-cellspacing: 0;
-            background-color: #FFFFFF;
-        }
-
-        .email-footer {
-            width: 570px;
-            margin: 0 auto;
-            padding: 0;
-            -premailer-width: 570px;
-            -premailer-cellpadding: 0;
-            -premailer-cellspacing: 0;
-            text-align: center;
-        }
-
-        .email-footer p {
-            color: #6B6E76;
-        }
-
-        .body-action {
-            width: 100%;
-            margin: 30px auto;
-            padding: 0;
-            -premailer-width: 100%;
-            -premailer-cellpadding: 0;
-            -premailer-cellspacing: 0;
-            text-align: center;
-        }
-
-        .content-cell {
-            padding: 20px 35px;
-        }
-
-        /*Media Queries ------------------------------ */
-
-        @media only screen and (max-width: 600px) {
-
-            .email-body_inner,
-            .email-footer {
-                width: 100% !important;
-            }
-        }
-
-        @media (prefers-color-scheme: dark) {
-
-            body,
-            .email-wrapper,
-            .email-masthead,
-            .body,
-            .email-wrapper,
-            .email-masthead,
-            .email-footer {
-                background-color: #29292C !important;
-                color: #F4F4F7 !important;
+        @media (max-width: 480px) {
+            #u_content_image_1 .v-container-padding-padding {
+                padding: 40px 0px 0px !important;
             }
 
-            .email-body,
-            .email-body_inner,
-            .email-content {
-                background-color: #333338 !important;
-                color: #F4F4F7 !important;
+            #u_content_image_1 .v-src-width {
+                width: auto !important;
             }
 
-            p,
-            ul,
-            ol,
-            blockquote,
-            h1,
-            h2,
-            h3,
-            span {
-                color: #F4F4F7 !important;
+            #u_content_image_1 .v-src-max-width {
+                max-width: 55% !important;
             }
-        }
 
-        :root {
-            color-scheme: light dark;
-            supported-color-schemes: light dark;
+            #u_content_heading_3 .v-font-size {
+                font-size: 18px !important;
+            }
+
+            #u_content_heading_2 .v-container-padding-padding {
+                padding: 5px 10px 40px !important;
+            }
+
+            #u_content_heading_4 .v-container-padding-padding {
+                padding: 40px 10px 0px !important;
+            }
+
+            #u_content_heading_4 .v-text-align {
+                text-align: center !important;
+            }
+
+            #u_content_divider_1 .v-container-padding-padding {
+                padding: 10px 10px 10px 125px !important;
+            }
+
+            #u_content_text_2 .v-container-padding-padding {
+                padding: 10px 10px 40px !important;
+            }
+
+            #u_content_text_2 .v-text-align {
+                text-align: center !important;
+            }
+
+            #u_content_button_1 .v-size-width {
+                width: 60% !important;
+            }
+
+            #u_content_image_4 .v-container-padding-padding {
+                padding: 40px 10px 10px !important;
+            }
+
+            #u_content_image_4 .v-src-width {
+                width: auto !important;
+            }
+
+            #u_content_image_4 .v-src-max-width {
+                max-width: 30% !important;
+            }
+
+            #u_content_heading_7 .v-container-padding-padding {
+                padding: 10px 10px 0px !important;
+            }
+
+            #u_content_heading_7 .v-text-align {
+                text-align: center !important;
+            }
+
+            #u_content_text_5 .v-container-padding-padding {
+                padding: 5px 10px 40px !important;
+            }
+
+            #u_content_text_5 .v-text-align {
+                text-align: center !important;
+            }
+
+            #u_row_4.v-row-padding--vertical {
+                padding-top: 0px !important;
+                padding-bottom: 0px !important;
+            }
+
+            #u_content_image_2 .v-container-padding-padding {
+                padding: 40px 10px 10px !important;
+            }
+
+            #u_content_image_2 .v-src-width {
+                width: auto !important;
+            }
+
+            #u_content_image_2 .v-src-max-width {
+                max-width: 30% !important;
+            }
+
+            #u_content_heading_1 .v-container-padding-padding {
+                padding: 10px 10px 0px !important;
+            }
+
+            #u_content_heading_1 .v-text-align {
+                text-align: center !important;
+            }
+
+            #u_content_text_1 .v-container-padding-padding {
+                padding: 5px 10px 40px !important;
+            }
+
+            #u_content_text_1 .v-text-align {
+                text-align: center !important;
+            }
+
+            #u_content_social_1 .v-container-padding-padding {
+                padding: 30px 10px 10px !important;
+            }
+
+            #u_content_text_deprecated_1 .v-container-padding-padding {
+                padding: 10px 10px 20px !important;
+            }
         }
     </style>
+
+
+
+    <!--[if !mso]><!-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet" type="text/css">
+    <!--<![endif]-->
+
 </head>
 
-<body>
+<body class="clean-body u_body"
+    style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #ffffff;color: #000000">
+    <!--[if IE]><div class="ie-container"><![endif]-->
+    <!--[if mso]><div class="mso-container"><![endif]-->
+    <table id="u_body"
+        style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #ffffff;width:100%"
+        cellpadding="0" cellspacing="0">
+        <tbody>
+            <tr style="vertical-align: top">
+                <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                    <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background-color: #ffffff;"><![endif]-->
 
-    <span class="preheader">Pemulihan Kata Sandi {{ $email }}</span>
-    <table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
-        <!-- Email Header -->
-        <tr>
-            <td align="center">
-                <table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
-                    <tr>
-                        <td class="email-masthead content-cell">
-                            <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('assets/images/logo.png'))) }}"
-                                class="email-masthead_logo" alt="Caribarang.id" />
-                        </td>
-                    </tr>
-                    <!-- Email Body -->
-                    <tr>
-                        <td class="email-body" width="100%" cellpadding="0" cellspacing="0">
-                            <table class="email-body_inner" align="center" width="570" cellpadding="0"
-                                cellspacing="0" role="presentation">
-                                <!-- Body content -->
-                                <tr>
-                                    <td class="content-cell">
-                                        <div class="f-fallback">
-                                            <p>Mohon maaf karena Anda mengalami kesulitan saat masuk ke e-SMK. Kami
-                                                mendapat pesan bahwa Anda lupa kata sandi Anda.
-                                                Sekarang Anda dapat mengatur ulang kata sandi Anda dengan menggunakan
-                                                tombol berikut ini:</p>
-                                            <!-- Action -->
-                                            <table class="body-action" align="center" width="100%" cellpadding="0"
-                                                cellspacing="0" role="presentation">
-                                                <tr>
-                                                    <td align="center">
-                                                        <table width="100%" border="0" cellspacing="0"
-                                                            cellpadding="0" role="presentation">
-                                                            <tr>
-                                                                <td align="center">
-                                                                    <a
-                                                                        href="{{ env('FE_BASE_URL') }}/change-password?token={{ $token }}">
-                                                                        <div class="f-fallback button button--green">
-                                                                            Reset ulang kata sandi Anda</div>
-                                                                    </a>
-                                                                </td>
 
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
+
+                    <div class="u-row-container v-row-padding--vertical" style="padding: 0px;background-color: #ffffff">
+                        <div class="u-row"
+                            style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+                            <div
+                                style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
+                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: #ffffff;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: transparent;"><![endif]-->
+
+                                <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color: #ffffff;width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;" valign="top"><![endif]-->
+                                <div class="u-col u-col-100"
+                                    style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+                                    <div style="background-color: #ffffff;height: 100%;width: 100% !important;">
+                                        <!--[if (!mso)&(!IE)]><!-->
+                                        <div
+                                            style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
+                                            <!--<![endif]-->
+
+                                            <table id="u_content_image_1" style="font-family:'Raleway',sans-serif;"
+                                                role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                                                border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="v-container-padding-padding"
+                                                            style="overflow-wrap:break-word;word-break:break-word;padding:50px 0px 0px;font-family:'Raleway',sans-serif;"
+                                                            align="left">
+
+                                                            <table width="100%" cellpadding="0" cellspacing="0"
+                                                                border="0">
+                                                                <tr>
+                                                                    <td class="v-text-align"
+                                                                        style="padding-right: 0px;padding-left: 0px;"
+                                                                        align="center">
+
+                                                                        <img align="center" border="0"
+                                                                            src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('assets/images/logoapp.png'))) }}"
+                                                                            alt="image" title="image"
+                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 30%;max-width: 180px;"
+                                                                            width="180"
+                                                                            class="v-src-width v-src-max-width" />
+
+                                                                        {{-- <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('assets/images/logoapp.png'))) }}"
+                                                                            class="email-masthead_logo" alt="Caribarang.id" /> --}}
+
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
                                             </table>
-                                            <h4>Catatan :</h4>
-                                            <p>
-                                            <ul>
-                                                <li>Jika Anda tidak meminta pengaturan ulang kata sandi, tidak ada
-                                                    tindakan lebih lanjut yang diperlukan dan abaikan email ini.</li>
-                                                <li>Email ini dikirimkan otomatis oleh sistem, mohon untuk tidak
-                                                    membalas email ini.</li>
-                                                <li>Link email reset kata sandi ini akan kedaluwarsa dalam 1 jam
-                                                    kedepan.</li>
-                                            </ul>
-                                            </p>
-                                            <p>Hormat Kami,<br />Direktorat Jenderal Perhubungan Darat</p>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <!-- Email Footer -->
-                    <tr>
-                        <td>
-                            <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0"
-                                role="presentation">
-                                <tr>
-                                    <td class="content-cell" align="center">
-                                        <p class="f-fallback sub align-center">&copy; Copyright 2023 e-SMK | All rights
-                                            reserved.</p>
-                                        <p class="f-fallback sub align-center" style="margin-top: -15px">Kementerian
-                                            Perhubungan<br>Direktorat Jenderal Perhubungan Darat</p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
+
+                                            <table id="u_content_heading_3" style="font-family:'Raleway',sans-serif;"
+                                                role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                                                border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="v-container-padding-padding"
+                                                            style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 0px;font-family:'Raleway',sans-serif;"
+                                                            align="left">
+
+                                                            <!--[if mso]><table width="100%"><tr><td><![endif]-->
+                                                            <h1 class="v-text-align v-font-size"
+                                                                style="margin: 0px; line-height: 140%; text-align: center; word-wrap: break-word; font-size: 22px; font-weight: 400;">
+                                                                <strong>{{ $nama_instansi}}</strong>
+                                                            </h1>
+                                                            <!--[if mso]></td></tr></table><![endif]-->
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <table id="u_content_heading_2" style="font-family:'Raleway',sans-serif;"
+                                                role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                                                border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="v-container-padding-padding"
+                                                            style="overflow-wrap:break-word;word-break:break-word;padding:5px 10px 50px;font-family:'Tahoma',sans-serif;"
+                                                            align="left">
+
+                                                            <!--[if mso]><table width="100%"><tr><td><![endif]-->
+                                                            <h1 class="v-text-align v-font-size"
+                                                                style="margin: 0px; color: #5c5c5c; line-height: 140%; text-align: center; word-wrap: break-word; font-size: 14px; font-weight: 400;">
+                                                               {{ $alamat }}
+                                                            </h1>
+                                                            <!--[if mso]></td></tr></table><![endif]-->
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <!--[if (!mso)&(!IE)]><!-->
+                                        </div><!--<![endif]-->
+                                    </div>
+                                </div>
+                                <!--[if (mso)|(IE)]></td><![endif]-->
+                                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="u-row-container v-row-padding--vertical"
+                        style="padding: 0px;background-color: transparent">
+                        <div class="u-row"
+                            style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+                            <div
+                                style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
+                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: transparent;"><![endif]-->
+
+                                <!--[if (mso)|(IE)]><td align="center" width="600" style="background-color: #f0f5f6;width: 600px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
+                                <div class="u-col u-col-100"
+                                    style="max-width: 320px;min-width: 600px;display: table-cell;vertical-align: top;">
+                                    <div
+                                        style="background-color: #f0f5f6;height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+                                        <!--[if (!mso)&(!IE)]><!-->
+                                        <div
+                                            style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+                                            <!--<![endif]-->
+
+                                            <table id="u_content_heading_4" style="font-family:'Raleway',sans-serif;"
+                                                role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                                                border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="v-container-padding-padding"
+                                                            style="overflow-wrap:break-word;word-break:break-word;padding:50px 60px 0px;font-family:'Raleway',sans-serif;"
+                                                            align="left">
+
+                                                            <!--[if mso]><table width="100%"><tr><td><![endif]-->
+                                                            <h1 class="v-text-align v-font-size"
+                                                                style="margin: 0px; line-height: 140%; text-align: center; word-wrap: break-word; font-size: 20px; font-weight: 400;">
+                                                                <strong>Pemulihan Kata Sandi {{ $email }}</strong>
+                                                            </h1>
+                                                            <!--[if mso]></td></tr></table><![endif]-->
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <table id="u_content_divider_1" style="font-family:'Raleway',sans-serif;"
+                                                role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                                                border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="v-container-padding-padding"
+                                                            style="overflow-wrap:break-word;word-break:break-word;padding:10px 10px 10px 60px;font-family:'Raleway',sans-serif;"
+                                                            align="center">
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <br>
+                                            <br>
+                                            <table id="u_content_text_2" style="font-family:'Raleway',sans-serif;"
+                                                role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                                                border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="v-container-padding-padding"
+                                                            style="overflow-wrap:break-word;word-break:break-word;padding:10px 60px 50px;font-family:'Raleway',sans-serif;"
+                                                            align="left">
+
+                                                            <div class="v-text-align v-font-size"
+                                                                style="font-size: 14px; line-height: 140%; text-align: justify; word-wrap: break-word;">
+                                                                <p style="line-height: 140%;">Kami mohon maaf atas
+                                                                    ketidaknyamanan yang Anda alami saat mencoba masuk
+                                                                    ke website SMK. Kami menerima informasi bahwa Anda
+                                                                    telah melaporkan lupa kata sandi Anda.</p>
+                                                                <p style="line-height: 140%; margin-bottom: 15px;">
+                                                                    Anda dapat mengatur ulang kata sandi Anda dengan
+                                                                    mengklik tombol di bawah ini:</p>
+                                                                <!-- Action -->
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <table id="u_content_button_1" style="font-family:'Raleway',sans-serif;"
+                                                role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                                                border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="v-container-padding-padding"
+                                                            style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:'Raleway',sans-serif;"
+                                                            align="left">
+
+                                                            <!--[if mso]><style>.v-button {background: transparent !important;}</style><![endif]-->
+                                                            <div class="v-text-align" align="center">
+                                                                <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://unlayer.com/templates" style="height:37px; v-text-anchor:middle; width:155px;" arcsize="11%"  stroke="f" fillcolor="#316b94"><w:anchorlock/><center style="color:#FFFFFF;"><![endif]-->
+                                                                <a href="{{ route('forgot.change')}}?token={{ $token }}"
+                                                                    class="v-button v-size-width v-font-size"
+                                                                    style="box-sizing: border-box;display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #316b94; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 14px;">
+                                                                    <span
+                                                                        style="display:block;padding:10px 20px;line-height:120%;"><span
+                                                                            style="line-height: 16.8px;">Ubah kata
+                                                                            sandi</span></span>
+                                                                </a>
+                                                                <!--[if mso]></center></v:roundrect><![endif]-->
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <table id="u_content_text_2" style="font-family:'Raleway',sans-serif;"
+                                                role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                                                border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="v-container-padding-padding"
+                                                            style="overflow-wrap:break-word;word-break:break-word;padding:10px 60px 50px;font-family:'Raleway',sans-serif;"
+                                                            align="left">
+
+                                                            <div class="v-text-align v-font-size"
+                                                                style="font-size: 14px; line-height: 140%; text-align: justify; word-wrap: break-word;">
+
+                                                                <h4 style="line-height: 140%; margin-top: 25px;">
+                                                                    Catatan :</h4>
+                                                                <ul style="line-height: 140%;">
+                                                                    <li>Jika Anda tidak meminta pengaturan ulang kata
+                                                                        sandi, tidak ada tindakan lebih lanjut yang
+                                                                        diperlukan dan
+                                                                        abaikan email ini.</li>
+                                                                    <li>Email ini dikirimkan otomatis oleh sistem, mohon
+                                                                        untuk tidak membalas email ini.</li>
+                                                                    <li>Link email reset kata sandi ini akan kedaluwarsa
+                                                                        dalam 1 jam ke depan.</li>
+                                                                </ul>
+                                                                <p style="line-height: 140%;">Hormat Kami,</p>
+                                                                <p style="line-height: 140%;">Direktorat Jenderal
+                                                                    Perhubungan Darat</p>
+                                                            </div>
+
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <!--[if (!mso)&(!IE)]><!-->
+                                        </div><!--<![endif]-->
+                                    </div>
+                                </div>
+                                <!--[if (mso)|(IE)]></td><![endif]-->
+                                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="u_row_4" class="u-row-container v-row-padding--vertical"
+                        style="padding: 0px;background-color: transparent">
+                        <div class="u-row"
+                            style="margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;">
+                            <div
+                                style="border-collapse: collapse;display: table;width: 100%;height: 100%;background-color: transparent;">
+                                <!--[if (mso)|(IE)]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding: 0px;background-color: transparent;" align="center"><table cellpadding="0" cellspacing="0" border="0" style="width:600px;"><tr style="background-color: transparent;"><![endif]-->
+
+                                <!--[if (mso)|(IE)]><td align="center" width="200" style="background-color: #2c3e50;width: 200px;padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;" valign="top"><![endif]-->
+                                <div class="u-col u-col-33p33"
+                                    style="max-width: 320px;min-width: 200px;display: table-cell;vertical-align: top;">
+                                    <div
+                                        style="background-color: #2c3e50;height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+                                        <!--[if (!mso)&(!IE)]><!-->
+                                        <div
+                                            style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+                                            <!--<![endif]-->
+
+                                            <table id="u_content_image_2" style="font-family:'Raleway',sans-serif;"
+                                                role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                                                border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="v-container-padding-padding"
+                                                            style="overflow-wrap:break-word;word-break:break-word;padding:30px 10px;font-family:'Raleway',sans-serif;"
+                                                            align="left">
+
+                                                            <table width="100%" cellpadding="0" cellspacing="0"
+                                                                border="0">
+                                                                <tr>
+                                                                    <td class="v-text-align"
+                                                                        style="padding-right: 0px;padding-left: 0px;"
+                                                                        align="center">
+
+                                                                        <img align="center" border="0"
+                                                                            src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('assets/images/logoapp.png'))) }}"
+                                                                            alt="image" title="image"
+                                                                            style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 65%;max-width: 117px;"
+                                                                            width="117"
+                                                                            class="v-src-width v-src-max-width" />
+
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <!--[if (!mso)&(!IE)]><!-->
+                                        </div><!--<![endif]-->
+                                    </div>
+                                </div>
+
+                                <div class="u-col u-col-66p67"
+                                    style="max-width: 320px;min-width: 400px;display: table-cell;vertical-align: top;">
+                                    <div
+                                        style="background-color: #2c3e50;height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+                                        <!--[if (!mso)&(!IE)]><!-->
+                                        <div
+                                            style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
+                                            <!--<![endif]-->
+
+                                            <table id="u_content_heading_1" style="font-family:'Raleway',sans-serif;"
+                                                role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                                                border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="v-container-padding-padding"
+                                                            style="overflow-wrap:break-word;word-break:break-word;padding:47px 10px 0px;font-family:'Raleway',sans-serif;"
+                                                            align="left">
+
+                                                            <!--[if mso]><table width="100%"><tr><td><![endif]-->
+                                                            <h1 class="v-text-align v-font-size"
+                                                                style="margin: 0px; color: #ffffff; line-height: 140%; text-align: left; word-wrap: break-word; font-size: 18px; font-weight: 400;">
+                                                                <strong>{{ $nama_instansi }}</strong>
+                                                            </h1>
+                                                            <!--[if mso]></td></tr></table><![endif]-->
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <table id="u_content_text_1" style="font-family:'Raleway',sans-serif;"
+                                                role="presentation" cellpadding="0" cellspacing="0" width="100%"
+                                                border="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="v-container-padding-padding"
+                                                            style="overflow-wrap:break-word;word-break:break-word;padding:5px 40px 50px 10px;font-family:'Raleway',sans-serif;"
+                                                            align="left">
+
+                                                            <div class="v-text-align v-font-size"
+                                                                style="font-size: 14px; color: #ced4d9; line-height: 140%; text-align: justify; word-wrap: break-word;">
+                                                                <p style="line-height: 140%;">&copy; Copyright 2025
+                                                                    SMK | All rights
+                                                                    reserved.</p>
+                                                                <p style="line-height: 140%;">{{ $nama_instansi }}</p>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <!--[if (!mso)&(!IE)]><!-->
+                                        </div><!--<![endif]-->
+                                    </div>
+                                </div>
+                                <!--[if (mso)|(IE)]></td><![endif]-->
+                                <!--[if (mso)|(IE)]></tr></table></td></tr></table><![endif]-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+                </td>
+            </tr>
+        </tbody>
     </table>
+    <!--[if mso]></div><![endif]-->
+    <!--[if IE]></div><![endif]-->
 </body>
 
 </html>
