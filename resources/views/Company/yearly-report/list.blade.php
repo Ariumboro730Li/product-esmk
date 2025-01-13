@@ -7,7 +7,7 @@
             <div class="row align-items-center">
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="/company/dashboard">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="/company/dashboard-company">Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="javascript: void(0)">Laporan</a></li>
                         <li class="breadcrumb-item" aria-current="page">Laporan Tahunan</li>
                     </ul>
