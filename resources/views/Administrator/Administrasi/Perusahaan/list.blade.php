@@ -240,7 +240,6 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Nama Perusahaan</th>
-                                                    <th>Terdaftar Spionam</th>
                                                     <th>Tipe Layanan</th>
                                                     <th>Alamat Perusahaan</th>
                                                     <th>Tanggal Bergabung</th>
@@ -478,8 +477,7 @@
                             </div>
                         </div>
                     </td>
-                    <td><a href="#!" class="text-muted"><span
-                                            class="badge ${badgeClass}">${spionamStatus}</span></a></td>
+                   
                     <td>
                         <ul style="padding-left: 20px; margin: 0;">
                             ${Array.isArray(element.service_types)
