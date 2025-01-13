@@ -1,0 +1,39 @@
+.btn-app {
+    color: white;
+    --bs-btn-color: #000;
+    --bs-btn-bg: #10347e;
+    --bs-btn-border-color: #10347e;
+    --bs-btn-hover-color: white;
+    --bs-btn-hover-bg: #466fc3;
+    --bs-btn-hover-border-color: #466fc3;
+    --bs-btn-focus-shadow-rgb: 75, 158, 183;
+    --bs-btn-active-color: white;
+    --bs-btn-active-bg: #10347e;
+    --bs-btn-active-border-color: #10347e;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #000;
+    --bs-btn-disabled-bg: #10347e;
+    --bs-btn-disabled-border-color: #10347e;
+}
+
+div:where(.swal2-container) div:where(.swal2-popup) {
+    width: 25em !important;
+}
+
+div:where(.swal2-container) h2:where(.swal2-title) {
+    font-size: 1.3em !important;
+    padding: .5em 1em 0 !important;
+}
+
+div:where(.swal2-container) .swal2-html-container {
+    font-size: 0.9em !important;
+    margin: 0.5em 1.6em .3em !important;
+}
+
+div:where(.swal2-icon) {
+    margin: 1.5em auto .6em !important;
+}
+
+.form-control {
+    border-radius: 0.3rem !important;
+}
