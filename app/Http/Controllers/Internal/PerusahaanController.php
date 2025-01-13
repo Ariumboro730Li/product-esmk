@@ -255,7 +255,7 @@ class PerusahaanController extends Controller
             'certificate_validation' => 'Validasi Sertifikat',
             'rejected' => 'Ditolak',
             'cancelled' => 'Dibatalkan',
-            'expired' => 'Kadaluarsa',
+            'expired' => 'Kedaluwarsa',
             'draft' => 'Draf'
         ];
 
@@ -520,8 +520,21 @@ class PerusahaanController extends Controller
                 'status_code' => HttpStatusCodes::HTTP_BAD_REQUEST,
             ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
-
+        
         $dataKbli = $nib->data_nib;
+        if ($request->search !== null) {
+            $search = strtolower(trim($request->search));
+
+            $dataKbli['data_proyek'] = array_filter($dataKbli['data_proyek'], function ($item) use ($search) {
+                if (isset($item['uraian_usaha']) && strpos(strtolower($item['uraian_usaha']), $search) !== false) {
+                    return true;
+                }
+                if (isset($item['kbli']) && strpos(strtolower($item['kbli']), $search) !== false) {
+                    return true;
+                }
+                return false;
+            });
+        }
         $kbliList = array_map(function ($item) {
             return [
                 'kbli' => $item['kbli'],

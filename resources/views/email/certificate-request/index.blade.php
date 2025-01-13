@@ -133,7 +133,7 @@
                         </p>
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;text-align: justify;">
                           Berdasarkan Peraturan Menteri Perhubungan Republik Indonesia Nomor 85 Tahun 2018 tentang Sistem Manajemen Keselamatan Perusahaan Angkutan Umum Pasal 13 Ayat 4, dimana Perusahaan Angkutan Umum wajib melaporkan perkembangan situasi dan kondisi yang disampaikan kepada Direktur Jenderal, Kepala Badan, Gubernur, dan Bupati/Walikota sesuai dengan kewenangannya. 
-                          Berkenaan dengan hal tersebut, kami mengimbau <strong>{{ $data->name }}</strong> bahwa pengajuan anda telah kadaluarsa, segera langkapi data anda dan melakukan pengajuan ulang pada Sistem Manajemen Keselamatan (SMK) melalui aplikasi e-SMK.
+                          Berkenaan dengan hal tersebut, kami mengimbau <strong>{{ $data->name }}</strong> bahwa pengajuan anda telah kedaluwarsa, segera langkapi data anda dan melakukan pengajuan ulang pada Sistem Manajemen Keselamatan (SMK) melalui aplikasi e-SMK.
                         </p>
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;text-align: justify;">
                           Berikut panduan untuk melakukan Pelaporan Tahunan SMK:

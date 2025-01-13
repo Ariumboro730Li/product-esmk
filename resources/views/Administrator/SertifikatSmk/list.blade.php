@@ -87,10 +87,10 @@
                             </div>
                         </div>
                         <div class="flex-grow-1 ms-3">
-                            <p class="mb-1">Permohonan Kadaluwarsa</p>
+                            <p class="mb-1">Permohonan Kedaluwarsa</p>
                             <div class="d-flex align-items-start">
-                                <h4 class="mb-0 me-2" id="total_kadaluwarsa">1</h4>
-                                <span class="fw-bold f-16 ket_kadaluwarsa">Kadaluwarsa</span>
+                                <h4 class="mb-0 me-2" id="total_kedaluwarsa">1</h4>
+                                <span class="fw-bold f-16 ket_kedaluwarsa">Kedaluwarsa</span>
                             </div>
                         </div>
                     </div>
@@ -1359,8 +1359,8 @@
                 document.getElementById('total_proses').innerText = data.proses_pengajuan
                 document.querySelector('.ket_proses').innerText = data.proses_pengajuan ? 'Berlangsung' : '';
 
-                document.getElementById('total_kadaluwarsa').innerText = data.pengajuan_ekspired ?? 0;
-                document.querySelector('.ket_kadaluwarsa').innerText = data.pengajuan_ekspired ? 'Kadaluwarsa' : '';
+                document.getElementById('total_kedaluwarsa').innerText = data.pengajuan_ekspired ?? 0;
+                document.querySelector('.ket_kedaluwarsa').innerText = data.pengajuan_ekspired ? 'Kedaluwarsa' : '';
 
                 document.getElementById('total_verified').innerText = data.proses_selesai ?? 0;
                 document.querySelector('.ket_verified').innerText = data.proses_selesai ? 'Selesai' : '';

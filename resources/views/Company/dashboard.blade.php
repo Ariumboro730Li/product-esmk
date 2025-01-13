@@ -211,8 +211,10 @@
                                                         <table class="table table-hover datatable-table" id="pc-dt-simple">
                                                             <thead>
                                                                 <tr>
-                                                                    <th class="text-start">Klasifikasi Baku Lapangan Usaha
-                                                                        Indonesia (KBLI)</th>
+                                                                    <th>No</th>
+                                                                    <th>Kode KBLI</th>
+                                                                    <th>Nama KBLI</th>
+                                                                    <th>Status</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody id="listDataKbli">
@@ -342,7 +344,7 @@
                 }).catch(function(error) {
                     loadingPage(false);
                     let resp = error.response;
-                    notificationAlert('info', 'Pemberitahuan', resp.data.message);
+                    // notificationAlert('info', 'Pemberitahuan', resp.data.message);
                     return resp;
                 });
                 loadingPage(false);
@@ -355,7 +357,7 @@
                     let errorMessages = getDataRest.data?.message || errorMessage1;
                     getDataTableKbli = `
                     <tr class="nk-tb-item">
-                        <th class="text-center" colspan="${$('th').length}"> ${errorMessages} </th>
+                        <th class="text-center" colspan="${$('th').length}"> Tidak Ada Data </th>
                     </tr>`;
                     $('#listDataKbli tr').remove();
                     $('#listDataKbli').append(getDataTableKbli);
@@ -378,10 +380,10 @@
         }
 
         async function setListKbli(dataList, pagination) {
-            const totalPageKbli = pagination.total;
-            const display_from = ((defaultLimitPageKbli * pagination.current_page) + 1) - defaultLimitPageKbli;
+            totalPageKbli = pagination.total;
+            let display_from = ((defaultLimitPageKbli * pagination.current_page) + 1) - defaultLimitPageKbli;
             let index_loop = display_from;
-            const display_to = currentPageKbli < pagination.total_pages ?
+            let display_to = currentPageKbli < pagination.total_pages ?
                 dataList.length < defaultLimitPageKbli ?
                 dataList.length :
                 (defaultLimitPageKbli * pagination.current_page) :
@@ -394,22 +396,19 @@
                 const colorMatch = element.is_match === true || element.is_match === 1 ? 'bg-success' : 'bg-danger';
                 getDataTableKbli += `
                 <tr>
-                    <td>
-                        <div class="row align-items-center">
-                            <div class="col-auto pe-0">
-                                <div
-                                    class="wid-40 hei-40 rounded-circle bg-secondary d-flex align-items-center justify-content-center">
-                                    <i class="fa-solid fa-file-lines text-white"></i>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <h5 class="mb-1"><span class="text-truncate w-100">${element.kbli}</span> </h5>
-                                <h6 class="mb-1 fw-normal"><span class="text-truncate w-100">${element.uraian_usaha}</span> </h6>
-                                <a href="#!" class="text-muted"><span class="badge ${colorMatch}">${textMatch}</span></a>
-
+                    <td>${index_loop}.</td>
+                    <td><div class="row align-items-center">
+                        <div class="col-auto pe-0">
+                            <div class="wid-40 hei-40 rounded-circle bg-secondary d-flex align-items-center justify-content-center">
+                                <i class="fa-solid fa-file-lines text-white"></i>
                             </div>
                         </div>
-                    </td>
+                        <div class="col">
+                            <h6 class="mb-1"><span class="text-truncate w-100">${element.kbli || '-'}</span> </h6>
+                        </div>
+                    </div></td>
+                    <td>${element.uraian_usaha}</td>
+                    <td><span class="badge ${colorMatch}">${textMatch}</span></td>
                 </tr>
                 `;
                 index_loop++;
@@ -632,9 +631,9 @@
 
             // Cek jika expired sudah lewat
             if (now >= expiredDate) {
-                document.getElementById('countdown-timer').innerHTML = 'Sertifikat SMK Sudah Kadaluwarsa';
+                document.getElementById('countdown-timer').innerHTML = 'Sertifikat SMK Sudah Kedaluwarsa';
                 document.getElementById('countdown-card').style.background =
-                    "rgba(139, 0, 0, 0.9)"; // Warna merah untuk kadaluwarsa
+                    "rgba(139, 0, 0, 0.9)"; 
                 return;
             }
 
@@ -702,10 +701,10 @@
             let colorClass = '';
 
             if (expiredDate < today) {
-                statusText = "Kadaluarsa";
+                statusText = "Kedaluwarsa";
                 colorClass = "bg-danger";
             } else if ((expiredDate - today) < (30 * 24 * 60 * 60 * 1000)) {
-                statusText = "Segera Kadaluarsa";
+                statusText = "Segera Kedaluwarsa";
                 colorClass = "bg-warning text-dark"; // Tambahkan `text-dark` untuk `bg-warning`
             } else {
                 statusText = "Aktif";

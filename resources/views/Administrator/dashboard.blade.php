@@ -194,7 +194,6 @@
                                 </div>
                             </div>
 
-                            <!-- Baris kedua untuk Ditolak dan Kadaluwarsa, sejajar dan di tengah -->
                             <div class="row justify-content-center mt-3">
                                 <!-- Kolom keempat: Ditolak -->
                                 <div class="col-sm-4 d-flex">
@@ -208,15 +207,15 @@
                                     </div>
                                 </div>
 
-                                <!-- Kolom kelima: Kadaluwarsa -->
+                                <!-- Kolom kelima: Kedaluwarsa -->
                                 <div class="col-sm-4 d-flex mt-3 mt-md-0">
                                     <div class="bg-body p-3 rounded text-center w-100" style="border: 1px solid #6e0000;">
                                         <div class="d-flex align-items-center justify-content-center mb-2">
                                             <span class="d-block rounded-circle"
                                                 style="width: 10px; height: 10px; background:#6e0000;"></span>
                                         </div>
-                                        <p class="mb-1">Kadaluwarsa</p>
-                                        <h6 class="mb-0" id="kadaluwarsa"></h6>
+                                        <p class="mb-1">Kedaluwarsa</p>
+                                        <h6 class="mb-0" id="kedaluwarsa"></h6>
                                     </div>
                                 </div>
                             </div>
@@ -551,7 +550,7 @@
                     certificate_validation: 'Pengesahan Sertifikat',
                     rejected: 'Ditolak',
                     // cancelled: 'Dibatalkan',
-                    expired: 'Kadaluwarsa'
+                    expired: 'Kedaluwarsa'
                 };
 
                 let statusCounts = {
@@ -559,7 +558,7 @@
                     'Proses Pengajuan': 0,
                     'Pengesahan Sertifikat': 0,
                     'Ditolak': 0,
-                    'Kadaluwarsa': 0
+                    'Kedaluwarsa': 0
                 };
 
                 certificateRequestschart.forEach(request => {
@@ -577,7 +576,7 @@
                 document.getElementById('prosesPengajuan').innerText = statusCounts['Proses Pengajuan'] || 0;
                 document.getElementById('pengesahanSertifikat').innerText = statusCounts['Pengesahan Sertifikat'] || 0;
                 document.getElementById('ditolak').innerText = statusCounts['Ditolak'] || 0;
-                document.getElementById('kadaluwarsa').innerText = statusCounts['Kadaluwarsa'] || 0;
+                document.getElementById('kedaluwarsa').innerText = statusCounts['Kedaluwarsa'] || 0;
             }
 
         }
@@ -660,7 +659,7 @@
                 'Proses Pengajuan',
                 'Pengesahan Sertifikat',
                 'Ditolak',
-                'Kadaluwarsa'
+                'Kedaluwarsa'
             ];
 
             // Pemetaan status ke kategori
@@ -680,7 +679,7 @@
                 certificate_validation: 'Pengesahan Sertifikat',
                 rejected: 'Ditolak',
                 cancelled: 'Dibatalkan',
-                expired: 'Kadaluwarsa'
+                expired: 'Kedaluwarsa'
             };
 
             let dataPoints = Array(labels.length).fill(0);
@@ -710,7 +709,7 @@
                 '#E58A00', // Proses Pengajuan
                 '#2CA87F', // Pengesahan Sertifikat
                 '#DC2626', // Ditolak
-                '#6e0000', // Kadaluwarsa
+                '#6e0000', // Kedaluwarsa
             ];
 
             var options_pie_chart_2 = {
