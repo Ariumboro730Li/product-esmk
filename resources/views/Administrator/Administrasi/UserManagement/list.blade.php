@@ -330,7 +330,7 @@
                         </a>` :
                         `<a class="avtar avtar-s btn-link-success change-status" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top"
                             title="Aktifkan Status ${element.name}" data-id="${element.id}" data-status="aktifkan">
-                            <i class="fa-solid fa-user-check fa-lg"></i>
+                            <i class="fa-solid fa-user-check"></i>
                         </a>`;
 
                     appendHtml += `
