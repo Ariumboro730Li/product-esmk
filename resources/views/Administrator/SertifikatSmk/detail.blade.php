@@ -1719,20 +1719,24 @@
             data.company.service_types.forEach((serviceType) => {
                 serviceTypes += `<li>${serviceType.name}</li>`;
             });
+            const fileUrl = data.company?.nib_file || "-";
 
-            // const fileUrl = data.company?.nib_file;
+            let nibPreview = '';
+            if (fileUrl) {
+                const splitFileURL = fileUrl.split('/');
+                const fileName = splitFileURL[splitFileURL.length - 1] || '-';
+                const fileExtension = fileUrl.substring(fileUrl.lastIndexOf('.')) || '-';
 
-            // if (fileUrl) {
-            //     const splitFileURL = fileUrl.split('/');
-            //     const fileName = splitFileURL[splitFileURL.length - 1];
-            //     const fileExtension = fileUrl.substring(fileUrl.lastIndexOf('.'));
-            // }
+                const imageType = ['.jpeg', '.jpg', '.png'];
+                if (imageType.includes(fileExtension.toLowerCase())) {
+                    nibPreview = `<img class="img-fluid" src="${fileUrl}" alt="${fileName}"/>`;
+                } else {
+                    nibPreview = `<p>File tersedia, tetapi bukan gambar: ${fileName}</p>`;
+                }
+            } else {
+                nibPreview = `<p class="text-muted">File tidak tersedia</p>`;
+            }
 
-            // let nibPreview = '';
-            // const imageType = ['.jpeg', '.jpg', '.png'];
-            // if (imageType.includes(fileExtension)) {
-            //     nibPreview = `<img class="img-fluid" src="${fileUrl}"/>`;
-            // }
 
             const mappingStatusToReadable = {
                 'assessment_revision': 'Revisi Penilaian',
@@ -1805,7 +1809,7 @@
                 `${data.company.address || "-"} ${data.company.city.name} ${data.company.province.name}`
             );
             $('#c_phone').html(`<i class="fa-solid fa-phone me-1"></i> ${data.company.company_phone_number}`);
-            $('#c_email').html(`<i class="fa-regular fa-envelope me-1"></i> ${data.company.email}`);
+            $('#c_email').html(`<i class="fa-regular fa-envelope me-1"></i> ${data.company.email ||  "-"}`);
 
             // PIC
             $('#pic_name').html(`<i class="fa-solid fa-user me-2"></i>${data.company.pic_name}`);
