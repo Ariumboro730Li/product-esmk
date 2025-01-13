@@ -7,7 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Auth\Role;
 use App\Models\CertificateSmk;
 use App\Models\Company;
+use App\Models\NibOss;
 use App\Models\ServiceType;
+use App\Models\StandardIndustrialClassification;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -117,4 +119,61 @@ class DashboardController extends Controller
             'data' => $responseData,
         ], HttpStatusCodes::HTTP_OK);
     }
+
+
+    public function dataKbli(Request $request)
+    {
+
+
+        $Id = $this->getModel($request);
+        $company = Company::where('id', $Id)->first();
+        $nib = NibOss::where('nib', $company->nib)->first();
+        if (!$nib) {
+            return response()->json([
+                'error' => true,
+                'message' => "NIB Tidak ditemukan",
+                'status_code' => HttpStatusCodes::HTTP_BAD_REQUEST,
+            ], HttpStatusCodes::HTTP_BAD_REQUEST);
+        }
+
+        $dataKbli = $nib->data_nib;
+        $kbliList = array_map(function ($item) {
+            return [
+                'kbli' => $item['kbli'],
+                'uraian_usaha' => $item['uraian_usaha'] ?? null,
+            ];
+        }, $dataKbli['data_proyek']);
+        $existKbli = StandardIndustrialClassification::pluck('kbli')->toArray();
+        $kbliWithMatch = array_map(function ($item) use ($existKbli) {
+            return [
+                'kbli' => $item['kbli'],
+                'uraian_usaha' => $item['uraian_usaha'],
+                'is_match' => in_array($item['kbli'], $existKbli) ? 1 : 0,
+            ];
+        }, $kbliList);
+
+
+        $page = (int) $request->input('page', 1);
+        $limit = (int) $request->input('limit', 10);
+        $offset = ($page - 1) * $limit;
+
+        $paginatedData = array_slice($kbliWithMatch, $offset, $limit);
+        $totalItems = count($kbliWithMatch);
+        $totalPages = ceil($totalItems / $limit);
+
+        return response()->json([
+            'error' => false,
+            'message' => 'Berhasil',
+            'status_code' => HttpStatusCodes::HTTP_OK,
+            'data' => $paginatedData,
+            'paginate' => [
+                'total' => $totalItems,
+                'count' => count($paginatedData),
+                'per_page' => $limit,
+                'current_page' => $page,
+                'total_pages' => $totalPages,
+            ],
+        ], HttpStatusCodes::HTTP_OK);
+    }
+
 }

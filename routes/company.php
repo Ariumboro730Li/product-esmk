@@ -5,7 +5,7 @@ use App\Http\Controllers\OssController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Company\SertifikatSMKController;
 use App\Http\Controllers\Company\LaporanTahunanController;
-use App\Http\Controllers\Company\DashboardController;
+use App\Http\Controllers\Company\DashboardController as CompanyDashboardController;
 use App\Http\Controllers\Company\PengajuanSertifikatController;
 use App\Http\Controllers\Company\HistoryPengajuanController;
 use App\Http\Controllers\FileController;
@@ -34,9 +34,10 @@ Route::get('documents/certificate', [SertifikatSMKController::class, 'getSmkCert
 Route::get('documents/smk-element', [SertifikatSMKController::class, 'getSmkElement']);
 Route::post('documents/upload-file', [FileController::class, 'uploadFile']);
 
-Route::get('dashboard/company/getuser', [DashboardController::class, 'getUserDetails']);
-Route::get('dashboard/company/perusahaan', [DashboardController::class, 'perusahaan']);
-Route::get('dashboard/company/getsmk', [DashboardController::class, 'getsmk']);
+Route::get('dashboard/company/data-kbli', [CompanyDashboardController::class, 'dataKbli']);
+Route::get('dashboard/company/getuser', [CompanyDashboardController::class, 'getUserDetails']);
+Route::get('dashboard/company/perusahaan', [CompanyDashboardController::class, 'perusahaan']);
+Route::get('dashboard/company/getsmk', [CompanyDashboardController::class, 'getsmk']);
 Route::get('dashboard/certificate', [SertifikatSMKController::class, 'getSmkCertificate']);
 
 Route::get('laporan-tahunan/monitoring-element', [LaporanTahunanController::class, 'index']);
