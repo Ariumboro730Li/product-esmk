@@ -28,6 +28,23 @@ class UserManagementController extends Controller
                 'message'       => $validator->errors()->all()[0]
             ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
+
+        // $query = User::select(
+        //     'users.id',
+        //     'users.name as name',
+        //     'users.email',
+        //     'users.username',
+        //     'users.is_active',
+        //     'users.nip',
+        //     'roles.id as role_id',
+        //     // 'roles.name as role_name',
+        //     DB::raw('case when roles.name is null then "Perusahaan" else roles.name end as role_name'),
+        //     'users.created_at'
+        // )
+        //     ->leftjoin('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
+        //     ->leftjoin('roles', 'model_has_roles.role_id', '=', 'roles.id');
+        //     $query->where('roles.name', '!=', 'Perusahaan');
+
         $query = User::select(
             'users.id',
             'users.name as name',
@@ -36,14 +53,10 @@ class UserManagementController extends Controller
             'users.is_active',
             'users.nip',
             'roles.id as role_id',
-            // 'roles.name as role_name',
             DB::raw('case when roles.name is null then "Perusahaan" else roles.name end as role_name'),
-            'users.created_at'
         )
             ->leftjoin('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
             ->leftjoin('roles', 'model_has_roles.role_id', '=', 'roles.id');
-
-        $query->where('roles.name','!=','Perusahaan');
         $query->when($term->id_role != null, function ($query) use ($term) {
             return $query->where('roles.id', '=', $term->id_role);
         });
@@ -302,7 +315,6 @@ class UserManagementController extends Controller
             'error' => false,
             'message' => 'Berhasil mengubah data.'
         ], HttpStatusCodes::HTTP_OK);
-
     }
 
 
@@ -357,6 +369,5 @@ class UserManagementController extends Controller
             'error' => false,
             'message' => 'Berhasil mengubah data.'
         ], HttpStatusCodes::HTTP_OK);
-
     }
 }
