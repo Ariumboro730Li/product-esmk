@@ -14,12 +14,15 @@
             z-index: 1;
             border-left: 1px solid #dee2e6;
         }
+
         @media (max-width: 767px) {
-        .table th.sticky-end,
-        .table td.sticky-end {
-            position: static; /* Disable sticky behavior */
+
+            .table th.sticky-end,
+            .table td.sticky-end {
+                position: static;
+                /* Disable sticky behavior */
+            }
         }
-    }
     </style>
 @endsection
 
@@ -240,6 +243,7 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Nama Perusahaan</th>
+                                                    <th>Status Aktif</th>
                                                     <th>Tipe Layanan</th>
                                                     <th>Alamat Perusahaan</th>
                                                     <th>Tanggal Bergabung</th>
@@ -440,18 +444,10 @@
                 const spionamStatus = element.exist_spionam.text_status;
                 const badgeClass = spionamStatus === 'Belum Terdaftar' ? 'bg-danger' :
                     'bg-success';
-                const isActive = element.is_active === true;
-                console.log("🚀 ~ setListData ~ isActive:", isActive)
-
-                const actionButton = isActive ?
-                    `<a class="avtar avtar-s btn-link-success" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top"
-                    title="Terverifikasi" data-id="${element.id}" data-status="terverifikasi">
-                            <i class="fa-solid fa-square-check fa-lg"></i>
-                        </a>` :
-                    `<a class="avtar avtar-s btn-link-danger change-status" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top"
-                    title="Belum Terverifikasi" data-id="${element.id}" data-status="belum-terverifikasi">
-                            <i class="fa-solid fa-square-xmark fa-lg"></i>
-                        </a>`;
+                const isActive = element.is_active.init === true;
+                const statusBadge = isActive ?
+                    `<span class="badge bg-success d-flex align-items-center justify-content-center text-white" style="max-width: 100px; white-space: nowrap;"><i class="fa fa-check-circle me-2"></i> Aktif</span>` :
+                    `<span class="badge bg-danger d-flex align-items-center justify-content-center text-white" style="max-width: 100px; white-space: nowrap;"><i class="fa fa-times-circle me-2"></i> Tidak Aktif</span>`;
 
 
                 getDataTable += `
@@ -477,7 +473,7 @@
                             </div>
                         </div>
                     </td>
-
+                    <td>${statusBadge}</td>
                     <td>
                         <ul style="padding-left: 20px; margin: 0;">
                             ${Array.isArray(element.service_types)
@@ -550,7 +546,8 @@
                     .total_perusahaan_terverifikasi || 0;
                 document.getElementById('belum_terdaftar_spionam').innerText = getDataRest.data.data
                     .perusahaan_belum_sertifikat || 0;
-                document.getElementById('terdaftar_spionam').innerText = getDataRest.data.data.perusahaan_sertifikat || 0;
+                document.getElementById('terdaftar_spionam').innerText = getDataRest.data.data.perusahaan_sertifikat ||
+                    0;
             }
         }
         async function setChartPerusahaanTerverisikasi(data) {

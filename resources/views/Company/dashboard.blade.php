@@ -591,8 +591,9 @@
                 let resp = error.response;
                 const certificatePdfContainer = $('#certificate-pdf');
                 certificatePdfContainer.html(`
-                    <h3 class="mt-4 fw-semibold">Silahkan Ajukan Permohonan Sertifikat SMK</h3>
-                    <div class="">
+                    <h3 class="mt-4 fw-semibold">Sertifikat Belum Tersedia</h3>
+                    <p class="text-muted mt-3">Silakan lengkapi proses pengajuan Sertifikat SMK Anda <a href="{{ route('company.certificate.list') }}">Disini</a>.</p>
+                   <div class="">
                         <div class="row justify-content-center mb-2">
                             <div class="col-sm-7 col-8 mb-4">
                                 <img src="{{ asset('assets/images/AjukanSertifikat.png') }}" alt="Informasi Sertifikat" class="img-fluid">
@@ -796,8 +797,9 @@
                 await showViewDocument(data.certificate_file);
             } else {
                 certificatePdfContainer.html(`
-                    <h3 class="mt-4 fw-semibold">Silahkan Ajukan Permohonan Sertifikat SMK</h3>
-                    <div class="">
+                    <h3 class="mt-4 fw-semibold">Sertifikat Belum Tersedia</h3>
+                    <p class="text-muted mt-3">Silakan lengkapi proses pengajuan Sertifikat SMK Anda <a href="{{ route('company.certificate.list') }}">Disini</a>.</p>
+                   <div class="">
                         <div class="row justify-content-center mb-2">
                             <div class="col-sm-7 col-8 mb-4">
                                 <img src="{{ asset('assets/images/AjukanSertifikat.png') }}" alt="Informasi Sertifikat" class="img-fluid">
