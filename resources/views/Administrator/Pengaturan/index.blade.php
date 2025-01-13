@@ -460,8 +460,6 @@
                 logo_aplikasi: logoUrl
             };
 
-            console.log(payload);
-
             let getDataRest = await CallAPI('POST',
                     '{{ url('') }}/api/internal/admin-panel/setting/aplikasi', payload)
                 .then((response) => response)
