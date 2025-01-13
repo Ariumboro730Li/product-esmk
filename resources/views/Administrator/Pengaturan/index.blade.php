@@ -74,9 +74,8 @@
                                         </div>
                                     </div>
                                     <div class="mb-5 mt-3">
-                                        <input type="file" id="faviconUpload" />
-                                        <input type="hidden" id="faviconFileUrl" name="favicon_file_url"
-                                            accept="image/*" />
+                                        <input type="file" id="faviconFileUrl" name="favicon_file_url"
+                                            accept="image/*" required />
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1 me-3">
@@ -84,8 +83,7 @@
                                         </div>
                                     </div>
                                     <div class="mb-3 mt-3">
-                                        <input type="file" id="logoUpload" />
-                                        <input type="hidden" id="logoFileUrl" name="logo_file_url" accept="image/*" />
+                                        <input type="file" id="logoFileUrl" name="logo_file_url" accept="image/*" required />
                                     </div>
                                 </div>
                             </div>
@@ -353,6 +351,8 @@
 
 @section('page_js')
     <script>
+        let faviconFileUrl;
+        let logoFileUrl;
         async function getDataApps() {
             loadingPage(true);
 
@@ -381,8 +381,17 @@
                 document.getElementById('input_email').value = appData.email;
                 document.getElementById('input_wa').value = appData.whatsapp;
                 document.getElementById('input_alamat').value = appData.alamat;
-                uploadFile('faviconUpload', 'faviconFileUrl', true, appData.logo_favicon);
-                uploadFile('logoUpload', 'logoFileUrl', true, appData.logo_aplikasi);
+
+                faviconFileUrl = appData.logo_favicon;
+                logoFileUrl = appData.logo_aplikasi;
+                setTimeout(() => {
+                    filePondCreate("#faviconFileUrl", appData.logo_favicon);
+                }, 500);
+                setTimeout(() => {
+                    filePondCreate("#logoFileUrl", appData.logo_aplikasi);
+                }, 500);
+                
+
                 document.getElementById('namaAplikasi').innerText = appData.nama;
                 document.getElementById('namaInstansi').innerText = appData.nama_instansi;
                 $('#email').html(`<i class="fa fa-envelope me-2"></i>${appData.email}`);
@@ -435,8 +444,8 @@
             let alamat = document.getElementById('input_alamat').value;
             let provinsi = document.getElementById('select_provinsi').value;
             let kota = document.getElementById('select_kota').value;
-            let faviconUrl = document.getElementById('faviconFileUrl').value;
-            let logoUrl = document.getElementById('logoFileUrl').value;
+            let faviconUrl = faviconFileUrl;
+            let logoUrl = logoFileUrl;
 
             let payload = {
                 nama_instansi: namaInstansi,
@@ -540,83 +549,85 @@
             }
         }
 
-        function uploadFile(sourceElement, inputTarget, isRequired, fileUrl = null) {
-            let csrfToken = $('meta[name="csrf-token"]').attr('content');
-
-            let customUpload = FilePond.create(
-                document.querySelector(`#${sourceElement}`)
-            );
-
-            customUpload.setOptions({
-                server: {
-                    process: (fieldName, file, metadata, load, error, progress, abort, transfer, options) => {
-                        let formData = new FormData();
-                        formData.append('file', file, file.name);
-
-                        let request = new XMLHttpRequest();
-                        request.open('POST', '{{ url('') }}/api/internal/admin-panel/upload-file');
-                        request.setRequestHeader('X-CSRF-TOKEN', csrfToken);
-                        request.setRequestHeader('Accept', 'application/json');
-                        request.setRequestHeader('Authorization', `Bearer ${Cookies.get('auth_token')}`);
-                        request.responseType = 'json';
-
-                        request.onload = function() {
-                            if (request.status >= 200 && request.status < 300) {
-                                let resp = request.response;
-                                load(resp.file_url);
-
-                                // Set hidden input value
-                                document.getElementById(inputTarget).value = resp.file_url;
-                            } else {
-                                error('oh no, Internal Server Error');
-                            }
-                        };
-
-                        request.send(formData);
-
-                        return {
-                            abort: () => {
-                                request.abort();
-                                abort();
-                            }
-                        };
-                    },
-                    revert: (uniqueFileId, load, error) => {
-                        document.getElementById(inputTarget).value = '';
-                        error('File removal error');
-                        load();
+        async function filePondCreate(isSelector="#faviconFileUrl", urlFile="") {
+            let serverOption = {
+                process: async (fieldName, file, metadata, load, error, progress, abort, transfer, options) => {
+                    let data = await uploadFileData(file);
+                    if (data) {
+                        data = JSON.parse(data);
+                        if (isSelector=="#faviconFileUrl") {
+                            faviconFileUrl = data.data;
+                        } else if (isSelector=="#logoFileUrl") {
+                            logoFileUrl = data.data;
+                        }
+                        load(data);
                     }
                 },
-                labelIdle: '<span class="filepond--label-action">Pilih File</span>',
-                maxFiles: 1,
-                required: isRequired,
+                revert: (uniqueFileId, load, error) => {
+                    $(`${isSelector}`).val('')
+                    load();
+                }
+            };
+    
+            let options = {
+                labelIdle: 'Seret & Jatuhkan file Anda atau <span class="filepond--label-action">Jelajahi File</span>',
+                labelMaxFileSizeExceeded: 'File terlalu besar',
+                labelMaxFileSize: 'Ukuran file maksimum adalah {filesize}',
+                acceptedFileTypes: ['image/png'],
+                allowMultiple: false,
+                maxFileSize: '2MB',
+                required: 0,
                 checkValidity: true,
-            });
-
-            if (fileUrl) {
-                fetch(fileUrl)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.blob();
-                    })
-                    .then(blob => {
-                        // Buat objek file dari Blob
-                        let file = new File([blob], fileUrl.split('/').pop(), {
-                            type: blob.type
-                        });
-
-                        customUpload.addFile(file).then(() => {
-                            // Set nilai hidden input dengan URL file
-                            document.getElementById(inputTarget).value = fileUrl;
-                        }).catch(err => {
-                            console.error('Error adding file to FilePond:', err);
-                        });
-                    })
-                    .catch(err => {
-                        console.error('Error fetching file from URL:', err);
-                    });
+            };
+    
+            if (urlFile=="") {
+                options["server"]           = serverOption;
+            } else {
+                options["instantUpload"]    = false;
+            }
+    
+            let filepond = FilePond.create(document.querySelector(`${isSelector}`), options);
+    
+            let pondDom = document.querySelector(`${isSelector}`);
+    
+            if (urlFile!="") {
+                pondDom.addEventListener('FilePond:init', (e) => {
+                    filepond.addFile(urlFile);
+                });
+                pondDom.addEventListener('click', () => {
+                    FilePond.destroy();
+                    filePondCreate(isSelector, "");
+                })
+            }
+        }
+    
+        async function uploadFileData(file) {
+            let csrfToken = $('meta[name="csrf-token"]').attr('content');
+            loadingPage(true);
+            let auth_token = Cookies.get('auth_token') ?? null;
+            let form = new FormData();
+            form.append("file", file, file.name);
+    
+            let settings = {
+              "url": "{{ url('api/internal/admin-panel/upload-file') }}",
+              "method": "POST",
+              "timeout": 0,
+              "headers": {
+                "X-CSRF-TOKEN": csrfToken,
+                "Authorization": `Bearer ${auth_token}`,
+              },
+              "processData": false,
+              "mimeType": "multipart/form-data",
+              "contentType": false,
+              "data": form
+            };
+    
+            let data = await $.ajax(settings);
+            if (data) {
+                loadingPage(false);
+                return data;
+            } else {
+                return false;
             }
         }
 
@@ -646,7 +657,9 @@
                 FilePondPluginPdfPreview,
                 FilePondPluginFileValidateSize,
                 FilePondPluginFileValidateType
-            )
+            );
+            filePondCreate("#faviconFileUrl");
+            filePondCreate("#logoFileUrl");
 
             const akunOssCheckbox = document.getElementById('akunOssActive');
             const formAkunOss = document.getElementById('form-akun-oss');
