@@ -538,22 +538,19 @@ class PerusahaanController extends Controller
         $kbliList = array_map(function ($item) {
             return [
                 'kbli' => $item['kbli'],
-                'uraian_usaha' => $item['uraian_usaha'] ?? null, // Tambahkan uraian usaha
+                'uraian_usaha' => $item['uraian_usaha'] ?? null,
+                'jenis_produksi' => ucwords($item['data_proyek_produk'][0]['jenis_produksi']) ?? null,
             ];
         }, $dataKbli['data_proyek']);
-
-        // Ambil daftar KBLI dari database
         $existKbli = StandardIndustrialClassification::pluck('kbli')->toArray();
-
-        // Proses kecocokan KBLI
         $kbliWithMatch = array_map(function ($item) use ($existKbli) {
             return [
                 'kbli' => $item['kbli'],
                 'uraian_usaha' => $item['uraian_usaha'],
-                'is_match' => in_array($item['kbli'], $existKbli) ? 1 : 0, // Cocok atau tidak
+                'jenis_produksi' => $item['jenis_produksi'] ?? null,
+                'is_match' => in_array($item['kbli'], $existKbli) ? 1 : 0,
             ];
         }, $kbliList);
-
 
         $page = (int) $request->input('page', 1);
         $limit = (int) $request->input('limit', 10);
@@ -608,24 +605,23 @@ class PerusahaanController extends Controller
         ], HttpStatusCodes::HTTP_OK);
     }
 
-    public function countPerusahaan(Request $request)
+     public function countPerusahaan(Request $request)
     {
         $counts = Company::selectRaw("
             COUNT(*) as total_perusahaan,
-            SUM(CASE WHEN certificate_requests.status = 'certificate_validation' THEN 1 ELSE 0 END) as perusahaan_sertifikat,
-            SUM(CASE WHEN certificate_requests.status != 'certificate_validation' OR certificate_requests.status IS NULL THEN 1 ELSE 0 END) as perusahaan_belum_sertifikat,
+            SUM(CASE WHEN companies.exist_spionam = 1 THEN 1 ELSE 0 END) as terdaftar_spionam,
+            SUM(CASE WHEN companies.exist_spionam = 0 OR exist_spionam IS NULL THEN 1 ELSE 0 END) as belum_terdaftar_spionam,
             SUM(CASE WHEN companies.is_active = 1 THEN 1 ELSE 0 END) as total_perusahaan_terverifikasi
-        ")
-            ->leftJoin('certificate_requests', 'companies.id', '=', 'certificate_requests.company_id')
-            ->first();
+        ")->
+        leftJoin('certificate_requests', 'companies.id', '=', 'certificate_requests.company_id')
+        ->first();
 
         $response = [
             'total_perusahaan' => (int) $counts->total_perusahaan,
-            'perusahaan_sertifikat' => (int) $counts->perusahaan_sertifikat,
-            'perusahaan_belum_sertifikat' => (int) $counts->perusahaan_belum_sertifikat,
+            'terdaftar_spionam' => (int) $counts->terdaftar_spionam,
+            'belum_terdaftar_spionam' => (int) $counts->belum_terdaftar_spionam,
             'total_perusahaan_terverifikasi' => (int) $counts->total_perusahaan_terverifikasi,
         ];
-
 
         return response()->json([
             'error' => false,
