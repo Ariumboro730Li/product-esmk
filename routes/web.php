@@ -15,7 +15,7 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () {
-    return view('login')->with('title', env('APP_NAME'));
+    return view('login')->with('title', 'Masuk');
 })->name('auth.login');
 
 // Route::get('/login', [AuthController::class, 'login'])->middleware('is_guest')->name('auth.login');

@@ -1,4 +1,4 @@
-@extends('Administrator.index', ['title' => 'Dashboard | SMK-TD'])
+@extends('Administrator.index', ['title' => 'Dashboard'])
 @section('asset_css')
     <link rel="stylesheet" href="{{ asset('assets') }}/css/plugins/datepicker-bs5.min.css" />
     <link rel="stylesheet" href="{{ asset('assets') }}/css/daterange.css" />
@@ -45,10 +45,7 @@
                         <div class="col-sm-6">
                             <div class="p-4">
                                 <h2 class="text-white internal-name"></h2>
-                                <p class="text-white" id="deskripsi_aplikasi">Sistem ini dirancang untuk mendukung
-                                    perusahaan angkutan umum dalam
-                                    menerapkan dan memantau standar keselamatan operasional. Sistem ini memantau kinerja
-                                    keselamatan secara berkelanjutan.
+                                <p class="text-white" id="deskripsi_aplikasi">Sistem yang dirancang untuk mendukung perusahaan angkutan umum dalam menerapkan dan memantau standar keselamatan operasional. Sistem ini memantau kinerja keselamatan secara berkelanjutan.
                             </div>
                         </div>
                         <div class="col-sm-6 text-center img-logo-app mt-2">
