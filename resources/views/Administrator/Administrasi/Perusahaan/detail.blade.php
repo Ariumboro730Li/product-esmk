@@ -246,7 +246,7 @@
                                                         <tr>
                                                             <th>No</th>
                                                             <th>Kode KBLI</th>
-                                                            <th>Nama KBLI</th>
+                                                            <th>Uraian</th>
                                                             <th>Jenis Produksi</th>
                                                             <th>Status</th>
                                                         </tr>
