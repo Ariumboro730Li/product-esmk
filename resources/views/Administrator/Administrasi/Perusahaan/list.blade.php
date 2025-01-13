@@ -364,7 +364,7 @@
                 certificate_validation: 'Pengesahan Sertifikat',
                 rejected: 'Ditolak',
                 cancelled: 'Dibatalkan',
-                expired: 'Kedaluarsa',
+                expired: 'Kadaluwarsa',
                 draft: 'Draft'
             };
 
@@ -723,7 +723,7 @@
                 certificate_validation: 'Pengesahan Sertifikat',
                 rejected: 'Ditolak',
                 cancelled: 'Dibatalkan',
-                expired: 'Kedaluarsa',
+                expired: 'Kadaluwarsa',
                 draft: 'Draft'
             };
 

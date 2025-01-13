@@ -648,7 +648,7 @@
                 certificate_validation: 'Pengesahan Sertifikat',
                 rejected: 'Ditolak',
                 cancelled: 'Dibatalkan',
-                expired: 'Kedaluarsa',
+                expired: 'Kadaluwarsa',
                 draft: 'Draft'
             };
 
@@ -1352,7 +1352,7 @@
                 });
 
             if (getDataRest.status === 200) {
-                let data = getDataRest.data.data[0]; 
+                let data = getDataRest.data.data[0];
                 document.getElementById('total_permohonan').innerText = data.pengajuan_total ?? 0;
                 document.getElementById('ket_total').innerText = data.pengajuan_total ? 'Permohonan' : '';
 
