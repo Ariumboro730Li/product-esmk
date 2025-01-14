@@ -167,7 +167,7 @@ class YearlyReportController extends Controller
     public function getFileUrlToBase64(Request $term)
     {
         $validator = Validator::make($term->all(), [
-            'url'     => 'required|url'
+            'url'     => 'required'
         ]);
         if ($validator->fails()) {
             return response()->json([
