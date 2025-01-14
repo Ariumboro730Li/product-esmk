@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashbController;
+use App\Http\Controllers\SettingController;
 use App\Http\Middleware\Application;
 use App\Http\Middleware\IsLoginMiddleware;
 use App\Http\Middleware\RoleMiddleware;
@@ -13,6 +14,7 @@ Route::get('/', function () {
     }
     return redirect()->route('auth.login');
 });
+
 
 Route::get('/login', function () {
     return view('login')->with('title', 'Masuk');

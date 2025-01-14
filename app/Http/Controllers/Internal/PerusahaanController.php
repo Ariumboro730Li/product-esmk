@@ -538,6 +538,9 @@ class PerusahaanController extends Controller
                 if (isset($item['kbli']) && strpos(strtolower($item['kbli']), $search) !== false) {
                     return true;
                 }
+                if (isset($item['data_proyek_produk'][0]['jenis_produksi']) && strpos(strtolower($item['data_proyek_produk'][0]['jenis_produksi']), $search) !== false) {
+                    return true;
+                }
                 return false;
             });
         }
@@ -545,6 +548,7 @@ class PerusahaanController extends Controller
             return [
                 'kbli' => $item['kbli'],
                 'uraian_usaha' => $item['uraian_usaha'] ?? null, // Tambahkan uraian usaha
+                'jenis_produksi' => $item['data_proyek_produk'][0]['jenis_produksi'] ?? null, // Tambahkan uraian usaha
             ];
         }, $dataKbli['data_proyek']);
 
@@ -556,6 +560,7 @@ class PerusahaanController extends Controller
             return [
                 'kbli' => $item['kbli'],
                 'uraian_usaha' => $item['uraian_usaha'],
+                'jenis_produksi' => $item['jenis_produksi'],
                 'is_match' => in_array($item['kbli'], $existKbli) ? 1 : 0, // Cocok atau tidak
             ];
         }, $kbliList);
