@@ -167,6 +167,7 @@ Route::get('admin-panel/setting/find', [SettingController::class, 'get']);
 Route::get('admin-panel/setting/detail', [SettingController::class, 'get']);
 Route::post('admin-panel/setting/oss', [SettingController::class, 'oss']);
 Route::post('admin-panel/setting/aplikasi', [SettingController::class, 'aplikasi']);
+Route::post('admin-panel/setting/aplikasi/file', [SettingController::class, 'uploadFile']);
 
 Route::get('admin-panel/syncOss', [OssController::class, 'syncOssInternal']);
 

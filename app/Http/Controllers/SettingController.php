@@ -4,11 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Constants\HttpStatusCodes;
 use App\Models\Setting;
+use App\Services\FileService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class SettingController extends Controller
 {
+
+    protected $service;
+    public function __construct(FileService $service)
+    {
+        $this->service = $service;
+    }
 
     public function list(Request $request){
         $validator = Validator::make($request->all(), [
@@ -135,27 +142,69 @@ class SettingController extends Controller
             ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
 
-            Setting::where('name', $settingName)->updateOrCreate([
-                'name' => $settingName,
-            ], [
-                'value' => [
-                    'nama' => strip_tags($request->nama),
-                    'nama_instansi' => strip_tags($request->nama_instansi),
-                    'deskripsi' => strip_tags($request->deskripsi),
-                    'email' => strip_tags($request->email),
-                    'whatsapp' => strip_tags($request->whatsapp),
-                    'alamat' => strip_tags($request->alamat),
-                    'provinsi' => strip_tags($request->provinsi),
-                    'kota' => strip_tags($request->kota),
-                    'logo_favicon' => strip_tags($request->logo_favicon),
-                    'logo_aplikasi' => strip_tags($request->logo_aplikasi),
-                ]
-            ]);
+        $setting = Setting::where('name', $settingName)->first();
+
+        Setting::where('name', $settingName)->updateOrCreate([
+            'name' => $settingName,
+        ], [
+            'value' => [
+                'nama' => strip_tags($request->nama),
+                'nama_instansi' => strip_tags($request->nama_instansi),
+                'deskripsi' => strip_tags($request->deskripsi),
+                'email' => strip_tags($request->email),
+                'whatsapp' => strip_tags($request->whatsapp),
+                'alamat' => strip_tags($request->alamat),
+                'provinsi' => strip_tags($request->provinsi),
+                'kota' => strip_tags($request->kota),
+                'logo_favicon' => strip_tags($setting->value['logo_favicon']),
+                'logo_aplikasi' => strip_tags($setting->value['logo_aplikasi']),
+            ]
+        ]);
 
         return response()->json([
             'status_code'   => HttpStatusCodes::HTTP_OK,
             'error'         => false,
             'message'       => 'Setting berhasil disimpan.'
+        ], HttpStatusCodes::HTTP_OK);
+    }
+
+    public function uploadFile(Request $request)
+    {
+        // Validasi file
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string',
+            'file' => 'nullable|file|mimes:pdf,doc,docx,jpg,jpeg,png|max:5120'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'error' => $validator->errors()->first()
+            ], HttpStatusCodes::HTTP_BAD_REQUEST);
+        }
+
+        if($request->hasFile('file')){
+            $fileURL = $this->service->upload($request->file('file'));
+        } else {
+            $fileURL = null;
+        }
+        $setting = Setting::where('name', 'aplikasi')->first();
+        $value = $setting->value;
+
+        if($request->name == "logo_favicon"){
+            $value['logo_favicon'] = $fileURL;
+        } else {
+            $value['logo_aplikasi'] = $fileURL;
+        }
+
+        $setting->update([
+            'value' => $value
+        ]);
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Berhasil mengunggah data',
+            'file_url' => $fileURL,
         ], HttpStatusCodes::HTTP_OK);
     }
 
