@@ -75,8 +75,9 @@
                                     </div>
                                     <div class="mb-5 mt-3">
                                         <input type="file" id="faviconFileUrl" name="favicon_file_url"
-                                            accept="image/*" required />
+                                            accept="image/*" required/>
                                     </div>
+
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1 me-3">
                                             <h6 class="mb-0">Logo Aplikasi</h6>
@@ -433,6 +434,12 @@
             }
         }
 
+        async function uploadLogo(type) {
+            loadingPage(true);
+            let file = document.getElementById(`${type}FileUrl`).files[0];
+            console.log(type);
+        }
+
         async function updateDataApps() {
             loadingPage(true);
             // Ambil nilai inputan dari formulir
@@ -444,8 +451,8 @@
             let alamat = document.getElementById('input_alamat').value;
             let provinsi = document.getElementById('select_provinsi').value;
             let kota = document.getElementById('select_kota').value;
-            let faviconUrl = faviconFileUrl;
-            let logoUrl = logoFileUrl;
+            // let faviconUrl = faviconFileUrl;
+            // let logoUrl = logoFileUrl;
 
             let payload = {
                 nama_instansi: namaInstansi,
@@ -456,8 +463,8 @@
                 alamat: alamat,
                 provinsi: provinsi,
                 kota: kota,
-                logo_favicon: faviconUrl,
-                logo_aplikasi: logoUrl
+                // logo_favicon: faviconUrl,
+                // logo_aplikasi: logoUrl
             };
 
             let getDataRest = await CallAPI('POST',
@@ -608,6 +615,8 @@
             let form = new FormData();
             form.append("file", file, file.name);
 
+            console.log(form);
+
             let settings = {
               "url": "{{ url('api/internal/admin-panel/upload-file') }}",
               "method": "POST",
@@ -702,5 +711,11 @@
             ]);
         }
         $('.filepond--credits').remove();
+        const fileInput = document.querySelector('#faviconFileUrl');
+
+        // Pastikan FilePond sudah diinisialisasi sebelumnya
+        fileInput.addEventListener('FilePond:removefile', function(e) {
+            console.log('File removed', e.detail);
+        });
     </script>
 @endsection

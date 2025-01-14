@@ -144,6 +144,9 @@ class SettingController extends Controller
 
         $setting = Setting::where('name', $settingName)->first();
 
+        $logo_favicon = $request->logo_favicon ?? $setting->value['logo_favicon'];
+        $logo_aplikasi = $request->logo_aplikasi ?? $setting->value['logo_favicon'];
+
         Setting::where('name', $settingName)->updateOrCreate([
             'name' => $settingName,
         ], [
@@ -156,8 +159,8 @@ class SettingController extends Controller
                 'alamat' => strip_tags($request->alamat),
                 'provinsi' => strip_tags($request->provinsi),
                 'kota' => strip_tags($request->kota),
-                'logo_favicon' => strip_tags($setting->value['logo_favicon']),
-                'logo_aplikasi' => strip_tags($setting->value['logo_aplikasi']),
+                'logo_favicon' => strip_tags($logo_favicon),
+                'logo_aplikasi' => strip_tags($logo_aplikasi),
             ]
         ]);
 
