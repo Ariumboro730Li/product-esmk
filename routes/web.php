@@ -24,7 +24,7 @@ Route::get('/login', function () {
 
 
 Route::get('/register', function () {
-    return view('register');
+    return view('register')->with('title', 'Daftar');
 });
 
 Route::get('/forgot-password', function () {

@@ -5,6 +5,7 @@
         href="{{ asset('assets') }}/js/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.css">
     <link rel="stylesheet"
         href="{{ asset('assets') }}/js/libs/filepond-plugin-pdf-preview/filepond-plugin-pdf-preview.min.css">
+        <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}">
 @endsection
 
 @section('content')
@@ -74,8 +75,8 @@
                                         </div>
                                     </div>
                                     <div class="mb-5 mt-3">
-                                        <input type="file" id="faviconFileUrl" name="favicon_file_url"
-                                            accept="image/*" required />
+                                        <input type="file" id="faviconFileUrl" name="favicon_file_url" accept="image/*"
+                                            required />
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <div class="flex-grow-1 me-3">
@@ -83,7 +84,8 @@
                                         </div>
                                     </div>
                                     <div class="mb-3 mt-3">
-                                        <input type="file" id="logoFileUrl" name="logo_file_url" accept="image/*" required />
+                                        <input type="file" id="logoFileUrl" name="logo_file_url" accept="image/*"
+                                            required />
                                     </div>
                                 </div>
                             </div>
@@ -146,21 +148,23 @@
                                     <div class="row g-4">
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <div class="form-floating mb-0">
-                                                    <select class="form-select" id="select_provinsi"
-                                                        aria-label="Floating label select example" disabled>
-                                                    </select>
+                                                <div class="form mb-0">
                                                     <label for="floatingSelect">Provinsi</label>
+                                                    <select class="form-select select2" id="select_provinsi"
+                                                        aria-label="Floating label select example">
+                                                    </select>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <div class="form-floating mb-0">
-                                                    <select class="form-select" id="select_kota"
-                                                        aria-label="Floating label select example" disabled>
-                                                    </select>
+                                                <div class="form mb-0">
                                                     <label for="floatingSelect">Kota/Kabupaten</label>
+                                                    <select class="form-select select2" id="select_kota"
+                                                        aria-label="Floating label select example">
+                                                    </select>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -333,6 +337,7 @@
     </div>
 @endsection
 @section('scripts')
+    <script src="{{ asset('assets/js/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets') }}/js/plugins/dropzone-amd-module.min.js"></script>
     <script src="{{ asset('assets') }}/js/libs/filepond/filepond.min.js"></script>
     <script src="{{ asset('assets') }}/js/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js"></script>
@@ -354,84 +359,131 @@
         let faviconFileUrl;
         let logoFileUrl;
         async function getDataApps() {
-            loadingPage(true);
+    loadingPage(true);
 
-            let getDataRest = await CallAPI(
-                    'GET',
-                    `{{ url('') }}/api/internal/admin-panel/setting/find`, {
-                        name: "aplikasi"
-                    }
-                )
-                .then(response => response)
-                .catch(error => {
-                    loadingPage(false);
-                    let resp = error.response;
-                    notificationAlert('info', 'Pemberitahuan', 'Error')
-                    return resp;
-                });
-
-            if (getDataRest.status === 200) {
-                loadingPage(false);
-
-                // Ambil data dari response
-                let appData = getDataRest.data.data;
-                document.getElementById('input_nama').value = appData.nama;
-                document.getElementById('input_nama_instansi').value = appData.nama_instansi;
-                document.getElementById('deskripsiAplikasi').value = appData.deskripsi;
-                document.getElementById('input_email').value = appData.email;
-                document.getElementById('input_wa').value = appData.whatsapp;
-                document.getElementById('input_alamat').value = appData.alamat;
-
-                faviconFileUrl = appData.logo_favicon;
-                logoFileUrl = appData.logo_aplikasi;
-                setTimeout(() => {
-                    filePondCreate("#faviconFileUrl", appData.logo_favicon);
-                }, 500);
-                setTimeout(() => {
-                    filePondCreate("#logoFileUrl", appData.logo_aplikasi);
-                }, 500);
-
-
-                document.getElementById('namaAplikasi').innerText = appData.nama;
-                document.getElementById('namaInstansi').innerText = appData.nama_instansi;
-                $('#email').html(`<i class="fa fa-envelope me-2"></i>${appData.email}`);
-                $('#noWaHelpdesk').html(`<i class="fa fa-phone me-2"></i>${appData.whatsapp}`);
-
-                let defaultLogo = '{{ asset('assets/images/logoapp.png') }}';
-                let currentPort = window.location.port || '80';
-                let logoPort;
-                try {
-                    logoPort = new URL(appData.logo_aplikasi).port || '80';
-                } catch {
-                    logoFavicon = null;
-                }
-
-                let finalLogo = (logoPort && logoPort !== currentPort) ?
-                    defaultLogo :
-                    (appData.logo_aplikasi || defaultLogo);
-
-                let isDefaultLogo = finalLogo === defaultLogo;
-
-                $('.logoApp').html(`
-                <a href="#"><img src="${finalLogo}" alt="img"
-                    style="width: 60px; height: ${isDefaultLogo ? '65px' : '62px'}; border-radius: 50%;" /></a>
-                `);
-                $('#alamat').html(`<i class="fa-solid fa-location-dot me-2"></i> ${appData.alamat}`);
-
-
-                // Jika ada dropdown disabled, update value-nya
-                let provinsiSelect = document.querySelector('#select_provinsi');
-                let citySelect = document.querySelector('#select_kota');
-
-                if (provinsiSelect) {
-                    provinsiSelect.innerHTML = `<option selected>${appData.provinsi}</option>`;
-                }
-
-                if (citySelect) {
-                    citySelect.innerHTML = `<option selected>${appData.kota}</option>`;
-                }
-            }
+    let getDataRest = await CallAPI(
+        'GET',
+        `{{ url('') }}/api/internal/admin-panel/setting/find`, {
+            name: "aplikasi"
         }
+    )
+    .then(response => response)
+    .catch(error => {
+        loadingPage(false);
+        let resp = error.response;
+        notificationAlert('info', 'Pemberitahuan', 'Error');
+        return resp;
+    });
+
+    if (getDataRest.status === 200) {
+        loadingPage(false);
+
+        // Ambil data dari response
+        let appData = getDataRest.data.data;
+        document.getElementById('input_nama').value = appData.nama;
+        document.getElementById('input_nama_instansi').value = appData.nama_instansi;
+        document.getElementById('deskripsiAplikasi').value = appData.deskripsi;
+        document.getElementById('input_email').value = appData.email;
+        document.getElementById('input_wa').value = appData.whatsapp;
+        document.getElementById('input_alamat').value = appData.alamat;
+
+        faviconFileUrl = appData.logo_favicon;
+        logoFileUrl = appData.logo_aplikasi;
+        setTimeout(() => {
+            filePondCreate("#faviconFileUrl", appData.logo_favicon);
+        }, 500);
+        setTimeout(() => {
+            filePondCreate("#logoFileUrl", appData.logo_aplikasi);
+        }, 500);
+
+        document.getElementById('namaAplikasi').innerText = appData.nama;
+        document.getElementById('namaInstansi').innerText = appData.nama_instansi;
+        $('#email').html(`<i class="fa fa-envelope me-2"></i>${appData.email}`);
+        $('#noWaHelpdesk').html(`<i class="fa fa-phone me-2"></i>${appData.whatsapp}`);
+
+        let defaultLogo = '{{ asset('assets/images/logoapp.png') }}';
+        let currentPort = window.location.port || '80';
+        let logoPort;
+        try {
+            logoPort = new URL(appData.logo_aplikasi).port || '80';
+        } catch {
+            logoFavicon = null;
+        }
+
+        let finalLogo = (logoPort && logoPort !== currentPort) ?
+            defaultLogo :
+            (appData.logo_aplikasi || defaultLogo);
+
+        let isDefaultLogo = finalLogo === defaultLogo;
+
+        $('.logoApp').html(`
+        <a href="#"><img src="${finalLogo}" alt="img"
+            style="width: 60px; height: ${isDefaultLogo ? '65px' : '62px'}; border-radius: 50%;" /></a>
+        `);
+        $('#alamat').html(`<i class="fa-solid fa-location-dot me-2"></i> ${appData.alamat}`);
+
+        let provinsiSelect = document.querySelector('#select_provinsi');
+        let citySelect = document.querySelector('#select_kota');
+        let provinsiId = '';
+        if (provinsiSelect) {
+            provinsiSelect.innerHTML = `<option selected>${appData.provinsi}</option>`;
+            await selectList('#select_provinsi', `{{ url('') }}/api/internal/admin-panel/provinsi/list`, 'Pilih Provinsi');
+
+            $('#select_provinsi').on('change', async function() {
+                provinsiId = $(this).val();
+                await selectList('#select_kota', '{{ url('') }}/api/internal/admin-panel/kota/list', 'Pilih Kota', provinsiId);
+            });
+        }
+
+        if (citySelect) {
+            citySelect.innerHTML = `<option selected>${appData.kota}</option>`;
+            // await selectList('#select_kota', '{{ url('') }}/api/internal/admin-panel/kota/list', 'Pilih Kota', provinsiId); // Asumsi bahwa appData.kota_id menyimpan ID provinsi
+        }
+    }
+}
+
+async function selectList(id, isUrl, placeholder, idProv = '') {
+    let select2Options = {
+        ajax: {
+            url: isUrl,
+            dataType: 'json',
+            delay: 500,
+            headers: {
+                Authorization: `Bearer ${Cookies.get('auth_token')}`
+            },
+            data: function(params) {
+                let query = {
+                    keyword: params.term,
+                    page: 1,
+                    limit: 30,
+                    ascending: 1,
+                };
+                if (idProv != '') {
+                    query.province_id = idProv; // Mengirimkan ID provinsi jika ada
+                }
+                return query;
+            },
+            processResults: function(res) {
+                let data = res.data;
+                return {
+                    results: $.map(data, function(item) {
+                        return {
+                            id: item.id,
+                            text: item.name
+                        };
+                    })
+                };
+            }
+        },
+        allowClear: true,
+        placeholder: placeholder
+    };
+
+    if ($(id).length > 0) {
+        await $(id).select2(select2Options);
+    }
+}
+
 
         async function updateDataApps() {
             loadingPage(true);
@@ -549,15 +601,15 @@
             }
         }
 
-        async function filePondCreate(isSelector="#faviconFileUrl", urlFile="") {
+        async function filePondCreate(isSelector = "#faviconFileUrl", urlFile = "") {
             let serverOption = {
                 process: async (fieldName, file, metadata, load, error, progress, abort, transfer, options) => {
                     let data = await uploadFileData(file);
                     if (data) {
                         data = JSON.parse(data);
-                        if (isSelector=="#faviconFileUrl") {
+                        if (isSelector == "#faviconFileUrl") {
                             faviconFileUrl = data.file_url;
-                        } else if (isSelector=="#logoFileUrl") {
+                        } else if (isSelector == "#logoFileUrl") {
                             logoFileUrl = data.file_url;
                         }
                         load(data);
@@ -580,17 +632,17 @@
                 checkValidity: true,
             };
 
-            if (urlFile=="") {
-                options["server"]           = serverOption;
+            if (urlFile == "") {
+                options["server"] = serverOption;
             } else {
-                options["instantUpload"]    = false;
+                options["instantUpload"] = false;
             }
 
             let filepond = FilePond.create(document.querySelector(`${isSelector}`), options);
 
             let pondDom = document.querySelector(`${isSelector}`);
 
-            if (urlFile!="") {
+            if (urlFile != "") {
                 pondDom.addEventListener('FilePond:init', (e) => {
                     filepond.addFile(urlFile);
                 });
@@ -609,17 +661,17 @@
             form.append("file", file, file.name);
 
             let settings = {
-              "url": "{{ url('api/internal/admin-panel/upload-file') }}",
-              "method": "POST",
-              "timeout": 0,
-              "headers": {
-                "X-CSRF-TOKEN": csrfToken,
-                "Authorization": `Bearer ${auth_token}`,
-              },
-              "processData": false,
-              "mimeType": "multipart/form-data",
-              "contentType": false,
-              "data": form
+                "url": "{{ url('api/internal/admin-panel/upload-file') }}",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "X-CSRF-TOKEN": csrfToken,
+                    "Authorization": `Bearer ${auth_token}`,
+                },
+                "processData": false,
+                "mimeType": "multipart/form-data",
+                "contentType": false,
+                "data": form
             };
 
             let data = await $.ajax(settings);
@@ -630,7 +682,6 @@
                 return false;
             }
         }
-
 
         document.addEventListener('DOMContentLoaded', function() {
             let akunOssCheckbox = document.getElementById('shareActive');
