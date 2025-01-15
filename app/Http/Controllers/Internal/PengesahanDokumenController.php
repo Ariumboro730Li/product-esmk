@@ -235,14 +235,23 @@ class PengesahanDokumenController extends Controller
         $setting = Setting::where('name', "aplikasi")->first();
         $dataSetting = json_decode($setting, true);
         $namaInstansi = $dataSetting['value']['nama_instansi'];
+        $provinsi = $dataSetting['value']['provinsi'];
+        $kota = $dataSetting['value']['kota'];
+
+
 
         if ($signer) {
             $data = [
-                'count_element' => $elementCount, // Menyimpan jumlah elemen yang ditemukan
+                'provinsi' =>  $provinsi,
+                'kota' => $kota,
+                'count_element' => $elementCount,
                 'companies_name' => $smkCertificatepdf->company->name,
                 'address' => $smkCertificatepdf->company->address,
                 'pic_name' => $smkCertificatepdf->company->pic_name,
+                'position' => $signer->position,
                 'name_dirjen' => $signer->name,
+                'identity_number' => $signer->identity_number,
+                'current_date' => Carbon::now()->translatedFormat('d F Y'),
                 'nama_instansi' => $namaInstansi,
                 'number_of_application_letter' => $smkCertificatepdf->number_of_application_letter,
                 'sk_number' => $request->sk_number,
@@ -250,6 +259,7 @@ class PengesahanDokumenController extends Controller
                 'rov_number' => $assessmentInterview->number_of_letter,
                 'interview_schedule' => isset($assessmentInterview->schedule) ? Carbon::parse($assessmentInterview->schedule)->translatedFormat('d F Y') : '-',
                 'letterhead' => "data:image/png;base64," . base64_encode(file_get_contents(public_path('assets/images/cover.jpg'))),
+                'logo_garuda' => "data:image/png;base64," . base64_encode(file_get_contents(public_path('assets/images/garuda.png'))),
                 'penyebut' => function ($nilai) {
                     return $this->penyebut($nilai);
                 },
