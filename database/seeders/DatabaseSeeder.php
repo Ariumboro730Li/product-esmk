@@ -20,10 +20,19 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
+            RoleSeeder::class,
+            PermissionSeeder::class,
+            UserSeeder::class,
+            CitySeeder::class,
+            ProvinceSeeder::class,
             CertificateTemplateSeeder::class,
             ServiceTypeSeeder::class,
             MonitoringElementSeeder::class,
-            SmkElementSeeder::class
+            SmkElementSeeder::class,
+            SettingSeeder::class,
+            SignerSeeder::class,
+            DecreeSeeder::class,
+            KbliSeeder::class,
         ]);
     }
 }

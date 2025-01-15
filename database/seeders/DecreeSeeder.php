@@ -6,20 +6,20 @@ use DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CitySeeder extends Seeder
+class DecreeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        if (DB::table('cities')->count() > 0) {
+        if (DB::table('decree_numbers')->count() > 0) {
             return;
         }
-
-        $json = file_get_contents(base_path('database/seeders/json/city.json'));
+        $json = file_get_contents(base_path('database/seeders/json/decree.json'));
         $array = json_decode($json, true);
 
-        DB::table('cities')->insert($array);
+        DB::table('decree_numbers')->insert($array);
+
     }
 }

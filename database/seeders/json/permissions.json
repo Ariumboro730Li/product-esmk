@@ -1,0 +1,411 @@
+[{
+        "id": 1,
+        "name": "Lihat role",
+        "group": "role",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 2,
+        "name": "Buat role",
+        "group": "role",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 3,
+        "name": "Ubah role",
+        "group": "role",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 4,
+        "name": "Hapus role",
+        "group": "role",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 5,
+        "name": "Ubah role permissions",
+        "group": "role",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 6,
+        "name": "Lihat user",
+        "group": "user",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 7,
+        "name": "Buat user",
+        "group": "user",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 8,
+        "name": "Ubah user",
+        "group": "user",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 9,
+        "name": "Hapus user",
+        "group": "user",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 10,
+        "name": "Ubah user role",
+        "group": "user",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 11,
+        "name": "Lihat perusahaan",
+        "group": "company",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 12,
+        "name": "Buat perusahaan",
+        "group": "company",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 13,
+        "name": "Ubah perusahaan",
+        "group": "company",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 14,
+        "name": "Hapus perusahaan",
+        "group": "company",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 15,
+        "name": "Lihat pengajuan",
+        "group": "certificate_assessment",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 16,
+        "name": "Nilai pengajuan",
+        "group": "certificate_assessment",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 17,
+        "name": "Disposisi pengajuan",
+        "group": "certificate_assessment",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 18,
+        "name": "Verifikasi penilaian",
+        "group": "certificate_assessment",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 19,
+        "name": "Lihat jadwal interview",
+        "group": "assessment_interview",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 20,
+        "name": "Buat jadwal interview",
+        "group": "assessment_interview",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 21,
+        "name": "Ubah jadwal interview",
+        "group": "assessment_interview",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 22,
+        "name": "Hapus jadwal interview",
+        "group": "assessment_interview",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 23,
+        "name": "Buat berita acara interview",
+        "group": "assessment_interview",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 24,
+        "name": "Lihat laporan",
+        "group": "report",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 25,
+        "name": "Nilai laporan",
+        "group": "report",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 26,
+        "name": "Lihat provinsi",
+        "group": "masterdata_province",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 27,
+        "name": "Buat provinsi",
+        "group": "masterdata_province",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 28,
+        "name": "Ubah provinsi",
+        "group": "masterdata_province",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 29,
+        "name": "Hapus provinsi",
+        "group": "masterdata_province",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 30,
+        "name": "Lihat kota",
+        "group": "masterdata_city",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 31,
+        "name": "Buat kota",
+        "group": "masterdata_city",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 32,
+        "name": "Ubah kota",
+        "group": "masterdata_city",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 33,
+        "name": "Hapus kota",
+        "group": "masterdata_city",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 34,
+        "name": "Lihat terminal",
+        "group": "masterdata_terminal",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 35,
+        "name": "Buat terminal",
+        "group": "masterdata_terminal",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 36,
+        "name": "Ubah terminal",
+        "group": "masterdata_terminal",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 37,
+        "name": "Hapus terminal",
+        "group": "masterdata_terminal",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 38,
+        "name": "Lihat satuan kerja",
+        "group": "masterdata_work_unit",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 39,
+        "name": "Buat satuan kerja",
+        "group": "masterdata_work_unit",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 40,
+        "name": "Ubah satuan kerja",
+        "group": "masterdata_work_unit",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    },
+    {
+        "id": 41,
+        "name": "Hapus satuan kerja",
+        "group": "masterdata_work_unit",
+        "guard_name": "employee",
+        "is_active": 1,
+        "created_at": "2023-11-30 02:40:37",
+        "updated_at": "2023-11-30 02:40:37",
+        "deleted_at": null
+    }
+]

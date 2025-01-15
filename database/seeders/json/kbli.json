@@ -1,0 +1,37 @@
+[{
+        "id": 1,
+        "kbli": "49431",
+        "name": "Angkutan Bermotor untuk Barang Umum",
+        "description": null,
+        "created_at": null,
+        "updated_at": null,
+        "deleted_at": null
+    },
+    {
+        "id": 2,
+        "kbli": "49229",
+        "name": "Angkutan Bus Tidak Dalam Trayek Lainnya",
+        "description": null,
+        "created_at": null,
+        "updated_at": null,
+        "deleted_at": null
+    },
+    {
+        "id": 3,
+        "kbli": "49432",
+        "name": "Angkutan Bermotor Untuk Barang Khusus",
+        "description": null,
+        "created_at": "2024-01-16 06:37:01",
+        "updated_at": "2024-01-16 06:37:01",
+        "deleted_at": null
+    },
+    {
+        "id": 6,
+        "kbli": "49221",
+        "name": "Angkutan Bus Pariwisata update",
+        "description": null,
+        "created_at": "2024-12-04 17:22:39",
+        "updated_at": "2025-01-12 11:01:15",
+        "deleted_at": null
+    }
+]
