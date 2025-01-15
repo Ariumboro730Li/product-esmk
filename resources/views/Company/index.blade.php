@@ -92,12 +92,12 @@
 
 <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-layout="vertical" data-pc-direction="ltr" data-pc-theme_contrast="" data-pc-theme="light">
 
-    <div id="preloaderLoadingPage">
+    <div id="preloaderLoadingPage" style="background-image: linear-gradient(rgba(85, 85, 85, 0.08), rgba(0, 0, 0, 0.73) 95%);">
         <div class="sk-three-bounce">
             <div class="centerpreloader">
-                <div class="ui-loading"></div>
                 <center>
-                    <h6 style="color: white;">Harap Tunggu....</h6>
+                    <img class="ui-loading" src="{{ asset('images/loading_new.webp') }}" style="margin-bottom: 10px;">
+                    <h6 style="color: white;">Please Wait...</h6>
                 </center>
             </div>
         </div>

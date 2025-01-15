@@ -16,7 +16,7 @@
     <!-- FAVICONS ICON -->
     <link rel="icon" href="{{ request()->app_setting->value->logo_favicon }}" type="image/x-icon" />
     <link href="{{ asset('vendor/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/loading.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/loading.css') }}" />
     <link class="main-css" href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <script>
@@ -40,12 +40,12 @@
     background-position: center;
     height: 100vh;
     ">
-    <div id="preloaderLoadingPage">
+    <div id="preloaderLoadingPage" style="background-image: linear-gradient(rgba(85, 85, 85, 0.08), rgba(0, 0, 0, 0.73) 95%);">
         <div class="sk-three-bounce">
             <div class="centerpreloader">
-                <div class="ui-loading"></div>
                 <center>
-                    <h6 style="color: white;">Loading...</h6>
+                    <img class="ui-loading" src="{{ asset('images/loading_new.webp') }}" style="margin-bottom: 10px;">
+                    <h6 style="color: white;">Please Wait...</h6>
                 </center>
             </div>
         </div>
