@@ -238,6 +238,8 @@ class PengesahanDokumenController extends Controller
         $provinsi = $dataSetting['value']['provinsi'];
         $kota = $dataSetting['value']['kota'];
 
+        Carbon::setLocale('id');
+
         if ($signer) {
             $data = [
                 'provinsi' =>  $provinsi,

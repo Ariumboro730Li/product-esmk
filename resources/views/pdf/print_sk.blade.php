@@ -394,8 +394,7 @@
             </table>
             <table cellspacing="0" class="table" style="margin-bottom: 0.5rem;">
                 <tr>
-                    <td style="vertical-align: top; text-align: center; line-height: 2.5;" colspan="3">Kepala
-                        {{ $data['nama_instansi'] }},</td>
+                    <td style="vertical-align: top; text-align: center; line-height: 2.5;" colspan="3">{{ $data['position'] }},</td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>
