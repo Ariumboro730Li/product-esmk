@@ -218,7 +218,7 @@ class PengesahanDokumenController extends Controller
             foreach ($elementProperties['question_schema']['properties'] as $elementKey => $elementValue) {
                 if (isset($elementValue['title'])) {
                     // Mengubah setiap huruf pertama menjadi huruf besar
-                    $title = ucwords($elementValue['title']);
+                    $title = $elementValue['title'];
                     $elementTitles->put($elementKey, $title);
 
                     // Tambah hitungan elemen setiap kali ditemukan
@@ -238,8 +238,6 @@ class PengesahanDokumenController extends Controller
         $provinsi = $dataSetting['value']['provinsi'];
         $kota = $dataSetting['value']['kota'];
 
-
-
         if ($signer) {
             $data = [
                 'provinsi' =>  $provinsi,
@@ -253,6 +251,7 @@ class PengesahanDokumenController extends Controller
                 'identity_number' => $signer->identity_number,
                 'current_date' => Carbon::now()->translatedFormat('d F Y'),
                 'nama_instansi' => $namaInstansi,
+                'element_titles' => $elementTitles->values(),
                 'number_of_application_letter' => $smkCertificatepdf->number_of_application_letter,
                 'sk_number' => $request->sk_number,
                 'date_of_application_letter' => isset($smkCertificatepdf->date_of_application_letter) ? Carbon::parse($smkCertificatepdf->date_of_application_letter)->translatedFormat('d F Y') : '-',
