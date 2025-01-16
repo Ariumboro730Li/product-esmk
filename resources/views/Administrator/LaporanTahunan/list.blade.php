@@ -285,6 +285,21 @@
 
             }
         }
+        
+        function calculateBusinessDays(startDate, endDate) {
+            let count = 0;
+            let curDate = moment(startDate).startOf('day');
+            let lastDate = moment(endDate).startOf('day');
+            while (curDate.isSameOrBefore(lastDate)) {
+                if (curDate.isoWeekday() !== 6 && curDate.isoWeekday() !== 7) {
+                    count++;
+                }
+                curDate.add(1, 'days');
+            }
+
+            return count;
+        }
+
         async function getListData(defaultLimitPage, currentPage, defaultAscending, defaultSearch, customFilter) {
             loadingPage(true);
             let card = $('#submission-card');
@@ -350,6 +365,18 @@
                     for (let index = 0; index < dataTable.length; index++) {
                         let element = dataTable[index];
 
+                        let created_at = moment(element.created_at, 'YYYY-MM-DD');
+                        let current = moment();
+                        let lastUpdated = element.updated_at ? moment(element.updated_at, 'YYYY-MM-DD') : current;
+
+                        let weekDays = calculateBusinessDays(created_at, current);
+
+                        // Jika status 'certificate_validation', hitung dari updated_at hingga sekarang
+                        if (element.status === 'certificate_validation') {
+                            weekDays = calculateBusinessDays(lastUpdated, created_at);
+                        }
+                        let progressLabel = `${weekDays} hari`;
+
                         let statusBadge = element.is_active ?
                             '<span class="badge bg-light-success">Aktif</span>' :
                             '<span class="badge bg-light-danger">Tidak Aktif</span>';
@@ -407,6 +434,10 @@
                                                     <div class="h4 font-weight-bold mb-2 mb-md-0">
                                                        ${element.nama_perusahaan}
                                                        ${statusLabel}
+                                                    </div>
+                                                    <div>
+                                                        <span class="badge bg-light-dark px-3 py-2 mb-3 mb-md-0">Lama Proses:
+                                                            ${progressLabel}</span>
                                                     </div>
                                                 </div>
                                                 <div class="help-sm-hidden">

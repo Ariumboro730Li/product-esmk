@@ -194,7 +194,7 @@
                 document.querySelector('.logo_aplikasi').innerHTML = `
                     <a href="#">
                         <img src="${finalLogo}" alt="img"
-                            style="width: 60px; border-radius:50%;" />
+                            style="width: 4rem; height: 4rem; border-radius:50%; object-fit: cover" />
                     </a>`;
 
                 let sideLogo = document.getElementById('side-content-logo');
@@ -207,7 +207,7 @@
                         <!-- Logo, diposisikan di tengah gambar -->
                         <img src="${finalLogo}" alt="images"
                             class="img-fluid img-auth-side"
-                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 8rem; height: ${isDefaultLogo ? '9rem' : '8rem'}; border-radius:50%;" />
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 8rem; height: 8rem; border-radius:50%; object-fit: cover" />
                     </div>
                 `;
                 }

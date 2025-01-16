@@ -3,7 +3,7 @@
     <div class="navbar-wrapper">
         <div class="m-header text-center">
             <a href="javascript:void(0)" class="b-brand text-primary">
-                <img src="{{ request()->app_setting->value->logo_aplikasi }}" alt="img" style="width: auto; height: 50px; border-radius: 50%;">
+                <img src="{{ asset(request()->app_setting->value->logo_aplikasi) }}" alt="Logo Aplikasi" style="width: 3rem;  border-radius: 50%; height: 3rem; object-fit: cover;">
             </a>
             <h5 class="fw-bold" style="margin-left: 0.5rem;">{{ request()->app_setting->value->nama }}</h5>
         </div>

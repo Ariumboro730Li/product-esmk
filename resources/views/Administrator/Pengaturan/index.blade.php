@@ -5,8 +5,8 @@
         href="{{ asset('assets') }}/js/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.css">
     <link rel="stylesheet"
         href="{{ asset('assets') }}/js/libs/filepond-plugin-pdf-preview/filepond-plugin-pdf-preview.min.css">
-    <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}">
 @endsection
+
 
 @section('content')
     <div class="page-header">
@@ -32,30 +32,28 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex flex-column flex-sm-row align-items-center">
-                        <div class="d-flex justify-content-center mb-3 mb-sm-0 logoApp">
+                        <div class="d-flex justify-content-center mb-3 mb-sm-0">
+                            <img src="{{ asset(request()->app_setting->value->logo_aplikasi) }}" alt="Logo Aplikasi"
+                                style="width: 4rem;  border-radius: 50%; height: 4rem; object-fit: cover;">
                         </div>
-                        <div class="flex-grow-1 mx-5 text-center text-sm-start">
-                            <!-- Nama Aplikasi -->
-                            <h4 id="namaAplikasi" class="mb-0"></h4>
-                            <!-- Deskripsi Aplikasi -->
-                            <h6 id="namaInstansi" class="mb-0"></h6>
-                            <!-- Alamat -->
-                            <p id="alamat" class="mb-0">
-                                <i class="fa-solid fa-location-dot me-2"></i>
+
+                        <div class="flex-grow-1 mx-4 text-center text-sm-start">
+                            <h4 class="mb-0">{{ request()->app_setting->value->nama }}</h4>
+                            <h6 class="mb-0">{{ request()->app_setting->value->nama_instansi }}</h6>
+                            <p class="mb-0">
+                                <i class="fa-solid fa-location-dot me-2"></i> {{ request()->app_setting->value->alamat }}
                             </p>
                             <div
                                 class="d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-sm-start">
-                                <!-- No. WA Helpdesk -->
-                                <p id="noWaHelpdesk" class="mb-0 me-2">
+                                <p class="mb-0 me-2">
                                     <span class="contact-icon">
-                                        <i class="fa fa-phone"></i>
+                                        <i class="fa fa-phone  me-2"></i>{{ request()->app_setting->value->whatsapp }}
                                     </span>
                                 </p>
                                 <span class="mx-2">|</span>
-                                <!-- Email Helpdesk -->
-                                <p id="email" class="mb-0 ms-2">
+                                <p class="mb-0 ms-2">
                                     <span class="contact-icon">
-                                        <i class="fa fa-envelope"></i>
+                                        <i class="fa fa-envelope  me-2"></i>{{ request()->app_setting->value->email }}
                                     </span>
                                 </p>
                             </div>
@@ -69,24 +67,26 @@
                         <div class="col-md-4">
                             <div class="card shadow-none border mb-0 h-100">
                                 <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1 me-3">
-                                            <h6 class="mb-0">Logo Favicon</h6>
+                                    <form enctype="multipart/form-data">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1 me-3">
+                                                <h6 class="mb-0">Logo Favicon</h6>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="mb-5 mt-3">
-                                        <input type="file" id="faviconFileUrl" name="favicon_file_url" accept="image/*"
-                                            required />
-                                    </div>
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-grow-1 me-3">
-                                            <h6 class="mb-0">Logo Aplikasi</h6>
+                                        <div class="mb-5 mt-3">
+                                            <input type="file" id="faviconFileUrl" name="favicon_file_url"
+                                                accept="image/*" required />
                                         </div>
-                                    </div>
-                                    <div class="mb-3 mt-3">
-                                        <input type="file" id="logoFileUrl" name="logo_file_url" accept="image/*"
-                                            required />
-                                    </div>
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1 me-3">
+                                                <h6 class="mb-0">Logo Aplikasi</h6>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <input type="file" id="logoFileUrl" name="logo_file_url" accept="image/*"
+                                                required />
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +151,7 @@
                                                 <div class="form mb-0">
                                                     <label for="floatingSelect">Provinsi</label>
                                                     <select class="form-select select2" id="select_provinsi"
-                                                        aria-label="Floating label select example">
+                                                        aria-label="Floating label select example" disabled>
                                                     </select>
 
                                                 </div>
@@ -162,7 +162,7 @@
                                                 <div class="form mb-0">
                                                     <label for="floatingSelect">Kota/Kabupaten</label>
                                                     <select class="form-select select2" id="select_kota"
-                                                        aria-label="Floating label select example">
+                                                        aria-label="Floating label select example" disabled>
                                                     </select>
 
                                                 </div>
@@ -340,7 +340,8 @@
     <script src="{{ asset('assets/js/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets') }}/js/plugins/dropzone-amd-module.min.js"></script>
     <script src="{{ asset('assets') }}/js/libs/filepond/filepond.min.js"></script>
-    <script src="{{ asset('assets') }}/js/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js"></script>
+    <script src="{{ asset('assets') }}/js/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js">
+    </script>
     <script src="{{ asset('assets') }}/js/libs/filepond-plugin-pdf-preview/filepond-plugin-pdf-preview.min.js"></script>
     <script
         src="{{ asset('assets') }}/js/libs/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js">
@@ -396,50 +397,33 @@
                     filePondCreate("#logoFileUrl", appData.logo_aplikasi);
                 }, 500);
 
-                document.getElementById('namaAplikasi').innerText = appData.nama;
-                document.getElementById('namaInstansi').innerText = appData.nama_instansi;
-                $('#email').html(`<i class="fa fa-envelope me-2"></i>${appData.email}`);
-                $('#noWaHelpdesk').html(`<i class="fa fa-phone me-2"></i>${appData.whatsapp}`);
-
-                let defaultLogo = '{{ asset('assets/images/logoapp.png') }}';
-                let currentPort = window.location.port || '80';
-                let logoPort;
-                try {
-                    logoPort = new URL(appData.logo_aplikasi).port || '80';
-                } catch {
-                    logoFavicon = null;
-                }
-
-                let finalLogo = (logoPort && logoPort !== currentPort) ?
-                    defaultLogo :
-                    (appData.logo_aplikasi || defaultLogo);
-
-                let isDefaultLogo = finalLogo === defaultLogo;
-
-                $('.logoApp').html(`
-                <a href="#"><img src="${finalLogo}" alt="img"
-                    style="width: 60px; height: ${isDefaultLogo ? '65px' : '62px'}; border-radius: 50%;" /></a>
-                `);
-                $('#alamat').html(`<i class="fa-solid fa-location-dot me-2"></i> ${appData.alamat}`);
-
                 let provinsiSelect = document.querySelector('#select_provinsi');
                 let citySelect = document.querySelector('#select_kota');
                 let provinsiId = '';
+
+                // Inisialisasi Select2 untuk Provinsi
                 if (provinsiSelect) {
                     provinsiSelect.innerHTML = `<option selected>${appData.provinsi}</option>`;
-                    await selectList('#select_provinsi', `{{ url('') }}/api/internal/admin-panel/provinsi/list`,
-                        'Pilih Provinsi');
+                    // await selectList('#select_provinsi', `{{ url('') }}/api/internal/admin-panel/provinsi/list`,
+                    //     'Pilih Provinsi');
 
-                    $('#select_provinsi').on('change', async function() {
-                        provinsiId = $(this).val();
-                        await selectList('#select_kota',
-                            '{{ url('') }}/api/internal/admin-panel/kota/list', 'Pilih Kota',
-                            provinsiId);
-                    });
+                    // $('#select_provinsi').on('change', async function() {
+                    //     provinsiId = $(this).val();
+                    //     await selectList('#select_kota',
+                    //         '{{ url('') }}/api/internal/admin-panel/kota/list', 'Pilih Kota',
+                    //         provinsiId);
+                    //     // Menampilkan teks yang terpilih untuk provinsi
+                    //     let selectedTextProvinsi = $('#select_provinsi').select2('data')[0]?.text;
+                    //     $('#provinsiNama').text(selectedTextProvinsi); // Menampilkan provinsi yang terpilih
+                    // });
                 }
 
+                // Inisialisasi Select2 untuk Kota
                 if (citySelect) {
                     citySelect.innerHTML = `<option selected>${appData.kota}</option>`;
+                    // Menampilkan teks yang terpilih untuk kota
+                    // let selectedTextKota = $('#select_kota').select2('data')[0]?.text;
+                    // $('#kotaNama').text(selectedTextKota); // Menampilkan kota yang terpilih
                 }
             }
         }
@@ -461,7 +445,7 @@
                             ascending: 1,
                         };
                         if (idProv != '') {
-                            query.province_id = idProv; 
+                            query.province_id = idProv;
                         }
                         return query;
                     },
@@ -470,8 +454,8 @@
                         return {
                             results: $.map(data, function(item) {
                                 return {
-                                    id: item.id, 
-                                    text: item.name 
+                                    id: item.id,
+                                    text: item.name
                                 };
                             })
                         };
@@ -486,28 +470,36 @@
             }
 
             $(id).on('change', function() {
-                let selectedText = $(this).select2('data')[0]?.text; 
+                let selectedText = $(this).select2('data')[0]?.text;
                 let displayElementId = id === '#select_provinsi' ? '#provinsiNama' :
-                    '#kotaNama'; 
-                $(displayElementId).text(selectedText); 
+                    '#kotaNama';
+                $(displayElementId).text(selectedText);
             });
         }
 
         async function updateDataApps() {
             loadingPage(true);
-            let provinsi = $('#select_provinsi').select2('data')[0]?.text; 
-            let kota = $('#select_kota').select2('data')[0]?.text;
+
+            // Memeriksa apakah Select2 sudah diinisialisasi sebelum mengakses datanya
+            let provinsi = $('#select_provinsi').data('select2') ?
+                $('#select_provinsi').select2('data')[0]?.text :
+                document.getElementById('select_provinsi').value;
+
+            let kota = $('#select_kota').data('select2') ?
+                $('#select_kota').select2('data')[0]?.text :
+                document.getElementById('select_kota').value;
+
+            // Ambil data lainnya
             let namaAplikasi = document.getElementById('input_nama').value;
             let namaInstansi = document.getElementById('input_nama_instansi').value;
             let deskripsiAplikasi = document.getElementById('deskripsiAplikasi').value;
             let email = document.getElementById('input_email').value;
             let noWaHelpdesk = document.getElementById('input_wa').value;
             let alamat = document.getElementById('input_alamat').value;
-            provinsi = provinsi;
-            kota = kota;
-            let faviconUrl = faviconFileUrl;
-            let logoUrl = logoFileUrl;
+            let faviconUrl = faviconFileUrl; // Misalnya Anda sudah mendefinisikan faviconFileUrl
+            let logoUrl = logoFileUrl; // Begitu juga dengan logoFileUrl
 
+            // Payload untuk dikirim ke API
             let payload = {
                 nama_instansi: namaInstansi,
                 nama: namaAplikasi,
@@ -521,22 +513,26 @@
                 logo_aplikasi: logoUrl
             };
 
+            console.log("🚀 ~ updateDataApps ~ payload:", payload);
+
+            // Kirim data ke API
             let getDataRest = await CallAPI('POST',
                     '{{ url('') }}/api/internal/admin-panel/setting/aplikasi', payload)
                 .then((response) => response)
                 .catch((error) => {
                     loadingPage(false);
                     let resp = error.response;
-                    notificationAlert('warning', 'Pemberitahuan', resp.data.message || "Error")
+                    notificationAlert('warning', 'Pemberitahuan', resp.data.message || "Terjadi kesalahan");
                     return resp;
                 });
 
             if (getDataRest && getDataRest.status === 200) {
                 loadingPage(false);
-                notificationAlert('success', 'Pemberitahuan', 'Data berhasil diubah')
-                window.location.reload()
+                notificationAlert('success', 'Pemberitahuan', 'Data berhasil diubah');
+                window.location.reload();
             }
         }
+
 
         async function getDataOSS() {
             loadingPage(true);

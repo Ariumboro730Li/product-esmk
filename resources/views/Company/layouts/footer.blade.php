@@ -5,7 +5,7 @@
                 <div class="col-lg-6 col-sm-6 col-12 wow fadeInUp" data-wow-delay="0.2s">
                     <div class="d-flex flex-column flex-sm-row align-items-start ms-3">
                         <div class="d-flex justify-content-start mb-0 mb-sm-0 me-3">
-                            <a href="javascript:void(0)" id="logo_footer"><img src="{{ request()->app_setting->value->logo_aplikasi }}" alt="img"/></a>
+                            <img src="{{ asset(request()->app_setting->value->logo_aplikasi) }}" alt="Logo Aplikasi" style="width: 2.5rem;  border-radius: 50%; height: 2.5rem; object-fit: cover;">
                         </div>
                         <div class="flex-g row-1 text-left text-sm-start">
                             <h4 class="mb-0 nama_aplikasi"></h4>
