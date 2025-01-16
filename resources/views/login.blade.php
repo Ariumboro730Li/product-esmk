@@ -59,8 +59,9 @@
                         <div class="col-xl-12">
                             <div class="auth-form">
                                 <div class="text-center mb-2">
-                                    <a href="javascript:void(0)"><img
-                                            src="{{ request()->app_setting->value->logo_aplikasi }}" style="width: 22%"
+                                    <a href="javascript:void(0)">
+                                        <img
+                                            src="{{ request()->app_setting->value->logo_aplikasi }}" style="width: 6rem;  border-radius: 50%; height: 6rem; object-fit: cover;"
                                             alt="{{ request()->app_setting->value->nama }}"></a>
                                 </div>
                                 <h4 class="text-center" style="line-height:1; color:white;">

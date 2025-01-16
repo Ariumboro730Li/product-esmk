@@ -585,8 +585,9 @@
 
                 document.querySelector('.logo_aplikasi').innerHTML = `
                     <a href="#">
+                        
                         <img src="${finalLogo}" alt="img"
-                            style="width: 60px; border-radius:50%;" />
+                            style="width: 4rem; height: 4rem; border-radius:50%; object-fit: cover" />
                     </a>`;
 
                 let sideLogo = document.getElementById('side-content-logo');
@@ -599,7 +600,7 @@
                         <!-- Logo, diposisikan di tengah gambar -->
                         <img src="${finalLogo}" alt="images"
                             class="img-fluid img-auth-side"
-                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 8rem; height: ${isDefaultLogo ? '9rem' : '8rem'}; border-radius:50%;" />
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 8rem; height: 8rem; border-radius:50%; object-fit: cover" />
                     </div>
                 `;
                 }
@@ -833,16 +834,16 @@
 
             nextButtons.forEach((button, idx) => {
                 button.addEventListener("click", async (event) => {
-                    event.preventDefault(); 
+                    // event.preventDefault(); 
 
                     const isStepValid = validateStep(currentStep);
 
                     if (!isStepValid) {
                         notificationAlert('info', 'Pemberitahuan',
                             'Silakan isi semua kolom yang wajib (*) diisi.');
-                        setTimeout(() => {
-                            button.disabled = false;
-                        }, 1000); 
+                        // setTimeout(() => {
+                        //     button.disabled = false;
+                        // }, 1000); 
                         return; 
                     }
 
@@ -852,9 +853,9 @@
                         showStep(currentStep);
                     }
 
-                    setTimeout(() => {
-                        button.disabled = false;
-                    }, 500); 
+                    // setTimeout(() => {
+                    //     button.disabled = false;
+                    // }, 500); 
                 });
             });
 

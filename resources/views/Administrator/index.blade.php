@@ -57,9 +57,8 @@
             let imgLogoApp = document.querySelector('.img-logo-app');
             if (imgLogoApp) {
                     imgLogoApp.innerHTML = `
-                    <div class="img-welcome-banner">
-                        <img src="{{ request()->app_setting->value->logo_aplikasi }}" alt="img" class="img-fluid mt-2"
-                            style="width: 5rem; height: 100%; border-radius: 50%;" />
+                    <div class="img-welcome-banner mt-3">
+                        <img src="{{ asset(request()->app_setting->value->logo_aplikasi) }}" alt="Logo Aplikasi" style="width: 7rem;  border-radius: 50%; height: 7rem; object-fit: cover;">
                     </div>
                 `;
             }
