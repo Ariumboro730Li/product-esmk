@@ -91,7 +91,8 @@
 }
 
 .select2-container .select2-search--inline {
-    float: left
+    float: left;
+    width: 98% !important;
 }
 
 .select2-container .select2-search--inline .select2-search__field {
@@ -397,7 +398,8 @@
     border: none;
     outline: 0;
     box-shadow: none;
-    -webkit-appearance: textfield
+    -webkit-appearance: textfield;
+    width: 100% !important;
 }
 
 .select2-container--default .select2-results>.select2-results__options {

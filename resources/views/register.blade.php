@@ -3,7 +3,7 @@
 <!-- [Head] start -->
 
 <head>
-    <title>Register | SMK</title>
+    <title>{{ $title }} | {{ request()->app_setting->value->nama }}</title>
     <!-- [Meta] -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
@@ -94,7 +94,7 @@
     <div id="preloaderLoadingPage">
         <div class="sk-three-bounce">
             <div class="centerpreloader">
-                <div class="ui-loading"></div>
+                <img class="ui-loading" src="{{ asset('images/loading_new.webp') }}" style="margin-bottom: 10px;">
                 <center>
                     <h6 style="color: white;">Harap Tunggu....</h6>
                 </center>
@@ -150,14 +150,14 @@
                                     <div class="col-md-6">
                                         <div class="form-floating mb-0">
                                             <input type="text" class="form-control" id="data-perusahaan-nib"
-                                                placeholder="" />
+                                                placeholder="" required />
                                             <label for="nib">NIB<sup class="text-danger ms-1">*</sup></label>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <div class="form-floating mb-0">
                                             <input type="text" class="form-control"
-                                                id="data-perusahaan-nama-perusahaan" placeholder="" />
+                                                id="data-perusahaan-nama-perusahaan" required placeholder="" />
                                             <label for="namaPerusahaan">Nama Perusahaan<sup
                                                     class="text-danger ms-1">*</sup></label>
                                         </div>
@@ -168,7 +168,8 @@
                                         <div class="mb-0">
                                             <div class="form-floating mb-0">
                                                 <input type="number" class="form-control"
-                                                    id="data-perusahaan-no-telepon-perusahaan" placeholder="" />
+                                                    id="data-perusahaan-no-telepon-perusahaan" required
+                                                    placeholder="" />
                                                 <label for="noTelp">No. Telepon Perusahaan<sup
                                                         class="text-danger ms-1">*</sup></label>
                                             </div>
@@ -178,7 +179,7 @@
                                         <div class="mb-3">
                                             <div class="form-floating mb-0">
                                                 <input type="email" class="form-control" id="data-perusahaan-email"
-                                                    placeholder="Email address" />
+                                                    placeholder="Email address" required />
                                                 <label for="email">Email<sup
                                                         class="text-danger ms-1">*</sup></label>
                                             </div>
@@ -208,7 +209,7 @@
                                 <div class="mb-3">
                                     <div class="col-md-12">
                                         <div class="form-floating mb-0">
-                                            <textarea class="form-control" id="data-perusahaan-alamat" rows="3"></textarea>
+                                            <textarea class="form-control" id="data-perusahaan-alamat" required rows="3"></textarea>
                                             <label for="floatingdeskripsi">Alamat<sup
                                                     class="text-danger ms-1">*</sup></label>
                                         </div>
@@ -238,8 +239,8 @@
                                     <div class="col-md-6">
                                         <div class="mb-0">
                                             <div class="form-floating mb-0">
-                                                <input type="text" class="form-control" id="data-pic-nama"
-                                                    placeholder="" />
+                                                <input type="text" class="form-control" required
+                                                    id="data-pic-nama" placeholder="" />
                                                 <label for="namaPic">Nama PIC<sup
                                                         class="text-danger ms-1">*</sup></label>
                                             </div>
@@ -249,7 +250,7 @@
                                         <div class="mb-4">
                                             <div class="form-floating mb-0">
                                                 <input type="text" class="form-control" id="data-pic-no-telepon"
-                                                    placeholder="" />
+                                                    placeholder=""required />
                                                 <label for="noTelpPic">No. Telepon PIC<sup
                                                         class="text-danger ms-1">*</sup></label>
                                             </div>
@@ -272,7 +273,7 @@
                                         <div class="mb-0">
                                             <div class="form-floating mb-0">
                                                 <input type="text" class="form-control"
-                                                    id="data-informasi-akun-username" placeholder="" />
+                                                    id="data-informasi-akun-username" placeholder="" required />
                                                 <label for="data-informasi-akun-username">Username<sup
                                                         class="text-danger ms-1">*</sup></label>
                                             </div>
@@ -282,7 +283,7 @@
                                         <div class="mb-4">
                                             <div class="form-floating mb-0">
                                                 <input type="number" class="form-control"
-                                                    id="data-informasi-akun-no-telepon" placeholder="" />
+                                                    id="data-informasi-akun-no-telepon" placeholder="" required />
                                                 <label for="data-informasi-akun-no-telepon">No. Telepon<sup
                                                         class="text-danger ms-1">*</sup></label>
                                             </div>
@@ -390,6 +391,7 @@
         let totalPasswordLine3 = 0
         let totalPasswordLine4 = 0
         let passwordConfirmStatus = 0
+
         document.addEventListener('DOMContentLoaded', function() {
             // Dapatkan elemen-elemen yang dibutuhkan
             const passwordInput = document.getElementById('data-informasi-akun-password'); // ID input password
@@ -482,14 +484,14 @@
             '21': 'Perum', // Perusahaan Umum (PERUM)
             '22': 'Perumda', // Perusahaan Umum Daerah (PERUMDA)
             '23': 'Perusda', // Perusahaan Daerah (PERUSDA)
-            '24': 'BOB' , // Badan Operasi Bersama (BOB)
+            '24': 'BOB', // Badan Operasi Bersama (BOB)
             '25': 'Badan Usaha Perwakilan',
-            '26': 'PT Peorangan' , // PT Perorangan
+            '26': 'PT Peorangan', // PT Perorangan
             '27': 'PBA', // Pedagang Berjangka Asing (PBA)
             '28': 'BUM Desa', // Badan Usaha Milik Desa (BUM Desa)
             '29': 'BUM Desa Bersama'
         };
-        
+
         async function togglePass() {
             document.getElementById('togglePassword').addEventListener('click', function(e) {
                 e.preventDefault();
@@ -528,7 +530,7 @@
                 if (active === 0) {
                     adjustWizardSteps();
                 }
-            }else{
+            } else {
                 adjustWizardSteps();
             }
         }
@@ -796,7 +798,6 @@
             });
         }
 
-
         document.addEventListener("DOMContentLoaded", () => {
             const steps = document.querySelectorAll(".wizard-step");
             const wizardContainer = document.querySelector(".wizard-container");
@@ -811,13 +812,49 @@
             const nextButtons = document.querySelectorAll("button[type='submit']");
             const prevButtons = document.querySelectorAll(".prev-btn");
 
+            // Function to validate each step
+            const validateStep = (stepIndex) => {
+                const currentStepElement = steps[stepIndex];
+                const inputs = currentStepElement.querySelectorAll("input, select, textarea");
+                let isValid = true;
+
+                // Check all form fields on the current step
+                inputs.forEach(input => {
+                    if (input.required && !input.value) {
+                        isValid = false;
+                        input.classList.add("is-invalid"); // Highlight invalid fields
+                    } else {
+                        input.classList.remove("is-invalid");
+                    }
+                });
+
+                return isValid;
+            };
+
             nextButtons.forEach((button, idx) => {
-                button.addEventListener("click", (event) => {
-                    event.preventDefault(); // Hentikan pengiriman form
-                    if (idx < steps.length - 1) {
+                button.addEventListener("click", async (event) => {
+                    event.preventDefault(); 
+
+                    const isStepValid = validateStep(currentStep);
+
+                    if (!isStepValid) {
+                        notificationAlert('info', 'Pemberitahuan',
+                            'Silakan isi semua kolom yang wajib (*) diisi.');
+                        setTimeout(() => {
+                            button.disabled = false;
+                        }, 1000); 
+                        return; 
+                    }
+
+                    if (currentStep < steps.length - 1) {
+                        console.log("🚀 ~ button.addEventListener ~ steps.length - 1:", steps.length - 1)
                         currentStep++;
                         showStep(currentStep);
                     }
+
+                    setTimeout(() => {
+                        button.disabled = false;
+                    }, 500); 
                 });
             });
 
@@ -856,7 +893,6 @@
                 }
             });
 
-
             select2List('#data-perusahaan-provinsi', 'provinsi');
             select2List('#data-jenis-pelayanan', 'jenis_pelayanan');
             $('#data-perusahaan-provinsi').on('change', async function() {
@@ -870,7 +906,6 @@
             submitCompany();
             togglePass();
             getDataApps();
-
         });
     </script>
 
