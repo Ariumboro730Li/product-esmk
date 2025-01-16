@@ -19,9 +19,12 @@ class AuthController extends Controller
 
     public function login(Request $request){
         $validator = Validator::make($request->all(), [
-            'email' => 'required|string',
-            'password' => 'required|string',
-            'remember_me' => 'boolean'
+            'email'                 => 'required|string',
+            'password'              => 'required|string',
+            'remember_me'           => 'boolean'
+        ],[
+            'email.required'        => 'Email atau Username harus diisi.',
+            'password.required'     => 'Kata sandi harus diisi.'
         ]);
 
         if($validator->fails()){
@@ -29,14 +32,6 @@ class AuthController extends Controller
                 'status_code'   => HttpStatusCodes::HTTP_BAD_REQUEST,
                 'error'         => true,
                 'message'       => $validator->errors()->all()[0]
-            ], HttpStatusCodes::HTTP_BAD_REQUEST);
-        }
-
-        if(!$request->email && !$request->username){
-            return response()->json([
-                'status_code'   => HttpStatusCodes::HTTP_BAD_REQUEST,
-                'error'         => true,
-                'message'       => 'Email harus diisi'
             ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
 
@@ -48,22 +43,20 @@ class AuthController extends Controller
             $user = User::where('username', $request->email)->first();
         }
 
-        // Jika email tidak ditemukan, kembalikan error
         if (!$user) {
             return response()->json([
-                'status_code'  => HttpStatusCodes::HTTP_NOT_FOUND,
-                'error' => true,
-                'message' => 'Username tidak terdaftar.'
-            ], HttpStatusCodes::HTTP_NOT_FOUND); // 404 untuk not found
+                'status_code'   => HttpStatusCodes::HTTP_BAD_REQUEST,
+                'error'         => true,
+                'message'       => 'Username tidak terdaftar.'
+            ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
 
-        // Jika password tidak cocok
         if (!\Hash::check($request->password, $user->password)) {
             return response()->json([
                 'status_code'  => HttpStatusCodes::HTTP_UNAUTHORIZED,
                 'error' => true,
                 'message' => 'Kata sandi salah.'
-            ], HttpStatusCodes::HTTP_UNAUTHORIZED); // 401 untuk unauthorized
+            ], HttpStatusCodes::HTTP_UNAUTHORIZED);
         }
 
         if($request->username){
@@ -102,7 +95,6 @@ class AuthController extends Controller
     }
     public function me()
     {
-        dd(auth());
         // $user = JWTAuth::parseToken()->authenticate();
 
         // // Periksa apakah token memiliki role 'company'

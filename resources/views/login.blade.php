@@ -59,9 +59,8 @@
                         <div class="col-xl-12">
                             <div class="auth-form">
                                 <div class="text-center mb-2">
-                                    <a href="javascript:void(0)">
-                                        <img
-                                            src="{{ request()->app_setting->value->logo_aplikasi }}" style="width: 6rem;  border-radius: 50%; height: 6rem; object-fit: cover;"
+                                    <a href="javascript:void(0)"><img
+                                            src="{{ request()->app_setting->value->logo_aplikasi }}" style="width: 22%"
                                             alt="{{ request()->app_setting->value->nama }}"></a>
                                 </div>
                                 <h4 class="text-center" style="line-height:1; color:white;">
@@ -95,7 +94,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button type="button" onclick="submitLogin()" class="btn btn-app btn-block">Masuk sekarang</button>
+                                    <button type="button" onclick="submitLogin()" class="btn btn-app btn-block">Masuk Sekarang</button>
                                 </div>
                                 <div class="new-account mt-3">
                                     <p style="color: white;">Belum punya akun? <a class="text-info" href="/register">Daftar sekarang</a></p>

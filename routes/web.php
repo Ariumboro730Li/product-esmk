@@ -18,22 +18,24 @@ Route::get('/', function () {
 
 Route::get('/login', function () {
     return view('login')->with('title', 'Masuk');
-})->name('auth.login');
+})->name('auth.login')->middleware('guest');
 
 // Route::get('/login', [AuthController::class, 'login'])->middleware('is_guest')->name('auth.login');
 
 
 Route::get('/register', function () {
-    return view('register')->with('title', 'Daftar');
-});
+    return view('register',[
+        'title' => "Daftar Perusahaan"
+    ]);
+})->middleware('guest');
 
 Route::get('/forgot-password', function () {
     return view('forgotPassword');
-});
+})->middleware('guest');
 
 Route::get('/change-password', function () {
     return view('change-password');
-})->name('forgot.change');
+})->name('forgot.change')->middleware('guest');
 
 Route::middleware('auth')->group(function () {
 
