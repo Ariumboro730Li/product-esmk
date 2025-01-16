@@ -94,7 +94,7 @@
     <div id="preloaderLoadingPage">
         <div class="sk-three-bounce">
             <div class="centerpreloader">
-                <div class="ui-loading"></div>
+                <img class="ui-loading" src="{{ asset('images/loading_new.webp') }}" style="margin-bottom: 10px;">
                 <center>
                     <h6 style="color: white;">Harap Tunggu....</h6>
                 </center>
@@ -798,7 +798,6 @@
             });
         }
 
-
         document.addEventListener("DOMContentLoaded", () => {
             const steps = document.querySelectorAll(".wizard-step");
             const wizardContainer = document.querySelector(".wizard-container");
@@ -813,109 +812,52 @@
             const nextButtons = document.querySelectorAll("button[type='submit']");
             const prevButtons = document.querySelectorAll(".prev-btn");
 
+            // Function to validate each step
+            const validateStep = (stepIndex) => {
+                const currentStepElement = steps[stepIndex];
+                const inputs = currentStepElement.querySelectorAll("input, select, textarea");
+                let isValid = true;
+
+                // Check all form fields on the current step
+                inputs.forEach(input => {
+                    if (input.required && !input.value) {
+                        isValid = false;
+                        input.classList.add("is-invalid"); // Highlight invalid fields
+                    } else {
+                        input.classList.remove("is-invalid");
+                    }
+                });
+
+                return isValid;
+            };
+
             nextButtons.forEach((button, idx) => {
-                button.addEventListener("click", () => {
-                    if (idx < steps.length - 1) {
+                button.addEventListener("click", async (event) => {
+                    event.preventDefault(); 
+
+                    const isStepValid = validateStep(currentStep);
+
+                    if (!isStepValid) {
+                        notificationAlert('info', 'Pemberitahuan',
+                            'Silakan isi semua kolom yang wajib (*) diisi.');
+                        setTimeout(() => {
+                            button.disabled = false;
+                        }, 1000); 
+                        return; 
+                    }
+
+                    if (currentStep < steps.length - 1) {
+                        console.log("🚀 ~ button.addEventListener ~ steps.length - 1:", steps.length - 1)
                         currentStep++;
                         showStep(currentStep);
                     }
+
+                    setTimeout(() => {
+                        button.disabled = false;
+                    }, 500); 
                 });
             });
 
-
-            prevButtons.forEach((button) => {
-                button.addEventListener("click", () => {
-                    if (currentStep > 0) {
-                        currentStep--;
-                        showStep(currentStep);
-                    }
-                });
-            });
-
-            $("#data-perusahaan-provinsi").select2({
-                language: languageIndonesian,
-                placeholder: 'Pilih Provinsi',
-                enable: false,
-            });
-            $("#data-perusahaan-kota").select2({
-                language: languageIndonesian,
-                placeholder: 'Pilih Kota',
-                enable: false,
-            });
-            $("#data-jenis-pelayanan").select2({
-                language: languageIndonesian,
-                placeholder: 'Pilih Jenis Pelayanan',
-                enable: false,
-            });
-
-            $('#data-informasi-akun-username, #data-informasi-akun-no-telepon').on('input', function() {
-                if ($('#data-informasi-akun-username').val() == '' || $('#data-informasi-akun-no-telepon')
-                    .val() == '') {
-                    $('#cp1-save-register').prop('checked', false);
-                    $('#cp1-save-register').attr('disabled', true);
-                } else {
-                    $('#cp1-save-register').attr('disabled', false);
-                }
-            });
-
-
-            select2List('#data-perusahaan-provinsi', 'provinsi');
-            select2List('#data-jenis-pelayanan', 'jenis_pelayanan');
-            $('#data-perusahaan-provinsi').on('change', async function() {
-                $("#data-perusahaan-kota").val(' ').trigger("change");
-                let id = $(this).val();
-                select2List('#data-perusahaan-kota', 'kota', id);
-            });
-
-            showStep(currentStep);
-            checkOSS();
-            submitCompany();
-            togglePass();
-            getDataApps();
-
-        });
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const steps = document.querySelectorAll(".wizard-step");
-            let currentStep = 0;
-
-            const showStep = (index) => {
-                steps.forEach((step, idx) => {
-                    step.style.display = idx === index ? "block" : "none";
-                });
-            };
-
-            const validateStep = (step) => {
-                const inputs = step.querySelectorAll("input[required], select[required], textarea[required]");
-                for (const input of inputs) {
-                    if (!input.value || (input.tagName === "SELECT" && input.selectedIndex === -1)) {
-                        console.log("Input kosong:", input); // Cetak elemen input kosong ke console
-                        input.focus(); // Highlight input kosong pertama
-                        return false;
-                    }
-                }
-                return true;
-            };
-
-            const nextButtons = document.querySelectorAll("button[type='submit']");
-            nextButtons.forEach((button, idx) => {
-                button.addEventListener("click", (event) => {
-                    // event.preventDefault(); // Prevent form submission
-                    // const currentStepElement = steps[currentStep];
-
-                    // Hanya validasi untuk wizard step saat ini
-                    // if (validateStep(currentStepElement)) {
-                        if (idx < steps.length - 1) {
-                            currentStep++;
-                            showStep(currentStep);
-                        }
-                    // } else {
-                    //     alert("Harap isi semua field yang diperlukan sebelum melanjutkan.");
-                    // }
-                });
-            });
-
-            const prevButtons = document.querySelectorAll(".prev-btn");
             prevButtons.forEach((button) => {
                 button.addEventListener("click", () => {
                     if (currentStep > 0) {
@@ -965,99 +907,6 @@
             togglePass();
             getDataApps();
         });
-
-
-        // document.addEventListener("DOMContentLoaded", () => {
-        //     const steps = document.querySelectorAll(".wizard-step");
-        //     let currentStep = 0;
-
-        //     const showStep = (index) => {
-        //         steps.forEach((step, idx) => {
-        //             step.style.display = idx === index ? "block" : "none";
-        //         });
-        //     };
-        //     const validateStep = (step) => {
-        //         const inputs = step.querySelectorAll("input[required], select[required], textarea[required]");
-        //         for (const input of inputs) {
-        //             if (!input.value || (input.tagName === "SELECT" && input.selectedIndex === -1)) {
-        //                 console.log("Input kosong:", input); // Cetak elemen input kosong ke console
-        //                 input.focus(); // Highlight input kosong pertama
-        //                 return false;
-        //             }
-        //         }
-        //         return true;
-        //     };
-
-
-        //     const nextButtons = document.querySelectorAll("button[type='submit']");
-        //     nextButtons.forEach((button, idx) => {
-        //         button.addEventListener("click", (event) => {
-        //             event.preventDefault(); // Prevent form submission
-        //             const currentStepElement = steps[currentStep];
-
-        //             if (validateStep(currentStepElement)) {
-        //                 if (idx < steps.length - 1) {
-        //                     currentStep++;
-        //                     showStep(currentStep);
-        //                 }
-        //             } else {
-        //                 alert("Harap isi semua field yang diperlukan sebelum melanjutkan.");
-        //             }
-        //         });
-        //     });
-
-        //     const prevButtons = document.querySelectorAll(".prev-btn");
-        //     prevButtons.forEach((button) => {
-        //         button.addEventListener("click", () => {
-        //             if (currentStep > 0) {
-        //                 currentStep--;
-        //                 showStep(currentStep);
-        //             }
-        //         });
-        //     });
-
-        //     $("#data-perusahaan-provinsi").select2({
-        //         language: languageIndonesian,
-        //         placeholder: 'Pilih Provinsi',
-        //         enable: false,
-        //     });
-        //     $("#data-perusahaan-kota").select2({
-        //         language: languageIndonesian,
-        //         placeholder: 'Pilih Kota',
-        //         enable: false,
-        //     });
-        //     $("#data-jenis-pelayanan").select2({
-        //         language: languageIndonesian,
-        //         placeholder: 'Pilih Jenis Pelayanan',
-        //         enable: false,
-        //     });
-
-        //     $('#data-informasi-akun-username, #data-informasi-akun-no-telepon').on('input', function() {
-        //         if ($('#data-informasi-akun-username').val() == '' || $('#data-informasi-akun-no-telepon')
-        //             .val() == '') {
-        //             $('#cp1-save-register').prop('checked', false);
-        //             $('#cp1-save-register').attr('disabled', true);
-        //         } else {
-        //             $('#cp1-save-register').attr('disabled', false);
-        //         }
-        //     });
-
-
-        //     select2List('#data-perusahaan-provinsi', 'provinsi');
-        //     select2List('#data-jenis-pelayanan', 'jenis_pelayanan');
-        //     $('#data-perusahaan-provinsi').on('change', async function() {
-        //         $("#data-perusahaan-kota").val(' ').trigger("change");
-        //         let id = $(this).val();
-        //         select2List('#data-perusahaan-kota', 'kota', id);
-        //     });
-
-        //     showStep(currentStep);
-        //     checkOSS();
-        //     submitCompany();
-        //     togglePass();
-        //     getDataApps();
-
-        // });
     </script>
 
 </body>

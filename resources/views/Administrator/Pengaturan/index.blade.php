@@ -5,7 +5,7 @@
         href="{{ asset('assets') }}/js/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.css">
     <link rel="stylesheet"
         href="{{ asset('assets') }}/js/libs/filepond-plugin-pdf-preview/filepond-plugin-pdf-preview.min.css">
-        <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}">
 @endsection
 
 @section('content')
@@ -153,7 +153,7 @@
                                                     <select class="form-select select2" id="select_provinsi"
                                                         aria-label="Floating label select example">
                                                     </select>
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>
@@ -164,7 +164,7 @@
                                                     <select class="form-select select2" id="select_kota"
                                                         aria-label="Floating label select example">
                                                     </select>
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>
@@ -358,144 +358,153 @@
     <script>
         let faviconFileUrl;
         let logoFileUrl;
+
         async function getDataApps() {
-    loadingPage(true);
+            loadingPage(true);
 
-    let getDataRest = await CallAPI(
-        'GET',
-        `{{ url('') }}/api/internal/admin-panel/setting/find`, {
-            name: "aplikasi"
+            let getDataRest = await CallAPI(
+                    'GET',
+                    `{{ url('') }}/api/internal/admin-panel/setting/find`, {
+                        name: "aplikasi"
+                    }
+                )
+                .then(response => response)
+                .catch(error => {
+                    loadingPage(false);
+                    let resp = error.response;
+                    notificationAlert('info', 'Pemberitahuan', 'Error');
+                    return resp;
+                });
+
+            if (getDataRest.status === 200) {
+                loadingPage(false);
+
+                let appData = getDataRest.data.data;
+                document.getElementById('input_nama').value = appData.nama;
+                document.getElementById('input_nama_instansi').value = appData.nama_instansi;
+                document.getElementById('deskripsiAplikasi').value = appData.deskripsi;
+                document.getElementById('input_email').value = appData.email;
+                document.getElementById('input_wa').value = appData.whatsapp;
+                document.getElementById('input_alamat').value = appData.alamat;
+
+                faviconFileUrl = appData.logo_favicon;
+                logoFileUrl = appData.logo_aplikasi;
+                setTimeout(() => {
+                    filePondCreate("#faviconFileUrl", appData.logo_favicon);
+                }, 500);
+                setTimeout(() => {
+                    filePondCreate("#logoFileUrl", appData.logo_aplikasi);
+                }, 500);
+
+                document.getElementById('namaAplikasi').innerText = appData.nama;
+                document.getElementById('namaInstansi').innerText = appData.nama_instansi;
+                $('#email').html(`<i class="fa fa-envelope me-2"></i>${appData.email}`);
+                $('#noWaHelpdesk').html(`<i class="fa fa-phone me-2"></i>${appData.whatsapp}`);
+
+                let defaultLogo = '{{ asset('assets/images/logoapp.png') }}';
+                let currentPort = window.location.port || '80';
+                let logoPort;
+                try {
+                    logoPort = new URL(appData.logo_aplikasi).port || '80';
+                } catch {
+                    logoFavicon = null;
+                }
+
+                let finalLogo = (logoPort && logoPort !== currentPort) ?
+                    defaultLogo :
+                    (appData.logo_aplikasi || defaultLogo);
+
+                let isDefaultLogo = finalLogo === defaultLogo;
+
+                $('.logoApp').html(`
+                <a href="#"><img src="${finalLogo}" alt="img"
+                    style="width: 60px; height: ${isDefaultLogo ? '65px' : '62px'}; border-radius: 50%;" /></a>
+                `);
+                $('#alamat').html(`<i class="fa-solid fa-location-dot me-2"></i> ${appData.alamat}`);
+
+                let provinsiSelect = document.querySelector('#select_provinsi');
+                let citySelect = document.querySelector('#select_kota');
+                let provinsiId = '';
+                if (provinsiSelect) {
+                    provinsiSelect.innerHTML = `<option selected>${appData.provinsi}</option>`;
+                    await selectList('#select_provinsi', `{{ url('') }}/api/internal/admin-panel/provinsi/list`,
+                        'Pilih Provinsi');
+
+                    $('#select_provinsi').on('change', async function() {
+                        provinsiId = $(this).val();
+                        await selectList('#select_kota',
+                            '{{ url('') }}/api/internal/admin-panel/kota/list', 'Pilih Kota',
+                            provinsiId);
+                    });
+                }
+
+                if (citySelect) {
+                    citySelect.innerHTML = `<option selected>${appData.kota}</option>`;
+                }
+            }
         }
-    )
-    .then(response => response)
-    .catch(error => {
-        loadingPage(false);
-        let resp = error.response;
-        notificationAlert('info', 'Pemberitahuan', 'Error');
-        return resp;
-    });
 
-    if (getDataRest.status === 200) {
-        loadingPage(false);
+        async function selectList(id, isUrl, placeholder, idProv = '') {
+            let select2Options = {
+                ajax: {
+                    url: isUrl,
+                    dataType: 'json',
+                    delay: 500,
+                    headers: {
+                        Authorization: `Bearer ${Cookies.get('auth_token')}`
+                    },
+                    data: function(params) {
+                        let query = {
+                            keyword: params.term,
+                            page: 1,
+                            limit: 30,
+                            ascending: 1,
+                        };
+                        if (idProv != '') {
+                            query.province_id = idProv; 
+                        }
+                        return query;
+                    },
+                    processResults: function(res) {
+                        let data = res.data;
+                        return {
+                            results: $.map(data, function(item) {
+                                return {
+                                    id: item.id, 
+                                    text: item.name 
+                                };
+                            })
+                        };
+                    }
+                },
+                allowClear: true,
+                placeholder: placeholder
+            };
 
-        // Ambil data dari response
-        let appData = getDataRest.data.data;
-        document.getElementById('input_nama').value = appData.nama;
-        document.getElementById('input_nama_instansi').value = appData.nama_instansi;
-        document.getElementById('deskripsiAplikasi').value = appData.deskripsi;
-        document.getElementById('input_email').value = appData.email;
-        document.getElementById('input_wa').value = appData.whatsapp;
-        document.getElementById('input_alamat').value = appData.alamat;
+            if ($(id).length > 0) {
+                await $(id).select2(select2Options);
+            }
 
-        faviconFileUrl = appData.logo_favicon;
-        logoFileUrl = appData.logo_aplikasi;
-        setTimeout(() => {
-            filePondCreate("#faviconFileUrl", appData.logo_favicon);
-        }, 500);
-        setTimeout(() => {
-            filePondCreate("#logoFileUrl", appData.logo_aplikasi);
-        }, 500);
-
-        document.getElementById('namaAplikasi').innerText = appData.nama;
-        document.getElementById('namaInstansi').innerText = appData.nama_instansi;
-        $('#email').html(`<i class="fa fa-envelope me-2"></i>${appData.email}`);
-        $('#noWaHelpdesk').html(`<i class="fa fa-phone me-2"></i>${appData.whatsapp}`);
-
-        let defaultLogo = '{{ asset('assets/images/logoapp.png') }}';
-        let currentPort = window.location.port || '80';
-        let logoPort;
-        try {
-            logoPort = new URL(appData.logo_aplikasi).port || '80';
-        } catch {
-            logoFavicon = null;
-        }
-
-        let finalLogo = (logoPort && logoPort !== currentPort) ?
-            defaultLogo :
-            (appData.logo_aplikasi || defaultLogo);
-
-        let isDefaultLogo = finalLogo === defaultLogo;
-
-        $('.logoApp').html(`
-        <a href="#"><img src="${finalLogo}" alt="img"
-            style="width: 60px; height: ${isDefaultLogo ? '65px' : '62px'}; border-radius: 50%;" /></a>
-        `);
-        $('#alamat').html(`<i class="fa-solid fa-location-dot me-2"></i> ${appData.alamat}`);
-
-        let provinsiSelect = document.querySelector('#select_provinsi');
-        let citySelect = document.querySelector('#select_kota');
-        let provinsiId = '';
-        if (provinsiSelect) {
-            provinsiSelect.innerHTML = `<option selected>${appData.provinsi}</option>`;
-            await selectList('#select_provinsi', `{{ url('') }}/api/internal/admin-panel/provinsi/list`, 'Pilih Provinsi');
-
-            $('#select_provinsi').on('change', async function() {
-                provinsiId = $(this).val();
-                await selectList('#select_kota', '{{ url('') }}/api/internal/admin-panel/kota/list', 'Pilih Kota', provinsiId);
+            $(id).on('change', function() {
+                let selectedText = $(this).select2('data')[0]?.text; 
+                let displayElementId = id === '#select_provinsi' ? '#provinsiNama' :
+                    '#kotaNama'; 
+                $(displayElementId).text(selectedText); 
             });
         }
 
-        if (citySelect) {
-            citySelect.innerHTML = `<option selected>${appData.kota}</option>`;
-            // await selectList('#select_kota', '{{ url('') }}/api/internal/admin-panel/kota/list', 'Pilih Kota', provinsiId); // Asumsi bahwa appData.kota_id menyimpan ID provinsi
-        }
-    }
-}
-
-async function selectList(id, isUrl, placeholder, idProv = '') {
-    let select2Options = {
-        ajax: {
-            url: isUrl,
-            dataType: 'json',
-            delay: 500,
-            headers: {
-                Authorization: `Bearer ${Cookies.get('auth_token')}`
-            },
-            data: function(params) {
-                let query = {
-                    keyword: params.term,
-                    page: 1,
-                    limit: 30,
-                    ascending: 1,
-                };
-                if (idProv != '') {
-                    query.province_id = idProv; // Mengirimkan ID provinsi jika ada
-                }
-                return query;
-            },
-            processResults: function(res) {
-                let data = res.data;
-                return {
-                    results: $.map(data, function(item) {
-                        return {
-                            id: item.id,
-                            text: item.name
-                        };
-                    })
-                };
-            }
-        },
-        allowClear: true,
-        placeholder: placeholder
-    };
-
-    if ($(id).length > 0) {
-        await $(id).select2(select2Options);
-    }
-}
-
-
         async function updateDataApps() {
             loadingPage(true);
-            // Ambil nilai inputan dari formulir
+            let provinsi = $('#select_provinsi').select2('data')[0]?.text; 
+            let kota = $('#select_kota').select2('data')[0]?.text;
             let namaAplikasi = document.getElementById('input_nama').value;
             let namaInstansi = document.getElementById('input_nama_instansi').value;
             let deskripsiAplikasi = document.getElementById('deskripsiAplikasi').value;
             let email = document.getElementById('input_email').value;
             let noWaHelpdesk = document.getElementById('input_wa').value;
             let alamat = document.getElementById('input_alamat').value;
-            let provinsi = document.getElementById('select_provinsi').value;
-            let kota = document.getElementById('select_kota').value;
+            provinsi = provinsi;
+            kota = kota;
             let faviconUrl = faviconFileUrl;
             let logoUrl = logoFileUrl;
 
@@ -571,8 +580,6 @@ async function selectList(id, isUrl, placeholder, idProv = '') {
             let ossUrl = document.getElementById('urlOss').value;
 
             let akunOssCheckbox = document.getElementById('akunOssActive');
-
-            console.log(akunOssCheckbox);
 
             let payload = {
                 username: ossUsername,
