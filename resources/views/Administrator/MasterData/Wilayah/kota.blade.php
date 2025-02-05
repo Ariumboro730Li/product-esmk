@@ -39,7 +39,8 @@
                                     <div class="datatable-top">
                                         <div class="datatable-dropdown">
                                             <label>
-                                                <select class="datatable-selector" id="limitPage" name="per-page" style="width: auto;min-width: unset;">
+                                                <select class="datatable-selector" id="limitPage" name="per-page"
+                                                    style="width: auto;min-width: unset;">
                                                     <option value="5">5</option>
                                                     <option value="10" selected="">10</option>
                                                     <option value="15">15</option>
@@ -49,9 +50,8 @@
                                             </label>
                                         </div>
                                         <div class="datatable-search">
-                                            <input class="datatable-input search-input" placeholder="Cari..."
-                                                type="search" name="search" title="Search within table"
-                                                aria-controls="pc-dt-simple">
+                                            <input class="datatable-input search-input" placeholder="Cari..." type="search"
+                                                name="search" title="Search within table" aria-controls="pc-dt-simple">
                                         </div>
                                     </div>
                                     <div class="datatable-container">
@@ -102,8 +102,8 @@
                                 <div class="col-md-12">
                                     <div class="form">
                                         <label for="floatingSelect">Provinsi</label>
-                                        <select class="form-control" id="input_province_id"
-                                            name="input_province_id" style="width: 100%;">
+                                        <select class="form-control" id="input_province_id" name="input_province_id"
+                                            style="width: 100%;">
                                         </select>
                                     </div>
                                 </div>
@@ -156,17 +156,21 @@
         let getDataTable = '';
         let errorMessage = "Terjadi Kesalahan.";
         let isActionForm = "store";
+        let permission = @json(request()->permission).map(p => p.name);
 
         async function addData() {
-            $(document).on("click", ".add-data", function() {
-                $("#modal-title").html(`Form Tambah ${menu}`);
-                isActionForm = "store";
-                $("#modal-form").modal("show");
-                $("form").find("input, textarea").val("").prop("checked", false).trigger("change");
+            if (permission.includes('Tambah kota')) {
+                $(document).on("click", ".add-data", function() {
+                    $("#modal-title").html(`Form Tambah ${menu}`);
+                    isActionForm = "store";
+                    $("#modal-form").modal("show");
+                    $("form").find("input, textarea").val("").prop("checked", false).trigger("change");
+                    $("#form-create").data("action-url", ``);
+                });
+            }else{
+                $('#add-data').hide();
+            }
 
-                // $("#form-create").data("action-url", `${env}/internal/admin-panel/kota/store`);
-                $("#form-create").data("action-url", ``);
-            });
         }
 
 
@@ -187,8 +191,7 @@
 
                 const getDataRest = await CallAPI(
                     'POST',
-                    '{{url('')}}/api/internal/admin-panel/kota/edit',
-                    {
+                    '{{ url('') }}/api/internal/admin-panel/kota/edit', {
                         id: id
                     }
                 ).then(function(response) {
@@ -229,14 +232,14 @@
                     province_id: $('#input_province_id').val()
                 };
 
-                if (isActionForm==='update') {
+                if (isActionForm === 'update') {
                     let id = $('.edit-data').attr("data-id");
                     formData.id = id;
                 }
 
                 const postDataRest = await CallAPI(
                     'POST',
-                    `{{url('')}}/api/internal/admin-panel/kota/${isActionForm}`,
+                    `{{ url('') }}/api/internal/admin-panel/kota/${isActionForm}`,
                     formData
                 ).then(function(response) {
                     return response;
@@ -289,8 +292,7 @@
                         let method = 'destroy';
                         const postDataRest = await CallAPI(
                             'POST',
-                            `{{url('')}}/api/internal/admin-panel/kota/${method}`,
-                            {
+                            `{{ url('') }}/api/internal/admin-panel/kota/${method}`, {
                                 id: id
                             }
                         ).then(function(response) {
@@ -298,7 +300,8 @@
                         }).catch(function(error) {
                             loadingPage(false);
                             let resp = error.response;
-                            notificationAlert('warning', 'Pemberitahuan', resp.data.message);
+                            notificationAlert('warning', 'Pemberitahuan', resp.data
+                                .message);
                             return resp;
                         });
 
@@ -311,7 +314,8 @@
                                     text: 'Data berhasil dihapus!',
                                     confirmButtonText: 'OK'
                                 }).then(async () => {
-                                    await initDataOnTable(defaultLimitPage,
+                                    await initDataOnTable(
+                                        defaultLimitPage,
                                         currentPage,
                                         defaultAscending,
                                         defaultSearch);
@@ -330,8 +334,7 @@
             try {
                 getDataRest = await CallAPI(
                     'GET',
-                    '{{url('')}}/api/internal/admin-panel/kota/list',
-                    {
+                    '{{ url('') }}/api/internal/admin-panel/kota/list', {
                         page: page,
                         limit: limit,
                         ascending: ascending,
@@ -421,7 +424,8 @@
         }
 
         function getEditButton(elementData, element) {
-            return `
+            if (permission.includes('Ubah kota')) {
+                return `
                 <a class="avtar avtar-s btn-link-warning btn-pc-default edit-data"
                 data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top"
                     title="Edit Data ${element.name}"
@@ -430,10 +434,14 @@
                     data-name="${element.name}">
                     <i class="ti ti-edit f-20"></i>
                 </a>`;
+            }
+            return ``;
+
         }
 
         function getDeleteButton(elementData, element) {
-            return `
+            if (permission.includes('Hapus kota')) {
+                return `
                 <a class="avtar avtar-s btn-link-danger btn-pc-default delete-data"
                     data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top"
                     title="Hapus Data ${element.name}"
@@ -442,6 +450,9 @@
                     data-name="${element.name}">
                     <i class="ti ti-trash f-20"></i>
                 </a>`;
+            }
+            return ``;
+
         }
 
         async function performSearch() {

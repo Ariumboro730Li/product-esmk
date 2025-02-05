@@ -229,6 +229,8 @@
             if (getDataRest.status === 200) {
                 loadingPage(false)
                 notificationAlert("success", "Berhasil", "Berhasil mengubah hak akses")
+                setTimeout(() => window.location.reload(), 1500);
+
             }
         })
 

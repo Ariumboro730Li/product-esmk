@@ -36,7 +36,8 @@
                                     <div class="datatable-top">
                                         <div class="datatable-dropdown">
                                             <label>
-                                                <select class="datatable-selector" id="limitPage" name="per-page" style="width: auto;min-width: unset;">
+                                                <select class="datatable-selector" id="limitPage" name="per-page"
+                                                    style="width: auto;min-width: unset;">
                                                     <option value="5">5</option>
                                                     <option value="10" selected="">10</option>
                                                     <option value="15">15</option>
@@ -46,9 +47,8 @@
                                             </label>
                                         </div>
                                         <div class="datatable-search">
-                                            <input class="datatable-input search-input" placeholder="Cari..."
-                                                type="search" name="search" title="Search within table"
-                                                aria-controls="pc-dt-simple">
+                                            <input class="datatable-input search-input" placeholder="Cari..." type="search"
+                                                name="search" title="Search within table" aria-controls="pc-dt-simple">
                                         </div>
                                     </div>
                                     <div class="datatable-container">
@@ -134,13 +134,13 @@
         let getDataTable = '';
         let errorMessage = "Terjadi Kesalahan.";
         let isActionForm = "store";
+        let permission = @json(request()->permission).map(p => p.name);
 
         async function getListData(defaultLimitPage, currentPage, defaultAscending, defaultSearch) {
             loadingPage(true);
             let getDataRest = await CallAPI(
                 'GET',
-                '{{url('')}}/api/internal/admin-panel/provinsi/list',
-                {
+                '{{ url('') }}/api/internal/admin-panel/provinsi/list', {
                     page: currentPage,
                     limit: defaultLimitPage,
                     ascending: defaultAscending,
@@ -230,13 +230,18 @@
         }
 
         async function addData() {
-            $(document).on("click", ".add-data", function() {
-                $("#modal-title").html(`Form Tambah ${menu}`);
-                isActionForm = "store";
-                $("#modal-form").modal("show");
-                $("form").find("input, select, textarea").val("").prop("checked", false).trigger(
-                    "change");
-            });
+            if (permission.includes('Buat provinsi')) {
+                $(document).on("click", ".add-data", function() {
+                    $("#modal-title").html(`Form Tambah ${menu}`);
+                    isActionForm = "store";
+                    $("#modal-form").modal("show");
+                    $("form").find("input, select, textarea").val("").prop("checked", false).trigger(
+                        "change");
+                });
+            }else{
+                $("#add-data").hide();
+            }
+
         }
 
         async function editData() {
@@ -249,8 +254,7 @@
                 $(".modal-title").html(modalTitle);
                 const getDataRest = await CallAPI(
                     'POST',
-                    '{{url('')}}/api/internal/admin-panel/provinsi/edit',
-                    {
+                    '{{ url('') }}/api/internal/admin-panel/provinsi/edit', {
                         id: id
                     }
                 ).then(function(response) {
@@ -290,7 +294,7 @@
                 }
                 const postDataRest = await CallAPI(
                     'POST',
-                    `{{url('')}}/api/internal/admin-panel/provinsi/${method}`,
+                    `{{ url('') }}/api/internal/admin-panel/provinsi/${method}`,
                     data
                 ).then(function(response) {
                     return response;
@@ -347,8 +351,7 @@
                         let method = 'destroy';
                         const postDataRest = await CallAPI(
                             'POST',
-                            `{{url('')}}/api/internal/admin-panel/provinsi/${method}`,
-                            {
+                            `{{ url('') }}/api/internal/admin-panel/provinsi/${method}`, {
                                 id: id
                             }
                         ).then(function(response) {
@@ -356,7 +359,8 @@
                         }).catch(function(error) {
                             loadingPage(false);
                             let resp = error.response;
-                            notificationAlert('warning', 'Pemberitahuan', resp.data.message);
+                            notificationAlert('warning', 'Pemberitahuan', resp.data
+                                .message);
                             return resp;
                         });
 
@@ -369,7 +373,8 @@
                                     text: 'Data berhasil dihapus!',
                                     confirmButtonText: 'OK'
                                 }).then(async () => {
-                                    await initDataOnTable(defaultLimitPage,
+                                    await initDataOnTable(
+                                        defaultLimitPage,
                                         currentPage,
                                         defaultAscending,
                                         defaultSearch);
@@ -382,7 +387,8 @@
         }
 
         function getEditButton(elementData, element) {
-            return `
+            if (permission.includes('Ubah provinsi')) {
+                return `
                 <a class="avtar avtar-s btn-link-warning btn-pc-default edit-data"
                 data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top"
                     title="Edit Data ${element.name}"
@@ -391,10 +397,13 @@
                     data-name="${element.name}">
                     <i class="ti ti-edit f-20"></i>
                 </a>`;
+            }
+            return ``;
         }
 
         function getDeleteButton(elementData, element) {
-            return `
+            if (permission.includes('Hapus provinsi')) {
+                return `
                 <a class="avtar avtar-s btn-link-danger btn-pc-default delete-data"
                     data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top"
                     title="Hapus Data ${element.name}"
@@ -403,6 +412,9 @@
                     data-name="${element.name}">
                     <i class="ti ti-trash f-20"></i>
                 </a>`;
+            }
+            return ``;
+
         }
 
         async function performSearch() {
