@@ -88,6 +88,9 @@ Route::middleware('auth')->group(function () {
             Route::get('/element-smk/create', function () {
                 return view('Administrator.MasterData.Element.ElementSmk.create');
             });
+            Route::get('/element-smk/edit', function () {
+                return view('Administrator.MasterData.Element.ElementSmk.edit');
+            });
             Route::get('/element-smk/detail', function () {
                 return view('Administrator.MasterData.Element.ElementSmk.detail');
             });
