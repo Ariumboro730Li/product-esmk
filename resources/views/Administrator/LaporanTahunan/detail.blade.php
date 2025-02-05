@@ -196,6 +196,8 @@
         let responseData;
         let resp;
         var pathname = window.location.pathname.split('/')
+        let permission = @json(request()->permission).map(p => p.name);
+
 
         async function getYearlyReportByID() {
             loadingPage(true);
@@ -287,7 +289,8 @@
                         numbering++;
                     }
 
-                    if (assessmentStatus === 'request' || assessmentStatus === 'revision') {
+                    if ((assessmentStatus === 'request' || assessmentStatus === 'revision') && permission.includes(
+                            'Nilai laporan')) {
                         isNeedSubmitButton = true;
                     }
 
@@ -476,8 +479,9 @@
                 answerColumn = '',
                 assessmentButtonColumn = '',
                 assessmentReasonColumn = ''
+            let buttonProperties
 
-            let buttonProperties = {
+            buttonProperties = {
                 yesOption: {
                     label: 'Ya',
                     id: `passed-${subElementSchema.subElementKey}`,
@@ -488,7 +492,9 @@
                     id: `notPassed-${subElementSchema.subElementKey}`,
                     value: 'no'
                 },
-            }
+            };
+
+
 
             if (numberOfColumn) {
                 numberColumn =
@@ -505,7 +511,7 @@
 
 
                 if (status === 'request') {
-                    if (subElementSchema.answers) {
+                    if (subElementSchema.answers  && permission.includes('Nilai laporan')) {
 
                         assessmentButtonColumn = customRadioCheckHTML(
                             `assessment-${subElementSchema.subElementKey}`,
@@ -520,7 +526,7 @@
                     }
 
                 } else if (status === 'revision') {
-                    if (subElementSchema.answers) {
+                    if (subElementSchema.answers && permission.includes('Nilai laporan')) {
                         if (
                             typeof subElementSchema.assessments?.assessmentValue !== 'undefined' ||
                             subElementSchema.assessments?.assessmentValue === null
