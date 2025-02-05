@@ -101,7 +101,7 @@ class SmkElementController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi dasar untuk 'title' dan 'element_properties'
+        // Validasi untuk 'title' dan 'element_properties'
         $validator = Validator::make($request->all(), [
             'title' => 'required|unique:smk_elements',
             'element_properties' => 'required|array',
@@ -111,63 +111,66 @@ class SmkElementController extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'status' => false,
-                'errors' => $validator->errors()->first()
+                'errors' => $validator->errors()
             ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
-
-        // Ambil data dari element_properties
-        $elementProperties = $request->element_properties;
-
-        // Proses recursive untuk membersihkan data
-        $processedProperties = $this->processElementProperties($elementProperties);
-
-        // Set semua elemen aktif sebelumnya menjadi tidak aktif
         SmkElement::where('is_active', 1)->update(['is_active' => 0]);
 
-        // Buat entri baru
         $newData = new SmkElement();
         $newData->title = $request->title;
-        $newData->is_active = 1; // Set entri baru sebagai aktif
-        $newData->element_properties = json_encode($processedProperties); // Simpan data yang sudah diproses
-        $newData->save();
+        $properties = [];
+        foreach ($request->element_properties as $key => $value) {
+            $properties[$key] = $value;
+        }
 
+        $newData->element_properties = json_encode($properties, true);
+        $newData->is_active = 1;
+        $newData->save();
         return response()->json([
             'status' => true,
-            'message' => 'Data Berhasil Ditambahkan',
+            'message' => 'Data successfully created',
             'data' => $newData
         ], HttpStatusCodes::HTTP_CREATED);
     }
 
-    private function processElementProperties(array $data)
+    public function update(Request $request)
     {
-        foreach ($data as $key => $value) {
-            // Jika key adalah 'title', abaikan proses pembersihan
-            if ($key === 'title') {
-                continue;
-            }
+        $validator = Validator::make($request->all(), [
+            'id' => 'required|exists:smk_elements,id',
+            'title' => 'required|unique:smk_elements,title,' . $request->id, // Unique berdasarkan ID berbeda
+            'element_properties' => 'required|array',
+        ]);
 
-            // Jika value adalah array, proses rekursif
-            if (is_array($value)) {
-                $data[$key] = $this->processElementProperties($value);
-            } elseif (is_string($value)) {
-                // Jika key adalah 'max_assessment', tetap gunakan nilai asli
-                if ($key === 'max_assessment') {
-                    $data[$key] = preg_replace('/[^0-9.]/', '', $value); // Hanya izinkan angka dan titik
-                } else {
-                    // Bersihkan simbol dari string
-                    $data[$key] = preg_replace('/[^a-zA-Z0-9\s]/', '', $value);
-                }
-            } elseif (is_numeric($value)) {
-                // Jika key adalah 'max_assessment', tetap gunakan nilai asli
-                if ($key === 'max_assessment') {
-                    $data[$key] = str_replace(',', '.', (string)$value); // Pastikan format desimal dengan titik
-                } else {
-                    // Tetap simpan angka tanpa perubahan
-                    $data[$key] = $value;
-                }
-            }
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => false,
+                'errors' => $validator->errors()
+            ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
-        return $data;
+
+        $element = SmkElement::find($request->id);
+
+        if (!$element) {
+            return response()->json([
+                'status' => false,
+                'error' => 'Data tidak ditemukan',
+            ], HttpStatusCodes::HTTP_NOT_FOUND);
+        }
+
+        $properties = [];
+        foreach ($request->element_properties as $key => $value) {
+            $properties[$key] = $value;
+        }
+        $element->title = $request->title;
+        $element->element_properties = json_encode($properties, true); // Mengubah ke JSON
+
+        $element->save();
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Data berhasil di update',
+            'data' => $element
+        ], HttpStatusCodes::HTTP_OK);
     }
 
 

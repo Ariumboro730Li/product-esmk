@@ -482,6 +482,7 @@
                     let subElementDescription = subElement.find(".subElementDescription").val();
                     let subElementType = subElement.find(".subElementType").val();
                     let subElementMaxAssesment = subElement.find(".maxAssesment").val();
+                    subElementMaxAssesment = subElementMaxAssesment.replace(',', '.');
 
                     let subElementProperties = {};
                     let UIProperty = {};
