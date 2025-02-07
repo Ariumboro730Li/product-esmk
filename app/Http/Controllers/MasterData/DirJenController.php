@@ -27,16 +27,21 @@ class DirJenController extends Controller
         $meta['orderBy'] = $request->ascending ? 'asc' : 'desc';
         $meta['limit'] = $validated['limit'];
 
-        $query = Signer::orderBy('created_at', $meta['orderBy']);
+        $query = Signer::with('province')->orderBy('created_at', $meta['orderBy']);
 
         if ($request->search !== null) {
             $query->where(function ($query) use ($request) {
                 $searchTerm = "%" . strtolower(trim($request->search)) . "%";
-                $query->whereRaw("LOWER(name) LIKE ?", [$searchTerm]);
+                $query->whereRaw("LOWER(name) LIKE ?", [$searchTerm])
+                ->orWhereRaw("LOWER(identity_number) LIKE ?", [$searchTerm])
+                ->orWhereHas('province', function ($q) use ($searchTerm) {
+                    $q->whereRaw("LOWER(name) LIKE ?", [$searchTerm]);
+                });
             });
         }
 
         $data = $query->paginate($meta['limit']);
+        
         return response()->json([
             'error' => false,
             'message' => 'Data Berhasil Ditampilkan',
@@ -74,7 +79,7 @@ class DirJenController extends Controller
             ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
 
-        $data = Signer::where('id', $request->id)->first();
+        $data = Signer::with('province')->where('id', $request->id)->first();
 
         if (!$data) {
             return response()->json([
@@ -100,12 +105,14 @@ class DirJenController extends Controller
             'position' => 'required',
             'identity_number' => 'required|unique:signers,identity_number', // Nomor identitas harus unik
             'identity_type' => 'required',
+            'province_id' => 'required',
         ], [
             'name.required' => 'Nama wajib diisi.',
             'position.required' => 'Jabatan wajib diisi.',
             'identity_number.required' => 'Nomor identitas wajib diisi.',
             'identity_number.unique' => 'Nomor identitas sudah terdaftar, harap gunakan nomor yang berbeda.',
             'identity_type.required' => 'Jenis identitas wajib diisi.',
+            'province_id.required' => 'Provinsi wajib diisi.',
         ]);
 
         // Jika validasi gagal
@@ -126,6 +133,7 @@ class DirJenController extends Controller
         $newData->position = $request->position;
         $newData->identity_number = $request->identity_number;
         $newData->identity_type = $request->identity_type;
+        $newData->province_id = $request->province_id;
         $newData->is_active = 1; // Set Dirjen baru sebagai aktif
         $newData->save();
 
@@ -156,7 +164,7 @@ class DirJenController extends Controller
             ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
 
-        $data = Signer::where('id', $request->id)->first();
+        $data = Signer::with('province')->where('id', $request->id)->first();
 
         if (!$data) {
             return response()->json([
@@ -184,6 +192,7 @@ class DirJenController extends Controller
                 'position' => 'required|',
                 'identity_number' => 'required|',
                 'identity_type' => 'required|',
+                'province_id' => 'required|',
             ],
             messages: [
                 'id.required' => 'ID Di Perlukan',
@@ -192,6 +201,7 @@ class DirJenController extends Controller
                 'position.required' => 'Posisi Penandatangan Di Perlukan',
                 'identity_number.required' => 'Nomor Identitas Di Perlukan',
                 'identity_type.required' => 'Tipe Identitas Di Perlukan',
+                'province_id.required' => 'Provinsi Di Perlukan',
             ]
         );
 
@@ -219,6 +229,7 @@ class DirJenController extends Controller
         $data->name = $request->input('name');
         $data->position = $request->input('position');
         $data->identity_number = $request->input('identity_number');
+        $data->province_id = $request->input('province_id');
         $data->identity_type = $request->input('identity_type');
         $data->save();
 

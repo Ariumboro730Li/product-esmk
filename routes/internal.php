@@ -49,7 +49,7 @@ Route::get('admin-panel/smk-element/detail', [SmkElementController::class, 'deta
 Route::post('admin-panel/smk-element/create', [SmkElementController::class, 'store']);
 Route::post('admin-panel/smk-element/destroy', [SmkElementController::class, 'destroy']);
 Route::get('admin-panel/smk-element/get-smk-element', [SmkElementController::class, 'smkElement']);
-Route::get('admin-panel/smk-element/update', [SmkElementController::class, 'update']);
+Route::post('admin-panel/smk-element/update', [SmkElementController::class, 'update']);
 
 Route::get('admin-panel/monitoring-element/list', [MonitoringElementController::class, 'index']);
 Route::get('admin-panel/monitoring-element/detail', [MonitoringElementController::class, 'show']);
