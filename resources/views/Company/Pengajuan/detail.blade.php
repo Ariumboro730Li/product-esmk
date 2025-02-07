@@ -210,11 +210,22 @@
                         </li>
                         <li class="list-group-item">
                             <div class="media align-items-center">
-                                <label class="mb-2 fw-bold">Jadwal Verifikasi <span id="tipe-verifikasi"></span> :</label>
+                                <label class="mb-2 fw-bold">Jadwal & Lokasi Interview</label>
+                                <div class="media-body">
+                                    <p class="mb-0">
+                                    <p>Tipe Interview : <span id="tipe-verifikasi"></span></p>
+                                    </p>
+                                </div>
                                 <div class="media-body">
                                     <p class="mb-0">
                                         <i class="fa-solid fa-calendar-days me-2"></i>
                                         <label class="mb-0" id="jadwal-verifikasi-lapangan"></label>
+                                    </p>
+                                </div>
+                                <div class="media-body">
+                                    <p class="mb-0">
+                                        <i class="fa-solid fa-world-days me-2"></i>
+                                        <label class="mb-0" id="lokasi-wawancara"></label>
                                     </p>
                                 </div>
                             </div>
@@ -582,18 +593,43 @@
 
                     $('#summary-schedule-interview').removeClass('d-none')
 
-                    let displayType = '-'; // Default jika tidak ada tipe
+                    let displayType = '-';
+                    let lokasiWawancara = '-';
                     if (response.data?.assessment_interviews?.interview_type === 'offline') {
                         displayType = 'Lapangan';
-                    } else if (response.data?.assessment_interviews?.interview_type === 'online') {
+                        lokasiWawancara = `<div class="lokasi-text">
+                            <strong>Lokasi:</strong> ${response.data?.assessment_interviews?.location ?? '-'}
+                        </div>`;
+                    } else {
                         displayType = 'Daring';
+                        let link = response.data?.assessment_interviews?.location ?? '#';
+                        lokasiWawancara = `<strong>Link:</strong>
+                        <a href="${link}" target="_blank" class="ellipsis-link" title="${link}">
+                            Klik untuk melihat
+                        </a>`;
                     }
-                    $('#tipe-verifikasi').html(displayType)
+
+                    $('#tipe-verifikasi').text(displayType);
+                    $('#lokasi-wawancara').html(lokasiWawancara);
                     $('#jadwal-verifikasi-lapangan').html(response.data.assessment_interviews.schedule ?
-                        formatTanggalIndo(response.data.assessment_interviews.schedule) : '-')
+                        formatTanggalWawancara(response.data.assessment_interviews.schedule) : '-')
                 }
 
             }
+        }
+
+        function formatTanggalWawancara(dateString) {
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            };
+            const date = new Date(dateString);
+            return date.toLocaleDateString('id-ID', options);
         }
 
 
@@ -872,8 +908,8 @@
                                         ${
                                             applicationLetter.fileOfApplicationLetter
                                                 ? `<a href="${applicationLetter?.fileOfApplicationLetter}" class="link-secondary text-decoration-underline link-underline-opacity-25 link-underline-opacity-100-hover d-block mb-3" target="_blank" rel="noopener noreferrer">
-                                                                                                    Lihat dokumen yang dikirim
-                                                                                                </a>`
+                                                                                                            Lihat dokumen yang dikirim
+                                                                                                        </a>`
                                                 : ""
                                         }
                                         <input type="file" class="filepond filepond-input application_letter mb-0" id="application_letter_show" accept="application/pdf" ${applicationLetter.fileOfApplicationLetter ? "" : "required"} />

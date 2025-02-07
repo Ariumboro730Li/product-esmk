@@ -198,9 +198,8 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="date_of_letter" class="form-label">Tanggal Surat</label>
-                                    <input type="text" class="form-control flatpickr-input"
-                                        placeholder="Tanggal surat" id="date_of_application_letter"
-                                        name="date_of_application_letter" required />
+                                    <input type="text" class="form-control flatpickr-input" placeholder="Tanggal surat"
+                                        id="date_of_application_letter" name="date_of_application_letter" required />
                                 </div>
                             </div>
                             <div class="col-6">
@@ -274,7 +273,10 @@
         src="{{ asset('assets') }}/js/libs/filepond-plugin-file-validate-type/filepond-plugin-file-validate-type.min.js">
     </script>
     <!-- [Page Specific JS] start -->
+    <script src="https://cdn.jsdelivr.net/npm/moment/min/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment/locale/id.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/id.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/parsleyjs/dist/parsley.min.js"></script>
 @endsection
 
@@ -488,17 +490,19 @@
         function inputDate() {
             flatpickr("#date_of_application_letter", {
                 altInput: true,
-                dateFormat: "YYYY-MM-DD",
-                altFormat: 'DD MMMM YYYY',
+                dateFormat: "Y-m-d", // Format untuk value yang tersimpan di input
+                altFormat: "l, d F Y", // Format tampilan (dengan nama hari dan bulan dalam bahasa Indonesia)
+                locale: "id", // Menggunakan bahasa Indonesia di Flatpickr
                 parseDate: (datestr, format) => {
-                    return moment(datestr, format, true).toDate();
+                    return moment(datestr, "YYYY-MM-DD", true).toDate();
                 },
                 formatDate: (date, format, locale) => {
-                    return moment(date).format(format);
+                    return moment(date).locale('id').format(
+                        "dddd, DD MMMM YYYY"); // Format dalam bahasa Indonesia
                 },
             });
 
-            uploadFile('application_letter_show', 'application_letter')
+            uploadFile('application_letter_show', 'application_letter');
         }
 
         function uploadFile(sourceElement, inputTarget, sourceFile = null) {
@@ -586,6 +590,8 @@
                 formObject[field.name] = field.value;
             });
 
+            let dateInput = moment(formObject.date_of_application_letter, "dddd, DD MMMM YYYY").format("YYYY-MM-DD");
+
             // Cek apakah field wajib kosong
             if (!formObject.number_of_application_letter) {
                 loadingPage(false);
@@ -614,7 +620,7 @@
                 answers: answerSchema,
                 status: 'draft',
                 number_of_application_letter: formObject.number_of_application_letter,
-                date_of_application_letter: formObject.date_of_application_letter,
+                date_of_application_letter: dateInput,
                 file_of_application_letter: formObject.file_of_application_letter,
             };
 
@@ -645,6 +651,8 @@
                     formObject[field.name] = field.value;
                 });
 
+                let dateInput = moment(formObject.date_of_application_letter, "dddd, DD MMMM YYYY").format("YYYY-MM-DD");
+
 
                 // Cek apakah field wajib kosong
                 if (!formObject.number_of_application_letter) {
@@ -674,7 +682,7 @@
                     answers: answerSchema,
                     status: 'request',
                     number_of_application_letter: formObject.number_of_application_letter,
-                    date_of_application_letter: formObject.date_of_application_letter,
+                    date_of_application_letter: dateInput,
                     file_of_application_letter: formObject.file_of_application_letter,
                 };
 
