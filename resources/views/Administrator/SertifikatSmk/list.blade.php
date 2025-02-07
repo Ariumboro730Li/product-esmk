@@ -135,17 +135,24 @@
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
+                                <label class="fw-normal" for="input-perusahaan">Perusahaan</label>
+                                <select class="form-control select" name="input_perusahaan" id="input-perusahaan"></select>
+                            </div>
+                            <div class="col-md-3 mb-3">
                                 <label class="fw-normal" for="input-penilai">Penilai</label>
                                 <select class="form-control select" name="input_penilai" id="input-penilai"></select>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="fw-normal" for="input-perusahaan">Perusahaan</label>
-                                <select class="form-control select" name="input_perusahaan"
-                                    id="input-perusahaan"></select>
-                            </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-3 mb-3">
                                 <label class="fw-normal" for="input-status">Status Sertifikat</label>
                                 <select class="form-control select" name="input_status" id="input-status"></select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="fw-normal" for="input-provinsi">Provinsi</label>
+                                <select class="form-control select" name="input_provinsi" id="input-provinsi"></select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label class="fw-normal" for="input-kota">Kota</label>
+                                <select class="form-control select" name="input_kota" id="input-kota"></select>
                             </div>
                         </div>
                     </div>
@@ -311,6 +318,8 @@
                         searchByPerusahaan: Object.keys(customFilter).length !== 0 ? customFilter['company'] : '',
                         searchByStatus: Object.keys(customFilter).length !== 0 ? customFilter['status'] : '',
                         searchByPenilai: Object.keys(customFilter).length !== 0 ? customFilter['assesor'] : '',
+                        searchByProvince: Object.keys(customFilter).length !== 0 ? customFilter['provinsi'] : '',
+                        searchByCity: Object.keys(customFilter).length !== 0 ? customFilter['kota'] : '',
                         date_from: customFilter?.['start_date'] || '',
                         date_to: customFilter?.['end_date'] || '',
                     }
@@ -343,6 +352,7 @@
                             </div>
                         </div>
                     `);
+                    $('#pagination-js').hide();
                     $('#totalPage').text('0');
                     $('#countPage').text('0 - 0');
                 } else {
@@ -531,26 +541,26 @@
                                                     </ul>
                                                 </div>
                                                 ${element.rejection_notes ? `
-                                                                                                                                    <div class="h5 mt-4"><i class="fa-solid fa-note-sticky me-1"></i>
-                                                                                                                                        Catatan Permohonan</div>
-                                                                                                                                    <div class="help-md-hidden">
-                                                                                                                                        <div class="bg-body mb-3 p-3">
-                                                                                                                                            <h6><img src="{{ asset('assets') }}/images/user/"
-                                                                                                                                                    alt="" class="wid-20 avatar me-2 rounded">Catatan terakhir dari <a href="#" class="link-secondary">${element.updated_by}</a></h6>
-                                                                                                                                            <p class="mb-0">
-                                                                                                                                                ${truncatedNotes}
-                                                                                                                                            </p>
-                                                                                                                                        </div>
-                                                                                                                                    </div>`
+                                                                                                                                            <div class="h5 mt-4"><i class="fa-solid fa-note-sticky me-1"></i>
+                                                                                                                                                Catatan Permohonan</div>
+                                                                                                                                            <div class="help-md-hidden">
+                                                                                                                                                <div class="bg-body mb-3 p-3">
+                                                                                                                                                    <h6><img src="{{ asset('assets') }}/images/user/"
+                                                                                                                                                            alt="" class="wid-20 avatar me-2 rounded">Catatan terakhir dari <a href="#" class="link-secondary">${element.updated_by}</a></h6>
+                                                                                                                                                    <p class="mb-0">
+                                                                                                                                                        ${truncatedNotes}
+                                                                                                                                                    </p>
+                                                                                                                                                </div>
+                                                                                                                                            </div>`
                                                     :
                                                 ''}
                                             </div>
                                             <div class="mt-4">
                                                 ${element.rejection_notes ? `
-                                                                                                                                <button type="button" class="me-2 btn btn-sm btn-light-danger"
-                                                                                                                                    data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
-                                                                                                                                    <i class="ti ti-eye me-1"></i> Lihat Catatan
-                                                                                                                                </button>` : ''}
+                                                                                                                                        <button type="button" class="me-2 btn btn-sm btn-light-danger"
+                                                                                                                                            data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
+                                                                                                                                            <i class="ti ti-eye me-1"></i> Lihat Catatan
+                                                                                                                                        </button>` : ''}
                                                 <a href="/admin/sertifikat/detail?r=${element.id}" class="me-2 btn btn-sm btn-light-secondary"
                                                     style="border-radius:5px;"><i class="feather icon-eye mx-1 me-2"></i>Lihat
                                                     Detail</a>
@@ -824,11 +834,15 @@
                 let assesor = document.getElementById('input-penilai').value;
                 let company = document.getElementById('input-perusahaan').value;
                 let status = document.getElementById('input-status').value;
+                let provinsi = document.getElementById('input-provinsi').value;
+                let kota = document.getElementById('input-kota').value;
 
                 customFilter = {
                     'assesor': assesor,
                     'company': company,
+                    'kota' : kota,
                     'status': status,
+                    'provinsi': provinsi,
                     'start_date': startDate,
                     'end_date': endDate
                 };
@@ -856,9 +870,13 @@
                 let assesor = document.getElementById('input-penilai').value;
                 let company = document.getElementById('input-perusahaan').value;
                 let status = document.getElementById('input-status').value;
+                let provinsi = document.getElementById('input-provinsi').value;
+                let kota = document.getElementById('input-kota').value;
 
                 customFilter = {
                     'status': status,
+                    'provinsi': provinsi,
+                    'kota': kota,
                     'company': company,
                     'assesor': assesor,
                     'start_date': startDate,
@@ -899,9 +917,13 @@
                 let assesor = document.getElementById('input-penilai').value;
                 let company = document.getElementById('input-perusahaan').value;
                 let status = document.getElementById('input-status').value;
+                let provinsi = document.getElementById('input-provinsi').value;
+                let kota = document.getElementById('input-kota').value;
 
                 customFilter = {
                     'status': status,
+                    'provinsi': provinsi,
+                    'kota' : kota,
                     'company': company,
                     'assesor': assesor,
                     'start_date': startDate,
@@ -948,9 +970,13 @@
                 let assesor = document.getElementById('input-penilai').value;
                 let company = document.getElementById('input-perusahaan').value;
                 let status = document.getElementById('input-status').value;
+                let provinsi = document.getElementById('input-provinsi').value;
+                let kota = document.getElementById('input-kota').value;
 
                 customFilter = {
                     'status': status,
+                    'provinsi': provinsi,
+                    'kota' : kota,
                     'company': company,
                     'assesor': assesor,
                     'start_date': startDate,
@@ -1381,6 +1407,12 @@
                 selectFilter('#input-perusahaan',
                     '{{ url('') }}/api/internal/admin-panel/perusahaan/list',
                     'Pilih perusahaan'),
+                selectFilter('#input-provinsi',
+                    '{{ url('') }}/api/internal/admin-panel/provinsi/list',
+                    'Pilih provinsi'),
+                selectFilter('#input-kota',
+                    '{{ url('') }}/api/internal/admin-panel/kota/list',
+                    'Pilih provinsi'),
             ]);
         }
     </script>
