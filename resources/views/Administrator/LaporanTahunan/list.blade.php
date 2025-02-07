@@ -469,12 +469,12 @@
                                                         <li
                                                             class="d-sm-inline-block d-block mt-1 me-3">
                                                             <i class="fa-solid fa-calendar-day me-1"></i>
-                                                            Tanggal Dibuat : <b>${element.created_at}</b>
+                                                            Tanggal Dibuat : <b>${formatTanggalIndo(element.created_at)}</b>
                                                         </li>
                                                         <li
                                                             class="d-sm-inline-block d-block mt-1 me-3">
                                                             <i class="fa-solid fa-calendar-day me-1"></i>
-                                                            Tanggal Terverifikasi : <b>${element.tanggal_verifikasi}</b>
+                                                            Tanggal Terverifikasi : <b>${formatTanggalIndo(element.tanggal_verifikasi)}</b>
                                                         </li>
                                                     </ul>
                                                 </div>
