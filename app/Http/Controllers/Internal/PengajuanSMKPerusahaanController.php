@@ -93,6 +93,14 @@ class PengajuanSMKPerusahaanController extends Controller
             $certificateRequest->where('certificate_requests.status', $request->searchByStatus);
         }
 
+        if (!empty($request->searchByProvince)) {
+            $certificateRequest->where('companies.province_id', $request->searchByProvince);
+        }
+
+        if (!empty($request->searchByCity)) {
+            $certificateRequest->where('companies.city_id', $request->searchByCity);
+        }
+
         // Date filter
         if (!empty($request->date_from) && !empty($request->date_to)) {
 
