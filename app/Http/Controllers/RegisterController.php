@@ -14,6 +14,8 @@ use App\Models\Company;
 use App\Constants\HttpStatusCodes;
 use Illuminate\Support\Facades\Validator;
 use App\Jobs\Esmk\NotificationEmail;
+use App\Models\City;
+use App\Models\Province;
 use Str;
 
 class RegisterController extends Controller
@@ -34,15 +36,16 @@ class RegisterController extends Controller
         '21' => 'Perum', // Perusahaan Umum (PERUM)
         '22' => 'Perumda', // Perusahaan Umum Daerah (PERUMDA)
         '23' => 'Perusda', // Perusahaan Daerah (PERUSDA)
-        '24' => 'BOB' , // Badan Operasi Bersama (BOB)
+        '24' => 'BOB', // Badan Operasi Bersama (BOB)
         '25' => 'Badan Usaha Perwakilan',
-        '26' => 'PT Peorangan' , // PT Perorangan
+        '26' => 'PT Peorangan', // PT Perorangan
         '27' => 'PBA', // Pedagang Berjangka Asing (PBA)
         '28' => 'BUM Desa', // Badan Usaha Milik Desa (BUM Desa)
         '29' => 'BUM Desa Bersama'
     ];
 
-    public function registerManual(Request $request){
+    public function registerManual(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             "nib" => "required|unique:companies,nib,NULL,id,deleted_at,NULL",
             "name" => "required|string",
@@ -84,7 +87,7 @@ class RegisterController extends Controller
             'company_phone_number.regex' => 'Nomor Telepon Perusahaan harus diawali dengan 62 | 0 dan hanya terdiri dari angka.',
         ]);
 
-        if($validator->fails()){
+        if ($validator->fails()) {
             return response()->json([
                 'status_code'   => HttpStatusCodes::HTTP_BAD_REQUEST,
                 'error'         => true,
@@ -121,10 +124,10 @@ class RegisterController extends Controller
 
 
         foreach ($request->service_types as $val) {
-                CompanyServiceType::create([
-                    'company_id'     => $company->id,
-                    'service_type_id'   => $val,
-                ]);
+            CompanyServiceType::create([
+                'company_id'     => $company->id,
+                'service_type_id'   => $val,
+            ]);
         }
 
         $token = (string) Str::uuid();
@@ -149,7 +152,8 @@ class RegisterController extends Controller
         ], HttpStatusCodes::HTTP_OK);
     }
 
-    public function register(Request $request) {
+    public function register(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'nib'               => 'required|unique:companies,nib,NULL,id,deleted_at,NULL',
             'province_id'       => 'required|exists:provinces,id',
@@ -166,13 +170,32 @@ class RegisterController extends Controller
             ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
 
+
+        $isActiveProvince = Province::where('id', $request->province_id)->where('is_active', 1)->first();
+        if (!$isActiveProvince) {
+            return response()->json([
+                'status_code'   => HttpStatusCodes::HTTP_BAD_REQUEST,
+                'error'         => true,
+                'message'       => "Maaf, provinsi yang Anda pilih tidak aktif"
+            ], HttpStatusCodes::HTTP_BAD_REQUEST);
+        }
+
+        $isCityActive = City::where('id', $request->city_id)->where('is_active', 1)->first();
+        if (!$isCityActive) {
+            return response()->json([
+                'status_code'   => HttpStatusCodes::HTTP_BAD_REQUEST,
+                'error'         => true,
+                'message'       => "Maaf, kota yang Anda pilih tidak aktif"
+            ], HttpStatusCodes::HTTP_BAD_REQUEST);
+        }
+
         $settingOss = Setting::where('name', 'oss')->first();
 
-        if(!$settingOss){
+        if (!$settingOss) {
             return $this->registerManual($request);
         }
 
-        if($settingOss->value['is_active'] == false){
+        if ($settingOss->value['is_active'] == false) {
             return $this->registerManual($request);
         }
 
@@ -182,19 +205,19 @@ class RegisterController extends Controller
         } else {
             $ossController = new OssController();
             $dataNib = $ossController->inqueryNib($request);
-            if($dataNib->status() == 200){
+            if ($dataNib->status() == 200) {
                 $dataNib = $dataNib->getData()->data;
             } else {
                 return $dataNib;
             }
         }
 
-        if($settingOss){
+        if ($settingOss) {
             $companyType = $this->companyType;
             if ($companyType[$dataNib['jenis_perseroan']]) {
                 $companyTypeName = $companyType[$dataNib['jenis_perseroan']];
             }
-            $companyName    = $companyTypeName .' '. $dataNib['nama_perseroan'];
+            $companyName    = $companyTypeName . ' ' . $dataNib['nama_perseroan'];
         }
 
         $request->merge([
