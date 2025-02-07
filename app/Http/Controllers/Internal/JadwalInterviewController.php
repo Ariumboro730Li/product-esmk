@@ -12,7 +12,10 @@ use App\Models\CertificateRequest;
 use Illuminate\Support\Facades\DB;
 use App\Models\AssessmentInterview;
 use App\Http\Controllers\Controller;
+use App\Mail\InterviewSchedule;
 use App\Models\Assessor;
+use App\Models\Company;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class JadwalInterviewController extends Controller
@@ -315,8 +318,6 @@ class JadwalInterviewController extends Controller
 
     public function storeNewAssessmentInterview($requestID, $request)
     {
-
-
         $newInterview = new AssessmentInterview();
         $newInterview->certificate_request_id = $requestID;
         $newInterview->assessor_head = $request->assessor_head;
@@ -326,6 +327,47 @@ class JadwalInterviewController extends Controller
         $newInterview->schedule = $request->schedule;
         $newInterview->location = $request->location;
         $newInterview->status = $request->assessment_status;
+
+        // Ambil data perusahaan terkait
+        $certificateRequest = CertificateRequest::find($requestID);
+        if (!$certificateRequest) {
+            return response()->json(['error' => 'Certificate Request not found'], 404);
+        }
+
+        $companyNib = Company::find($certificateRequest->company_id);
+        if (!$companyNib) {
+            return response()->json(['error' => 'Company not found'], 404);
+        }
+
+        $companyData = User::where('info_company->nib', $companyNib->nib)->first();
+
+        // Ambil data assessor head dan assessors
+        $assessorHead = User::find($request->assessor_head);
+        $assessor1 = isset($request->assessors[0]) ? User::find($request->assessors[0]) : null;
+        $assessor2 = isset($request->assessors[1]) ? User::find($request->assessors[1]) : null;
+
+        // Format schedule ke bahasa Indonesia
+        $formattedSchedule = Carbon::parse($request->schedule)
+            ->locale('id') // Set bahasa Indonesia
+            ->translatedFormat('l, d F Y') . ' Pukul ' . Carbon::parse($request->schedule)->format('H:i');
+
+        // Kirim email satu per satu dengan isi konten yang berbeda
+        $recipients = [
+            ['email' => $companyData->email ?? null, 'name' => $company->pic_name ?? 'Perusahaan'],
+            ['email' => $assessorHead->email ?? null, 'name' => $assessorHead->name ?? 'Ketua Tim'],
+            ['email' => $assessor1->email ?? null, 'name' => $assessor1->name ?? 'Penilai'],
+            ['email' => $assessor2->email ?? null, 'name' => $assessor2->name ?? 'Penilai']
+        ];
+
+        foreach ($recipients as $recipient) {
+            if ($recipient['email']) {
+                Mail::to($recipient['email'])->send(
+                    new InterviewSchedule($recipient['name'], $formattedSchedule, $request->location, $request->interview_type)
+                );
+            }
+        }
+
+        // Simpan ke database
         $newInterview->save();
 
         return $newInterview;
@@ -413,6 +455,10 @@ class JadwalInterviewController extends Controller
         if ($request->interview_type) {
             $assessmentInterview->interview_type = $request->interview_type;
         }
+
+        if ($request->location) {
+            $assessmentInterview->location = $request->location;
+        }
         if ($request->schedule) {
             $assessmentInterview->schedule = $request->schedule;
         }
@@ -432,8 +478,41 @@ class JadwalInterviewController extends Controller
             $assessmentInterview->photos_of_attendance_list = explode(",", $request->photos_of_attendance_list);
         }
 
-        if ($request->location) {
-            $assessmentInterview->location = $request->location;
+        $certificateRequest = CertificateRequest::find($certificateRequestID);
+        if (!$certificateRequest) {
+            return response()->json(['error' => 'Certificate Request not found'], 404);
+        }
+
+        $companyNib = Company::find($certificateRequest->company_id);
+        if (!$companyNib) {
+            return response()->json(['error' => 'Company not found'], 404);
+        }
+
+        $companyData = User::where('info_company->nib', $companyNib->nib)->first();
+
+
+        // Ambil data assessor head dan assessors
+        $assessorHead = User::find($request->assessor_head);
+        $assessor1 = isset($request->assessors[0]) ? User::find($request->assessors[0]) : null;
+        $assessor2 = isset($request->assessors[1]) ? User::find($request->assessors[1]) : null;
+
+        // Format schedule ke bahasa Indonesia
+        $formattedSchedule = Carbon::parse($request->schedule)->translatedFormat('l, d F Y') . ' Pukul ' . Carbon::parse($request->schedule)->format('H:i');
+
+        // Kirim email satu per satu dengan isi konten yang berbeda
+        $recipients = [
+            ['email' => $companyData->email ?? null, 'name' => $company->pic_name ?? 'Perusahaan'],
+            ['email' => $assessorHead->email ?? null, 'name' => $assessorHead->name ?? 'Ketua Tim'],
+            ['email' => $assessor1->email ?? null, 'name' => $assessor1->name ?? 'Penilai'],
+            ['email' => $assessor2->email ?? null, 'name' => $assessor2->name ?? 'Penilai']
+        ];
+
+        foreach ($recipients as $recipient) {
+            if ($recipient['email']) {
+                Mail::to($recipient['email'])->send(
+                    new InterviewSchedule($recipient['name'], $formattedSchedule, $request->location, $request->interview_type)
+                );
+            }
         }
 
 
