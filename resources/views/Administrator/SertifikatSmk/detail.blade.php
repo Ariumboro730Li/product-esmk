@@ -153,8 +153,7 @@
                             <div class="border rounded p-3 w-100">
                                 <h5>Jenis Pelayanan</h5>
                                 <div style="max-height: 100px; overflow-y: auto; padding: 10px; border-radius: 5px;">
-                                    <ul id="c_serviceTypeList" class="mb-3 ms-3"
-                                        style="margin: 0; padding: 0;">
+                                    <ul id="c_serviceTypeList" class="mb-3 ms-3" style="margin: 0; padding: 0;">
                                         <!-- Hasil serviceTypes akan masuk di sini -->
                                     </ul>
                                 </div>
@@ -532,6 +531,13 @@
                                 <label for="interview_date" class="form-label">Waktu wawancara</label>
                             </div>
                         </div>
+                        <div class="mb-3" id="locationContainer">
+                            <div class="form-floating">
+                                <textarea class="form-control" name="location" id="interview_location" placeholder="Lokasi Wawancara"
+                                    style="height: 100px;"></textarea>
+                                <label for="interview_location" class="form-label">Lokasi wawancara</label>
+                            </div>
+                        </div>
                         <div class="mb-3">
                             <label for="iAssessorHead" class="form-label">Ketua Penilai</label>
                             <select class="form-control d-block" id="iAssessorHead" name="assessor_head" required>
@@ -572,7 +578,8 @@
     <!-- modal edit assessment interview -->
     <div class="modal fade" id="edit-assessment-interview" data-bs-keyboard="false" tabindex="-1" role="dialog"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document" style="justify-content: center;">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document"
+            style="justify-content: center; width: 95% !important;">
 
             <form action="#" id="fEditAssessmentInterview" onsubmit="submitEditAssessmentInterview(event)">
                 <div class="modal-content">
@@ -583,14 +590,9 @@
 
                     <div class="modal-body p-5">
                         <div class="mb-3">
-                            <b><u>Ubah Ketua Penilai dan atau Penilai untuk merubah data verifikasi lapangan.</u></b>
-                        </div>
-
-                        <div class="mb-3">
 
                             <div class="form-floating">
-                                <select class="form-control d-block" id="iEditInterviewType" name="interview_type"
-                                    required>
+                                <select class="form-control" id="iEditInterviewType" name="interview_type" required>
                                     <option value="">Pilih tipe wawancara</option>
                                     <option value="offline">Lapangan</option>
                                     <option value="online">Daring</option>
@@ -606,6 +608,11 @@
                                     required>
                                 <label for="iEditInterview_date" class="form-label">Waktu wawancara</label>
                             </div>
+                        </div>
+                        <div class="mb-3" id="EditlocationContainer">
+                            <textarea class="form-control" name="location" id="IEditInterview_location" placeholder="Lokasi Wawancara"
+                                style="height: 100px;"></textarea>
+                            <label for="IEditInterview_location" class="form-label">Lokasi wawancara</label>
                         </div>
                         <div class="mb-3">
                             <label for="iEditAssessorHead" class="form-label">Ketua Penilai</label>
@@ -867,11 +874,27 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="locationModal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="locationModalLabel">Detail Lokasi Wawancara</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="modalLocation"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/parsleyjs"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment/min/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment/locale/id.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/id.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-lite.min.js"></script>
 
@@ -903,6 +926,7 @@
         let interviewDate
         let interviewType
         let interviewAssessorhead
+        let interview
         let interviewAssessors
         let queryString = window.location.search;
         let urlParams = new URLSearchParams(queryString);
@@ -1220,13 +1244,14 @@
                     interviewDate = assessmentInterview.data.schedule;
                     interviewType = assessmentInterview.data.interview_type;
                     interviewAssessorhead = assessmentInterview.data.assessorHead;
+                    interviewLocation = assessmentInterview.data.location;
 
                     const assessors = assessmentInterview.data.assessors?.map(assessor => assessor);
                     interviewAssessors = assessors;
 
                     mappingInterviewCard(response.data.data.status, interviewDate, interviewType,
                         interviewAssessorhead,
-                        assessors);
+                        assessors, interviewLocation);
                 }
 
 
@@ -1434,18 +1459,22 @@
                     iconElement.css('transform', 'rotate(0deg)');
                 });
 
-                // Membuka semua accordion secara default tanpa mengganggu toggle behavior-nya
                 if (!targetCollapse.hasClass('show')) {
                     targetCollapse.collapse('show');
                 }
             });
         }
 
-        async function mappingInterviewCard(status, schedule, interviewType, assessorHead, assessors) {
+        function checkSaveButtonState() {
+            $('#fEditAssessmentInterview button[type="submit"]').prop(
+                'disabled',
+                !$('#iEditAssessorHead').val() && !$('#iEditAssessors').val().length
+            );
+        }
+
+        async function mappingInterviewCard(status, schedule, interviewType, assessorHead, assessors, location) {
             let $assessorsHtml = '';
             let canEdit = false;
-
-            // Check if the current user can edit
             if (assessorHead.id !== null) {
                 canEdit = true;
             }
@@ -1469,17 +1498,35 @@
                         <h6 class="fw-bold">Jadwal Wawancara:</h6>
                     </div>
                     <div class="col-6 text-end">
-                        <span class="fw-normal" id="i_schedule">${formatTanggalIndo(schedule)}</span>
+                        <span class="fw-normal" id="i_schedule">${formatTanggalWawancara(schedule)}</span>
                     </div>
                 </div>
                 <div class="row mb-2">
-                    <div class="col-6">
-                        <h6 class="fw-bold">Tipe Wawancara:</h6>
-                    </div>
-                    <div class="col-6 text-end">
-                        <span class="fw-normal" id="i_type">${interviewType === 'offline' ? 'Kunjungan lapangan' : interviewType}</span>
-                    </div>
+                <div class="col-6">
+                    <h6 class="fw-bold">Tipe Wawancara:</h6>
                 </div>
+                <div class="col-6 text-end">
+                    <span class="fw-normal" id="i_type">${interviewType === 'offline' ? 'Kunjungan lapangan' : 'Online'}</span>
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-6">
+                    <h6 class="fw-bold">${interviewType === 'offline' ? 'Lokasi Wawancara:' : 'Link Wawancara:'}</h6>
+                </div>
+                <div class="col-6 text-end">
+                    ${interviewType === 'offline'
+                        ? `<span class="fw-normal d-inline-block text-truncate"
+                                    style="max-width: 100px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer; color: black;"
+                                    onclick="showLocationModal('${location.replace(/'/g, "\\'")}')">
+                                    ${location}
+                            </span>`
+                        : `<a href="${location}" target="_blank" class="fw-normal d-inline-block text-truncate"
+                                style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                Link wawancara
+                            </a>`}
+                </div>
+            </div>
                 <div class="row mb-2" id="interview_assessor_head_row">
                     <div class="col-6">
                         <h6 class="fw-bold">Ketua Penilai:</h6>
@@ -1562,11 +1609,16 @@
             return sortable
         }
 
+        function showLocationModal(location) {
+            document.getElementById('modalLocation').innerText = location;
+            var modal = new bootstrap.Modal(document.getElementById('locationModal'));
+            modal.show();
+        }
+
         function buildActionByRequestStatus(requestStatus, assessmentStatus, dispositionTo, dispositionBy) {
             let alertMessage, actionButton, htmlReject = '',
                 isShowAlert = false
-            // console.log(assessmentStatus)
-            // action for disposition
+
             if ((requestStatus === 'request' || requestStatus === 'submission_revision') && dispositionTo === null) {
                 alertMessage = `<i class="fas fa-file-alt me-2"></i>Pengajuan baru`
                 actionButton =
@@ -1627,7 +1679,7 @@
                     </div>
                 `;
 
-                console.log(dispositionBy)
+
                 if (dispositionBy.id === currentUser) {
                     actionButton = `
                     <button type="button" class="btn btn-warning" style="font-weight: 600; width:100%; color: #333333;" onClick="showAssessmentValidation()">
@@ -1848,7 +1900,6 @@
             rowStatus = '';
             let serviceTypeValidation = '';
 
-            console.log(dispositionBy)
 
             const mappingStatusToReadable = {
                 'assessment_revision': 'Revisi Penilaian',
@@ -2298,8 +2349,7 @@
         }
 
         function buildSubmitButton(isNeedSubmitButton) {
-            console.log(isNeedSubmitButton)
-            // condition to show submit button
+
             $templateButton = ''
 
             if (isNeedSubmitButton) {
@@ -2386,6 +2436,32 @@
             };
 
             updateCertificateRequest(formData, 'Berhasil Memberikan Penilaian');
+        });
+
+        function updateLocationInput(type, value = '') {
+            let container = $('#EditlocationContainer');
+            container.empty(); // Hapus isi sebelumnya
+
+            if (type === 'online') {
+                container.append(`
+                <div class="form-floating">
+                    <input type="url" class="form-control" name="location" id="IEditInterview_location" placeholder="Link Wawancara" required>
+                    <label for="IEditInterview_location" class="form-label">Link Wawancara</label>
+                </div>
+            `);
+            } else {
+                container.append(`
+                <div class="form-floating">
+                    <textarea class="form-control" name="location" id="IEditInterview_location" placeholder="Lokasi Wawancara" style="height: 100px;" required></textarea>
+                    <label for="IEditInterview_location" class="form-label">Lokasi Wawancara</label>
+                </div>
+            `);
+            }
+
+            $('#IEditInterview_location').val(value);
+        }
+        $('#iEditInterviewType').on('change', function() {
+            updateLocationInput($(this).val());
         });
 
 
@@ -3007,15 +3083,38 @@
 
         async function showEditAssessmentInterview() {
             $('#iEditInterviewType').val(interviewType).change();
-            scheduleEdit.setDate(moment(interviewDate).format('YYYY-MM-DD'));
-            renderListAssessor('iEditAssessorHead', 'Ketua Tim', interviewAssessorhead);
+            scheduleEdit.setDate(moment(interviewDate).format('YYYY-MM-DD HH:mm:ss'));
+
+            // Hapus opsi lama sebelum merender ulang
+            $('#iEditAssessors').empty();
+            $('#iEditAssessorHead').empty();
+
+            // Tambahkan placeholder untuk Ketua Penilai
+            $('#iEditAssessorHead').append('<option value="" disabled selected>Pilih Ketua Penilai</option>');
+
+            // Render daftar Assessor
             renderListAssessor('iEditAssessors', 'Assessor', interviewAssessors);
 
+            // Render daftar Ketua Tim dengan pilihan dari daftar Assessor
+            renderListAssessor('iEditAssessorHead', 'Ketua Tim', interviewAssessors);
+
+            // Pastikan opsi Ketua Tim tetap terpilih jika ada
+            if (interviewAssessorhead && Object.keys(interviewAssessorhead).length > 0) {
+                $('#iEditAssessorHead').val(interviewAssessorhead.id).trigger('change');
+            }
+
+            $('#iEditAssessorHead').prop('disabled', false); // Pastikan tetap bisa memilih
+
+            updateLocationInput(interviewType, interviewLocation);
+
             await $('#edit-assessment-interview').modal('show');
-            $('#fEditAssessmentInterview button[type="submit"]').prop('disabled', !$('#iEditAssessorHead').val() && !$(
-                '#iEditAssessors').val().length);
+            checkSaveButtonState();
 
-
+            // Bersihkan modal saat ditutup untuk menghindari duplikasi data
+            $('#edit-assessment-interview').on('hidden.bs.modal', function() {
+                $('#iEditAssessors').empty();
+                $('#iEditAssessorHead').empty();
+            });
         }
 
         async function lihatBeritaAcara() {
@@ -3385,7 +3484,7 @@
                 formObject[field.name] = field.value;
             });
 
-            console.log(formObject)
+
 
             // Tambahkan field 'status' ke object
             formObject['status'] = 'disposition';
@@ -3471,32 +3570,41 @@
             }
         }
 
+        function formatTanggalWawancara(dateString) {
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: false
+            };
+            const date = new Date(dateString);
+            return date.toLocaleDateString('id-ID', options);
+        }
+
         const scheduleEdit = flatpickr("#iEditInterview_date", {
+            allowInput: true,
             altInput: true,
-            dateFormat: "YYYY-MM-DD",
-            altFormat: 'DD MMMM YYYY',
-            minDate: 'today',
-            parseDate: (datestr, format) => {
-                return moment(datestr, format, true).toDate();
-            },
-            formatDate: (date, format, locale) => {
-                return moment(date).format(format);
-            },
+            enableTime: true, // Aktifkan input waktu
+            noCalendar: false, // Kalender tetap muncul
+            dateFormat: "Y-m-d H:i", // Format benar: 2025-01-29 12:00
+            altFormat: "d F Y H:i", // Format tampilan lebih rapi: 29 Januari 2025 12:00
+            minDate: "today",
+            time_24hr: true, // Pakai format 24 jam
         });
 
 
         flatpickr("#interview_date", {
             allowInput: true,
             altInput: true,
-            dateFormat: "YYYY-MM-DD",
-            altFormat: 'DD MMMM YYYY',
-            minDate: 'today',
-            parseDate: (datestr, format) => {
-                return moment(datestr, format, true).toDate();
-            },
-            formatDate: (date, format, locale) => {
-                return moment(date).format(format);
-            },
+            enableTime: true, // Aktifkan input waktu
+            noCalendar: false, // Kalender tetap muncul
+            dateFormat: "Y-m-d H:i", // Format benar: 2025-01-29 12:00
+            altFormat: "d F Y H:i", // Format tampilan lebih rapi: 29 Januari 2025 12:00
+            minDate: "today",
+            time_24hr: true, // Pakai format 24 jam
         });
 
         async function updateCertificateRequest(formData, successMessage) {
@@ -3864,6 +3972,27 @@
             var sanitized = input.replace(/<script[^>]*>(.*?)<\/script>/gi, '');
             return sanitized;
         }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const interviewType = document.getElementById("iInterviewType");
+            const locationContainer = document.getElementById("locationContainer");
+
+            interviewType.addEventListener("change", function() {
+                if (interviewType.value === "offline") {
+                    locationContainer.innerHTML = `
+                    <div class="form-floating">
+                        <textarea class="form-control" name="location" id="interview_location" placeholder="Lokasi Wawancara" style="height: 100px;"></textarea>
+                        <label for="interview_location" class="form-label">Lokasi wawancara</label>
+                    </div>`;
+                } else if (interviewType.value === "online") {
+                    locationContainer.innerHTML = `
+                    <div class="form-floating">
+                        <input type="text" class="form-control" name="location" id="interview_location" placeholder="Masukkan link wawancara">
+                        <label for="interview_location" class="form-label">Link wawancara</label>
+                    </div>`;
+                }
+            });
+        });
 
 
         async function initPageLoad() {

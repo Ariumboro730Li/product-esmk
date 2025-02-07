@@ -432,6 +432,11 @@ class JadwalInterviewController extends Controller
             $assessmentInterview->photos_of_attendance_list = explode(",", $request->photos_of_attendance_list);
         }
 
+        if ($request->location) {
+            $assessmentInterview->location = $request->location;
+        }
+
+
         $assessmentInterview->save();
 
         return $assessmentInterview;
@@ -627,6 +632,7 @@ class JadwalInterviewController extends Controller
             'photos_of_attendance_list' => $assessmentInterview->photos_of_attendance_list,
             'photos_of_event' => $assessmentInterview->photos_of_event,
             'schedule' => $assessmentInterview->schedule,
+            'location' => $assessmentInterview->location,
             'status' => $assessmentInterview->status,
             'created_at' => $assessmentInterview->created_at,
         ];
