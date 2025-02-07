@@ -513,6 +513,14 @@
                                                             <b>${element.company_name || '-'}</b>
                                                         </li>
                                                         <li class="d-sm-inline-block d-block mt-1 me-3">
+                                                            <i class="ph-duotone ph-globe me-1"></i> <!-- Ikon Provinsi -->
+                                                            <b>Provinsi : ${element.company?.province?.name || '-'}</b>
+                                                        </li>
+                                                        <li class="d-sm-inline-block d-block mt-1 me-3">
+                                                            <i class="ph-duotone ph-map-pin me-1"></i> <!-- Ikon Kota -->
+                                                            <b>Kota : ${element.company?.city?.name || '-'}</b>
+                                                        </li>
+                                                        <li class="d-sm-inline-block d-block mt-1 me-3">
                                                            <i class="fa-solid fa-user-tie me-1"></i>
                                                             Penilai : <b>${element.disposition_to ? element.disposition_to.name : '-'}</b>
                                                         </li>
@@ -541,26 +549,26 @@
                                                     </ul>
                                                 </div>
                                                 ${element.rejection_notes ? `
-                                                                                                                                            <div class="h5 mt-4"><i class="fa-solid fa-note-sticky me-1"></i>
-                                                                                                                                                Catatan Permohonan</div>
-                                                                                                                                            <div class="help-md-hidden">
-                                                                                                                                                <div class="bg-body mb-3 p-3">
-                                                                                                                                                    <h6><img src="{{ asset('assets') }}/images/user/"
-                                                                                                                                                            alt="" class="wid-20 avatar me-2 rounded">Catatan terakhir dari <a href="#" class="link-secondary">${element.updated_by}</a></h6>
-                                                                                                                                                    <p class="mb-0">
-                                                                                                                                                        ${truncatedNotes}
-                                                                                                                                                    </p>
-                                                                                                                                                </div>
-                                                                                                                                            </div>`
+                                                    <div class="h5 mt-4"><i class="fa-solid fa-note-sticky me-1"></i>
+                                                        Catatan Permohonan</div>
+                                                    <div class="help-md-hidden">
+                                                        <div class="bg-body mb-3 p-3">
+                                                            <h6><img src="{{ asset('assets') }}/images/user/"
+                                                                    alt="" class="wid-20 avatar me-2 rounded">Catatan terakhir dari <a href="#" class="link-secondary">${element.updated_by}</a></h6>
+                                                            <p class="mb-0">
+                                                                ${truncatedNotes}
+                                                            </p>
+                                                        </div>
+                                                    </div>`
                                                     :
                                                 ''}
                                             </div>
                                             <div class="mt-4">
                                                 ${element.rejection_notes ? `
-                                                                                                                                        <button type="button" class="me-2 btn btn-sm btn-light-danger"
-                                                                                                                                            data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
-                                                                                                                                            <i class="ti ti-eye me-1"></i> Lihat Catatan
-                                                                                                                                        </button>` : ''}
+                                                    <button type="button" class="me-2 btn btn-sm btn-light-danger"
+                                                        data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
+                                                        <i class="ti ti-eye me-1"></i> Lihat Catatan
+                                                    </button>` : ''}
                                                 <a href="/admin/sertifikat/detail?r=${element.id}" class="me-2 btn btn-sm btn-light-secondary"
                                                     style="border-radius:5px;"><i class="feather icon-eye mx-1 me-2"></i>Lihat
                                                     Detail</a>

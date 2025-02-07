@@ -59,7 +59,7 @@ class PengajuanSMKPerusahaanController extends Controller
         ];
 
         // Build the query
-        $certificateRequest = CertificateRequest::with(['dispositionBy', 'dispositionTo', 'company', 'company.serviceTypes'])
+        $certificateRequest = CertificateRequest::with(['dispositionBy', 'dispositionTo', 'company', 'company.serviceTypes', 'company.province', 'company.city'])
             ->select(
                 'certificate_requests.*',
                 'assessment_interviews.schedule as schedule_interview',
