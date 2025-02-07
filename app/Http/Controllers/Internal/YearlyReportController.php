@@ -26,12 +26,23 @@ class YearlyReportController extends Controller
         $meta['limit'] = $request->limit;
 
         // Membuat query dengan hanya kolom yang dibutuhkan
-        $query = YearlyReport::select('id', 'year as tahun_laporan', 'status', 'approved_at as tanggal_verifikasi', 'assessor', 'company_id', 'created_at')
+        $query = YearlyReport::select(
+            'yearly_reports.id',
+            'yearly_reports.year as tahun_laporan',
+            'yearly_reports.status',
+            'yearly_reports.approved_at as tanggal_verifikasi',
+            'yearly_reports.assessor',
+            'yearly_reports.company_id',
+            'yearly_reports.created_at'
+        )
             ->with([
-                'company:id,name',
+                'company:id,name,province_id,city_id', // Tambahkan province_id & city_id agar bisa digunakan dalam relasi
+                'company.province:id,name', // Pastikan province hanya mengambil id dan name
+                'company.city:id,name', // Pastikan city hanya mengambil id dan name
                 'dispositionBy:id,name',
                 'assessor:id,name',
             ])
+            ->leftJoin('companies', 'yearly_reports.company_id', '=', 'companies.id')
             ->orderBy('created_at', $meta['orderBy']);
 
         // Filter berdasarkan tanggal
@@ -53,6 +64,14 @@ class YearlyReportController extends Controller
 
         if ($request->filled('status')) {
             $query->where('status', $request->status);
+        }
+
+        if ($request->filled('province_id')) {
+            $query->where('companies.province_id', $request->province_id);
+        }
+
+        if ($request->filled('city_id')) {
+            $query->where('companies.city_id', $request->city_id);
         }
 
         // Filter berdasarkan pencarian

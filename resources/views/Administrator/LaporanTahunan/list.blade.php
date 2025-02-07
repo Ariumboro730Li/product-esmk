@@ -107,7 +107,7 @@
                                 <label class="fw-normal" for="input-perusahaan">Perusahaan</label>
                                 <select class="form-control " name="input_perusahaan" id="input-perusahaan">
                                     <option value="">Pilih perusahaan</option>
-                                    <!-- Tambahkan opsi perusahaan secara dinamis -->
+
                                 </select>
                             </div>
 
@@ -116,7 +116,7 @@
                                 <label class="fw-normal" for="input-status">Status Sertifikat</label>
                                 <select class="form-control " name="input_status" id="input-status">
                                     <option value="">Pilih status sertifikat</option>
-                                    <!-- Tambahkan opsi status sertifikat secara dinamis -->
+
                                 </select>
                             </div>
                         </div>
@@ -285,7 +285,7 @@
 
             }
         }
-        
+
         function calculateBusinessDays(startDate, endDate) {
             let count = 0;
             let curDate = moment(startDate).startOf('day');
@@ -406,7 +406,7 @@
                                 break;
                         }
 
-                        
+
                         let lastUpdate = new Date(element.updated_at).toLocaleDateString();
                         let createdDate = new Date(element.created_at).toLocaleDateString();
 
@@ -442,6 +442,16 @@
                                                 </div>
                                                 <div class="help-sm-hidden">
                                                     <ul class="list-unstyled mt-2 mb-0 text-muted">
+                                                        <li class="d-sm-inline-block d-block mt-1 me-3">
+                                                            <i class="fa-solid fa-map me-1"></i>
+                                                            Provinsi : <b>${(element?.diverifikasi_oleh?.company?.province?.name ?? "-")}</b>
+                                                        </li>
+                                                        <li class="d-sm-inline-block d-block mt-1 me-3">
+                                                            <i class="fa-solid fa-city me-1"></i>
+                                                            Kota : <b>${(element?.diverifikasi_oleh?.company?.city?.name ?? "-")}</b>
+                                                        </li>
+                                                    </ul>
+                                                    <ul class="list-unstyled mt-2 mb-0 text-muted">
                                                         <li
                                                             class="d-sm-inline-block d-block mt-1 me-3">
                                                             <i
@@ -469,28 +479,28 @@
                                                     </ul>
                                                 </div>
                                                 ${element.rejection_notes ? `
-                                                                            <div class="h5 mt-3">
-                                                                                <i class="material-icons-two-tone f-16 me-1">notification_important</i>Catatan Permohonan
-                                                                            </div>
-                                                                            <div class="help-md-hidden">
-                                                                                <div class="bg-body mb-3 p-3">
-                                                                                    <h6>
-                                                                                        <img src="{{ asset('assets') }}/images/user/user-profil2.jpg"
-                                                                                            alt="" class="wid-20 avatar me-2 rounded">
-                                                                                        Last comment from <a href="#" class="link-secondary">${element.updated_by}:</a>
-                                                                                    </h6>
-                                                                                    <p class="mb-0">
-                                                                                        ${truncatedNotes}
-                                                                                    </p>
-                                                                                </div>
-                                                                            </div>` : ''}
+                                                <div class="h5 mt-3">
+                                                    <i class="material-icons-two-tone f-16 me-1">notification_important</i>Catatan Permohonan
+                                                </div>
+                                                <div class="help-md-hidden">
+                                                    <div class="bg-body mb-3 p-3">
+                                                        <h6>
+                                                            <img src="{{ asset('assets') }}/images/user/user-profil2.jpg"
+                                                                alt="" class="wid-20 avatar me-2 rounded">
+                                                            Last comment from <a href="#" class="link-secondary">${element.updated_by}:</a>
+                                                        </h6>
+                                                        <p class="mb-0">
+                                                            ${truncatedNotes}
+                                                        </p>
+                                                    </div>
+                                                </div>` : ''}
                                             </div>
                                             <div class="mt-4">
                                                 ${element.rejection_notes ? `
-                                                                            <button type="button" class="me-2 btn btn-sm btn-light-danger"
-                                                                                data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
-                                                                                <i class="ti ti-eye me-1"></i> Lihat Catatan
-                                                                            </button>` : ''}
+                                                <button type="button" class="me-2 btn btn-sm btn-light-danger"
+                                                    data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
+                                                    <i class="ti ti-eye me-1"></i> Lihat Catatan
+                                                </button>` : ''}
                                                 <a href="/admin/laporan-tahunan/detail?id=${element.id}&companyID=${element.company_id}"
                                                     class="me-2 btn btn-sm btn-light-secondary" style="border-radius: 5px;">
                                                     <i class="feather icon-eye mx-1"></i>Lihat Pengajuan
