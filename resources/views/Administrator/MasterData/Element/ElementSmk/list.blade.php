@@ -172,7 +172,7 @@
 
                         domTableHtml += `
                             <tr>
-                              <td class="text-start">${index_loop}.</td>
+                                <td class="text-start">${index_loop}.</td>
                                 <td class="fw-bold text-start">${element.title}</td>
                                 <td class="text-start">${statusBadge}</td>
                                 <td class="text-start">${new Date(element.created_at).toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' })}</td>
@@ -180,9 +180,12 @@
                                     <li class="list-inline-item">
                                         ${actionButton}
                                     </li>
-                                      <li class="list-inline-item"><a href="/admin/element-smk/detail?id=${element.id}"
+                                    <li class="list-inline-item"><a href="/admin/element-smk/detail?id=${element.id}"
                                             class="avtar avtar-s btn-link-info btn-pc-default"><i
                                                 class="ti ti-eye f-20"></i></a></li>
+                                    <li class="list-inline-item"><a href="/admin/element-smk/edit?id=${element.id}"
+                                            class="avtar avtar-s btn-link-warning btn-pc-default"><i
+                                                class="ti ti-edit f-20"></i></a></li>
                                     <li class="list-inline-item">
                                         ${getDeleteButton(elementData, element)}
                                     </li>

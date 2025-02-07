@@ -19,4 +19,8 @@ class Signer extends Model
     {
         return $this->belongsTo(WorkUnit::class);
     }
+    public function province()
+    {
+        return $this->belongsTo(Province::class, 'province_id');
+    }
 }
