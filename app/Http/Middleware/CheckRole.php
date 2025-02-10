@@ -11,7 +11,7 @@ class CheckRole
     {
         $user = auth()->user();
 
-        if($user){
+        if ($user) {
             $payload['role'] = $user->is_company ? 'company' : 'internal';
         } else {
             $payload = null;
@@ -19,7 +19,7 @@ class CheckRole
 
         if (!is_null($payload)) {
             if ($payload['role'] != $role) {
-                if($payload['role'] != 'company'){
+                if ($payload['role'] != 'company') {
                     return redirect()->route('admin.dashboard');
                 } else {
                     return redirect()->route('company.dashboard');
@@ -28,28 +28,31 @@ class CheckRole
         }
 
         $roleModel = null;
-        if($role == 'internal'){
+        if ($role == 'internal') {
             $roleModel = DB::table('model_has_roles')->where('model_id', $user->id)
-            ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
-            ->first();
+                ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
+                ->first();
 
-            if($roleModel){
+            if ($roleModel) {
                 $roleId = $roleModel->role_id;
                 $permissionRole = DB::table('role_has_permissions')
-                ->select('name', 'group', 'guard_name')
-                ->join('permissions', 'role_has_permissions.permission_id', '=', 'permissions.id')
-                ->where('role_id', $roleId)->get()->toArray()   ;
+                    ->select('name', 'group', 'guard_name')
+                    ->join('permissions', 'role_has_permissions.permission_id', '=', 'permissions.id')
+                    ->where('role_id', $roleId)->get()->toArray();
                 $request->permission = $permissionRole;
             }
 
             $permissionRole = null;
             $roleModel = DB::table('model_has_roles')->where('model_id', $user->id)
-            ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
-            ->first();
-            if($roleModel){
+                ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
+                ->first();
+            if ($roleModel) {
                 $roleUserInternal = $roleModel->name;
                 $payload['internal_role'] = $roleUserInternal;
             }
+
+            $payload['province_id'] = $user->province_id;
+            $payload['city_id'] = $user->city_id;
         }
 
         $request->user = $user;
