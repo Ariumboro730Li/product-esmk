@@ -62,6 +62,7 @@
                                                     <th>Nama Kota</th>
                                                     <th>Provinsi</th>
                                                     <th>Kode Wilayah</th>
+                                                    <th>Status</th>
                                                     <th class="text-end">Aksi</th>
                                                 </tr>
                                             </thead>
@@ -167,7 +168,7 @@
                     $("form").find("input, textarea").val("").prop("checked", false).trigger("change");
                     $("#form-create").data("action-url", ``);
                 });
-            }else{
+            } else {
                 $('#add-data').hide();
             }
 
@@ -374,6 +375,20 @@
             for (let index = 0; index < dataList.length; index++) {
                 let element = dataList[index];
                 const elementData = JSON.stringify(element);
+                const isActive = element.is_active === true || element.is_active === 1;
+                console.log("🚀 ~ setListData ~ element.is_active:", element.is_active)
+                const statusBadge = isActive ?
+                    `<span class="badge bg-success d-flex align-items-center justify-content-center text-white" style="max-width: 100px; white-space: nowrap;"><i class="fa fa-check-circle me-2"></i> Aktif</span>` :
+                    `<span class="badge bg-danger d-flex align-items-center justify-content-center text-white" style="max-width: 100px; white-space: nowrap;"><i class="fa fa-times-circle me-2"></i> Tidak Aktif</span>`;
+                const actionButton = isActive ?
+                        `<a class="avtar avtar-s btn-link-danger change-status" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="Nonaktifkan Kota ${element.name}" data-id="${element.id}" data-status="nonaktifkan">
+                            <i class="fa-solid fa-square-xmark fa-lg"></i>
+                        </a>` :
+                        `<a class="avtar avtar-s btn-link-success change-status" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="Aktifkan Kota ${element.name}" data-id="${element.id}" data-status="aktifkan">
+                            <i class="fa-solid fa-square-check fa-lg"></i>
+                        </a>`;
                 getDataTable += `
                 <tr>
                     <td>${index_loop}.</td>
@@ -393,8 +408,14 @@
                     <td>
                         ${element.administrative_code ? +  element.administrative_code : '-'}
                     </td>
+                    <td>
+                        ${statusBadge}
+                    </td>
                     <td class="text-end">
                         <ul class="list-inline mb-0">
+                            <li class="list-inline-item">
+                                ${actionButton}
+                            </li>
                             <li class="list-inline-item">
                                     ${getEditButton(elementData, element)}
                             </li>
@@ -559,6 +580,61 @@
             await $(id).select2(select2Options);
         }
 
+        async function setStatus() {
+            $(document).on("click", ".change-status", async function() {
+                let id = $(this).attr("data-id");
+                let status = $(this).attr("data-status");
+                await setStatusAction(id, status);
+            });
+        }
+
+        async function setStatusAction(id, isStatus) {
+            Swal.fire({
+                icon: "info",
+                title: "Pemberitahuan",
+                text: "Apakah anda yakin mengganti status data ini?",
+                showCancelButton: true,
+                confirmButtonText: "Ya, Saya Yakin!",
+                cancelButtonText: "Batal",
+                reverseButtons: false
+            }).then(async (result) => {
+                if (result.isConfirmed == true) {
+                    loadingPage(true)
+                    let formData = {};
+                    formData.id = id;
+                    let is_status = isStatus == 'aktifkan' ? 'active' : 'inactive';
+                    const postDataRest = await CallAPI(
+                        'GET',
+                        `{{ url('') }}/api/internal/admin-panel/direktur-jendral/${is_status}`,
+                        formData
+                    ).then(function(response) {
+                        return response;
+                    }).catch(function(error) {
+                        loadingPage(false);
+                        let resp = error.response;
+                        notificationAlert('warning', 'Pemberitahuan', resp.data.message);
+                        return resp;
+                    });
+
+                    if (postDataRest.status == 200 || postDataRest.status == 201) {
+                        loadingPage(false);
+                        setTimeout(async () => {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Pemberitahuan',
+                                text: 'Status berhasil dirubah!',
+                                confirmButtonText: 'OK'
+                            }).then(async () => {
+                                await initDataOnTable(defaultLimitPage,
+                                    currentPage,
+                                    defaultAscending, defaultSearch);
+                            });
+                        }, 100);
+                    }
+                }
+            }).catch(swal.noop);
+        }
+
         async function initPageLoad() {
             await Promise.all([
 
@@ -566,6 +642,7 @@
                 manipulationDataOnTable(),
                 addData(),
                 editData(),
+                setStatus(),
                 submitForm(),
                 deleteData(),
                 selectList('#input_province_id',

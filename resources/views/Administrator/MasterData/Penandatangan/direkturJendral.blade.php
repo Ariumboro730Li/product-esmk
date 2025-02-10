@@ -622,6 +622,8 @@
             };
         }
 
+        
+
         async function initPageLoad() {
             await Promise.all([
                 initDataOnTable(defaultLimitPage, currentPage, defaultAscending, defaultSearch),

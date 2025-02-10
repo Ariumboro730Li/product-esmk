@@ -66,6 +66,7 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>No. Berita Acara</th>
+                                                    <th>Provinsi</th>
                                                     <th>Tanggal</th>
                                                     <th>Status</th>
                                                     <th class="text-end">Aksi</th>
@@ -109,6 +110,16 @@
                                     <input type="text" class="form-control" name="input_sk_number" id="input_sk_number"
                                         placeholder="" required />
                                     <label for="input_sk_number">No. Berita Acara</label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="col-md-12">
+                                    <div class="form">
+                                        <label for="floatingSelect">Provinsi</label>
+                                        <select class="form-control" id="input_province_id" name="input_province_id"
+                                            style="width: 100%;">
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -166,6 +177,11 @@
                 $("form").find("input, select, textarea").val("").prop("checked", false).trigger("change");
 
                 $("#input_sk_number").val(data.decree_number);
+                
+                let provinceId = data.province?.id;
+                $("#input_province_id").val(null).trigger('change');
+                $('#input_province_id').append(new Option(data.province.name, provinceId, true, true));
+                $("#input_province_id").trigger('change');
 
                 $("#form-create").data("action-url",
                     `${env}/internal/admin-panel/sk-number/update`);
@@ -182,7 +198,8 @@
                 let actionUrl = $("#form-create").data("action-url");
                 let formData = {
                     sk_number: $('#input_sk_number').val(),
-                    satker_id: $('#input_satuan_kerja_id').val()
+                    satker_id: $('#input_satuan_kerja_id').val(),
+                    province_id: $('#input_province_id').val()
                 };
 
                 let id_user = $("#form-create").data("id_user");
@@ -340,6 +357,7 @@
                                 </div>
                             </div>
                         </td>
+                        <td>${element.province?.name || '-'}</td>
                         <td>${element.created_at ? new Date(element.created_at).toLocaleDateString('id-ID', { day: '2-digit', month: 'long', year: 'numeric' }) : '-'}</td>
                         <td>
                             ${statusBadge}
@@ -529,7 +547,7 @@
                     },
                     data: function(params) {
                         let query = {
-                            search: params.term, // search term
+                            keyword: params.term,
                             page: 1,
                             limit: 30,
                             ascending: 1,
@@ -537,29 +555,15 @@
                         return query;
                     },
                     processResults: function(res) {
-                        // Log response to check structure
-
-                        if (res.error === false && Array.isArray(res.data)) {
-                            // Map response to match Select2 expected format
-                            let filteredData = $.map(res.data, function(item) {
+                        let data = res.data;
+                        return {
+                            results: $.map(data, function(item) {
                                 return {
-                                    id: item.id, // 'id' field
-                                    text: item.name + ' (' + item.level +
-                                        ')' // Display 'name' and 'level'
+                                    id: item.id,
+                                    text: item.name
                                 };
-                            });
-
-                            return {
-                                results: filteredData,
-                                pagination: {
-                                    more: (res.paginate.current_page < res.paginate.total_pages)
-                                }
-                            };
-                        } else {
-                            return {
-                                results: []
-                            };
-                        }
+                            })
+                        };
                     }
                 },
                 allowClear: true,
@@ -596,6 +600,9 @@
                 editData(),
                 submitForm(),
                 deleteData(),
+                selectList('#input_province_id',
+                    '{{ url('') }}/api/internal/admin-panel/provinsi/list',
+                    'Pilih Provinsi', true),
             ])
         }
     </script>

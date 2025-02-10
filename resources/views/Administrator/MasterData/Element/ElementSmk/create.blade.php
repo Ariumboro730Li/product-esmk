@@ -633,6 +633,7 @@
                         title: uniqueTitle,
                         element_properties: smkElements
                     };
+                    console.log("🚀 ~ $ ~ formData:", formData)
 
                     const postDataRest = await CallAPI(
                         'POST',
