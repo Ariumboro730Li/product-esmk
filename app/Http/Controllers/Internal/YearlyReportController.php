@@ -48,12 +48,12 @@ class YearlyReportController extends Controller
         // Filter berdasarkan tanggal
         if ($request->filled('fromdate')) {
             $fromDate = Carbon::parse($request->fromdate)->format('Y-m-d');
-            $query->where('created_at', '>=', $fromDate);
+            $query->where('yearly_reports.created_at', '>=', $fromDate);
         }
 
         if ($request->filled('duedate')) {
             $dueDate = Carbon::parse($request->duedate)->format('Y-m-d');
-            $query->where('created_at', '<=', $dueDate);
+            $query->where('yearly_reports.created_at', '<=', $dueDate);
         }
 
 

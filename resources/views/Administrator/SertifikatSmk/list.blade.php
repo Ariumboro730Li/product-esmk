@@ -513,11 +513,11 @@
                                                             <b>${element.company_name || '-'}</b>
                                                         </li>
                                                         <li class="d-sm-inline-block d-block mt-1 me-3">
-                                                            <i class="ph-duotone ph-globe me-1"></i> <!-- Ikon Provinsi -->
+                                                            <i class="fa-solid fa-map me-1"></i>
                                                             <b>Provinsi : ${element.company?.province?.name || '-'}</b>
                                                         </li>
                                                         <li class="d-sm-inline-block d-block mt-1 me-3">
-                                                            <i class="ph-duotone ph-map-pin me-1"></i> <!-- Ikon Kota -->
+                                                            <i class="fa-solid fa-city me-1"></i>
                                                             <b>Kota : ${element.company?.city?.name || '-'}</b>
                                                         </li>
                                                         <li class="d-sm-inline-block d-block mt-1 me-3">
@@ -597,12 +597,11 @@
                 placeholderValue: placeholder,
                 maxItemCount: 5,
                 removeItemButton: true,
+                itemSelectText: ''
             });
 
             multipleFetch.setChoices(async function() {
-                const params = {
-                    term: ""
-                };
+                
 
                 const query = {
                     keyword: params.term,
@@ -676,6 +675,7 @@
                 maxItemCount: 5,
                 allowClear: true,
                 removeItemButton: true,
+                itemSelectText: ''
             }).setChoices(function() {
                 // Mengonversi objek menjadi array untuk diolah oleh Choices.js
                 const choicesArray = Object.entries(data).map(([key, value]) => ({
@@ -1420,7 +1420,7 @@
                     'Pilih provinsi'),
                 selectFilter('#input-kota',
                     '{{ url('') }}/api/internal/admin-panel/kota/list',
-                    'Pilih provinsi'),
+                    'Pilih kota'),
             ]);
         }
     </script>

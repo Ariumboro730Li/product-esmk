@@ -92,7 +92,7 @@
                     <div class="col-md-9">
                         <div class="row">
                             <!-- Rentang Tanggal -->
-                            <div class="col-md-12 mb-3">
+                            <div class="col-md-6 mb-3">
                                 <label class="fw-normal" for="daterange">Rentang Tanggal <sup
                                         class="text-danger">*</sup></label>
                                 <div class="input-group">
@@ -112,12 +112,19 @@
                             </div>
 
                             <!-- Status Sertifikat -->
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <label class="fw-normal" for="input-status">Status Sertifikat</label>
                                 <select class="form-control " name="input_status" id="input-status">
                                     <option value="">Pilih status sertifikat</option>
-
                                 </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="fw-normal" for="input-provinsi">Provinsi</label>
+                                <select class="form-control select" name="input_provinsi" id="input-provinsi"></select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="fw-normal" for="input-kota">Kota</label>
+                                <select class="form-control select" name="input_kota" id="input-kota"></select>
                             </div>
                         </div>
                     </div>
@@ -317,6 +324,8 @@
                 search: defaultSearch,
                 company: Object.keys(customFilter).length !== 0 ? customFilter['company'] : '',
                 status: Object.keys(customFilter).length !== 0 ? customFilter['status'] : '',
+                province_id: Object.keys(customFilter).length !== 0 ? customFilter['provinsi'] : '',
+                city_id: Object.keys(customFilter).length !== 0 ? customFilter['kota'] : '',
                 fromdate: customFilter?.['start_date'] || '',
                 duedate: customFilter?.['end_date'] || '',
             }).toString();
@@ -479,28 +488,28 @@
                                                     </ul>
                                                 </div>
                                                 ${element.rejection_notes ? `
-                                                <div class="h5 mt-3">
-                                                    <i class="material-icons-two-tone f-16 me-1">notification_important</i>Catatan Permohonan
-                                                </div>
-                                                <div class="help-md-hidden">
-                                                    <div class="bg-body mb-3 p-3">
-                                                        <h6>
-                                                            <img src="{{ asset('assets') }}/images/user/user-profil2.jpg"
-                                                                alt="" class="wid-20 avatar me-2 rounded">
-                                                            Last comment from <a href="#" class="link-secondary">${element.updated_by}:</a>
-                                                        </h6>
-                                                        <p class="mb-0">
-                                                            ${truncatedNotes}
-                                                        </p>
+                                                    <div class="h5 mt-3">
+                                                        <i class="material-icons-two-tone f-16 me-1">notification_important</i>Catatan Permohonan
                                                     </div>
-                                                </div>` : ''}
+                                                    <div class="help-md-hidden">
+                                                        <div class="bg-body mb-3 p-3">
+                                                            <h6>
+                                                                <img src="{{ asset('assets') }}/images/user/user-profil2.jpg"
+                                                                    alt="" class="wid-20 avatar me-2 rounded">
+                                                                Last comment from <a href="#" class="link-secondary">${element.updated_by}:</a>
+                                                            </h6>
+                                                            <p class="mb-0">
+                                                                ${truncatedNotes}
+                                                            </p>
+                                                        </div>
+                                                    </div>` : ''}
                                             </div>
                                             <div class="mt-4">
                                                 ${element.rejection_notes ? `
-                                                <button type="button" class="me-2 btn btn-sm btn-light-danger"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
-                                                    <i class="ti ti-eye me-1"></i> Lihat Catatan
-                                                </button>` : ''}
+                                                    <button type="button" class="me-2 btn btn-sm btn-light-danger"
+                                                        data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
+                                                        <i class="ti ti-eye me-1"></i> Lihat Catatan
+                                                    </button>` : ''}
                                                 <a href="/admin/laporan-tahunan/detail?id=${element.id}&companyID=${element.company_id}"
                                                     class="me-2 btn btn-sm btn-light-secondary" style="border-radius: 5px;">
                                                     <i class="feather icon-eye mx-1"></i>Lihat Pengajuan
@@ -533,6 +542,7 @@
                 placeholderValue: placeholder,
                 maxItemCount: 5,
                 removeItemButton: true,
+                itemSelectText: ''
             });
 
             multipleFetch.setChoices(async function() {
@@ -594,6 +604,9 @@
 
             let params = {
                 status: filter['status'] || '',
+                province_id: filter['province_id'] || '',
+                city_id: filter['city_id'] || '',
+                status: filter['status'] || '',
                 company: filter['company'] || '',
                 fromdate: formatDate(filter['start_date'] || startDate),
                 duedate: formatDate(filter['end_date'] || endDate),
@@ -619,6 +632,8 @@
                 let filteredData = data.filter(item => {
                     return (!params.status || item.status === params.status) &&
                         (!params.company || item.nama_perusahaan === params.company) &&
+                        (!params.city_id || item.nama_perusahaan === params.city_id) &&
+                        (!params.province_id || item.nama_perusahaan === params.province_id) &&
                         (!params.start_date || new Date(item.tanggal_pengajuan) >= new Date(params
                             .start_date)) &&
                         (!params.end_date || new Date(item.tanggal_pengajuan) <= new Date(params.end_date));
@@ -901,10 +916,13 @@
 
                 let company = document.getElementById('input-perusahaan').value;
                 let status = document.getElementById('input-status').value;
+                let provinsi = document.getElementById('input-provinsi').value;
+                let kota = document.getElementById('input-kota').value;
 
                 // Buat objek custom filter
                 customFilter = {
-
+                    'kota' : kota,
+                    'provinsi' : provinsi,
                     'company': company,
                     'status': status,
                     'start_date': $("#daterange").val() != '' ? startDate : '',
@@ -933,12 +951,17 @@
 
                 let company = document.getElementById('input-perusahaan').value;
                 let status = document.getElementById('input-status').value;
+                let provinsi = document.getElementById('input-provinsi').value;
+                let kota = document.getElementById('input-kota').value;
 
+                // Buat objek custom filter
                 customFilter = {
-                    'status': status,
+                    'kota' : kota,
+                    'provinsi' : provinsi,
                     'company': company,
-                    'start_date': $("#daterange").val() !== '' ? startDate : '',
-                    'end_date': $("#daterange").val() !== '' ? endDate : ''
+                    'status': status,
+                    'start_date': $("#daterange").val() != '' ? startDate : '',
+                    'end_date': $("#daterange").val() != '' ? endDate : ''
                 };
 
                 // Validation for date range length
@@ -971,15 +994,19 @@
                     endDate = '';
                 }
 
-
                 let company = document.getElementById('input-perusahaan').value;
                 let status = document.getElementById('input-status').value;
+                let provinsi = document.getElementById('input-provinsi').value;
+                let kota = document.getElementById('input-kota').value;
 
+                // Buat objek custom filter
                 customFilter = {
-                    'status': status,
+                    'kota' : kota,
+                    'provinsi' : provinsi,
                     'company': company,
-                    'start_date': $("#daterange").val() !== '' ? startDate : '',
-                    'end_date': $("#daterange").val() !== '' ? endDate : ''
+                    'status': status,
+                    'start_date': $("#daterange").val() != '' ? startDate : '',
+                    'end_date': $("#daterange").val() != '' ? endDate : ''
                 };
 
                 if (dayDiff > 31) {
@@ -1016,16 +1043,19 @@
                     endDate = '';
                 }
 
-
                 let company = document.getElementById('input-perusahaan').value;
                 let status = document.getElementById('input-status').value;
+                let provinsi = document.getElementById('input-provinsi').value;
+                let kota = document.getElementById('input-kota').value;
 
+                // Buat objek custom filter
                 customFilter = {
-                    'status': status,
+                    'kota' : kota,
+                    'provinsi' : provinsi,
                     'company': company,
-
-                    'start_date': $("#daterange").val() !== '' ? startDate : '',
-                    'end_date': $("#daterange").val() !== '' ? endDate : ''
+                    'status': status,
+                    'start_date': $("#daterange").val() != '' ? startDate : '',
+                    'end_date': $("#daterange").val() != '' ? endDate : ''
                 };
 
                 if (dayDiff > 31) {
@@ -1069,6 +1099,8 @@
             }
             let params = {
                 status: filter['status'] || '',
+                city_id: filter['kota'] || '',
+                province_id: filter['provinsi'] || '',
                 company: filter['company'] || '',
                 fromdate: formattedStartDate,
                 duedate: formattedEndDate,
@@ -1081,7 +1113,6 @@
                 let getDataRest = await CallAPI('GET',
                         `{{ url('') }}/api/internal/admin-panel/laporan-tahunan/list?${params}`
                     )
-                    // `{{ url('') }}/api/internal/admin-panel/laporan-tahunan/list`, params)
                     .then(function(response) {
                         return response;
                     })
@@ -1092,7 +1123,6 @@
                         return resp;
                     });
 
-                console.log("🚀 ~ fetchFilteredData ~ getDataRest:", getDataRest)
 
                 // Check if the request was successful
                 if (getDataRest.data.status_code == 200) {
@@ -1101,11 +1131,11 @@
                     // Filter data based on parameters
                     let filteredData = data.filter(item => {
                         let createdAt = moment(item.created_at).startOf('day').format('YYYY-MM-DD');
-                        console.log("🚀 ~ fetchFilteredData ~ createdAt:", createdAt)
-                        console.log("🚀 ~ fetchFilteredData ~ createdAt:", item.company_id)
-                        console.log()
+                        console.log("🚀 ~ fetchFilteredData ~ item:", item.diverifikasi_oleh?.company?.province_id)
                         return (!params.status || item.status === params.status) &&
                             (!params.company || String(item.company_id) === params.company) &&
+                            (!params.province_id || String(item.diverifikasi_oleh?.company?.province_id) === params.province_id) &&
+                            (!params.city_id || String(item.diverifikasi_oleh?.company?.city_id) === params.city_id) &&
                             (!params.fromdate || createdAt >= params.fromdate) &&
                             (!params.duedate || createdAt <= params.duedate);
                     });
@@ -1145,6 +1175,7 @@
                 maxItemCount: 5,
                 allowClear: true,
                 removeItemButton: true,
+                itemSelectText: ''
             }).setChoices(function() {
                 // Mengonversi objek menjadi array untuk diolah oleh Choices.js
                 const choicesArray = Object.entries(data).map(([key, value]) => ({
@@ -1529,6 +1560,12 @@
                 selectFilter('#input-perusahaan',
                     '{{ url('') }}/api/internal/admin-panel/perusahaan/list',
                     'Pilih perusahaan'),
+                selectFilter('#input-provinsi',
+                    '{{ url('') }}/api/internal/admin-panel/provinsi/list',
+                    'Pilih provinsi'),
+                selectFilter('#input-kota',
+                    '{{ url('') }}/api/internal/admin-panel/kota/list',
+                    'Pilih kota'),
             ]);
         }
     </script>
