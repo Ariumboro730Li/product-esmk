@@ -17,7 +17,7 @@ class CityController extends Controller
      */
 
     public function __construct() {}
-    public function index(Request $request) : JsonResponse
+    public function index(Request $request): JsonResponse
     {
         // Validasi input request
         $validator = Validator::make($request->all(), [
@@ -41,8 +41,8 @@ class CityController extends Controller
 
         $query = City::with('province')->orderBy('created_at', $meta['orderBy']);
         if ($request->keyword !== null) {
-            $query->where(function($query) use ($request) {
-                $columns = ['name', 'administrative_code','province_id'];
+            $query->where(function ($query) use ($request) {
+                $columns = ['name', 'administrative_code', 'province_id'];
                 foreach ($columns as $column) {
                     $query->orWhereRaw("LOWER({$column}) LIKE ?", ["%" . strtolower(trim($request->keyword)) . "%"]);
                 }
@@ -108,7 +108,7 @@ class CityController extends Controller
 
         // Cek apakah ada kota lain dengan kode administratif belakang titik yang sama
         $existingCity = City::whereRaw("SUBSTRING_INDEX(administrative_code, '.', -1) = ?", [$request->administrative_code])
-                            ->first();
+            ->first();
 
         if ($existingCity) {
             return response()->json([
@@ -144,7 +144,7 @@ class CityController extends Controller
     public function show(Request $request): JsonResponse
     {
         $data = City::with('province')->where('id', $request->id)->first();
-        if(!$data) {
+        if (!$data) {
             return response()->json([
                 'status_code' => HttpStatusCodes::HTTP_NOT_FOUND,
                 'error' => true,
@@ -166,7 +166,7 @@ class CityController extends Controller
     public function edit(Request $request)
     {
         $data = City::with('province')->where('id', $request->id)->first();
-        if(!$data) {
+        if (!$data) {
             return response()->json([
                 'status_code' => HttpStatusCodes::HTTP_NOT_FOUND,
                 'error' => true,
@@ -222,8 +222,8 @@ class CityController extends Controller
 
         // Cek apakah ada kota lain dengan kode administratif belakang titik yang sama, kecuali kota yang sedang diupdate
         $existingCity = City::whereRaw("SUBSTRING_INDEX(administrative_code, '.', -1) = ?", [$request->administrative_code])
-                            ->where('id', '!=', $city->id)
-                            ->first();
+            ->where('id', '!=', $city->id)
+            ->first();
 
         if ($existingCity) {
             return response()->json([
@@ -268,7 +268,7 @@ class CityController extends Controller
     public function destroy(Request $request): JsonResponse
     {
         $data = City::findOrFail($request->id);
-        if(!$data) {
+        if (!$data) {
             return response()->json([
                 'status_code' => HttpStatusCodes::HTTP_NOT_FOUND,
                 'error' => true,
@@ -283,14 +283,91 @@ class CityController extends Controller
             'status_code' => HttpStatusCodes::HTTP_OK,
             'data' => $data
         ], HttpStatusCodes::HTTP_OK);
-
     }
 
-    public function select2(Request $request){
-        $query = $request->term['term'] ??'';
+    public function select2(Request $request)
+    {
+        $query = $request->term['term'] ?? '';
         $data = Province::where('name', 'LIKE', "%$query%")->get();
 
         return response()->json($data);
     }
 
+    public function status(Request $request)
+    {
+        // Validasi input
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'id' => 'required|exists:cities,id',
+            ],
+            [
+                'id.required' => 'ID Diperlukan',
+                'id.exists' => 'ID Tidak Ditemukan',
+            ]
+        );
+
+        // Jika validasi gagal
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => true,
+                'message' => $validator->errors()->first(), // Mengambil pesan error pertama
+                'status_code' => HttpStatusCodes::HTTP_BAD_REQUEST,
+            ], HttpStatusCodes::HTTP_BAD_REQUEST);
+        }
+
+        // Ambil data berdasarkan ID
+        $data = City::find($request->id);
+        if (!$data) {
+            return response()->json([
+                'error' => true,
+                'message' => 'Data tidak ditemukan',
+                'status_code' => HttpStatusCodes::HTTP_NOT_FOUND,
+            ], HttpStatusCodes::HTTP_NOT_FOUND);
+        }
+
+        // Toggle status is_active
+        if ($data->is_active == 0) {
+
+            $province = Province::find($data->province_id);
+
+            if ($province && $province->is_active == 0) {
+                return response()->json([
+                    'error' => false,
+                    'message' => 'Kota tidak bisa diaktifkan karena provinsi tidak aktif',
+                    'status_code' => HttpStatusCodes::HTTP_BAD_REQUEST
+                ], HttpStatusCodes::HTTP_BAD_REQUEST);
+            }
+
+
+            $data->is_active = 1;
+            $data->save();
+
+            return response()->json([
+                'error' => false,
+                'message' => 'Status berhasil diubah',
+                'status_code' => HttpStatusCodes::HTTP_OK,
+                'data' => [
+                    'id' => $data->id,
+                    'title' => $data->title,
+                    'is_active' => $data->is_active,
+                ],
+            ], HttpStatusCodes::HTTP_OK);
+        } else {
+            // Set to inactive
+            $data->is_active = 0;
+            $data->save();
+
+            return response()->json([
+                'error' => false,
+                'message' => 'Status berhasil diubah',
+                'status_code' => HttpStatusCodes::HTTP_OK,
+                'data' => [
+                    'id' => $data->id,
+                    'title' => $data->title,
+                    'is_active' => $data->is_active,
+                ],
+            ], HttpStatusCodes::HTTP_OK);
+        }
+    }
 }

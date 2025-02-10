@@ -8,6 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Validator;
 use App\Constants\HttpStatusCodes;
 use App\Http\Controllers\Controller;
+use App\Models\City;
 
 class ProvinceController extends Controller
 {
@@ -232,6 +233,73 @@ class ProvinceController extends Controller
             'data' => $data
         ], HttpStatusCodes::HTTP_OK);
 
+    }
+
+
+    public function status(Request $request)
+    {
+        // Validasi input
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'id' => 'required|exists:provinces,id',
+            ],
+            [
+                'id.required' => 'ID Diperlukan',
+                'id.exists' => 'ID Tidak Ditemukan',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => true,
+                'message' => $validator->errors()->first(),
+                'status_code' => HttpStatusCodes::HTTP_BAD_REQUEST,
+            ], HttpStatusCodes::HTTP_BAD_REQUEST);
+        }
+
+        // Ambil data berdasarkan ID
+        $data = Province::find($request->id);
+        if (!$data) {
+            return response()->json([
+                'error' => true,
+                'message' => 'Data tidak ditemukan',
+                'status_code' => HttpStatusCodes::HTTP_NOT_FOUND,
+            ], HttpStatusCodes::HTTP_NOT_FOUND);
+        }
+
+        // Toggle status is_active
+        if ($data->is_active == 0) {
+            $data->is_active = 1;
+            $data->save();
+            return response()->json([
+                'error' => false,
+                'message' => 'Status berhasil diubah',
+                'status_code' => HttpStatusCodes::HTTP_OK,
+                'data' => [
+                    'id' => $data->id,
+                    'title' => $data->title,
+                    'is_active' => $data->is_active,
+                ],
+            ], HttpStatusCodes::HTTP_OK);
+        } else {
+            // Set to inactive
+            $data->is_active = 0;
+            $data->save();
+
+            City::where('province_id', $data->id)->update(['is_active' => 0]);
+
+            return response()->json([
+                'error' => false,
+                'message' => 'Status berhasil diubah',
+                'status_code' => HttpStatusCodes::HTTP_OK,
+                'data' => [
+                    'id' => $data->id,
+                    'title' => $data->title,
+                    'is_active' => $data->is_active,
+                ],
+            ], HttpStatusCodes::HTTP_OK);
+        }
     }
 
 }

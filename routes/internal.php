@@ -62,6 +62,7 @@ Route::post('admin-panel/provinsi/store', [ProvinceController::class, 'store']);
 Route::post('admin-panel/provinsi/update', [ProvinceController::class, 'update']);
 Route::post('admin-panel/provinsi/edit', [ProvinceController::class, 'edit']);
 Route::post('admin-panel/provinsi/destroy', [ProvinceController::class, 'destroy']);
+Route::get('admin-panel/provinsi/status', [ProvinceController::class, 'status']);
 
 Route::get('admin-panel/kota/list', [CityController::class, 'index']);
 Route::post('admin-panel/kota/store', [CityController::class, 'store']);
@@ -69,6 +70,7 @@ Route::post('admin-panel/kota/update', [CityController::class, 'update']);
 Route::post('admin-panel/kota/edit', [CityController::class, 'edit']);
 Route::post('admin-panel/kota/destroy', [CityController::class, 'destroy']);
 Route::get('admin-panel/kota/select2', [CityController::class, 'select2']);
+Route::get('admin-panel/kota/status', [CityController::class, 'status']);
 
 Route::get('admin-panel/direktur-jendral/list', [DirJenController::class, 'index']);
 Route::get('admin-panel/direktur-jendral/edit', [DirJenController::class, 'edit']);
