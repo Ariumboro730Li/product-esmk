@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'User Manajemen | Master Data Administrasi'])
+@extends('...Administrator.index', ['title' => 'User Management'])
 @section('asset_css')
     <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}">
     <style>
@@ -17,8 +17,7 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
-                        <li class="breadcrumb-item"><a href="javascript: void(0)">Administrasi</a></li>
-                        <li class="breadcrumb-item" aria-current="page">User Manajemen</li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0)">User Management</a></li>
                     </ul>
                 </div>
                 <div class="col-md-12 d-flex flex-column flex-md-row justify-content-between align-items-start">
@@ -72,7 +71,8 @@
                                                     <th>No</th>
                                                     <th>Nama</th>
                                                     <th>Nama Pengguna</th>
-                                                    <th>NIP</th>
+                                                    <th>Provinsi</th>
+                                                    <th>Kota</th>
                                                     <th>Peran</th>
                                                     <th>Status</th>
                                                     <th>Tanggal Terdaftar</th>
@@ -112,21 +112,20 @@
                     <div class="modal-body" style="max-height: 500px; overflow-y: auto;">
                         <div class="p-3">
                             <div class="row g-4">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
+                                <div class="col-lg-6">
+                                    <div class="mb-1">
                                         <div class="form-floating mb-0">
                                             <input type="email" class="form-control" name="email" id="email"
-                                                placeholder="Masukkan email" required autocomplete="off"/>
-                                            <label for="email">Email<sup
-                                                    class=" text-danger ms-1">*</sup></label>
+                                                placeholder="Masukkan email" required autocomplete="off" />
+                                            <label for="email">Email<sup class=" text-danger ms-1">*</sup></label>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
+                                <div class="col-lg-6">
+                                    <div class="mb-4">
                                         <div class="form-floating mb-0">
                                             <input type="text" class="form-control" name="fullname" id="fullname"
-                                                placeholder="Masukkan nama lengkap"  autocomplete="off" required />
+                                                placeholder="Masukkan nama lengkap" autocomplete="off" required />
                                             <label for="fullname">Nama Lengkap<sup
                                                     class=" text-danger ms-1">*</sup></label>
                                         </div>
@@ -134,8 +133,8 @@
                                 </div>
                             </div>
                             <div class="row g-4">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
+                                <div class="col-lg-6">
+                                    <div class="mb-2">
                                         <div class="form-floating mb-0">
                                             <input type="text" class="form-control" name="username" id="username"
                                                 placeholder="Masukkan nama pengguna" autocomplete="off" required />
@@ -144,13 +143,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
+                                <div class="col-lg-6">
+                                    <div class="mb-4">
                                         <div class="form-floating mb-0">
                                             <input type="text" class="form-control" name="nip" id="nip"
-                                                placeholder="Masukkan NIP" autocomplete="off" required />
-                                            <label for="nip">NIP<sup
-                                                    class=" text-danger ms-1">*</sup></label>
+                                                placeholder="Masukkan NIP" autocomplete="off" required value="" pattern="\d*"
+                                                oninput="this.value = this.value.replace(/\D/g, '')" />
+                                            <label for="nip">NIP<sup class="text-danger ms-1">*</sup></label>
                                         </div>
                                     </div>
                                 </div>
@@ -159,7 +158,7 @@
                                 <div class="form-floating">
                                     <div class="form-label-group">
                                         <label class="form-label" for="input-role">Role<sup
-                                                class="required text-danger ms-1">*</sup></label>
+                                                class="text-danger ms-1">*</sup></label>
                                     </div>
                                     <div class="form-control-wrap">
                                         <select class="form-control select2" name="input_role" id="input-role"
@@ -168,8 +167,42 @@
                                 </div>
                             </div>
                             <div class="row g-4">
-                                <div class="col-md-6">
-                                    <div class="mb-3 position-relative">
+                                <div class="col-lg-6">
+                                    <div class="mb-0">
+                                        <div class="form-floating">
+                                            <div class="form-label-group">
+                                                <label class="form-label" for="input_province_id">Provinsi<sup
+                                                        class="text-danger ms-1">*</sup></label>
+                                            </div>
+                                            <div class="form-control-wrap">
+                                                <select class="form-control select2" name="input_province_id"
+                                                    id="input_province_id" style="width: 100% !important;"
+                                                    ></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-4">
+                                        <div class="form-floating">
+                                            <div class="form-label-group">
+                                                <label class="form-label" for="input_city_id">Kota
+                                                    {!! auth()->user()->province_id !== null && auth()->user()->city_id !== null
+                                                        ? '<sup class="required text-danger ms-1">*</sup>'
+                                                        : '' !!}
+                                                </label>
+                                            </div>
+                                            <div class="form-control-wrap">
+                                                <select class="form-control select2" name="input_city_id"
+                                                    id="input_city_id" style="width: 100% !important;"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row g-4">
+                                <div class="col-lg-6">
+                                    <div class="mb-2 position-relative">
                                         <div class="form-floating">
                                             <input type="password" class="form-control" id="password" name="password"
                                                 placeholder="Kata Sandi" required autocomplete="off" />
@@ -185,11 +218,12 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3 position-relative">
+                                <div class="col-lg-6">
+                                    <div class="mb-4 position-relative">
                                         <div class="form-floating">
-                                            <input type="password" class="form-control" id="password-confirm" name="password-confirm"
-                                                placeholder="Kata Sandi" required autocomplete="off" />
+                                            <input type="password" class="form-control" id="password-confirm"
+                                                name="password-confirm" placeholder="Kata Sandi" required
+                                                autocomplete="off" />
                                             <label for="password-confirm">Konfirmasi Kata Sandi <sup
                                                     class="required-pass text-danger ms-1">*</sup></label>
                                         </div>
@@ -272,7 +306,18 @@
 
         async function togglePasswordVisibility(inputId, toggleElement) {
             const passwordField = document.getElementById(inputId);
+
+            if (!toggleElement) {
+                console.error("toggleElement tidak valid");
+                return;
+            }
+
             const icon = toggleElement.querySelector('i');
+            if (!icon) {
+                console.error("Icon tidak ditemukan dalam toggleElement");
+                return;
+            }
+
             if (passwordField.type === 'password') {
                 passwordField.type = 'text';
                 icon.classList.remove('fa-eye');
@@ -345,6 +390,9 @@
                                     </div>
                                     <div class="col">
                                         <h6 class="mb-1"><span class="text-truncate w-100">${element.name || '-'}</span> </h6>
+                                        <p class="f-12 fw-bold mb-0"><a href="#!" class="text-muted"><span
+                                                    class="w-100">NIP: ${element.nip || '-'}</span></a>
+                                        </p>
                                         <p class="f-12 mb-0"><a href="#!" class="text-muted"><span
                                                     class="text-truncate w-100">${element.email || '-'}</span></a>
                                         </p>
@@ -352,7 +400,8 @@
                                 </div>
                             </td>
                             <td>${element.username || '-'}</td>
-                            <td>${element.nip || '-'}</td>
+                            <td>${element.province_name || '-'}</td>
+                            <td>${element.city_name || '-'}</td>
                             <td><span class="badge text-bg-light fw-bold p-2"><i class="fa-solid fa-user me-2 fa-lg"></i>${element.role_name || '-'}</span></td>
                             <td>
                                 ${statusBadge}
@@ -374,7 +423,7 @@
                 if (totalPage === 0) {
                     appendHtml = `
                         <tr>
-                            <th class="text-center" colspan="8> Tidak ada data. </th>
+                            <th class="text-center" colspan="9"> Tidak ada data. </th>
                         </tr>`;
                     $('#countPage').text("0 - 0");
                     $('#pagination-js').hide();
@@ -434,11 +483,12 @@
                     username: $('#username').val(),
                     email: $('#email').val(),
                     nip: $('#nip').val(),
-                    password: $('#password').val()
+                    password: $('#password').val(),
+                    province_id: $('#input_province_id').val(),
+                    city_id: $('#input_city_id').val(),
                 };
 
                 let id_user = $("#form-create").data("id_user");
-                console.log(id_user);
                 if (id_user) {
                     formData.id_user = id_user;
                 }
@@ -449,7 +499,7 @@
                     }).catch(function(error) {
                         loadingPage(false);
                         $("form").find("input, select, textarea").val("").prop("checked", false)
-                        .trigger("change");
+                            .trigger("change");
                         $("#modal-form").modal("hide");
                         let resp = error.response;
                         notificationAlert('info', 'Pemberitahuan', resp.data.message);
@@ -482,7 +532,6 @@
             $(document).on("click", ".change-status", async function() {
                 let id = $(this).attr("data-id");
                 let status = $(this).attr("data-status");
-                console.log(status);
                 await setStatusAction(id, status);
             });
         }
@@ -542,7 +591,6 @@
                 let data = $(this).attr("data");
                 data = JSON.parse(data);
                 let id = $(this).attr("data-id");
-                console.log("🚀 ~ $ ~ id:", id)
 
                 $("#modal-title").html(modalTitle);
                 $("#modal-form").modal("show");
@@ -560,6 +608,16 @@
                 $('#email').val(data.email)
                 $('#nip').val(data.nip)
 
+                let provinceId = data.province_id;
+                $("#input_province_id").val(null).trigger('change');
+                $('#input_province_id').append(new Option(data.province_name, provinceId, true, true));
+                $("#input_province_id").trigger('change');
+
+                let cityId = data.city_id;
+                $("#input_city_id").val(null).trigger('change');
+                $('#input_city_id').append(new Option(data.city_name ? data.city_name : 'Pilih Kota' , cityId, true, true));
+                $("#input_city_id").trigger('change');
+
                 $(".required-pass").text("");
                 $("#form-create").data("action-url",
                     `{{ url('') }}/api/internal/admin-panel/user-management/update`);
@@ -568,10 +626,10 @@
         }
 
 
-        async function selectFilter(id) {
-            $('#input-role').select2({
+        async function selectFilter(inputId, url, placeholder, id = '') {
+            $(`${inputId}`).select2({
                 ajax: {
-                    url: `{{ url('') }}/api/internal/admin-panel/role-options`,
+                    url: url,
                     dataType: 'json',
                     delay: 500,
                     headers: {
@@ -579,17 +637,19 @@
                     },
                     data: function(params) {
                         let query = {
-                            search: params.term,
+                            keyword: params.term,
                             page: 1,
                             limit: 30,
-                            ascending: 1
-                        };
+                            ascending: 1,
+                        }
+                        if (id != '') {
+                            query.province_id = id;
+                        }
                         return query;
                     },
                     processResults: function(res) {
                         let data = res.data;
 
-                        console.log("🚀 ~ selectFilter ~ data:", data)
                         return {
                             results: $.map(data, function(item) {
                                 return {
@@ -601,7 +661,7 @@
                     },
                 },
                 allowClear: true,
-                placeholder: 'Pilih peran',
+                placeholder: placeholder,
                 dropdownParent: $('#modal-form')
             });
         }
@@ -696,15 +756,27 @@
 
                 passwordEvent();
             });
+
+            $('#input_province_id').on('change', async function() {
+                $("#input_city_id").val('').trigger("change");
+                let id = $(this).val();
+                selectFilter('#input_city_id', '{{ url('') }}/api/internal/admin-panel/kota/list',
+                    'Pilih Kota', id);
+            });
             await Promise.all([
                 initDataOnTable(defaultLimitPage, currentPage, defaultAscending, defaultSearch),
                 manipulationDataOnTable(),
-                selectFilter('#input-role'),
                 addData(),
                 setStatus(),
                 editData(),
                 submitForm(),
                 togglePasswordVisibility(),
+                selectFilter('#input_province_id',
+                    '{{ url('') }}/api/internal/admin-panel/provinsi/list',
+                    'Pilih Provinsi'),
+                selectFilter('#input-role',
+                    `{{ url('') }}/api/internal/admin-panel/role-options`, 'Pilih Role'),
+
                 // selectList('#input_satuan_kerja_id',
                 //     '{{ url('') }}/api/internal/admin-panel/satuan-kerja/list',
                 //     'Pilih Satuan Kerja', true),

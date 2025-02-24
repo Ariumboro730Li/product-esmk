@@ -50,7 +50,16 @@ class PerusahaanController extends Controller
             )
             ->select('companies.*', 'latest_certificate_requests.certificate_status');
 
+        
+        $currentUser = auth()->user();
 
+        if ($currentUser->province_id) {
+            $query->where('province_id', $currentUser->province_id);
+
+            if ($currentUser->city_id) {
+                $query->where('city_id', $currentUser->city_id);
+            }
+        }
 
         if ($request->has('fromdate') && $request->has('duedate')) {
             $startDate = new \DateTime($request->fromdate);

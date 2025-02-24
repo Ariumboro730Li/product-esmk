@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'Provinsi | Master Data Wilayah'])
+@extends('...Administrator.index', ['title' => 'Data Provinsi'])
 
 @section('content')
     <div class="page-header">

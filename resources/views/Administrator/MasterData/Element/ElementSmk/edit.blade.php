@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'Detail Element SMK | Master Data Element'])
+@extends('...Administrator.index', ['title' => 'Perbarui Data Element SMK'])
 @section('asset_css')
     <style>
         .accordion-button {
@@ -22,7 +22,7 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
-                        <li class="breadcrumb-item"><a href="/admin/element-smk/list">Master Data Elemen</a></li>
+                        <li class="breadcrumb-item"><a href="/admin/element-smk/list">Master Data Element SMK</a></li>
                         <li class="breadcrumb-item" aria-current="page">Perbarui Data Element SMK</li>
                     </ul>
                 </div>

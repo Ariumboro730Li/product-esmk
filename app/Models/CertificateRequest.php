@@ -33,6 +33,16 @@ class CertificateRequest extends Model
         return $this->hasMany(AssessmentInterview::class)->where('is_active', true)->orderBy('created_at', 'desc');
     }
 
+    public function province()
+    {
+        return $this->belongsTo(Province::class, 'province_id');
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id');
+    }
+
     public function dispositionBy()
     {
         return $this->belongsTo(User::class, 'disposition_by');

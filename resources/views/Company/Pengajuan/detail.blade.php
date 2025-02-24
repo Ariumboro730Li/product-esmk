@@ -1100,8 +1100,6 @@
                     date_of_application_letter: formObject.date_of_application_letter,
                     file_of_application_letter: formObject.file_of_application_letter,
                 };
-                console.log(formData)
-                // Submit form data
                 submitData(formData, 'Berhasil kirim pengajuan');
             });
         }

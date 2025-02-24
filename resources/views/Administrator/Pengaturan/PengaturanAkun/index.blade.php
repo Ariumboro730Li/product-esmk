@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'Pengaturan Akun | Pengaturan'])
+@extends('...Administrator.index', ['title' => 'Pengaturan Akun'])
 <style>
     .passcode-switch {
         color: #6c757d;

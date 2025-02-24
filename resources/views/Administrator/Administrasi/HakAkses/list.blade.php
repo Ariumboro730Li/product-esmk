@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'Administrasi | Hak Akses'])
+@extends('...Administrator.index', ['title' => 'Hak Akses'])
 @section('asset_css')
     <link rel="stylesheet" href="{{ asset('assets') }}/css/select2.min.css" />
     <style>
@@ -15,8 +15,7 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
-                        <li class="breadcrumb-item"><a href="javascript: void(0)">Administrasi</a></li>
-                        <li class="breadcrumb-item" aria-current="page">Hak Akses</li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0)">Hak Akses</a></li>
                     </ul>
                 </div>
                 <div class="col-md-12 d-flex flex-column flex-md-row justify-content-between align-items-start">

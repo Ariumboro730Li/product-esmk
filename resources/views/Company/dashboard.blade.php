@@ -762,7 +762,6 @@
             if (getDataRest.status == 200) {
                 let data = getDataRest.data.data;
                 is_active_kbli = data.is_active;
-                console.log("🚀 ~ checkOSS ~ is_active_kbli:", is_active_kbli)
                 if (data.is_active === 0) {
                     const btnSync = document.querySelector('.btn-sync-oss');
                     const navKbli = document.querySelector('#nav-kbli');

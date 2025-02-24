@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'Direktur Jendral | Master Satuan Kerja'])
+@extends('...Administrator.index', ['title' => 'Data Penandatangan'])
 @section('asset_css')
     <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}">
 @endsection
@@ -11,13 +11,12 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
-                        <li class="breadcrumb-item"><a href="javascript: void(0)">Master Data</a></li>
-                        <li class="breadcrumb-item" aria-current="page">Penandatangan</li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0)">Master Data Penandatangan</a></li>
                     </ul>
                 </div>
                 <div class="col-md-12 d-flex flex-column flex-md-row justify-content-between align-items-start">
                     <div class="page-header-title">
-                        <h2 class="mb-0">Penandatangan</h2>
+                        <h2 class="mb-0">Data Penandatangan</h2>
                     </div>
                     <a href="javascript:void(0)" class="btn btn-md btn-primary px-3 p-2 mt-3 mt-md-0 add-data"
                         id="add-data">
@@ -139,7 +138,8 @@
                             <div class="mb-3">
                                 <div class="form-floating mb-0">
                                     <input type="text" class="form-control" id="input_signer_identity_number"
-                                        placeholder="" />
+                                        placeholder="" pattern="\d*"
+                                                oninput="this.value = this.value.replace(/\D/g, '')" />
                                     <label for="input_signer_identity_number">Nomor Identitas</label>
                                 </div>
                             </div>
@@ -344,9 +344,12 @@
                 // $('#input_satuan_kerja_id').append(new Option(data.work_unit.name, workUnit, true, true));
                 // $("#input_satuan_kerja_id").trigger('change');
                 
-                let provinceId = data.province?.id;
+                let provinceId = data.province?.id || '';
+                let provinceName = data.province?.name ||
+                'Pilih Provinsi'; 
+
                 $("#input_province_id").val(null).trigger('change');
-                $('#input_province_id').append(new Option(data.province.name, provinceId, true, true));
+                $('#input_province_id').append(new Option(provinceName, provinceId, true, true));
                 $("#input_province_id").trigger('change');
 
                 $("#form-create").data("action-url", `${env}/internal/admin-panel/direktur-jendral/update`);

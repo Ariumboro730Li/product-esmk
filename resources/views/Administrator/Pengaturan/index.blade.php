@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'Pengaturan Aplikasi | Pengaturan'])
+@extends('...Administrator.index', ['title' => 'Pengaturan Aplikasi'])
 @section('asset_css')
     <link rel="stylesheet" href="{{ asset('assets') }}/js/libs/filepond/filepond.min.css">
     <link rel="stylesheet"
@@ -513,7 +513,6 @@
                 logo_aplikasi: logoUrl
             };
 
-            console.log("🚀 ~ updateDataApps ~ payload:", payload);
 
             // Kirim data ke API
             let getDataRest = await CallAPI('POST',

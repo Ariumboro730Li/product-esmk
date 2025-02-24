@@ -151,7 +151,7 @@
                                 <span class="pc-micon">
                                     <i class="fa fa-users"></i>
                                 </span>
-                                <span class="pc-mtext">User Manajemen</span>
+                                <span class="pc-mtext">User Management</span>
                             </a>
                         </li>
                     @endif

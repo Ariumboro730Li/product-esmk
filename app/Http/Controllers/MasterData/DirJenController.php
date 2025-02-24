@@ -28,6 +28,10 @@ class DirJenController extends Controller
         $meta['limit'] = $validated['limit'];
 
         $query = Signer::with('province')->orderBy('created_at', $meta['orderBy']);
+        $currentUser = auth()->user();
+        if ($currentUser->province_id) {
+            $query->where('province_id', $currentUser->province_id);
+        }
 
         if ($request->search !== null) {
             $query->where(function ($query) use ($request) {

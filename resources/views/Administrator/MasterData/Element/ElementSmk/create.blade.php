@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'Tambah Element SMK | Master Data Element'])
+@extends('...Administrator.index', ['title' => 'Tambah Data Element SMK'])
 
 @section('content')
     <div class="page-header">
@@ -7,7 +7,7 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
-                        <li class="breadcrumb-item"><a href="/admin/element-smk/list">Master Data Elemen</a></li>
+                        <li class="breadcrumb-item"><a href="/admin/element-smk/list">Master Data Element SMK</a></li>
                         <li class="breadcrumb-item" aria-current="page">Tambah Data Element SMK</li>
                     </ul>
                 </div>
@@ -633,7 +633,6 @@
                         title: uniqueTitle,
                         element_properties: smkElements
                     };
-                    console.log("🚀 ~ $ ~ formData:", formData)
 
                     const postDataRest = await CallAPI(
                         'POST',
@@ -668,7 +667,6 @@
 
         // Fungsi initPageLoad untuk inisialisasi halaman
         async function initPageLoad() {
-            console.log('Halaman berhasil dimuat.');
         }
     </script>
 @endsection

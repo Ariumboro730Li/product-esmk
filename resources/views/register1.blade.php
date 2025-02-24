@@ -596,7 +596,6 @@
                 );
                 adjustWizardSteps();
 
-                console.log(dataRest)
                 $("#input-provinsi").val(' ').trigger("change");
                 $("#input-kota").val(' ').trigger("change");
                 $("#input-pelayanan").val(' ').trigger("change");
@@ -645,7 +644,6 @@
                     "company_phone_number": $('#data-perusahaan-no-telepon-perusahaan').val()
                 };
 
-                console.log(dataSubmission)
                 const dataRest = await CallAPI(
                     'POST',
                     `{{ url('') }}/api/auth/register`,

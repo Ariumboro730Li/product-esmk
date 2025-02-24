@@ -30,15 +30,23 @@ class SkNumberController extends Controller
         $meta['orderBy'] = $request->ascending ? 'asc' : 'desc';
         $meta['limit'] = $request->limit;
 
-        $query = DecreeNumber::with('workUnit')->orderBy('created_at', $meta['orderBy']);
+        $query = DecreeNumber::with('workUnit', 'province')->orderBy('created_at', $meta['orderBy']);
 
+        $currentUser = auth()->user();
+
+
+        if ($currentUser->province_id) {
+            $query->where('province_id', $currentUser->province_id);
+        }
 
         if ($request->search !== null) {
             $query->where(function ($query) use ($request) {
-                $columns = ['decree_number'];
-                foreach ($columns as $column) {
-                    $query->orWhereRaw("LOWER({$column}) LIKE ?", ["%" . strtolower(trim($request->search)) . "%"]);
-                }
+                $searchTerm = "%" . strtolower(trim($request->search)) . "%";
+                
+                $query->orWhereRaw("LOWER(decree_number) LIKE ?", [$searchTerm])
+                    ->orWhereHas('province', function ($q) use ($searchTerm) {
+                        $q->whereRaw("LOWER(name) LIKE ?", [$searchTerm]);
+                    });
             });
         }
 
@@ -63,9 +71,11 @@ class SkNumberController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'sk_number' => 'required|unique:decree_numbers,decree_number', // Add unique validation rule
+            'province_id' => 'required', 
         ], [
             'sk_number.required' => 'Nomor SK wajib diisi.',
             'sk_number.unique' => 'Nomor SK sudah terdaftar, harap gunakan nomor yang berbeda.',
+            'province_id.required' => 'Provinsi wajib diisi.',
         ]);
 
         if ($validator->fails()) {
@@ -81,6 +91,7 @@ class SkNumberController extends Controller
         // Buat SK baru dan set sebagai aktif
         $newData = new DecreeNumber();
         $newData->decree_number = $request->sk_number;
+        $newData->province_id = $request->province_id;
         $newData->is_active = 1;
         $newData->save();
 
@@ -138,6 +149,7 @@ class SkNumberController extends Controller
             ->first();
 
         $newData->decree_number = $request->sk_number;
+        $newData->province_id = $request->province_id;
         $newData->save();
 
         return response()->json([

@@ -32,6 +32,8 @@ class User extends Authenticatable
         'email',
         'email_verified_at',
         'password' ,
+        'province_id',
+        'city_id',
         'is_active',
         'created_at',
         'updated_at',
@@ -98,6 +100,14 @@ class User extends Authenticatable
     public function workUnit()
     {
         return $this->belongsTo(WorkUnit::class, 'work_unit_id');
+    }
+    public function province()
+    {
+        return $this->belongsTo(Province::class, 'province_id');
+    }
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id');
     }
 
     // Add these two methods

@@ -656,7 +656,6 @@
                 );
                 adjustWizardSteps();
 
-                console.log(dataRest)
                 $("#input-provinsi").val(' ').trigger("change");
                 $("#input-kota").val(' ').trigger("change");
                 $("#input-pelayanan").val(' ').trigger("change");
@@ -705,7 +704,6 @@
                     "company_phone_number": $('#data-perusahaan-no-telepon-perusahaan').val()
                 };
 
-                console.log(dataSubmission)
                 const dataRest = await CallAPI(
                     'POST',
                     `{{ url('') }}/api/auth/register`,
@@ -848,7 +846,6 @@
                     }
 
                     if (currentStep < steps.length - 1) {
-                        console.log("🚀 ~ button.addEventListener ~ steps.length - 1:", steps.length - 1)
                         currentStep++;
                         showStep(currentStep);
                     }

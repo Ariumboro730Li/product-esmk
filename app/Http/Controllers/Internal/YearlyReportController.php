@@ -45,6 +45,15 @@ class YearlyReportController extends Controller
             ->leftJoin('companies', 'yearly_reports.company_id', '=', 'companies.id')
             ->orderBy('created_at', $meta['orderBy']);
 
+        $currentUser = auth()->user();
+        if ($currentUser->province_id) {
+            $query->where('companies.province_id', $currentUser->province_id);
+            
+            if ($currentUser->city_id) {
+                $query->where('companies.city_id', $currentUser->city_id);
+            }
+        }
+
         // Filter berdasarkan tanggal
         if ($request->filled('fromdate')) {
             $fromDate = Carbon::parse($request->fromdate)->format('Y-m-d');

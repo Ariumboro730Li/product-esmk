@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'Kota | Master Data Wilayah'])
+@extends('...Administrator.index', ['title' => 'Data Kota'])
 @section('asset_css')
     <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}">
 @endsection
@@ -376,7 +376,6 @@
                 let element = dataList[index];
                 const elementData = JSON.stringify(element);
                 const isActive = element.is_active === true || element.is_active === 1;
-                console.log("🚀 ~ setListData ~ element.is_active:", element.is_active)
                 const statusBadge = isActive ?
                     `<span class="badge bg-success d-flex align-items-center justify-content-center text-white" style="max-width: 100px; white-space: nowrap;"><i class="fa fa-check-circle me-2"></i> Aktif</span>` :
                     `<span class="badge bg-danger d-flex align-items-center justify-content-center text-white" style="max-width: 100px; white-space: nowrap;"><i class="fa fa-times-circle me-2"></i> Tidak Aktif</span>`;

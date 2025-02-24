@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'Kota | Master Data Wilayah'])
+@extends('...Administrator.index', ['title' => 'Data Element Pemantauan'])
 
 
 @section('content')
@@ -8,8 +8,7 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
-                        <li class="breadcrumb-item"><a href="javascript: void(0)">Master Data</a></li>
-                        <li class="breadcrumb-item" aria-current="page">Element Pemantauan</li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0)">Master Data Element Pemantauan</a></li>
                     </ul>
                 </div>
                 <div class="col-md-12 d-flex flex-column flex-md-row justify-content-between align-items-start">

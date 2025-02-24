@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'Detail Sertifikat SMK '])
+@extends('...Administrator.index', ['title' => 'Data Permohonan Sertifikat SMK'])
 @section('asset_css')
     <link rel="stylesheet" href="{{ asset('assets') }}/css/plugins/datepicker-bs5.min.css" />
     <link rel="stylesheet" href="{{ asset('assets') }}/css/daterange.css" />
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-md-12 d-flex justify-content-between align-items-center">
                     <div class="page-header-title">
-                        <h2 class="mb-0">Daftar Permohonan Penilaian E-SMK</h2>
+                        <h2 class="mb-0">Data Permohonan Sertifikat SMK</h2>
                     </div>
                 </div>
             </div>
@@ -136,11 +136,13 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="fw-normal" for="input-perusahaan">Perusahaan</label>
-                                <select class="form-control select" name="input_perusahaan" id="input-perusahaan"></select>
+                                <select class="form-control select" name="input_perusahaan" id="input-perusahaan">
+                                </select>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label class="fw-normal" for="input-penilai">Penilai</label>
-                                <select class="form-control select" name="input_penilai" id="input-penilai"></select>
+                                <select class="form-control select" name="input_penilai" id="input-penilai">
+                                </select>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label class="fw-normal" for="input-status">Status Sertifikat</label>
@@ -148,11 +150,13 @@
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label class="fw-normal" for="input-provinsi">Provinsi</label>
-                                <select class="form-control select" name="input_provinsi" id="input-provinsi"></select>
+                                <select class="form-control select" name="input_provinsi" id="input-provinsi">
+                                </select>
                             </div>
                             <div class="col-md-3 mb-3">
                                 <label class="fw-normal" for="input-kota">Kota</label>
-                                <select class="form-control select" name="input_kota" id="input-kota"></select>
+                                <select class="form-control select" name="input_kota" id="input-kota">
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -549,26 +553,26 @@
                                                     </ul>
                                                 </div>
                                                 ${element.rejection_notes ? `
-                                                    <div class="h5 mt-4"><i class="fa-solid fa-note-sticky me-1"></i>
-                                                        Catatan Permohonan</div>
-                                                    <div class="help-md-hidden">
-                                                        <div class="bg-body mb-3 p-3">
-                                                            <h6><img src="{{ asset('assets') }}/images/user/"
-                                                                    alt="" class="wid-20 avatar me-2 rounded">Catatan terakhir dari <a href="#" class="link-secondary">${element.updated_by}</a></h6>
-                                                            <p class="mb-0">
-                                                                ${truncatedNotes}
-                                                            </p>
-                                                        </div>
-                                                    </div>`
+                                                                                    <div class="h5 mt-4"><i class="fa-solid fa-note-sticky me-1"></i>
+                                                                                        Catatan Permohonan</div>
+                                                                                    <div class="help-md-hidden">
+                                                                                        <div class="bg-body mb-3 p-3">
+                                                                                            <h6><img src="{{ asset('assets') }}/images/user/"
+                                                                                                    alt="" class="wid-20 avatar me-2 rounded">Catatan terakhir dari <a href="#" class="link-secondary">${element.updated_by}</a></h6>
+                                                                                            <p class="mb-0">
+                                                                                                ${truncatedNotes}
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>`
                                                     :
                                                 ''}
                                             </div>
                                             <div class="mt-4">
                                                 ${element.rejection_notes ? `
-                                                    <button type="button" class="me-2 btn btn-sm btn-light-danger"
-                                                        data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
-                                                        <i class="ti ti-eye me-1"></i> Lihat Catatan
-                                                    </button>` : ''}
+                                                                                    <button type="button" class="me-2 btn btn-sm btn-light-danger"
+                                                                                        data-bs-toggle="modal" data-bs-target="#exampleModalCenter" onclick="showModalNotes('${element.rejection_notes}')" style="border-radius: 5px;">
+                                                                                        <i class="ti ti-eye me-1"></i> Lihat Catatan
+                                                                                    </button>` : ''}
                                                 <a href="/admin/sertifikat/detail?r=${element.id}" class="me-2 btn btn-sm btn-light-secondary"
                                                     style="border-radius:5px;"><i class="feather icon-eye mx-1 me-2"></i>Lihat
                                                     Detail</a>
@@ -593,18 +597,20 @@
 
         async function selectFilter(id, route, placeholder) {
             var multipleFetch = new Choices(id, {
-                placeholder: placeholder,
+                placeholder: true,
                 placeholderValue: placeholder,
                 maxItemCount: 5,
                 removeItemButton: true,
-                itemSelectText: ''
+                itemSelectText: '',
+                searchEnabled: true,
+                shouldSort: false,
+                renderChoiceLimit: -1,
             });
 
-            multipleFetch.setChoices(async function() {
-                
-
+            async function fetchChoices(keyword = "") {
+                const queryParam = id === "#input-perusahaan" ? "search" : "keyword"; 
                 const query = {
-                    keyword: params.term,
+                    [queryParam]: keyword, 
                     page: 1,
                     limit: 30,
                     ascending: 1
@@ -621,30 +627,59 @@
                 });
 
                 const data = await response.json();
-
                 return data.data.map(function(item) {
                     return {
                         value: item.id,
                         label: item.name
                     };
                 });
+            }
 
+            multipleFetch.setChoices([{
+                value: '',
+                label: placeholder,
+                selected: true,
+                disabled: true
+            }]);
+
+            const initialChoices = await fetchChoices("");
+            multipleFetch.clearChoices();
+            multipleFetch.setChoices(initialChoices);
+
+            document.querySelector(id).addEventListener('search', async function(event) {
+                const keyword = event.detail.value.trim();
+
+                multipleFetch.clearChoices();
+                const newChoices = await fetchChoices(keyword);
+                multipleFetch.setChoices(newChoices);
             });
 
             document.querySelector(id).addEventListener('change', function(event) {
                 const selectedValue = event.target.value;
 
                 if (selectedValue === '') {
-                    $(id).val('');
+                    multipleFetch.clearChoices();
+                    multipleFetch.setChoices([{
+                        value: '',
+                        label: placeholder,
+                        selected: true,
+                        disabled: true
+                    }]);
+                    fetchChoices("").then(data => multipleFetch.setChoices(data)); // **Ambil ulang data awal**
                 } else {
                     $(id).val(selectedValue);
                 }
-
-                const selectedValues = multipleFetch.getValue(true);
             });
 
             function clearSelection() {
                 multipleFetch.clearChoices();
+                multipleFetch.setChoices([{
+                    value: '',
+                    label: placeholder,
+                    selected: true,
+                    disabled: true
+                }]);
+                fetchChoices("").then(data => multipleFetch.setChoices(data)); // **Ambil ulang data awal**
             }
         }
 
@@ -760,7 +795,9 @@
                 date_from: formattedStartDate,
                 date_to: formattedEndDate,
                 limit: filter['limit'] || 10,
-                ascending: true
+                ascending: true,
+                searchByCity: filter['kota'] || '',
+                searchByProvince: filter['provinsi'] || '',
             };
 
             try {
@@ -773,12 +810,13 @@
 
                     let filteredData = data.filter(item => {
                         let createdAt = moment(item.created_at).startOf('day').format('YYYY-MM-DD');
-
                         return ((!params.searchByStatus || item.status === params.searchByStatus) &&
                             (!params.searchByPerusahaan || String(item.company.id) === params
                                 .searchByPerusahaan) &&
                             (!params.searchByPenilai || String(item.disposition_to.id) === params
                                 .searchByPenilai) &&
+                            (!params.searchByProvince || String(item.company?.province_id) === params.searchByProvince) &&
+                            (!params.searchByCity || String(item.company?.city_id) === params.searchByCity) &&
                             (!params.date_from || createdAt >= params.date_from) &&
                             (!params.date_to || createdAt <= params.date_to));
                     });
@@ -848,7 +886,7 @@
                 customFilter = {
                     'assesor': assesor,
                     'company': company,
-                    'kota' : kota,
+                    'kota': kota,
                     'status': status,
                     'provinsi': provinsi,
                     'start_date': startDate,
@@ -931,7 +969,7 @@
                 customFilter = {
                     'status': status,
                     'provinsi': provinsi,
-                    'kota' : kota,
+                    'kota': kota,
                     'company': company,
                     'assesor': assesor,
                     'start_date': startDate,
@@ -984,7 +1022,7 @@
                 customFilter = {
                     'status': status,
                     'provinsi': provinsi,
-                    'kota' : kota,
+                    'kota': kota,
                     'company': company,
                     'assesor': assesor,
                     'start_date': startDate,

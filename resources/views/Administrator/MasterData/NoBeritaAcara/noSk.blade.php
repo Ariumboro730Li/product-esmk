@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'Nomor SK | Master Data Satuan Kerja'])
+@extends('...Administrator.index', ['title' => 'Data No. Berita Acara'])
 @section('asset_css')
     <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}">
 @endsection
@@ -11,13 +11,12 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
-                        <li class="breadcrumb-item"><a href="javascript: void(0)">Master Data</a></li>
-                        <li class="breadcrumb-item" aria-current="page">No. Berita Acara</li>
+                        <li class="breadcrumb-item"><a href="javascript: void(0)">Master Data No. Berita Acara</a></li>
                     </ul>
                 </div>
                 <div class="col-md-12 d-flex d-flex flex-column flex-md-row justify-content-between align-items-start">
                     <div class="page-header-title">
-                        <h2 class="mb-0">No. Berita Acara</h2>
+                        <h2 class="mb-0">Data Nomor Berita Acara</h2>
                     </div>
                     <a href="javascript:void(0)" class="btn btn-md btn-primary px-3 p-2 mt-3 mt-md-0 add-data"
                         id="add-data">
@@ -177,11 +176,15 @@
                 $("form").find("input, select, textarea").val("").prop("checked", false).trigger("change");
 
                 $("#input_sk_number").val(data.decree_number);
-                
-                let provinceId = data.province?.id;
+
+                let provinceId = data.province?.id || '';
+                let provinceName = data.province?.name ||
+                'Pilih Provinsi'; 
+
                 $("#input_province_id").val(null).trigger('change');
-                $('#input_province_id').append(new Option(data.province.name, provinceId, true, true));
+                $('#input_province_id').append(new Option(provinceName, provinceId, true, true));
                 $("#input_province_id").trigger('change');
+
 
                 $("#form-create").data("action-url",
                     `${env}/internal/admin-panel/sk-number/update`);

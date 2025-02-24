@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'KBLI | Master Data'])
+@extends('...Administrator.index', ['title' => 'Data KBLI'])
 
 @section('content')
     <div class="page-header">

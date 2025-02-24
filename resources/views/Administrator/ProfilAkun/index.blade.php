@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'Detail | Data Perusahaan'])
+@extends('...Administrator.index', ['title' => 'Profil Akun'])
 @section('asset_css')
     <link rel="stylesheet" href="{{ asset('assets') }}/css/plugins/style.css" />
     <link rel="icon" href="{{ asset('assets') }}/images/favicon.svg" type="image/x-icon" />

@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-md-12 d-flex justify-content-between align-items-center">
                     <div class="page-header-title">
-                        <h2 class="mb-0">Laporan Tahunan</h2>
+                        <h2 class="mb-0">Data Laporan Tahunan</h2>
                     </div>
                 </div>
             </div>
@@ -538,20 +538,20 @@
 
         async function selectFilter(id, route, placeholder) {
             var multipleFetch = new Choices(id, {
-                placeholder: placeholder,
+                placeholder: true,
                 placeholderValue: placeholder,
                 maxItemCount: 5,
                 removeItemButton: true,
-                itemSelectText: ''
+                itemSelectText: '',
+                searchEnabled: true,
+                shouldSort: false,
+                renderChoiceLimit: -1,
             });
 
-            multipleFetch.setChoices(async function() {
-                const params = {
-                    term: ""
-                };
-
+            async function fetchChoices(keyword = "") {
+                const queryParam = id === "#input-perusahaan" ? "search" : "keyword"; 
                 const query = {
-                    keyword: params.term,
+                    [queryParam]: keyword, 
                     page: 1,
                     limit: 30,
                     ascending: 1
@@ -568,30 +568,59 @@
                 });
 
                 const data = await response.json();
-
                 return data.data.map(function(item) {
                     return {
                         value: item.id,
                         label: item.name
                     };
                 });
+            }
 
+            multipleFetch.setChoices([{
+                value: '',
+                label: placeholder,
+                selected: true,
+                disabled: true
+            }]);
+
+            const initialChoices = await fetchChoices("");
+            multipleFetch.clearChoices();
+            multipleFetch.setChoices(initialChoices);
+
+            document.querySelector(id).addEventListener('search', async function(event) {
+                const keyword = event.detail.value.trim();
+
+                multipleFetch.clearChoices();
+                const newChoices = await fetchChoices(keyword);
+                multipleFetch.setChoices(newChoices);
             });
 
             document.querySelector(id).addEventListener('change', function(event) {
                 const selectedValue = event.target.value;
 
                 if (selectedValue === '') {
-                    $(id).val('');
+                    multipleFetch.clearChoices();
+                    multipleFetch.setChoices([{
+                        value: '',
+                        label: placeholder,
+                        selected: true,
+                        disabled: true
+                    }]);
+                    fetchChoices("").then(data => multipleFetch.setChoices(data)); // **Ambil ulang data awal**
                 } else {
                     $(id).val(selectedValue);
                 }
-
-                const selectedValues = multipleFetch.getValue(true);
             });
 
             function clearSelection() {
                 multipleFetch.clearChoices();
+                multipleFetch.setChoices([{
+                    value: '',
+                    label: placeholder,
+                    selected: true,
+                    disabled: true
+                }]);
+                fetchChoices("").then(data => multipleFetch.setChoices(data)); // **Ambil ulang data awal**
             }
         }
 
@@ -1131,7 +1160,6 @@
                     // Filter data based on parameters
                     let filteredData = data.filter(item => {
                         let createdAt = moment(item.created_at).startOf('day').format('YYYY-MM-DD');
-                        console.log("🚀 ~ fetchFilteredData ~ item:", item.diverifikasi_oleh?.company?.province_id)
                         return (!params.status || item.status === params.status) &&
                             (!params.company || String(item.company_id) === params.company) &&
                             (!params.province_id || String(item.diverifikasi_oleh?.company?.province_id) === params.province_id) &&

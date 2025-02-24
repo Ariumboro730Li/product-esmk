@@ -21,6 +21,7 @@ class UserManagementController extends Controller
             'search'    => 'nullable|string',
             'id_role'   => 'nullable|exists:roles,id'
         ]);
+
         if ($validator->fails()) {
             return response()->json([
                 'status_code'   => HttpStatusCodes::HTTP_BAD_REQUEST,
@@ -29,53 +30,62 @@ class UserManagementController extends Controller
             ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
 
-        // $query = User::select(
-        //     'users.id',
-        //     'users.name as name',
-        //     'users.email',
-        //     'users.username',
-        //     'users.is_active',
-        //     'users.nip',
-        //     'roles.id as role_id',
-        //     // 'roles.name as role_name',
-        //     DB::raw('case when roles.name is null then "Perusahaan" else roles.name end as role_name'),
-        //     'users.created_at'
-        // )
-        //     ->leftjoin('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
-        //     ->leftjoin('roles', 'model_has_roles.role_id', '=', 'roles.id');
-        //     $query->where('roles.name', '!=', 'Perusahaan');
+        $currentUser = auth()->user();
 
-        $query = User::select(
-            'users.id',
-            'users.name as name',
-            'users.email',
-            'users.username',
-            'users.is_active',
-            'users.nip',
-            'roles.id as role_id',
-            DB::raw('case when roles.name is null then "Perusahaan" else roles.name end as role_name'),
-        )
-            ->leftjoin('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
-            ->leftjoin('roles', 'model_has_roles.role_id', '=', 'roles.id');
-        $query->when($term->id_role != null, function ($query) use ($term) {
-            return $query->where('roles.id', '=', $term->id_role);
-        });
-        $query->when($term->search != null, function ($query) use ($term) {
-            return $query->where(
-                function ($query) use ($term) {
-                    return $query->where('users.email', 'like', '%' . $term->search . '%')
-                        ->orWhere('users.name', 'like', '%' . $term->search . '%')
-                        ->orWhere('users.username', 'like', '%' . $term->search . '%');
-                }
+        $query = User::leftJoin('model_has_roles', 'users.id', '=', 'model_has_roles.model_id')
+            ->leftJoin('roles', 'model_has_roles.role_id', '=', 'roles.id')
+            ->leftJoin('provinces', 'users.province_id', '=', 'provinces.id')
+            ->leftJoin('cities', 'users.city_id', '=', 'cities.id')
+            ->select(
+                'users.id',
+                'users.name as name',
+                'users.email',
+                'users.username',
+                'users.is_active',
+                'users.nip',
+                'users.province_id',
+                'users.city_id',
+                'users.created_at',
+                'provinces.name as province_name',
+                'cities.name as city_name',
+                'roles.id as role_id',
+                DB::raw('CASE WHEN roles.name IS NULL THEN "Perusahaan" ELSE roles.name END AS role_name')
             );
-        });
+
+        if ($term->id_role) {
+            $query->where('roles.id', $term->id_role);
+        }
+
+        if ($currentUser->province_id) {
+            $query->where('users.province_id', $currentUser->province_id);
+            
+            if ($currentUser->city_id) {
+                $query->where('users.city_id', $currentUser->city_id);
+            }
+        }
+
+        if ($term->search) {
+            $search = '%' . $term->search . '%';
+
+            $query->where(function ($query) use ($search) {
+                $query->where('users.name', 'like', $search)
+                    ->orWhere('users.email', 'like', $search)
+                    ->orWhere('users.username', 'like', $search)
+                    ->orWhere('users.nip', 'like', $search)
+                    ->orWhere('provinces.name', 'like', $search)
+                    ->orWhere('cities.name', 'like', $search)
+                    ->orWhere('roles.name', 'like', $search)
+                    ->orWhereRaw('CASE WHEN roles.name IS NULL THEN "Perusahaan" ELSE roles.name END LIKE ?', [$search]);
+            });
+        }
 
         $result = $query->orderBy('users.created_at', 'desc')->paginate($term->limit);
+
         return response()->json([
             'status_code'   => HttpStatusCodes::HTTP_OK,
             'error'         => false,
             'message'       => "Successfully",
-            'data'          => $result->toArray()['data'],
+            'data'          => $result->items(),
             'pagination'    => [
                 'total'        => $result->total(),
                 'count'        => $result->count(),
@@ -85,6 +95,7 @@ class UserManagementController extends Controller
             ]
         ]);
     }
+
 
     public function store(Request $term)
     {
@@ -104,6 +115,8 @@ class UserManagementController extends Controller
                 'regex:/[0-9]/', // Harus mengandung angka
                 'regex:/[\W]/',  // Harus mengandung simbol
             ],
+            'province_id'       => 'nullable',
+            'city_id'           => 'nullable',
         ]);
 
         if ($validator->fails()) {
@@ -115,18 +128,21 @@ class UserManagementController extends Controller
         }
         $timeNow = date('Y-m-d H:i:s');
         $username = strtolower(str_replace(' ', '', $term->username));
+       
         $create = User::create([
             'name'        => strip_tags($term->name),
             'nip'               => strip_tags($term->nip),
             'username'          => strip_tags($username),
             'email'             => strip_tags($term->email),
             'email_verified_at' => $timeNow,
+            'province_id'       => $term->province_id,
+            'city_id'           => $term->city_id,
             'password'          => bcrypt($term->password),
             'is_active'         => true,
             'created_at'        => $timeNow,
             'updated_at'        => $timeNow
         ]);
-
+        
         DB::table('model_has_roles')->insert([
             'role_id'          => $term->id_role,
             'model_type'       => 'App\Models\User',
@@ -263,6 +279,8 @@ class UserManagementController extends Controller
             'name'              => 'required|string',
             'username'          => 'required|string|unique:users,username,' . $term->id_user,
             'email'             => 'required|string|email|unique:users,email,' . $term->id_user,
+            'province_id'       => 'nullable',
+            'city_id'           => 'nullable',
             'nip'               => 'nullable|string|unique:users,nip,' . $term->id_user,
             'password' => [
                 'nullable', // Password tidak wajib diisi
@@ -289,6 +307,8 @@ class UserManagementController extends Controller
                 'nip'               => $term->nip,
                 'username'          => $term->username,
                 'email'             => $term->email,
+                'province_id'       => $term->province_id,
+                'city_id'           => $term->city_id,
                 'updated_at'        => $timeNow
             ]);
         } else {
@@ -297,6 +317,8 @@ class UserManagementController extends Controller
                 'nip'               => $term->nip,
                 'username'          => $term->username,
                 'email'             => $term->email,
+                'province_id'       => $term->province_id,
+                'city_id'           => $term->city_id,
                 'password'          => bcrypt($term->password),
                 'updated_at'        => $timeNow
             ]);

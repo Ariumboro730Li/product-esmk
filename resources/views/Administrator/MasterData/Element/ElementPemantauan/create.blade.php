@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'Tambah Element SMK | Master Data Element'])
+@extends('...Administrator.index', ['title' => 'Tambah Data Element Pemantauan'])
 @section('asset_css')
     <style>
         .custom-icon {
@@ -42,7 +42,7 @@
                 <div class="col-md-12">
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
-                        <li class="breadcrumb-item"><a href="/admin/element-pemantauan/list">Master Data Elemen</a></li>
+                        <li class="breadcrumb-item"><a href="/admin/element-pemantauan/list">Master Data Element Pemantauan</a></li>
                         <li class="breadcrumb-item" aria-current="page">Tambah Data Element Pemantauan</li>
                     </ul>
                 </div>
@@ -556,7 +556,6 @@
                 e.preventDefault();
                 let monitoringElements = await generateSchema();
                 let uniqueTitle = `monitoring_elements_${Date.now()}`;
-                console.log(monitoringElements.additionalQuestions)
 
                 let formData = {
                     title: uniqueTitle,

@@ -410,7 +410,6 @@
                 let handleDataResult = await handleUserData(getDataRest.data.data);
                 await setUserData(handleDataResult);
                 const userRole = handleDataResult.role || [];
-                console.log("🚀 ~ getUserData ~ userRole:", userRole)
                 isAdmin = userRole.includes('Super Admin');
 
                 if ((role !== 'Admin') && (role !== 'Super Admin')) {
@@ -790,14 +789,12 @@
             if (getDataRest.status == 200) {
                 loadingPage(false);
                 let totalPenilaian = getDataRest.data.data || [];
-                console.log("🚀 ~ getDataPenilaian ~ totalPenilaian:", totalPenilaian)
                 setChartTotalPenilaian(totalPenilaian);
             }
         }
 
 
         async function setChartTotalPenilaian(totalPenilaian) {
-            console.log("🚀 ~ setChartTotalPenilaian ~ totalPenilaian:", totalPenilaian);
             // Check if data is available
             // if (!totalPenilaian || totalPenilaian.length === 0) {
             //     document.getElementById('totalPenilaian').innerHTML = '<p>No data available for the selected range</p>';

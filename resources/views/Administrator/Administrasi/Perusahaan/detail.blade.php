@@ -1,4 +1,4 @@
-@extends('...Administrator.index', ['title' => 'Detail | Data Perusahaan'])
+@extends('...Administrator.index', ['title' => 'Detail Perusahaan'])
 @section('asset_css')
 <style>
     .jenis-produksi {
@@ -519,7 +519,6 @@
             $('.company-phone').html(data.company_phone_number);
             $('.company-email').html(data.email);
             $('.company-address').html(data.address);
-            console.log(data)
             let serviceTypes = [];
             data.service_types.forEach((serviceType) => {
                 serviceTypes += `<li>${serviceType}</li>`;
@@ -731,7 +730,6 @@
         async function setListPengajuanSmk(dataList, pagination) {
             totalPage1 = pagination.total;
             let display_from = ((defaultLimitPage1 * pagination.current_page) + 1) - defaultLimitPage1;
-            console.log("🚀 ~ setListPengajuanSmk ~ display_from:", display_from)
             let index_loop = display_from;
             let display_to = currentPage1 < pagination.total_pages ? dataList.length < defaultLimitPage1 ?
                 dataList.length : (defaultLimitPage1 * pagination.current_page) : totalPage1;
@@ -1130,7 +1128,6 @@
         }
 
         async function setListKbli(dataList, pagination) {
-            console.log("🚀 ~ setListKbli ~ pagination:", pagination)
             totalPageKbli = pagination.total;
             let display_from = ((defaultLimitPageKbli * pagination.current_page) + 1) - defaultLimitPageKbli;
             let index_loop = display_from;

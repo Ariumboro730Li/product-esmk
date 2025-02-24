@@ -20,4 +20,8 @@ class DecreeNumber extends Model
     {
         return $this->belongsTo(WorkUnit::class);
     }
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
 }

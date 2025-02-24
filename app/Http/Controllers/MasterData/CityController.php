@@ -40,6 +40,17 @@ class CityController extends Controller
         $meta['limit'] = $request->limit;
 
         $query = City::with('province')->orderBy('created_at', $meta['orderBy']);
+        
+        $currentUser = auth()->user();
+
+        $query->when($currentUser->province_id != null, function ($query) use ($currentUser) {
+            return $query->where('province_id', $currentUser->province_id);
+        });
+    
+        $query->when($currentUser->province_id != null && $currentUser->city_id != null, function ($query) use ($currentUser) {
+            return $query->where('id', $currentUser->city_id);
+        });
+
         if ($request->keyword !== null) {
             $query->where(function ($query) use ($request) {
                 $columns = ['name', 'administrative_code', 'province_id'];

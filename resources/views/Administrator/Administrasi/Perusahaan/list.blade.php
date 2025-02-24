@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-md-12 d-flex justify-content-between align-items-center">
                     <div class="page-header-title">
-                        <h2 class="mb-0">Daftar Perusahaan</h2>
+                        <h2 class="mb-0">Data Perusahaan</h2>
                     </div>
                 </div>
             </div>
@@ -545,7 +545,6 @@
                 document.getElementById('total_perusahaan_terverifikasi').innerText = getDataRest.data.data
                     .total_perusahaan_terverifikasi || 0;
 
-                    console.log(getDataRest.data.data)
                 document.getElementById('belum_terdaftar_spionam').innerText = getDataRest.data.data
                     .perusahaan_belum_sertifikat || 0;
                 document.getElementById('terdaftar_spionam').innerText = getDataRest.data.data.perusahaan_sertifikat ||
@@ -1209,7 +1208,6 @@
         }
 
         async function downloadToPDF(data, fromDate, toDate) {
-            console.log("🚀 ~ downloadToPDF ~ data:", data)
             const {
                 jsPDF
             } = window.jspdf;
@@ -1226,7 +1224,6 @@
                 Header8: item.exist_spionam.text_status || '-',
                 Header9: item.created_at || '-',
             }));
-            console.log("🚀 ~ selectedData ~ selectedData:", selectedData)
 
             let header = [
                 'No.',

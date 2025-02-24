@@ -1,4 +1,4 @@
-@extends('Administrator.index', ['title' => 'SMK-TD | Pengajuan Sertifikat SMK'])
+@extends('Administrator.index', ['title' => 'Detail Permohonan Sertifikat SMK'])
 @section('asset_css')
     <link rel="stylesheet" href="{{ asset('assets') }}/js/libs/filepond/filepond.min.css">
     <link rel="stylesheet" href="{{ asset('assets') }}/css/select2.min.css" />
@@ -64,12 +64,12 @@
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
                         <li class="breadcrumb-item"><a href="/admin/sertifikat/list">Sertifikat SMK</a></li>
-                        <li class="breadcrumb-item" aria-current="page">Detail SMK</li>
+                        <li class="breadcrumb-item" aria-current="page">Detail</li>
                     </ul>
                 </div>
                 <div class="col-md-12 d-flex justify-content-between align-items-center">
                     <div class="page-header-title">
-                        <h2 class="mb-0">Detail Permohonan Penilaian E-SMK</h2>
+                        <h2 class="mb-0">Detail Permohonan Sertifikat SMK</h2>
                     </div>
                 </div>
             </div>
