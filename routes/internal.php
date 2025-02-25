@@ -27,9 +27,11 @@ use App\Http\Controllers\Internal\BeritaAcaraController;
 use App\Http\Controllers\Internal\RoleController;
 use App\Http\Controllers\Internal\SignerController;
 use App\Http\Controllers\MasterData\AssessorController;
+use App\Http\Controllers\MasterData\KuotaController;
 use App\Http\Controllers\MasterData\MasterKbliController;
 use App\Http\Controllers\MasterData\SkNumberController;
 use App\Jobs\YearlyReportEmail;
+use App\Models\Kuota;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +73,8 @@ Route::post('admin-panel/kota/edit', [CityController::class, 'edit']);
 Route::post('admin-panel/kota/destroy', [CityController::class, 'destroy']);
 Route::get('admin-panel/kota/select2', [CityController::class, 'select2']);
 Route::get('admin-panel/kota/status', [CityController::class, 'status']);
+
+Route::post('admin-panel/kuota/create', [KuotaController::class, 'create']);
 
 Route::get('admin-panel/direktur-jendral/list', [DirJenController::class, 'index']);
 Route::get('admin-panel/direktur-jendral/edit', [DirJenController::class, 'edit']);

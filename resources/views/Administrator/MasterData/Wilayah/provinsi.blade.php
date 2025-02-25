@@ -181,6 +181,19 @@
             for (let index = 0; index < dataList.length; index++) {
                 let element = dataList[index];
                 const elementData = JSON.stringify(element);
+                const isActive = element.is_active === true || element.is_active === 1;
+                const statusBadge = isActive ?
+                    `<span class="badge bg-success d-flex align-items-center justify-content-center text-white" style="max-width: 100px; white-space: nowrap;"><i class="fa fa-check-circle me-2"></i> Aktif</span>` :
+                    `<span class="badge bg-danger d-flex align-items-center justify-content-center text-white" style="max-width: 100px; white-space: nowrap;"><i class="fa fa-times-circle me-2"></i> Tidak Aktif</span>`;
+                const actionButton = isActive ?
+                        `<a class="avtar avtar-s btn-link-danger change-status" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="Nonaktifkan Kota ${element.name}" data-id="${element.id}" data-status="nonaktifkan">
+                            <i class="fa-solid fa-square-xmark fa-lg"></i>
+                        </a>` :
+                        `<a class="avtar avtar-s btn-link-success change-status" data-bs-container="body" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="Aktifkan Kota ${element.name}" data-id="${element.id}" data-status="aktifkan">
+                            <i class="fa-solid fa-square-check fa-lg"></i>
+                        </a>`;
                 getDataTable += `
                     <tr>
                         <td>${index_loop}.</td>
@@ -199,8 +212,14 @@
                             </div>
                         </td>
                         <td>${element.administrative_code ? element.administrative_code : '-'}</td>
+                        <td>
+                            ${statusBadge}
+                        </td>
                         <td class="text-end">
                             <ul class="list-inline mb-0">
+                                <li class="list-inline-item">
+                                    ${actionButton}
+                                </li>
                                 <li class="list-inline-item">
                                      ${getEditButton(elementData, element)}
                                 </li>
