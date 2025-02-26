@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Constants\HttpStatusCodes;
 use App\Http\Controllers\Controller;
+use App\Models\Kuota;
 use Illuminate\Support\Facades\Validator;
 
 class CityController extends Controller
@@ -31,23 +32,34 @@ class CityController extends Controller
         if ($validator->fails()) {
             return response()->json([
                 'status' => false,
-                'errors' => $validator->errors()
+                'errors' => $validator->errors()->first()
             ], HttpStatusCodes::HTTP_BAD_REQUEST);
         }
-
 
         $meta['orderBy'] = $request->ascending ? 'asc' : 'desc';
         $meta['limit'] = $request->limit;
 
-        $query = City::with('province')->orderBy('created_at', $meta['orderBy']);
-        
+        $cityIds = [];
+        if ($request->payload['province_id'] !== null) {
+            $dataKuota = Kuota::where('province_id', $request->payload['province_id'])->first();
+            if ($dataKuota) {
+                $cityIds = json_decode($dataKuota->city_id, true);
+            }
+        }
+
+        $query = City::with('province')
+            ->when(!empty($cityIds), function ($query) use ($cityIds) {
+                return $query->whereIn('id', $cityIds);
+            })
+            ->orderBy('created_at', $meta['orderBy']);
+
         $currentUser = auth()->user();
 
-        $query->when($currentUser->province_id != null, function ($query) use ($currentUser) {
+        $query->when($currentUser->province_id !== null, function ($query) use ($currentUser) {
             return $query->where('province_id', $currentUser->province_id);
         });
-    
-        $query->when($currentUser->province_id != null && $currentUser->city_id != null, function ($query) use ($currentUser) {
+
+        $query->when($currentUser->province_id !== null && $currentUser->city_id !== null, function ($query) use ($currentUser) {
             return $query->where('id', $currentUser->city_id);
         });
 
@@ -60,10 +72,12 @@ class CityController extends Controller
             });
         }
 
+        // Filter berdasarkan province_id
         if ($request->province_id !== null) {
             $query->where('province_id', $request->province_id);
         }
 
+        // Ambil data dengan pagination
         $data = $query->paginate($meta['limit']);
 
         return response()->json([
@@ -80,6 +94,7 @@ class CityController extends Controller
             ],
         ], HttpStatusCodes::HTTP_OK);
     }
+
 
     /**
      * Show the form for creating a new resource.

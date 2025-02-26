@@ -75,6 +75,9 @@ Route::get('admin-panel/kota/select2', [CityController::class, 'select2']);
 Route::get('admin-panel/kota/status', [CityController::class, 'status']);
 
 Route::post('admin-panel/kuota/create', [KuotaController::class, 'create']);
+Route::get('admin-panel/kuota/list', [KuotaController::class, 'list']);
+ROute::delete('admin-panel/kuota/delete', [KuotaController::class, 'delete']);
+Route::get('admin-panel/kuota/detail', [KuotaController::class, 'detail']);
 
 Route::get('admin-panel/direktur-jendral/list', [DirJenController::class, 'index']);
 Route::get('admin-panel/direktur-jendral/edit', [DirJenController::class, 'edit']);
