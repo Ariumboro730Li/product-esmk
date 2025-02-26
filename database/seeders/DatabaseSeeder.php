@@ -33,6 +33,8 @@ class DatabaseSeeder extends Seeder
             SignerSeeder::class,
             DecreeSeeder::class,
             KbliSeeder::class,
+            UserDaerahSeeder::class,
+            KuotaSeeder::class,
         ]);
     }
 }
