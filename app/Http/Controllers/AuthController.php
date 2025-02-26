@@ -93,69 +93,6 @@ class AuthController extends Controller
         ], 200);
 
     }
-    public function me()
-    {
-        // $user = JWTAuth::parseToken()->authenticate();
-
-        // // Periksa apakah token memiliki role 'company'
-        // $payload = JWTAuth::parseToken()->getPayload();
-
-        if ($payload->get('role') == 'company') {
-            return response()->json([
-                'status_code' => HttpStatusCodes::HTTP_OK,
-                'error' => false,
-                'data' =>
-                [
-                    'user' => auth('company')->user(),
-                    'payload' => [
-                        'sub' => $payload->get('sub'),
-                        'username' => $payload->get('username'),
-                        'name' => $payload->get('name'),
-                        'role' => $payload->get('role'),
-                        'internal_role' => $payload->get('internal_role'),
-                        'iat' => $payload->get('iat'),
-                        'exp' => $payload->get('exp'),
-                        'nbf'  => $payload->get('nbf'),
-                    ]
-                ]
-
-            ], HttpStatusCodes::HTTP_OK); // 403 Forbidden
-        }
-
-        $user = auth()->user();
-        $roleModel = DB::table('model_has_roles')->where('model_id', $user->id)
-        ->join('roles', 'model_has_roles.role_id', '=', 'roles.id')
-        ->first();
-
-        if($roleModel){
-            $roleId = $roleModel->role_id;
-            $permissionRole = DB::table('role_has_permissions')
-            ->select('name', 'group', 'guard_name')
-            ->join('permissions', 'role_has_permissions.permission_id', '=', 'permissions.id')
-            ->where('role_id', $roleId)->get();
-        }
-
-        return response()->json([
-            'status_code' => HttpStatusCodes::HTTP_OK,
-            'error' => false,
-            'data' =>
-            [
-                'user' => auth()->user(),
-                'payload' => [
-                    'sub' => $payload->get('sub'),
-                    'username' => $payload->get('username'),
-                    'name' => $payload->get('name'),
-                    'role' => $payload->get('role'),
-                    'internal_role' => $payload->get('internal_role'),
-                    'iat' => $payload->get('iat'),
-                    'exp' => $payload->get('exp'),
-                    'nbf'  => $payload->get('nbf'),
-                ],
-                'permission' => $permissionRole
-        ]
-    ], HttpStatusCodes::HTTP_OK); // 403 Forbidden
-    }
-
     public function logout(Request $request)
     {
         Auth::logout();

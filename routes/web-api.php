@@ -61,7 +61,6 @@ Route::controller(CityController::class)->group(function () {
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('auth/me', [AuthController::class, 'me']);
     Route::get('logout', [AuthController::class, 'logout']);
     Route::post('logout', [AuthController::class, 'logout']);
     Route::get('test', function () {
