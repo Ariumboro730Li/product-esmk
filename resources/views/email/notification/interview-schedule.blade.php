@@ -484,10 +484,6 @@
                                                                 <h4 style="line-height: 140%; margin-top: 25px;">
                                                                     Catatan :</h4>
                                                                 <ul style="line-height: 140%;">
-                                                                    <li>Jika Anda tidak meminta pengaturan ulang kata
-                                                                        sandi, tidak ada tindakan lebih lanjut yang
-                                                                        diperlukan dan
-                                                                        abaikan email ini.</li>
                                                                     <li>Email ini dikirimkan otomatis oleh sistem, mohon
                                                                         untuk tidak membalas email ini.</li>
                                                                 </ul>

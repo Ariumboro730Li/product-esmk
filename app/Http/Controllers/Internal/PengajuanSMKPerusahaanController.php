@@ -9,11 +9,14 @@ use Illuminate\Support\Carbon;
 use App\Models\CertificateRequest;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Mail\ServiceTypeUpdated;
 use Illuminate\Support\Facades\Validator;
 use App\Models\CertificateRequestAssessment;
+use App\Models\Company;
 use App\Models\CompanyServiceType;
 use App\Models\ServiceType;
 use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 class PengajuanSMKPerusahaanController extends Controller
 {
@@ -76,11 +79,13 @@ class PengajuanSMKPerusahaanController extends Controller
             ->where('certificate_requests.status', '!=', 'draft');
 
 
-        if(!empty($authData['province_id'])) {
-            $certificateRequest->where('companies.province_id', $authData['province_id']);
+        if (!empty($authData['province_id']) && empty($authData['city_id'])) {
+            $certificateRequest->where('companies.province_id', $authData['province_id'])
+                ->whereIn('certificate_requests.status', ['completed_interview', 'certificate_validation']);
         }
 
-        if(!empty($authData['city_id'])) {
+
+        if (!empty($authData['city_id']) && !empty($authData['province_id'])) {
             $certificateRequest->where('companies.city_id', $authData['city_id']);
         }
         // Apply filters from the request
@@ -255,25 +260,22 @@ class PengajuanSMKPerusahaanController extends Controller
             $companyId = CertificateRequest::where('id', $request->id)->value('company_id');
 
             if ($companyId && is_array($request->service_types)) {
-                // Ambil daftar service_type_id yang sudah ada di database
                 $existingServiceTypes = CompanyServiceType::where('company_id', $companyId)
                     ->pluck('service_type_id')
                     ->toArray();
 
-                // Tentukan service_type_id untuk dihapus
                 $toDelete = array_diff($existingServiceTypes, $request->service_types);
-
-                // Tentukan service_type_id untuk ditambahkan
                 $toInsert = array_diff($request->service_types, $existingServiceTypes);
 
-                // Hapus data yang tidak ada di request
+                // `updatedServiceTypes` adalah hasil akhir setelah perubahan
+                $updatedServiceTypes = array_values(array_diff($request->service_types, $toDelete));
+
                 if (!empty($toDelete)) {
                     CompanyServiceType::where('company_id', $companyId)
                         ->whereIn('service_type_id', $toDelete)
                         ->delete();
                 }
 
-                // Tambah data baru
                 foreach ($toInsert as $serviceTypeId) {
                     CompanyServiceType::insert([
                         'company_id' => $companyId,
@@ -283,12 +285,24 @@ class PengajuanSMKPerusahaanController extends Controller
                     ]);
                 }
 
-                // Perbarui timestamp untuk data yang tetap ada
-                $toUpdate = array_intersect($existingServiceTypes, $request->service_types);
-                if (!empty($toUpdate)) {
+                if (!empty($updatedServiceTypes)) {
                     CompanyServiceType::where('company_id', $companyId)
-                        ->whereIn('service_type_id', $toUpdate)
+                        ->whereIn('service_type_id', $updatedServiceTypes)
                         ->update(['updated_at' => now()]);
+                }
+
+                if (!empty($toDelete) || !empty($toInsert) || !empty($request->status)) {
+                    $company = Company::find($companyId);
+                    $companyData = User::where('info_company->nib', $company->nib)->first();
+
+                    $insertedServiceTypes = ServiceType::whereIn('id', $toInsert)->pluck('name')->toArray();
+                    $deletedServiceTypes = ServiceType::whereIn('id', $toDelete)->pluck('name')->toArray();
+                    $updatedServiceTypes = ServiceType::whereIn('id', $updatedServiceTypes)->pluck('name')->toArray();
+
+                    // Kirim email notifikasi
+                    Mail::to($companyData->email)->send(
+                        new ServiceTypeUpdated($company, $insertedServiceTypes, $deletedServiceTypes, $updatedServiceTypes, $request->status)
+                    );
                 }
             }
         }

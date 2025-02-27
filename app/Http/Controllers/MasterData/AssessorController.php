@@ -12,6 +12,15 @@ class  AssessorController extends Controller
     public function index(Request $request)
     {
         $data = User::select('id', 'name')->where('is_company', 0);
+        $authData = $request->payload;
+
+
+        if (!empty($authData['province_id'])) {
+            $data->where('province_id', $authData['province_id']);
+        }
+        if (!empty($authData['city_id']) && !empty($authData['province_id'])) {
+            $data->where('city_id', $authData['city_id']);
+        }
 
         if ($request->role) {
             $data = $data->whereHas('roles', function ($query) use ($request) {
