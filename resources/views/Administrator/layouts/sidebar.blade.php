@@ -2,16 +2,15 @@
     <div class="navbar-wrapper">
         <div class="m-header text-center">
             <a href="javascript:void(0)" class="b-brand text-primary">
-                <img src="{{ asset(request()->app_setting->value->logo_aplikasi) }}" alt="Logo Aplikasi" style="width: 3rem;  border-radius: 50%; height: 3rem; object-fit: cover;">
+                <img src="{{ asset(request()->app_setting->value->logo_aplikasi) }}" alt="Logo Aplikasi"
+                    style="width: 3rem;  border-radius: 50%; height: 3rem; object-fit: cover;">
             </a>
             <h5 class="fw-bold" style="margin-left: 0.5rem;">{{ request()->app_setting->value->nama }}</h5>
             </a>
         </div>
         <div class="navbar-content">
             @php
-                $permissions = collect(request()->permission)
-                    ->pluck('name')
-                    ->toArray();
+                $permissions = collect(request()->permission)->pluck('name')->toArray();
             @endphp
 
             <ul class="pc-navbar">
@@ -23,7 +22,7 @@
                         <span class="pc-mtext">Dashboard</span>
                     </a>
                 </li>
-                
+
 
                 {{-- PENGAJUAN SERTIFIKAT --}}
                 @if (in_array('Lihat pengajuan', $permissions))
@@ -66,19 +65,23 @@
                     <li class="pc-item pc-caption">
                         <label>Master Data</label>
                     </li>
-                    <li class="pc-item pc-hasmenu">
-                        <a href="#!" class="pc-link">
-                            <span class="pc-micon">
-                                <i class="fa-regular fa-map"></i>
-                            </span>
-                            <span class="pc-mtext">Wilayah</span>
-                            <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
-                        </a>
-                        <ul class="pc-submenu">
-                            <li class="pc-item"><a class="pc-link" href="/admin/provinsi">Provinsi</a></li>
-                            <li class="pc-item"><a class="pc-link" href="/admin/kota">Kota</a></li>
-                        </ul>
-                    </li>
+
+
+                    @if (empty(request()->payload['province_id']) || empty(request()->payload['city_id']))
+                        <li class="pc-item pc-hasmenu">
+                            <a href="#!" class="pc-link">
+                                <span class="pc-micon">
+                                    <i class="fa-regular fa-map"></i>
+                                </span>
+                                <span class="pc-mtext">Wilayah</span>
+                                <span class="pc-arrow"><i data-feather="chevron-right"></i></span>
+                            </a>
+                            <ul class="pc-submenu">
+                                <li class="pc-item"><a class="pc-link" href="/admin/provinsi">Provinsi</a></li>
+                                <li class="pc-item"><a class="pc-link" href="/admin/kota">Kota</a></li>
+                            </ul>
+                        </li>
+                    @endif
                     <li class="pc-item">
                         <a href="/admin/kbli" class="pc-link">
                             <span class="pc-micon">

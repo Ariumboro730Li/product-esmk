@@ -88,32 +88,37 @@ class UserDaerahSeeder extends Seeder
 
         DB::table('users')->insert($data);
 
+        $lastId = DB::table('model_has_roles')->max('id') ?? 0;
+
         $modelHAsRole = [
             [
-                'id' => 1,
+                'id' => ++$lastId,
                 'role_id' => 1,
-                'model_type' => 'App\Models\User',
+                'model_type' => 'App\\Models\\User',
                 'model_id' => $uuidAdmin
-            ], [
-                'id' => 2,
+            ],
+            [
+                'id' => ++$lastId,
                 'role_id' => 4,
-                'model_type' => 'App\Models\User',
+                'model_type' => 'App\\Models\\User',
                 'model_id' => $uuidKetuaTimProv
             ],
             [
-                'id' => 2,
+                'id' => ++$lastId,
                 'role_id' => 4,
-                'model_type' => 'App\Models\User',
+                'model_type' => 'App\\Models\\User',
                 'model_id' => $uuidKetuaTimKota
             ],
-
             [
-                'id' => 3,
+                'id' => ++$lastId,
                 'role_id' => 3,
-                'model_type' => 'App\Models\User',
+                'model_type' => 'App\\Models\\User',
                 'model_id' => $uuidPenilai
             ]
         ];
+
+        DB::table('model_has_roles')->insert($modelHAsRole);
+
 
     }
 }
