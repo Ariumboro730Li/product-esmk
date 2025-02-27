@@ -53,6 +53,7 @@ class PengajuanSMKPerusahaanController extends Controller
     }
     public function index(Request $request)
     {
+        $authData = $request->payload;
         $meta = [
             'orderBy' => $request->ascending ? 'asc' : 'desc',
             'limit' => $request->limit,
@@ -75,6 +76,13 @@ class PengajuanSMKPerusahaanController extends Controller
             ->where('certificate_requests.status', '!=', 'draft');
 
 
+        if(!empty($authData['province_id'])) {
+            $certificateRequest->where('companies.province_id', $authData['province_id']);
+        }
+
+        if(!empty($authData['city_id'])) {
+            $certificateRequest->where('companies.city_id', $authData['city_id']);
+        }
         // Apply filters from the request
         if ($request->company_id) {
             $certificateRequest->where('certificate_requests.company_id', $request->company_id);
